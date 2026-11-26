@@ -1,4 +1,5 @@
 import RuleSpecLean.Legal3403Binding
+import RuleSpecLean.Legal3403RustModel
 import RuleSpecLean.Decimal
 
 #print axioms RuleSpecLean.ScalarPreservation.lowering_preserves_result
@@ -34,6 +35,9 @@ import RuleSpecLean.Decimal
 #print axioms RuleSpecLean.Legal3403Binding.bound_request_preserves_result
 #print axioms RuleSpecLean.Legal3403Binding.wire_request_preserves_result
 #print axioms RuleSpecLean.Legal3403Binding.retained_wire_request_preserves_result
+#print axioms RuleSpecLean.Legal3403RustModel.rust_binding_corresponds
+#print axioms RuleSpecLean.Legal3403RustModel.rust_version_corresponds
+#print axioms RuleSpecLean.Legal3403RustModel.rust_model_matches_wire
 
 -- The general implications must stay independent of native evaluation.
 -- Only the concrete fixture certificate and its corollary may use it.
@@ -45,7 +49,10 @@ run_cmd do
       ``RuleSpecLean.Legal3403Binding.bind_rejects,
       ``RuleSpecLean.Legal3403Binding.decoded_request_valid,
       ``RuleSpecLean.Legal3403Binding.bound_request_preserves_result,
-      ``RuleSpecLean.Legal3403Binding.wire_request_preserves_result] do
+      ``RuleSpecLean.Legal3403Binding.wire_request_preserves_result,
+      ``RuleSpecLean.Legal3403RustModel.rust_binding_corresponds,
+      ``RuleSpecLean.Legal3403RustModel.rust_version_corresponds,
+      ``RuleSpecLean.Legal3403RustModel.rust_model_matches_wire] do
     for axiomName in ← Lean.collectAxioms theoremName do
       unless logical.contains axiomName do
         throwError "unexpected axiom {axiomName} in {theoremName}"

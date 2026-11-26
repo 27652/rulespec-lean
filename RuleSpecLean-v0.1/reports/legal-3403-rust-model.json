@@ -1,0 +1,378 @@
+{
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "lean_guards_passed": 12,
+  "results": [
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+              "entity": "Employer",
+              "entity_id": "employer:1",
+              "interval": {
+                "start": "1989-01-01",
+                "end": "1990-01-01"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "-15"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "employer:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "1989-01-01",
+              "end": "1990-01-01"
+            },
+            "outputs": [
+              "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+            ]
+          }
+        ]
+      },
+      "exit_code": 1,
+      "diagnostic": "derived `employer_liability_for_chapter_withholding_tax_payment` has no formula version at 1989-01-01"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+              "entity": "Employer",
+              "entity_id": "employer:1",
+              "interval": {
+                "start": "1989-01-01",
+                "end": "1990-01-01"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "employer:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "1989-01-01",
+              "end": "1990-01-01"
+            },
+            "outputs": [
+              "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+            ]
+          }
+        ]
+      },
+      "exit_code": 1,
+      "diagnostic": "derived `employer_liability_for_chapter_withholding_tax_payment` has no formula version at 1989-01-01"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+              "entity": "Employer",
+              "entity_id": "employer:1",
+              "interval": {
+                "start": "1989-01-01",
+                "end": "1990-01-01"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "15"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "employer:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "1989-01-01",
+              "end": "1990-01-01"
+            },
+            "outputs": [
+              "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+            ]
+          }
+        ]
+      },
+      "exit_code": 1,
+      "diagnostic": "derived `employer_liability_for_chapter_withholding_tax_payment` has no formula version at 1989-01-01"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+              "entity": "Employer",
+              "entity_id": "employer:1",
+              "interval": {
+                "start": "1990-01-01",
+                "end": "1991-01-01"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "-15"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "employer:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "1990-01-01",
+              "end": "1991-01-01"
+            },
+            "outputs": [
+              "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+            ]
+          }
+        ]
+      },
+      "exit_code": 0,
+      "response": {
+        "metadata": {
+          "relation_binding": "strict",
+          "requested_mode": "explain",
+          "actual_mode": "explain",
+          "fallback_reason": null
+        },
+        "results": [
+          {
+            "entity_id": "employer:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "1990-01-01",
+              "end": "1991-01-01"
+            },
+            "outputs": {
+              "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment": {
+                "kind": "scalar",
+                "name": "employer_liability_for_chapter_withholding_tax_payment",
+                "id": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                }
+              }
+            },
+            "trace": {
+              "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment": {
+                "kind": "scalar",
+                "name": "employer_liability_for_chapter_withholding_tax_payment",
+                "id": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+                "entity_id": "employer:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "26 USC 3403",
+                "executed_expression": "max(0, input(\"tax_required_to_be_deducted_and_withheld_under_this_chapter\"))",
+                "dependencies": []
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+              "entity": "Employer",
+              "entity_id": "employer:1",
+              "interval": {
+                "start": "1990-01-01",
+                "end": "1991-01-01"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "employer:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "1990-01-01",
+              "end": "1991-01-01"
+            },
+            "outputs": [
+              "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+            ]
+          }
+        ]
+      },
+      "exit_code": 0,
+      "response": {
+        "metadata": {
+          "relation_binding": "strict",
+          "requested_mode": "explain",
+          "actual_mode": "explain",
+          "fallback_reason": null
+        },
+        "results": [
+          {
+            "entity_id": "employer:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "1990-01-01",
+              "end": "1991-01-01"
+            },
+            "outputs": {
+              "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment": {
+                "kind": "scalar",
+                "name": "employer_liability_for_chapter_withholding_tax_payment",
+                "id": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                }
+              }
+            },
+            "trace": {
+              "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment": {
+                "kind": "scalar",
+                "name": "employer_liability_for_chapter_withholding_tax_payment",
+                "id": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+                "entity_id": "employer:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "26 USC 3403",
+                "executed_expression": "max(0, input(\"tax_required_to_be_deducted_and_withheld_under_this_chapter\"))",
+                "dependencies": []
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+              "entity": "Employer",
+              "entity_id": "employer:1",
+              "interval": {
+                "start": "1990-01-01",
+                "end": "1991-01-01"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "15"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "employer:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "1990-01-01",
+              "end": "1991-01-01"
+            },
+            "outputs": [
+              "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+            ]
+          }
+        ]
+      },
+      "exit_code": 0,
+      "response": {
+        "metadata": {
+          "relation_binding": "strict",
+          "requested_mode": "explain",
+          "actual_mode": "explain",
+          "fallback_reason": null
+        },
+        "results": [
+          {
+            "entity_id": "employer:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "1990-01-01",
+              "end": "1991-01-01"
+            },
+            "outputs": {
+              "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment": {
+                "kind": "scalar",
+                "name": "employer_liability_for_chapter_withholding_tax_payment",
+                "id": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "15"
+                }
+              }
+            },
+            "trace": {
+              "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment": {
+                "kind": "scalar",
+                "name": "employer_liability_for_chapter_withholding_tax_payment",
+                "id": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+                "entity_id": "employer:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "15"
+                },
+                "source": "26 USC 3403",
+                "executed_expression": "max(0, input(\"tax_required_to_be_deducted_and_withheld_under_this_chapter\"))",
+                "dependencies": []
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

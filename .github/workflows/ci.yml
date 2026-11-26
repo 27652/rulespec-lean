@@ -81,6 +81,10 @@ jobs:
         run: python -m tools.check_reference fixtures/legal-3403.artifact.json fixtures/legal-3403.cases.json --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --lean RuleSpecLean/Legal3403.lean --report reports/legal-3403.json
       - name: Check generated §3403 output against its source term
         run: lake build RuleSpecLean.Legal3403Preservation
+      - name: Compare the §3403 Rust and Lean version boundary
+        run: |
+          python -m tools.check_3403_rust_model --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --report reports/legal-3403-rust-model-ci.json
+          cmp reports/legal-3403-rust-model.json reports/legal-3403-rust-model-ci.json
       - name: Audit the axioms used by the proof targets
         run: |
           set -o pipefail
@@ -162,6 +166,7 @@ jobs:
             RuleSpecLean-v0.1/reports/faults.json
             RuleSpecLean-v0.1/reports/faults.log
             RuleSpecLean-v0.1/reports/legal-3403.json
+            RuleSpecLean-v0.1/reports/legal-3403-rust-model-ci.json
             RuleSpecLean-v0.1/reports/proof-axioms.log
             RuleSpecLean-v0.1/reports/decimal-rounding.json
             RuleSpecLean-v0.1/reports/decimal-arithmetic.json

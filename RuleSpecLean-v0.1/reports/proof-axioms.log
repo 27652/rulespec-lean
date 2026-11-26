@@ -49,3 +49,6 @@
  Lean.ofReduceBool,
  Lean.trustCompiler,
  Quot.sound]
+'RuleSpecLean.Legal3403RustModel.rust_binding_corresponds' depends on axioms: [propext]
+'RuleSpecLean.Legal3403RustModel.rust_version_corresponds' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.Legal3403RustModel.rust_model_matches_wire' depends on axioms: [propext, Classical.choice, Quot.sound]
