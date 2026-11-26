@@ -16,6 +16,7 @@ inductive Source where
   | maximum (left right : Source)
   | divide (numerator denominator : Source)
   | ifLess (left right onTrue onFalse : Source)
+  deriving DecidableEq
 
 def lower : Source → Expr
   | .literal n => .lit (.decimal n)

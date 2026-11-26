@@ -153,15 +153,18 @@ to a deep embedding in Lean 4. No language model is involved in conversion.
 ## Verification status (2026-11-26)
 
 - The local suite passes 87 Python tests, including the 10,000 seeded formula
-  cases, and 30 Lean build jobs. See [the progress report](reports/progress.md).
+  cases, and 41 Lean build jobs. See [the progress report](reports/progress.md).
 - The pinned Rust engine has been run against both the upstream synthetic
   flat-tax example and selected federal rules. Corpus compilation, replay and
   legal component comparisons are reported in [corpus-validation.md](reports/corpus-validation.md).
-- Lean checks preservation for a restricted scale-6 fragment, including
-  version selection over already encoded dates. Run `lake env lean
-  RuleSpecLean/ProofAudit.lean` after building the proof dependencies to inspect
-  the axioms used. Full artifact-to-Rust equivalence and independent legal
-  review are outstanding. GitHub CI has not run.
+- Lean checks preservation for a restricted scale-6 fragment. For the retained
+  §3403 payment output, the decoder reads the Artifact v3 JSON and checks its
+  sole open-ended version against the independent source term. The result
+  theorem covers every prebound decimal environment and encoded day. The fixture
+  certificate uses Lean's native evaluator; the conditional preservation theorem
+  does not. Run `lake build RuleSpecLean.ProofAudit` and `lake env lean
+  RuleSpecLean/ProofAudit.lean` to check the axiom policy and reproduce the report.
+  Full artifact-to-Rust equivalence and independent legal review remain open.
 
 The fixture is a simplified, CTC-like calculation with precomputed eligible
 dependent counts. It is not a complete implementation of 26 USC §24, a filing

@@ -21,3 +21,19 @@
 'RuleSpecLean.DecimalModel.eval_noMatch' depends on axioms: [propext]
 'RuleSpecLean.Legal3403Preservation.no_source_version_before_first_day' depends on axioms: [propext]
 'RuleSpecLean.Legal3403Preservation.snapshot_target_preserves_result' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.Legal3403Artifact.matches_retained_source_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RuleSpecLean.Legal3403Artifact.decoded_artifact_preserves_result' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RuleSpecLean.Legal3403Artifact.retained_artifact_decodes' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
+'RuleSpecLean.Legal3403Artifact.retained_artifact_preserves_result' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]

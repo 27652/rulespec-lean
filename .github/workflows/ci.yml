@@ -22,6 +22,7 @@ jobs:
       - run: lake build RuleSpecLean.ReferenceTests
       - run: lake build RuleSpecLean.FaultTests
       - run: lake build RuleSpecLean.Legal3403Tests RuleSpecLean.Legal3403Preservation
+      - run: lake build RuleSpecLean.ProofAudit
       - run: lake build RuleSpecLean.DecimalTests
       - run: lake build RuleSpecLean.ArithmeticTests RuleSpecLean.DecimalDependencyTests RuleSpecLean.DecimalFlatTaxTests
       - run: lake build RuleSpecLean.SelectedYearTests RuleSpecLean.InputDefaultTests RuleSpecLean.CTCMagiTests RuleSpecLean.CTCPhaseoutTests RuleSpecLean.EITCEarnedIncomeTests RuleSpecLean.SNAPNetIncomeLimitTests
@@ -58,7 +59,9 @@ jobs:
       - name: Compile upstream example
         run: python -m tools.prepare_reference --engine ../upstream-engine/target/debug/axiom-rules-engine
       - name: Recompile legal and fault modules
-        run: python -m tools.rebuild_fixtures --engine ../upstream-engine/target/debug/axiom-rules-engine
+        run: |
+          python -m tools.rebuild_fixtures --engine ../upstream-engine/target/debug/axiom-rules-engine
+          git diff --exit-code -- fixtures/legal-3403.artifact.json
       - name: Compare Rust and Python
         run: python -m tools.check_reference fixtures/upstream-flat-tax.artifact.json fixtures/upstream-flat-tax.cases.json --engine ../upstream-engine/target/debug/axiom-rules-engine
       - uses: leanprover/lean-action@v1
@@ -81,7 +84,7 @@ jobs:
       - name: Audit the axioms used by the proof targets
         run: |
           set -o pipefail
-          lake build RuleSpecLean.Decimal
+          lake build RuleSpecLean.ProofAudit
           lake env lean RuleSpecLean/ProofAudit.lean | tee reports/proof-axioms.log
           if grep -q 'sorryAx' reports/proof-axioms.log; then exit 1; fi
       - name: Compare decimal output rounding

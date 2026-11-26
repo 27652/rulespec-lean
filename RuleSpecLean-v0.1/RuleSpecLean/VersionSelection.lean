@@ -7,6 +7,7 @@ structure Version (α : Type) where
   firstDay : Int
   lastDay : Option Int
   body : α
+  deriving DecidableEq
 
 def active (day : Int) (v : Version α) : Bool :=
   decide (v.firstDay ≤ day) && (v.lastDay.map (fun last => decide (day ≤ last))).getD true
