@@ -1,0 +1,575 @@
+{
+  "artifact_format_version": 3,
+  "engine_version": "0.3.0",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "source_closure": {
+    "root": "us:policies/flat-tax/rules",
+    "modules": [
+      {
+        "target": "us:policies/flat-tax/rules",
+        "sha256": "f8736cc6b37d6a47fb31d8e019d3a72e7970ad2378c11a23d26ca3a61be81ce5"
+      }
+    ],
+    "digest": "sha256:9240e41546d21d5513e7d0b8407ff9e202d69bb083055a568a91071ffc3fae8f"
+  },
+  "program": {
+    "module": {
+      "summary": "Flat-tax example RuleSpec module.\n\nEach person has a personal allowance deducted from gross income to produce\ntaxable income. A flat rate applies, with a higher rate when gross income\nreaches the high-income threshold. Tax is rounded up with ceil().\n\nSynthetic RuleSpec module — not modelled on any specific statute."
+    },
+    "units": [
+      {
+        "name": "GBP",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "USD",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "EUR",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "CHF",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "NOK",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "GHS",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "GHp",
+        "kind": "currency",
+        "minor_units": 0
+      },
+      {
+        "name": "NGN",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "UGX",
+        "kind": "currency",
+        "minor_units": 0
+      },
+      {
+        "name": "ZMW",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "ETB",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "RWF",
+        "kind": "currency",
+        "minor_units": 0
+      },
+      {
+        "name": "TZS",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "DKK",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "AMD",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "ILS",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "TWD",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "count",
+        "kind": "count"
+      },
+      {
+        "name": "person",
+        "kind": "count"
+      },
+      {
+        "name": "ratio",
+        "kind": "ratio"
+      },
+      {
+        "name": "status",
+        "kind": "custom",
+        "label": "judgment"
+      }
+    ],
+    "relations": [],
+    "parameters": [
+      {
+        "id": "us:policies/flat-tax/rules#personal_allowance",
+        "name": "personal_allowance",
+        "unit": "USD",
+        "indexed_by": null,
+        "source": null,
+        "source_url": null,
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "values": {
+              "0": {
+                "kind": "integer",
+                "value": 1000
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/flat-tax/rules#high_income_threshold",
+        "name": "high_income_threshold",
+        "unit": "USD",
+        "indexed_by": null,
+        "source": null,
+        "source_url": null,
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "values": {
+              "0": {
+                "kind": "integer",
+                "value": 3000
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/flat-tax/rules#basic_rate",
+        "name": "basic_rate",
+        "unit": null,
+        "indexed_by": null,
+        "source": null,
+        "source_url": null,
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "0.1"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/flat-tax/rules#high_rate",
+        "name": "high_rate",
+        "unit": null,
+        "indexed_by": null,
+        "source": null,
+        "source_url": null,
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "0.2"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "derived": [
+      {
+        "id": "us:policies/flat-tax/rules#gross_income",
+        "name": "gross_income",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "input",
+          "name": "income"
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "input",
+              "name": "income"
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/flat-tax/rules#taxable_income",
+        "name": "taxable_income",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "max",
+          "items": [
+            {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "kind": "sub",
+              "left": {
+                "kind": "derived",
+                "name": "gross_income"
+              },
+              "right": {
+                "kind": "parameter_lookup",
+                "parameter": "personal_allowance",
+                "index": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "max",
+              "items": [
+                {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "kind": "sub",
+                  "left": {
+                    "kind": "derived",
+                    "name": "gross_income"
+                  },
+                  "right": {
+                    "kind": "parameter_lookup",
+                    "parameter": "personal_allowance",
+                    "index": {
+                      "kind": "literal",
+                      "value": {
+                        "kind": "integer",
+                        "value": 0
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/flat-tax/rules#high_income",
+        "name": "high_income",
+        "entity": "Person",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "comparison",
+          "left": {
+            "kind": "derived",
+            "name": "gross_income"
+          },
+          "op": "gte",
+          "right": {
+            "kind": "parameter_lookup",
+            "parameter": "high_income_threshold",
+            "index": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "judgment",
+            "expr": {
+              "kind": "comparison",
+              "left": {
+                "kind": "derived",
+                "name": "gross_income"
+              },
+              "op": "gte",
+              "right": {
+                "kind": "parameter_lookup",
+                "parameter": "high_income_threshold",
+                "index": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/flat-tax/rules#tax_rate",
+        "name": "tax_rate",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": null,
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "derived",
+            "name": "high_income"
+          },
+          "then_expr": {
+            "kind": "parameter_lookup",
+            "parameter": "high_rate",
+            "index": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "parameter_lookup",
+            "parameter": "basic_rate",
+            "index": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "if",
+              "condition": {
+                "kind": "derived",
+                "name": "high_income"
+              },
+              "then_expr": {
+                "kind": "parameter_lookup",
+                "parameter": "high_rate",
+                "index": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                }
+              },
+              "else_expr": {
+                "kind": "parameter_lookup",
+                "parameter": "basic_rate",
+                "index": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/flat-tax/rules#income_tax",
+        "name": "income_tax",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "ceil",
+          "value": {
+            "kind": "mul",
+            "left": {
+              "kind": "derived",
+              "name": "taxable_income"
+            },
+            "right": {
+              "kind": "derived",
+              "name": "tax_rate"
+            }
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "ceil",
+              "value": {
+                "kind": "mul",
+                "left": {
+                  "kind": "derived",
+                  "name": "taxable_income"
+                },
+                "right": {
+                  "kind": "derived",
+                  "name": "tax_rate"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/flat-tax/rules#net_income",
+        "name": "net_income",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "sub",
+          "left": {
+            "kind": "derived",
+            "name": "gross_income"
+          },
+          "right": {
+            "kind": "derived",
+            "name": "income_tax"
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "sub",
+              "left": {
+                "kind": "derived",
+                "name": "gross_income"
+              },
+              "right": {
+                "kind": "derived",
+                "name": "income_tax"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "interface": {
+      "entities": [
+        {
+          "kind": "Person",
+          "id_template": "Person:{index}",
+          "instances": {
+            "source": "supplied"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "name": "income",
+          "legal_id": "us:policies/flat-tax/rules#input.income",
+          "entities": [
+            "Person"
+          ],
+          "dtype": null,
+          "dtype_basis": null,
+          "default": null,
+          "values": null,
+          "values_basis": null,
+          "election": null
+        }
+      ],
+      "relations": []
+    }
+  },
+  "metadata": {
+    "evaluation_order": [
+      "gross_income",
+      "high_income",
+      "tax_rate",
+      "taxable_income",
+      "income_tax",
+      "net_income"
+    ],
+    "fast_path": {
+      "strategy": "generic_bulk",
+      "compatible": true,
+      "blockers": []
+    },
+    "input_catalog": [
+      {
+        "slot": "income",
+        "canonical_request_name": "us:policies/flat-tax/rules#input.income",
+        "request_names": [
+          "us:policies/flat-tax/rules#input.income"
+        ]
+      }
+    ]
+  }
+}

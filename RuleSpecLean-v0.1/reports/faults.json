@@ -1,0 +1,51 @@
+{
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "cases": 8,
+  "python_rust": "passed",
+  "lean": "passed: lake build RuleSpecLean.FaultTests",
+  "results": [
+    {
+      "name": "missing-input",
+      "fault": "missingInput",
+      "official_diagnostic": "missing input `us:policies/faults/rules#input.income` for entity `person:1` over 2025-01-01..2026-01-01"
+    },
+    {
+      "name": "wrong-type",
+      "fault": "typeMismatch",
+      "official_diagnostic": "type mismatch: expected numeric scalar"
+    },
+    {
+      "name": "divisor-first",
+      "fault": "divisionByZero",
+      "official_diagnostic": "division by zero"
+    },
+    {
+      "name": "missing-numerator",
+      "fault": "missingInput",
+      "official_diagnostic": "missing input `us:policies/faults/rules#input.numerator` for entity `person:1` over 2025-01-01..2026-01-01"
+    },
+    {
+      "name": "before-first-formula-version",
+      "fault": "missingVersion",
+      "official_diagnostic": "derived `quotient` has no formula version at 2024-12-31"
+    },
+    {
+      "name": "missing-parameter-version",
+      "fault": "missingParameter",
+      "official_diagnostic": "parameter `indexed_amounts` has no value for key `0` at 2024-01-01"
+    },
+    {
+      "name": "index-fault-precedes-missing-parameter-version",
+      "fault": "missingInput",
+      "official_diagnostic": "missing input `us:policies/faults/rules#input.numerator` for entity `person:1` over 2024-01-01..2024-12-31"
+    },
+    {
+      "name": "nonintegral-index-precedes-missing-parameter-version",
+      "fault": "typeMismatch",
+      "official_diagnostic": "type mismatch: parameter key for `indexed_amounts` must be an integer"
+    }
+  ]
+}

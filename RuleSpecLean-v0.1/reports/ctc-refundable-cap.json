@@ -1,0 +1,611 @@
+{
+  "source": "us/statutes/26/24/h.yaml",
+  "source_sha256": "80d253ad020aaf460588e169963b2d126ea532359124436c2905c343b7dbc103",
+  "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+  "source_closure": {
+    "root": "us:statutes/26/24/h",
+    "modules": [
+      {
+        "target": "us:statutes/26/24/h",
+        "sha256": "80d253ad020aaf460588e169963b2d126ea532359124436c2905c343b7dbc103"
+      }
+    ],
+    "digest": "sha256:4dd685ae41a975a5eaa258441a18c2bed74bb431b5081addfe96a8eee32bf7f2"
+  },
+  "artifact_sha256": "33f1c144d6693852072edc2e5adec6f4b0917264ecf5fcc1c72bb87cc15b2b6f",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "scope": "26 USC §24(h)(5): refundable maximum in the pinned corpus, not the final refundable amount",
+  "status": "Rust/Python/Lean passed",
+  "cases": 4,
+  "results": [
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": []
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24/h#ctc_refundable_maximum_under_subsection_h"
+            ]
+          }
+        ]
+      },
+      "expected": "0",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [
+            {
+              "name": "us:statutes/26/24/h#relation.dependent_of_tax_unit",
+              "tuple": [
+                "entity:1",
+                "person:0"
+              ],
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              }
+            }
+          ],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24/h#input.ctc_child_satisfies_subsection_c",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.taxpayer_or_spouse_ssn_included_on_return",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.qualifying_child_ssn_included_on_return",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.taxpayer_or_spouse_ssn_is_valid_for_subsection_h",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.qualifying_child_ssn_is_valid_for_subsection_h",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2018-01-01",
+              "end": "2018-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24/h#ctc_refundable_maximum_under_subsection_h"
+            ]
+          }
+        ]
+      },
+      "expected": "1400",
+      "output": "1400",
+      "official_value": "1400"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [
+            {
+              "name": "us:statutes/26/24/h#relation.dependent_of_tax_unit",
+              "tuple": [
+                "entity:1",
+                "person:0"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#relation.dependent_of_tax_unit",
+              "tuple": [
+                "entity:1",
+                "person:1"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#relation.dependent_of_tax_unit",
+              "tuple": [
+                "entity:1",
+                "person:2"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#relation.dependent_of_tax_unit",
+              "tuple": [
+                "entity:1",
+                "person:3"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              }
+            }
+          ],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24/h#input.ctc_child_satisfies_subsection_c",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.taxpayer_or_spouse_ssn_included_on_return",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.qualifying_child_ssn_included_on_return",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.taxpayer_or_spouse_ssn_is_valid_for_subsection_h",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.qualifying_child_ssn_is_valid_for_subsection_h",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.ctc_child_satisfies_subsection_c",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.taxpayer_or_spouse_ssn_included_on_return",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.qualifying_child_ssn_included_on_return",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.taxpayer_or_spouse_ssn_is_valid_for_subsection_h",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.qualifying_child_ssn_is_valid_for_subsection_h",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.ctc_child_satisfies_subsection_c",
+              "entity": "Person",
+              "entity_id": "person:2",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.ctc_child_satisfies_subsection_c",
+              "entity": "Person",
+              "entity_id": "person:3",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.taxpayer_or_spouse_ssn_included_on_return",
+              "entity": "Person",
+              "entity_id": "person:3",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.qualifying_child_ssn_included_on_return",
+              "entity": "Person",
+              "entity_id": "person:3",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.taxpayer_or_spouse_ssn_is_valid_for_subsection_h",
+              "entity": "Person",
+              "entity_id": "person:3",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.qualifying_child_ssn_is_valid_for_subsection_h",
+              "entity": "Person",
+              "entity_id": "person:3",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24/h#ctc_refundable_maximum_under_subsection_h"
+            ]
+          }
+        ]
+      },
+      "expected": "2800",
+      "output": "2800",
+      "official_value": "2800"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [
+            {
+              "name": "us:statutes/26/24/h#relation.dependent_of_tax_unit",
+              "tuple": [
+                "entity:1",
+                "person:0"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#relation.dependent_of_tax_unit",
+              "tuple": [
+                "entity:1",
+                "person:1"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              }
+            }
+          ],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24/h#input.ctc_child_satisfies_subsection_c",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.taxpayer_or_spouse_ssn_included_on_return",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.qualifying_child_ssn_included_on_return",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.taxpayer_or_spouse_ssn_is_valid_for_subsection_h",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.qualifying_child_ssn_is_valid_for_subsection_h",
+              "entity": "Person",
+              "entity_id": "person:0",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.ctc_child_satisfies_subsection_c",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.taxpayer_or_spouse_ssn_included_on_return",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.qualifying_child_ssn_included_on_return",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.taxpayer_or_spouse_ssn_is_valid_for_subsection_h",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.qualifying_child_ssn_is_valid_for_subsection_h",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24/h#ctc_refundable_maximum_under_subsection_h"
+            ]
+          }
+        ]
+      },
+      "expected": "0",
+      "output": "0",
+      "official_value": "0"
+    }
+  ]
+}

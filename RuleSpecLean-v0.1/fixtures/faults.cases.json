@@ -1,0 +1,243 @@
+[
+  {
+    "name": "missing-input",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "env": {},
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/faults/rules#income_tax"
+          ]
+        }
+      ]
+    },
+    "fault": "missingInput"
+  },
+  {
+    "name": "wrong-type",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "env": {
+      "income": {
+        "kind": "text",
+        "value": "bad"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/faults/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "text",
+              "value": "bad"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/faults/rules#income_tax"
+          ]
+        }
+      ]
+    },
+    "fault": "typeMismatch"
+  },
+  {
+    "name": "divisor-first",
+    "as_of": "2025-01-01",
+    "rule": "quotient",
+    "env": {
+      "denominator": {
+        "kind": "integer",
+        "value": 0
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/faults/rules#input.denominator",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/faults/rules#quotient"
+          ]
+        }
+      ]
+    },
+    "fault": "divisionByZero"
+  },
+  {
+    "name": "missing-numerator",
+    "as_of": "2025-01-01",
+    "rule": "quotient",
+    "env": {
+      "denominator": {
+        "kind": "integer",
+        "value": 1
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/faults/rules#input.denominator",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 1
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/faults/rules#quotient"
+          ]
+        }
+      ]
+    },
+    "fault": "missingInput"
+  },
+  {
+    "name": "before-first-formula-version",
+    "as_of": "2024-12-31",
+    "rule": "quotient",
+    "env": {},
+    "request": {
+      "mode": "explain",
+      "dataset": {"inputs": [], "relations": []},
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2024-12-31",
+            "end": "2024-12-31"
+          },
+          "outputs": ["us:policies/faults/rules#quotient"]
+        }
+      ]
+    },
+    "fault": "missingVersion"
+  },
+  {
+    "name": "missing-parameter-version",
+    "as_of": "2024-01-01",
+    "rule": "indexed_amount",
+    "env": {"numerator": {"kind": "integer", "value": 0}},
+    "request": {
+      "mode": "explain",
+      "dataset": {"inputs": [
+        {"name": "us:policies/faults/rules#input.numerator", "entity": "Person", "entity_id": "person:1",
+         "interval": {"start": "2024-01-01", "end": "2024-12-31"}, "value": {"kind": "integer", "value": 0}}
+      ], "relations": []},
+      "queries": [
+        {"entity_id": "person:1", "period": {"period_kind": "tax_year", "start": "2024-01-01", "end": "2024-12-31"},
+         "outputs": ["us:policies/faults/rules#indexed_amount"]}
+      ]
+    },
+    "fault": "missingParameter",
+    "diagnostic": "parameter `indexed_amounts` has no value for key `0` at 2024-01-01"
+  },
+  {
+    "name": "index-fault-precedes-missing-parameter-version",
+    "as_of": "2024-01-01",
+    "rule": "indexed_amount",
+    "env": {},
+    "request": {
+      "mode": "explain",
+      "dataset": {"inputs": [], "relations": []},
+      "queries": [
+        {"entity_id": "person:1", "period": {"period_kind": "tax_year", "start": "2024-01-01", "end": "2024-12-31"},
+         "outputs": ["us:policies/faults/rules#indexed_amount"]}
+      ]
+    },
+    "fault": "missingInput",
+    "diagnostic": "missing input `us:policies/faults/rules#input.numerator` for entity `person:1` over 2024-01-01..2024-12-31"
+  },
+  {
+    "name": "nonintegral-index-precedes-missing-parameter-version",
+    "as_of": "2024-01-01",
+    "rule": "indexed_amount",
+    "env": {"numerator": {"kind": "decimal", "value": "0.5"}},
+    "request": {
+      "mode": "explain",
+      "dataset": {"inputs": [
+        {"name": "us:policies/faults/rules#input.numerator", "entity": "Person", "entity_id": "person:1",
+         "interval": {"start": "2024-01-01", "end": "2024-12-31"}, "value": {"kind": "decimal", "value": "0.5"}}
+      ], "relations": []},
+      "queries": [
+        {"entity_id": "person:1", "period": {"period_kind": "tax_year", "start": "2024-01-01", "end": "2024-12-31"},
+         "outputs": ["us:policies/faults/rules#indexed_amount"]}
+      ]
+    },
+    "fault": "typeMismatch",
+    "diagnostic": "type mismatch: parameter key for `indexed_amounts` must be an integer"
+  }
+]

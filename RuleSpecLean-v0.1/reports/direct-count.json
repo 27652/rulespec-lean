@@ -1,0 +1,779 @@
+{
+  "artifact_sha256": "e0927f7c5e2a93709d22554f6a15f8c24f2c73c6fcaebb2afe88ed2cf589bd42",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "cases": 9,
+  "status": "Rust/Python/Lean passed",
+  "results": [
+    {
+      "rule": "member_count",
+      "as_of": "2025-01-01",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "h",
+            "period": {
+              "period_kind": "month",
+              "start": "2025-01-01",
+              "end": "2025-01-31"
+            },
+            "outputs": [
+              "us:policies/direct-count/rules#member_count"
+            ]
+          }
+        ]
+      },
+      "relation_counts": true,
+      "env": {
+        "@count:1:0:us:policies/direct-count/rules#relation.member_of_household": {
+          "kind": "integer",
+          "value": 0
+        }
+      },
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "rule": "member_count",
+      "as_of": "2025-01-01",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [],
+          "relations": [
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "a",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "h",
+            "period": {
+              "period_kind": "month",
+              "start": "2025-01-01",
+              "end": "2025-01-31"
+            },
+            "outputs": [
+              "us:policies/direct-count/rules#member_count"
+            ]
+          }
+        ]
+      },
+      "relation_counts": true,
+      "env": {
+        "@count:1:0:us:policies/direct-count/rules#relation.member_of_household": {
+          "kind": "integer",
+          "value": 1
+        }
+      },
+      "output": "1",
+      "official_value": "1"
+    },
+    {
+      "rule": "member_count",
+      "as_of": "2025-01-01",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [],
+          "relations": [
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "a",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "a",
+                "h"
+              ],
+              "interval": {
+                "start": "2024-12-01",
+                "end": "2025-01-31"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "z",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "b",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-30"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "c",
+                "other"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "h",
+            "period": {
+              "period_kind": "month",
+              "start": "2025-01-01",
+              "end": "2025-01-31"
+            },
+            "outputs": [
+              "us:policies/direct-count/rules#member_count"
+            ]
+          }
+        ]
+      },
+      "relation_counts": true,
+      "env": {
+        "@count:1:0:us:policies/direct-count/rules#relation.member_of_household": {
+          "kind": "integer",
+          "value": 2
+        }
+      },
+      "output": "2",
+      "official_value": "2"
+    },
+    {
+      "rule": "member_count",
+      "as_of": "2025-01-01",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [],
+          "relations": [
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "c",
+                "other"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "b",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-30"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "z",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "a",
+                "h"
+              ],
+              "interval": {
+                "start": "2024-12-01",
+                "end": "2025-01-31"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "a",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "h",
+            "period": {
+              "period_kind": "month",
+              "start": "2025-01-01",
+              "end": "2025-01-31"
+            },
+            "outputs": [
+              "us:policies/direct-count/rules#member_count"
+            ]
+          }
+        ]
+      },
+      "relation_counts": true,
+      "env": {
+        "@count:1:0:us:policies/direct-count/rules#relation.member_of_household": {
+          "kind": "integer",
+          "value": 2
+        }
+      },
+      "output": "2",
+      "official_value": "2"
+    },
+    {
+      "rule": "eligible_total",
+      "as_of": "2025-01-01",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "h",
+            "period": {
+              "period_kind": "month",
+              "start": "2025-01-01",
+              "end": "2025-01-31"
+            },
+            "outputs": [
+              "us:policies/direct-count/rules#eligible_total"
+            ]
+          }
+        ]
+      },
+      "filtered_counts": true,
+      "env": {
+        "@count:1:0:us:policies/direct-count/rules#relation.member_of_household": {
+          "kind": "integer",
+          "value": 0
+        },
+        "@members:1:0:us:policies/direct-count/rules#relation.member_of_household": []
+      },
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "rule": "eligible_total",
+      "as_of": "2025-01-01",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/direct-count/rules#input.eligible",
+              "entity": "Person",
+              "entity_id": "a",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#input.amount",
+              "entity": "Person",
+              "entity_id": "a",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "3.15"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#input.eligible",
+              "entity": "Person",
+              "entity_id": "b",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            }
+          ],
+          "relations": [
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "a",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "b",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "h",
+            "period": {
+              "period_kind": "month",
+              "start": "2025-01-01",
+              "end": "2025-01-31"
+            },
+            "outputs": [
+              "us:policies/direct-count/rules#eligible_total"
+            ]
+          }
+        ]
+      },
+      "filtered_counts": true,
+      "env": {
+        "@count:1:0:us:policies/direct-count/rules#relation.member_of_household": {
+          "kind": "integer",
+          "value": 2
+        },
+        "@members:1:0:us:policies/direct-count/rules#relation.member_of_household": [
+          {
+            "eligible": {
+              "kind": "bool",
+              "value": true
+            },
+            "amount": {
+              "kind": "decimal",
+              "value": "3.15"
+            }
+          },
+          {
+            "eligible": {
+              "kind": "bool",
+              "value": false
+            }
+          }
+        ]
+      },
+      "output": "3.15",
+      "official_value": "3.15"
+    },
+    {
+      "rule": "eligible_total",
+      "as_of": "2025-01-01",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/direct-count/rules#input.eligible",
+              "entity": "Person",
+              "entity_id": "a",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#input.amount",
+              "entity": "Person",
+              "entity_id": "a",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "9.10"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#input.eligible",
+              "entity": "Person",
+              "entity_id": "z",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#input.amount",
+              "entity": "Person",
+              "entity_id": "z",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "-1.04"
+              }
+            }
+          ],
+          "relations": [
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "a",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "a",
+                "h"
+              ],
+              "interval": {
+                "start": "2024-12-01",
+                "end": "2025-01-31"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "z",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "b",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-30"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "c",
+                "other"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "h",
+            "period": {
+              "period_kind": "month",
+              "start": "2025-01-01",
+              "end": "2025-01-31"
+            },
+            "outputs": [
+              "us:policies/direct-count/rules#eligible_total"
+            ]
+          }
+        ]
+      },
+      "filtered_counts": true,
+      "env": {
+        "@count:1:0:us:policies/direct-count/rules#relation.member_of_household": {
+          "kind": "integer",
+          "value": 2
+        },
+        "@members:1:0:us:policies/direct-count/rules#relation.member_of_household": [
+          {
+            "eligible": {
+              "kind": "bool",
+              "value": true
+            },
+            "amount": {
+              "kind": "decimal",
+              "value": "9.10"
+            }
+          },
+          {
+            "eligible": {
+              "kind": "bool",
+              "value": true
+            },
+            "amount": {
+              "kind": "decimal",
+              "value": "-1.04"
+            }
+          }
+        ]
+      },
+      "output": "8.06",
+      "official_value": "8.06"
+    },
+    {
+      "rule": "eligible_total",
+      "as_of": "2025-01-01",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/direct-count/rules#input.eligible",
+              "entity": "Person",
+              "entity_id": "a",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          ],
+          "relations": [
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "a",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "h",
+            "period": {
+              "period_kind": "month",
+              "start": "2025-01-01",
+              "end": "2025-01-31"
+            },
+            "outputs": [
+              "us:policies/direct-count/rules#eligible_total"
+            ]
+          }
+        ]
+      },
+      "filtered_counts": true,
+      "env": {
+        "@count:1:0:us:policies/direct-count/rules#relation.member_of_household": {
+          "kind": "integer",
+          "value": 1
+        },
+        "@members:1:0:us:policies/direct-count/rules#relation.member_of_household": [
+          {
+            "eligible": {
+              "kind": "bool",
+              "value": true
+            }
+          }
+        ]
+      },
+      "fault": "missingInput",
+      "diagnostic": "missing input `us:policies/direct-count/rules#input.amount` for entity `a` over 2025-01-01..2025-01-31",
+      "official_diagnostic": "missing input `us:policies/direct-count/rules#input.amount` for entity `a` over 2025-01-01..2025-01-31"
+    },
+    {
+      "rule": "eligible_total",
+      "as_of": "2025-01-01",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/direct-count/rules#input.eligible",
+              "entity": "Person",
+              "entity_id": "a",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#input.amount",
+              "entity": "Person",
+              "entity_id": "a",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "79228162514264337593543950335"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#input.eligible",
+              "entity": "Person",
+              "entity_id": "z",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#input.amount",
+              "entity": "Person",
+              "entity_id": "z",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "79228162514264337593543950335"
+              }
+            }
+          ],
+          "relations": [
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "a",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            },
+            {
+              "name": "us:policies/direct-count/rules#relation.member_of_household",
+              "tuple": [
+                "z",
+                "h"
+              ],
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-01-31"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "h",
+            "period": {
+              "period_kind": "month",
+              "start": "2025-01-01",
+              "end": "2025-01-31"
+            },
+            "outputs": [
+              "us:policies/direct-count/rules#eligible_total"
+            ]
+          }
+        ]
+      },
+      "filtered_counts": true,
+      "env": {
+        "@count:1:0:us:policies/direct-count/rules#relation.member_of_household": {
+          "kind": "integer",
+          "value": 2
+        },
+        "@members:1:0:us:policies/direct-count/rules#relation.member_of_household": [
+          {
+            "eligible": {
+              "kind": "bool",
+              "value": true
+            },
+            "amount": {
+              "kind": "decimal",
+              "value": "79228162514264337593543950335"
+            }
+          },
+          {
+            "eligible": {
+              "kind": "bool",
+              "value": true
+            },
+            "amount": {
+              "kind": "decimal",
+              "value": "79228162514264337593543950335"
+            }
+          }
+        ]
+      },
+      "fault": "arithmeticOverflow",
+      "diagnostic": "arithmetic overflow: addition result is outside the representable decimal range",
+      "official_diagnostic": "arithmetic overflow: addition result is outside the representable decimal range"
+    }
+  ]
+}

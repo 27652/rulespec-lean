@@ -1,0 +1,220 @@
+{
+  "source": "us/policies/usda/snap/fy-2024-cola/income-eligibility-standards.yaml",
+  "source_sha256": "9bf34c187d4380dcdf28354ad844b1a03ddc3a25be987cb808d9b059ede02190",
+  "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+  "source_closure": {
+    "root": "us:policies/usda/snap/fy-2024-cola/income-eligibility-standards",
+    "modules": [
+      {
+        "target": "us:policies/usda/snap/fy-2024-cola/income-eligibility-standards",
+        "sha256": "9bf34c187d4380dcdf28354ad844b1a03ddc3a25be987cb808d9b059ede02190"
+      }
+    ],
+    "digest": "sha256:2a88035be7914f18ad901ca99f26217a411493230eec2b78975c7b74dcbf8c6c"
+  },
+  "artifact_sha256": "f92d92e20e57b506076e0ca450f387600b05dba4ba83f0318bc9caf681f97ddf",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "scope": "FY 2024 SNAP COLA page 2: designated net income limit table output only",
+  "status": "Rust/Python/Lean passed",
+  "cases": 5,
+  "results": [
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:policies/usda/snap/fy-2024-cola/income-eligibility-standards#input.household_size",
+              "entity": "Household",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2023-10-01",
+                "end": "2023-10-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2023-10-01",
+              "end": "2023-10-31"
+            },
+            "outputs": [
+              "us:policies/usda/snap/fy-2024-cola/income-eligibility-standards#snap_net_income_limit_100_percent_fpl_48_states_dc"
+            ]
+          }
+        ]
+      },
+      "expected": "1215",
+      "output": "1215",
+      "official_value": "1215"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:policies/usda/snap/fy-2024-cola/income-eligibility-standards#input.household_size",
+              "entity": "Household",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2023-10-01",
+                "end": "2023-10-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 4
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2023-10-01",
+              "end": "2023-10-31"
+            },
+            "outputs": [
+              "us:policies/usda/snap/fy-2024-cola/income-eligibility-standards#snap_net_income_limit_100_percent_fpl_48_states_dc"
+            ]
+          }
+        ]
+      },
+      "expected": "2500",
+      "output": "2500",
+      "official_value": "2500"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:policies/usda/snap/fy-2024-cola/income-eligibility-standards#input.household_size",
+              "entity": "Household",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2023-10-01",
+                "end": "2023-10-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 8
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2023-10-01",
+              "end": "2023-10-31"
+            },
+            "outputs": [
+              "us:policies/usda/snap/fy-2024-cola/income-eligibility-standards#snap_net_income_limit_100_percent_fpl_48_states_dc"
+            ]
+          }
+        ]
+      },
+      "expected": "4214",
+      "output": "4214",
+      "official_value": "4214"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:policies/usda/snap/fy-2024-cola/income-eligibility-standards#input.household_size",
+              "entity": "Household",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2023-10-01",
+                "end": "2023-10-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 9
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2023-10-01",
+              "end": "2023-10-31"
+            },
+            "outputs": [
+              "us:policies/usda/snap/fy-2024-cola/income-eligibility-standards#snap_net_income_limit_100_percent_fpl_48_states_dc"
+            ]
+          }
+        ]
+      },
+      "expected": "4643",
+      "output": "4643",
+      "official_value": "4643"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:policies/usda/snap/fy-2024-cola/income-eligibility-standards#input.household_size",
+              "entity": "Household",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2023-10-01",
+                "end": "2023-10-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 10
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2023-10-01",
+              "end": "2023-10-31"
+            },
+            "outputs": [
+              "us:policies/usda/snap/fy-2024-cola/income-eligibility-standards#snap_net_income_limit_100_percent_fpl_48_states_dc"
+            ]
+          }
+        ]
+      },
+      "expected": "5072",
+      "output": "5072",
+      "official_value": "5072"
+    }
+  ]
+}

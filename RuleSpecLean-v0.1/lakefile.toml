@@ -1,0 +1,6 @@
+name = "RuleSpecLean"
+version = "0.1.0"
+defaultTargets = ["RuleSpecLean"]
+
+[[lean_lib]]
+name = "RuleSpecLean"

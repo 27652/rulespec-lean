@@ -1,0 +1,31 @@
+format: rulespec/v1
+rules:
+  - name: member_of_household
+    kind: data_relation
+    data_relation:
+      arity: 2
+      arguments: [Person, Household]
+  - name: member_count
+    kind: derived
+    entity: Household
+    dtype: Decimal
+    period: Month
+    versions:
+      - effective_from: '2025-01-01'
+        formula: len(member_of_household) * 1
+  - name: person_marker
+    kind: derived
+    entity: Person
+    dtype: Decimal
+    period: Month
+    versions:
+      - effective_from: '2025-01-01'
+        formula: '1'
+  - name: eligible_total
+    kind: derived
+    entity: Household
+    dtype: Decimal
+    period: Month
+    versions:
+      - effective_from: '2025-01-01'
+        formula: sum_where(member_of_household, amount, eligible)

@@ -1,0 +1,4832 @@
+[
+  {
+    "name": "withholding-0",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "-1"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "-1"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-1",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "0"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "0"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-2",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "1"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "1"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-3",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "100"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "100"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-4",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "1000000"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "1000000"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-5",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7953816"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7953816"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-6",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7453539"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7453539"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-7",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "521538"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "521538"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-8",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "1349369"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "1349369"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-9",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "4877952"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "4877952"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-10",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "5438517"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "5438517"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-11",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "3763545"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "3763545"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-12",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "4932421"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "4932421"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-13",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "1736453"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "1736453"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-14",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "6837269"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "6837269"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-15",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "5779379"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "5779379"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-16",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "4123755"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "4123755"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-17",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9114373"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9114373"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-18",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "2143811"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "2143811"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-19",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "8981362"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "8981362"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-20",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9533323"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9533323"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-21",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "6793737"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "6793737"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-22",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "6596103"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "6596103"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-23",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "6170593"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "6170593"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-24",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "6219804"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "6219804"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-25",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "3417588"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "3417588"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-26",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "8267271"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "8267271"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-27",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "1247758"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "1247758"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-28",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9598708"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9598708"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-29",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "3956393"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "3956393"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-30",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "1762378"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "1762378"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-31",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "5891000"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "5891000"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-32",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "6670104"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "6670104"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-33",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "4287332"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "4287332"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-34",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "8811628"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "8811628"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-35",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "6126385"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "6126385"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-36",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "4356299"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "4356299"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-37",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "601412"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "601412"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-38",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "6977252"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "6977252"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-39",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "4958162"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "4958162"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-40",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "461953"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "461953"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-41",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "2960545"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "2960545"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-42",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7690273"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7690273"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-43",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "5677463"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "5677463"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-44",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "3031243"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "3031243"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-45",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "2219285"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "2219285"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-46",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "2262777"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "2262777"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-47",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "3538076"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "3538076"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-48",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "5724524"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "5724524"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-49",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7781184"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7781184"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-50",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "5663830"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "5663830"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-51",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "6747210"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "6747210"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-52",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9612100"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9612100"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-53",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7585103"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7585103"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-54",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7212034"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7212034"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-55",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "1550836"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "1550836"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-56",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7329079"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7329079"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-57",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "8817429"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "8817429"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-58",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "-323"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "-323"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-59",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "8282356"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "8282356"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-60",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "2272234"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "2272234"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-61",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9957485"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9957485"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-62",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "662766"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "662766"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-63",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "8923169"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "8923169"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-64",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "3363461"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "3363461"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-65",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9090074"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9090074"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-66",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9325266"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9325266"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-67",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "1397616"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "1397616"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-68",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7037076"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7037076"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-69",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "4668469"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "4668469"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-70",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9905242"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9905242"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-71",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "8369451"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "8369451"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-72",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "1935709"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "1935709"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-73",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7957291"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7957291"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-74",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7178273"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7178273"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-75",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9546336"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9546336"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-76",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "5400556"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "5400556"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-77",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "6666899"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "6666899"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-78",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9442639"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9442639"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-79",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "1724373"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "1724373"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-80",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "4450205"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "4450205"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-81",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "4914312"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "4914312"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-82",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "4249273"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "4249273"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-83",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "2950195"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "2950195"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-84",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "5573160"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "5573160"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-85",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "4226736"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "4226736"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-86",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "8544923"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "8544923"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-87",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9741768"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9741768"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-88",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "2784714"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "2784714"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-89",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "3543986"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "3543986"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-90",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "5785659"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "5785659"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-91",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "3542738"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "3542738"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-92",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9293005"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9293005"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-93",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "8715987"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "8715987"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-94",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "3590303"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "3590303"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-95",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "6449841"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "6449841"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-96",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "4809787"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "4809787"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-97",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "406048"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "406048"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-98",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7586969"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7586969"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-99",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "2555216"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "2555216"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-100",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7466751"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7466751"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-101",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "6014844"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "6014844"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-102",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7249465"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7249465"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-103",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "9259392"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "9259392"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "withholding-104",
+    "as_of": "2026-01-01",
+    "rule": "employer_liability_for_chapter_withholding_tax_payment",
+    "public_output": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+    "env": {
+      "tax_required_to_be_deducted_and_withheld_under_this_chapter": {
+        "kind": "decimal",
+        "value": "7216196"
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+            "entity": "Employer",
+            "entity_id": "employer:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2027-01-01"
+            },
+            "value": {
+              "kind": "decimal",
+              "value": "7216196"
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "employer:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2027-01-01"
+          },
+          "outputs": [
+            "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment"
+          ]
+        }
+      ]
+    }
+  }
+]

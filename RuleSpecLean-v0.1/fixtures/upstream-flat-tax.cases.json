@@ -1,0 +1,4924 @@
+[
+  {
+    "name": "income-0-0",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 0
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-1-999",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 999
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 999
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-2-1000",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 1000
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 1000
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-3-1001",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 1001
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 1001
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-4-2999",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 2999
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 2999
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-5-3000",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 3000
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 3000
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-6-3001",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 3001
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 3001
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-7-497738",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 497738
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 497738
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-8-466471",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 466471
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 466471
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-9-33221",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 33221
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 33221
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-10-654227",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 654227
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 654227
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-11-703789",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 703789
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 703789
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-12-84960",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 84960
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 84960
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-13-897353",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 897353
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 897353
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-14-305497",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 305497
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 305497
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-15-340532",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 340532
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 340532
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-16-670438",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 670438
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 670438
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-17-235846",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 235846
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 235846
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-18-662975",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 662975
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 662975
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-19-656922",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 656922
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 656922
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-20-308901",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 308901
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 308901
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-21-109153",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 109153
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 109153
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-22-427954",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 427954
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 427954
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-23-361836",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 361836
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 361836
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-24-258359",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 258359
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 258359
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-25-570273",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 570273
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 570273
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-26-826608",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 826608
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 826608
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-27-134613",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 134613
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 134613
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-28-561960",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 561960
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 561960
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-29-684563",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 684563
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 684563
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-30-596457",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 596457
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 596457
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-31-894986",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 894986
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 894986
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-32-425233",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 425233
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 425233
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-33-412881",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 412881
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 412881
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-34-726223",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 726223
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 726223
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-35-386287",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 386287
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 386287
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-36-389362",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 389362
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 389362
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-37-214224",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 214224
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 214224
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-38-517329",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 517329
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 517329
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-39-874012",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 874012
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 874012
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-40-78609",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 78609
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 78609
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-41-600544",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 600544
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 600544
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-42-761609",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 761609
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 761609
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-43-247899",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 247899
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 247899
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-44-746558",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 746558
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 746558
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-45-810527",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 810527
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 810527
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-46-829937",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 829937
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 829937
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-47-110773",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 110773
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 110773
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-48-368812",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 368812
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 368812
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-49-631587",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 631587
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 631587
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-50-417506",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 417506
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 417506
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-51-268583",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 268583
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 268583
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-52-551351",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 551351
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 551351
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-53-383524",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 383524
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 383524
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-54-272893",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 272893
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 272893
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-55-38213",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 38213
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 38213
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-56-436703",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 436703
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 436703
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-57-310510",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 310510
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 310510
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-58-29497",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 29497
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 29497
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-59-185659",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 185659
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 185659
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-60-481267",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 481267
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 481267
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-61-355466",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 355466
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 355466
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-62-190077",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 190077
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 190077
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-63-139330",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 139330
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 139330
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-64-142048",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 142048
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 142048
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-65-221754",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 221754
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 221754
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-66-983176",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 983176
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 983176
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-67-652866",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 652866
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 652866
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-68-358407",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 358407
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 358407
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-69-831027",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 831027
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 831027
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-70-931286",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 931286
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 931286
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-71-865877",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 865877
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 865877
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-72-817939",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 817939
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 817939
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-73-486949",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 486949
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 486949
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-74-650680",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 650680
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 650680
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-75-810032",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 810032
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 810032
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-76-354614",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 354614
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 354614
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-77-422325",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 422325
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 422325
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-78-634662",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 634662
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 634662
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-79-788725",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 788725
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 788725
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-80-601381",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 601381
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 601381
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-81-820162",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 820162
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 820162
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-82-474693",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 474693
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 474693
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-83-451377",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 451377
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 451377
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-84-97552",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 97552
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 97552
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-85-873758",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 873758
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 873758
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-86-458692",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 458692
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 458692
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-87-743440",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 743440
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 743440
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-88-551714",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 551714
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 551714
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-89-604",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 604
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 604
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-90-518272",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 518272
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 518272
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-91-142639",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 142639
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 142639
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-92-622967",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 622967
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 622967
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-93-677322",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 677322
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 677322
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-94-630513",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 630513
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 630513
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-95-42047",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 42047
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 42047
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-96-558323",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 558323
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 558323
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-97-210841",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 210841
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 210841
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-98-568754",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 568754
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 568754
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-99-918788",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 918788
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 918788
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-100-583454",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 583454
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 583454
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-101-87976",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 87976
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 87976
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-102-440442",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 440442
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 440442
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-103-673037",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 673037
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 673037
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-104-805110",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 805110
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 805110
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-105-292404",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 292404
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 292404
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "income-106-732989",
+    "as_of": "2025-01-01",
+    "rule": "income_tax",
+    "public_output": "us:policies/flat-tax/rules#income_tax",
+    "env": {
+      "income": {
+        "kind": "integer",
+        "value": 732989
+      }
+    },
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:policies/flat-tax/rules#input.income",
+            "entity": "Person",
+            "entity_id": "person:1",
+            "interval": {
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 732989
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "person:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2025-01-01",
+            "end": "2026-01-01"
+          },
+          "outputs": [
+            "us:policies/flat-tax/rules#income_tax"
+          ]
+        }
+      ]
+    }
+  }
+]

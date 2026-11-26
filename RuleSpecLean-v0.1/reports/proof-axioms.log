@@ -1,0 +1,22 @@
+'RuleSpecLean.ScalarPreservation.lowering_preserves_result' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.ScalarPreservation.recognize_sound' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.ScalarPreservation.recognized_target_preserves_result' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.Legal3403Preservation.generated_preserves_result' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.VersionSelection.select_sound' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.VersionSelection.select_none_iff' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.DecimalModel.round_result_scale' depends on axioms: [propext]
+'RuleSpecLean.DecimalModel.round_keeps_value_at_or_above_scale' depends on axioms: [propext]
+'RuleSpecLean.VersionSelection.select_append_latest' depends on axioms: [propext]
+'RuleSpecLean.VersionSelection.select_mapBody' depends on axioms: [propext]
+'RuleSpecLean.Legal3403Preservation.versioned_lowering_preserves_result' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.Legal3403Preservation.generated_preserves_active_version' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.eval_noMatch' does not depend on any axioms
+'RuleSpecLean.eval_emptyLookup' does not depend on any axioms
+'RuleSpecLean.andShortCircuit' does not depend on any axioms
+'RuleSpecLean.orShortCircuit' does not depend on any axioms
+'RuleSpecLean.andUnknown' does not depend on any axioms
+'RuleSpecLean.orUnknown' does not depend on any axioms
+'RuleSpecLean.lazyUnknown' does not depend on any axioms
+'RuleSpecLean.DecimalModel.eval_noMatch' depends on axioms: [propext]
+'RuleSpecLean.Legal3403Preservation.no_source_version_before_first_day' depends on axioms: [propext]
+'RuleSpecLean.Legal3403Preservation.snapshot_target_preserves_result' depends on axioms: [propext, Quot.sound]

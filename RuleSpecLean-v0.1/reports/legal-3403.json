@@ -1,0 +1,853 @@
+{
+  "artifact_sha256": "8f68bc7581185d4a87a858fc47cdbc3e497c5d545f1a9a5be2474f6a6026b3f7",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "cases": 105,
+  "python_rust": "passed",
+  "lean": "passed: lake build RuleSpecLean.Legal3403Tests",
+  "results": [
+    {
+      "name": "withholding-0",
+      "result": [
+        "decimal",
+        0
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-1",
+      "result": [
+        "decimal",
+        0
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-2",
+      "result": [
+        "decimal",
+        1000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-3",
+      "result": [
+        "decimal",
+        100000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-4",
+      "result": [
+        "decimal",
+        1000000000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-5",
+      "result": [
+        "decimal",
+        7953816000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-6",
+      "result": [
+        "decimal",
+        7453539000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-7",
+      "result": [
+        "decimal",
+        521538000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-8",
+      "result": [
+        "decimal",
+        1349369000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-9",
+      "result": [
+        "decimal",
+        4877952000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-10",
+      "result": [
+        "decimal",
+        5438517000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-11",
+      "result": [
+        "decimal",
+        3763545000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-12",
+      "result": [
+        "decimal",
+        4932421000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-13",
+      "result": [
+        "decimal",
+        1736453000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-14",
+      "result": [
+        "decimal",
+        6837269000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-15",
+      "result": [
+        "decimal",
+        5779379000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-16",
+      "result": [
+        "decimal",
+        4123755000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-17",
+      "result": [
+        "decimal",
+        9114373000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-18",
+      "result": [
+        "decimal",
+        2143811000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-19",
+      "result": [
+        "decimal",
+        8981362000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-20",
+      "result": [
+        "decimal",
+        9533323000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-21",
+      "result": [
+        "decimal",
+        6793737000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-22",
+      "result": [
+        "decimal",
+        6596103000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-23",
+      "result": [
+        "decimal",
+        6170593000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-24",
+      "result": [
+        "decimal",
+        6219804000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-25",
+      "result": [
+        "decimal",
+        3417588000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-26",
+      "result": [
+        "decimal",
+        8267271000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-27",
+      "result": [
+        "decimal",
+        1247758000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-28",
+      "result": [
+        "decimal",
+        9598708000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-29",
+      "result": [
+        "decimal",
+        3956393000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-30",
+      "result": [
+        "decimal",
+        1762378000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-31",
+      "result": [
+        "decimal",
+        5891000000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-32",
+      "result": [
+        "decimal",
+        6670104000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-33",
+      "result": [
+        "decimal",
+        4287332000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-34",
+      "result": [
+        "decimal",
+        8811628000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-35",
+      "result": [
+        "decimal",
+        6126385000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-36",
+      "result": [
+        "decimal",
+        4356299000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-37",
+      "result": [
+        "decimal",
+        601412000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-38",
+      "result": [
+        "decimal",
+        6977252000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-39",
+      "result": [
+        "decimal",
+        4958162000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-40",
+      "result": [
+        "decimal",
+        461953000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-41",
+      "result": [
+        "decimal",
+        2960545000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-42",
+      "result": [
+        "decimal",
+        7690273000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-43",
+      "result": [
+        "decimal",
+        5677463000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-44",
+      "result": [
+        "decimal",
+        3031243000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-45",
+      "result": [
+        "decimal",
+        2219285000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-46",
+      "result": [
+        "decimal",
+        2262777000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-47",
+      "result": [
+        "decimal",
+        3538076000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-48",
+      "result": [
+        "decimal",
+        5724524000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-49",
+      "result": [
+        "decimal",
+        7781184000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-50",
+      "result": [
+        "decimal",
+        5663830000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-51",
+      "result": [
+        "decimal",
+        6747210000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-52",
+      "result": [
+        "decimal",
+        9612100000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-53",
+      "result": [
+        "decimal",
+        7585103000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-54",
+      "result": [
+        "decimal",
+        7212034000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-55",
+      "result": [
+        "decimal",
+        1550836000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-56",
+      "result": [
+        "decimal",
+        7329079000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-57",
+      "result": [
+        "decimal",
+        8817429000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-58",
+      "result": [
+        "decimal",
+        0
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-59",
+      "result": [
+        "decimal",
+        8282356000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-60",
+      "result": [
+        "decimal",
+        2272234000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-61",
+      "result": [
+        "decimal",
+        9957485000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-62",
+      "result": [
+        "decimal",
+        662766000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-63",
+      "result": [
+        "decimal",
+        8923169000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-64",
+      "result": [
+        "decimal",
+        3363461000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-65",
+      "result": [
+        "decimal",
+        9090074000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-66",
+      "result": [
+        "decimal",
+        9325266000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-67",
+      "result": [
+        "decimal",
+        1397616000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-68",
+      "result": [
+        "decimal",
+        7037076000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-69",
+      "result": [
+        "decimal",
+        4668469000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-70",
+      "result": [
+        "decimal",
+        9905242000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-71",
+      "result": [
+        "decimal",
+        8369451000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-72",
+      "result": [
+        "decimal",
+        1935709000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-73",
+      "result": [
+        "decimal",
+        7957291000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-74",
+      "result": [
+        "decimal",
+        7178273000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-75",
+      "result": [
+        "decimal",
+        9546336000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-76",
+      "result": [
+        "decimal",
+        5400556000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-77",
+      "result": [
+        "decimal",
+        6666899000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-78",
+      "result": [
+        "decimal",
+        9442639000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-79",
+      "result": [
+        "decimal",
+        1724373000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-80",
+      "result": [
+        "decimal",
+        4450205000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-81",
+      "result": [
+        "decimal",
+        4914312000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-82",
+      "result": [
+        "decimal",
+        4249273000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-83",
+      "result": [
+        "decimal",
+        2950195000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-84",
+      "result": [
+        "decimal",
+        5573160000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-85",
+      "result": [
+        "decimal",
+        4226736000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-86",
+      "result": [
+        "decimal",
+        8544923000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-87",
+      "result": [
+        "decimal",
+        9741768000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-88",
+      "result": [
+        "decimal",
+        2784714000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-89",
+      "result": [
+        "decimal",
+        3543986000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-90",
+      "result": [
+        "decimal",
+        5785659000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-91",
+      "result": [
+        "decimal",
+        3542738000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-92",
+      "result": [
+        "decimal",
+        9293005000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-93",
+      "result": [
+        "decimal",
+        8715987000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-94",
+      "result": [
+        "decimal",
+        3590303000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-95",
+      "result": [
+        "decimal",
+        6449841000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-96",
+      "result": [
+        "decimal",
+        4809787000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-97",
+      "result": [
+        "decimal",
+        406048000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-98",
+      "result": [
+        "decimal",
+        7586969000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-99",
+      "result": [
+        "decimal",
+        2555216000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-100",
+      "result": [
+        "decimal",
+        7466751000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-101",
+      "result": [
+        "decimal",
+        6014844000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-102",
+      "result": [
+        "decimal",
+        7249465000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-103",
+      "result": [
+        "decimal",
+        9259392000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "withholding-104",
+      "result": [
+        "decimal",
+        7216196000000
+      ],
+      "status": "matched"
+    }
+  ],
+  "lean_build_log": "Build completed successfully (4 jobs).\n"
+}

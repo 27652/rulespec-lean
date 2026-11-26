@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/TheAxiomFoundation/axiom-rules-engine",
+  "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+  "source_path": "tests/fixtures/rulespec/other/flat_tax/rules.yaml",
+  "source_sha256": "f8736cc6b37d6a47fb31d8e019d3a72e7970ad2378c11a23d26ca3a61be81ce5",
+  "license": "MIT",
+  "note": "Upstream synthetic flat-tax example, not US law or a rulespec-us corpus checkout."
+}

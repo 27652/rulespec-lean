@@ -1,0 +1,13 @@
+format: rulespec/v1
+inputs:
+  - {name: income, entity: Person, dtype: Money, unit: USD, period: Year}
+rules:
+  - name: prior_income
+    kind: derived
+    entity: Person
+    dtype: Money
+    unit: USD
+    period: Year
+    versions:
+      - effective_from: '2026-01-01'
+        formula: input_for_year(income, 2025) * 1

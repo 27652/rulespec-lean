@@ -1,0 +1,869 @@
+{
+  "artifact_sha256": "6784d3f32785ce44286331c2bc395849c85677710d18a288918858aefa354da6",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "cases": 107,
+  "python_rust": "passed",
+  "lean": "passed: lake build RuleSpecLean.ReferenceTests",
+  "results": [
+    {
+      "name": "income-0-0",
+      "result": [
+        "decimal",
+        0
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-1-999",
+      "result": [
+        "decimal",
+        0
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-2-1000",
+      "result": [
+        "decimal",
+        0
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-3-1001",
+      "result": [
+        "decimal",
+        1000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-4-2999",
+      "result": [
+        "decimal",
+        200000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-5-3000",
+      "result": [
+        "decimal",
+        400000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-6-3001",
+      "result": [
+        "decimal",
+        401000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-7-497738",
+      "result": [
+        "decimal",
+        99348000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-8-466471",
+      "result": [
+        "decimal",
+        93095000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-9-33221",
+      "result": [
+        "decimal",
+        6445000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-10-654227",
+      "result": [
+        "decimal",
+        130646000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-11-703789",
+      "result": [
+        "decimal",
+        140558000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-12-84960",
+      "result": [
+        "decimal",
+        16792000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-13-897353",
+      "result": [
+        "decimal",
+        179271000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-14-305497",
+      "result": [
+        "decimal",
+        60900000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-15-340532",
+      "result": [
+        "decimal",
+        67907000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-16-670438",
+      "result": [
+        "decimal",
+        133888000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-17-235846",
+      "result": [
+        "decimal",
+        46970000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-18-662975",
+      "result": [
+        "decimal",
+        132395000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-19-656922",
+      "result": [
+        "decimal",
+        131185000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-20-308901",
+      "result": [
+        "decimal",
+        61581000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-21-109153",
+      "result": [
+        "decimal",
+        21631000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-22-427954",
+      "result": [
+        "decimal",
+        85391000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-23-361836",
+      "result": [
+        "decimal",
+        72168000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-24-258359",
+      "result": [
+        "decimal",
+        51472000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-25-570273",
+      "result": [
+        "decimal",
+        113855000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-26-826608",
+      "result": [
+        "decimal",
+        165122000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-27-134613",
+      "result": [
+        "decimal",
+        26723000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-28-561960",
+      "result": [
+        "decimal",
+        112192000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-29-684563",
+      "result": [
+        "decimal",
+        136713000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-30-596457",
+      "result": [
+        "decimal",
+        119092000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-31-894986",
+      "result": [
+        "decimal",
+        178798000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-32-425233",
+      "result": [
+        "decimal",
+        84847000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-33-412881",
+      "result": [
+        "decimal",
+        82377000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-34-726223",
+      "result": [
+        "decimal",
+        145045000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-35-386287",
+      "result": [
+        "decimal",
+        77058000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-36-389362",
+      "result": [
+        "decimal",
+        77673000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-37-214224",
+      "result": [
+        "decimal",
+        42645000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-38-517329",
+      "result": [
+        "decimal",
+        103266000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-39-874012",
+      "result": [
+        "decimal",
+        174603000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-40-78609",
+      "result": [
+        "decimal",
+        15522000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-41-600544",
+      "result": [
+        "decimal",
+        119909000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-42-761609",
+      "result": [
+        "decimal",
+        152122000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-43-247899",
+      "result": [
+        "decimal",
+        49380000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-44-746558",
+      "result": [
+        "decimal",
+        149112000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-45-810527",
+      "result": [
+        "decimal",
+        161906000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-46-829937",
+      "result": [
+        "decimal",
+        165788000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-47-110773",
+      "result": [
+        "decimal",
+        21955000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-48-368812",
+      "result": [
+        "decimal",
+        73563000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-49-631587",
+      "result": [
+        "decimal",
+        126118000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-50-417506",
+      "result": [
+        "decimal",
+        83302000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-51-268583",
+      "result": [
+        "decimal",
+        53517000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-52-551351",
+      "result": [
+        "decimal",
+        110071000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-53-383524",
+      "result": [
+        "decimal",
+        76505000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-54-272893",
+      "result": [
+        "decimal",
+        54379000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-55-38213",
+      "result": [
+        "decimal",
+        7443000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-56-436703",
+      "result": [
+        "decimal",
+        87141000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-57-310510",
+      "result": [
+        "decimal",
+        61902000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-58-29497",
+      "result": [
+        "decimal",
+        5700000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-59-185659",
+      "result": [
+        "decimal",
+        36932000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-60-481267",
+      "result": [
+        "decimal",
+        96054000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-61-355466",
+      "result": [
+        "decimal",
+        70894000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-62-190077",
+      "result": [
+        "decimal",
+        37816000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-63-139330",
+      "result": [
+        "decimal",
+        27666000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-64-142048",
+      "result": [
+        "decimal",
+        28210000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-65-221754",
+      "result": [
+        "decimal",
+        44151000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-66-983176",
+      "result": [
+        "decimal",
+        196436000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-67-652866",
+      "result": [
+        "decimal",
+        130374000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-68-358407",
+      "result": [
+        "decimal",
+        71482000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-69-831027",
+      "result": [
+        "decimal",
+        166006000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-70-931286",
+      "result": [
+        "decimal",
+        186058000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-71-865877",
+      "result": [
+        "decimal",
+        172976000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-72-817939",
+      "result": [
+        "decimal",
+        163388000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-73-486949",
+      "result": [
+        "decimal",
+        97190000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-74-650680",
+      "result": [
+        "decimal",
+        129936000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-75-810032",
+      "result": [
+        "decimal",
+        161807000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-76-354614",
+      "result": [
+        "decimal",
+        70723000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-77-422325",
+      "result": [
+        "decimal",
+        84265000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-78-634662",
+      "result": [
+        "decimal",
+        126733000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-79-788725",
+      "result": [
+        "decimal",
+        157545000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-80-601381",
+      "result": [
+        "decimal",
+        120077000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-81-820162",
+      "result": [
+        "decimal",
+        163833000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-82-474693",
+      "result": [
+        "decimal",
+        94739000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-83-451377",
+      "result": [
+        "decimal",
+        90076000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-84-97552",
+      "result": [
+        "decimal",
+        19311000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-85-873758",
+      "result": [
+        "decimal",
+        174552000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-86-458692",
+      "result": [
+        "decimal",
+        91539000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-87-743440",
+      "result": [
+        "decimal",
+        148488000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-88-551714",
+      "result": [
+        "decimal",
+        110143000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-89-604",
+      "result": [
+        "decimal",
+        0
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-90-518272",
+      "result": [
+        "decimal",
+        103455000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-91-142639",
+      "result": [
+        "decimal",
+        28328000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-92-622967",
+      "result": [
+        "decimal",
+        124394000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-93-677322",
+      "result": [
+        "decimal",
+        135265000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-94-630513",
+      "result": [
+        "decimal",
+        125903000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-95-42047",
+      "result": [
+        "decimal",
+        8210000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-96-558323",
+      "result": [
+        "decimal",
+        111465000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-97-210841",
+      "result": [
+        "decimal",
+        41969000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-98-568754",
+      "result": [
+        "decimal",
+        113551000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-99-918788",
+      "result": [
+        "decimal",
+        183558000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-100-583454",
+      "result": [
+        "decimal",
+        116491000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-101-87976",
+      "result": [
+        "decimal",
+        17396000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-102-440442",
+      "result": [
+        "decimal",
+        87889000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-103-673037",
+      "result": [
+        "decimal",
+        134408000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-104-805110",
+      "result": [
+        "decimal",
+        160822000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-105-292404",
+      "result": [
+        "decimal",
+        58281000000
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "income-106-732989",
+      "result": [
+        "decimal",
+        146398000000
+      ],
+      "status": "matched"
+    }
+  ],
+  "lean_build_log": "Build completed successfully (4 jobs).\n"
+}

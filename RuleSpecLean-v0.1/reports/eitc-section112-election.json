@@ -1,0 +1,419 @@
+{
+  "source": "us/statutes/26/32/c/2.yaml",
+  "source_sha256": "67e13e5e77ecd7b4a7c5c03294843763c666830aabb567f1c15a22d6890c1408",
+  "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+  "source_closure": {
+    "root": "us:statutes/26/32/c/2",
+    "modules": [
+      {
+        "target": "us:statutes/26/112",
+        "sha256": "a7549fc6774224d725eaf654655707e7e97aecfa9fcebf378918778482f67512"
+      },
+      {
+        "target": "us:statutes/26/32/c/2",
+        "sha256": "67e13e5e77ecd7b4a7c5c03294843763c666830aabb567f1c15a22d6890c1408"
+      }
+    ],
+    "digest": "sha256:0b913e7fc9d624ba9936ece8d6a95f2f618443bd6f2bbab4abd55f20c9b895a7"
+  },
+  "artifact_sha256": "21c51f1796a99235705c7ed018017c96aac6eda7d8dba9c6e05d75351d06ed9f",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "scope": "26 USC §32(c)(2) earned income with the section 112 election branch",
+  "status": "Rust/Python/Lean passed",
+  "cases": 2,
+  "results": [
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/32/c/2#input.employee_compensation_includible_in_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "10000"
+              }
+            },
+            {
+              "name": "us:statutes/26/32/c/2#input.net_earnings_from_self_employment_after_self_employment_tax_deduction",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/32/c/2#input.pension_or_annuity_amount",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/32/c/2#input.nonresident_alien_income_not_connected_with_united_states_business",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/32/c/2#input.penal_institution_service_compensation",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/32/c/2#input.subsidized_state_work_activity_service_compensation",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/32/c/2#input.taxpayer_elects_to_treat_section_112_excluded_amounts_as_earned_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/112#input.member_below_grade_of_commissioned_officer_in_armed_forces",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/112#input.served_in_combat_zone_during_month",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/112#input.active_service_compensation_as_enlisted_member_excluding_pensions_and_retirement_pay",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "6000"
+              }
+            },
+            {
+              "name": "us:statutes/26/112#input.commissioned_officer_in_armed_forces_excluding_commissioned_warrant_officer",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/112#input.armed_forces_member_in_missing_status_during_vietnam_conflict_as_result_of_conflict",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/112#input.civilian_employee_in_missing_status_during_vietnam_conflict_as_result_of_conflict",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2024-01-01",
+              "end": "2024-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/32/c/2#earned_income"
+            ]
+          }
+        ]
+      },
+      "expected": "10000",
+      "output": "10000",
+      "official_value": "10000"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/32/c/2#input.employee_compensation_includible_in_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "10000"
+              }
+            },
+            {
+              "name": "us:statutes/26/32/c/2#input.net_earnings_from_self_employment_after_self_employment_tax_deduction",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/32/c/2#input.pension_or_annuity_amount",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/32/c/2#input.nonresident_alien_income_not_connected_with_united_states_business",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/32/c/2#input.penal_institution_service_compensation",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/32/c/2#input.subsidized_state_work_activity_service_compensation",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/32/c/2#input.taxpayer_elects_to_treat_section_112_excluded_amounts_as_earned_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/112#input.member_below_grade_of_commissioned_officer_in_armed_forces",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/112#input.served_in_combat_zone_during_month",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/112#input.active_service_compensation_as_enlisted_member_excluding_pensions_and_retirement_pay",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "6000"
+              }
+            },
+            {
+              "name": "us:statutes/26/112#input.commissioned_officer_in_armed_forces_excluding_commissioned_warrant_officer",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/112#input.armed_forces_member_in_missing_status_during_vietnam_conflict_as_result_of_conflict",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/112#input.civilian_employee_in_missing_status_during_vietnam_conflict_as_result_of_conflict",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2024-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2024-01-01",
+              "end": "2024-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/32/c/2#earned_income"
+            ]
+          }
+        ]
+      },
+      "expected": "16000",
+      "output": "16000",
+      "official_value": "16000"
+    }
+  ]
+}

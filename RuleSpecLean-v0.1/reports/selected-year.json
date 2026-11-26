@@ -1,0 +1,491 @@
+{
+  "artifact_sha256": "49bad5eaff3ddcb46c46894430ad96d21626b8168e718f238c884a1855824eab",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "cases": 6,
+  "status": "Rust/Python/Lean passed",
+  "results": [
+    {
+      "name": "exact-year",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "1234.567890123456789012345678"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "person:1",
+            "outputs": [
+              "us:policies/selected-year/rules#prior_income"
+            ],
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            }
+          }
+        ]
+      },
+      "env": {
+        "@year:2025:us:policies/selected-year/rules#input.income": {
+          "kind": "decimal",
+          "value": "1234.567890123456789012345678"
+        }
+      },
+      "covering": true,
+      "as_of": "2026-01-01",
+      "rule": "prior_income",
+      "output": "1234.567890123456789012345678",
+      "official_value": "1234.567890123456789012345678"
+    },
+    {
+      "name": "latest-covering",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "99"
+              }
+            },
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "1234.567890123456789012345678"
+              }
+            },
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-02-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "20"
+              }
+            },
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "10"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "person:1",
+            "outputs": [
+              "us:policies/selected-year/rules#prior_income"
+            ],
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            }
+          }
+        ]
+      },
+      "env": {
+        "income": {
+          "kind": "decimal",
+          "value": "99"
+        },
+        "@year:2025:us:policies/selected-year/rules#input.income": {
+          "kind": "decimal",
+          "value": "1234.567890123456789012345678"
+        }
+      },
+      "covering": true,
+      "as_of": "2026-01-01",
+      "rule": "prior_income",
+      "output": "1234.567890123456789012345678",
+      "official_value": "1234.567890123456789012345678"
+    },
+    {
+      "name": "reversed-spells",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "10"
+              }
+            },
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-02-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "20"
+              }
+            },
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "1234.567890123456789012345678"
+              }
+            },
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "99"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "person:1",
+            "outputs": [
+              "us:policies/selected-year/rules#prior_income"
+            ],
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            }
+          }
+        ]
+      },
+      "env": {
+        "income": {
+          "kind": "decimal",
+          "value": "99"
+        },
+        "@year:2025:us:policies/selected-year/rules#input.income": {
+          "kind": "decimal",
+          "value": "1234.567890123456789012345678"
+        }
+      },
+      "covering": true,
+      "as_of": "2026-01-01",
+      "rule": "prior_income",
+      "output": "1234.567890123456789012345678",
+      "official_value": "1234.567890123456789012345678"
+    },
+    {
+      "name": "wider-spell",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-02-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "20"
+              }
+            },
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "10"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "person:1",
+            "outputs": [
+              "us:policies/selected-year/rules#prior_income"
+            ],
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            }
+          }
+        ]
+      },
+      "env": {
+        "@year:2025:us:policies/selected-year/rules#input.income": {
+          "kind": "decimal",
+          "value": "10"
+        }
+      },
+      "covering": true,
+      "as_of": "2026-01-01",
+      "rule": "prior_income",
+      "output": "10",
+      "official_value": "10"
+    },
+    {
+      "name": "missing-year",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "99"
+              }
+            },
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-02-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "20"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "person:1",
+            "outputs": [
+              "us:policies/selected-year/rules#prior_income"
+            ],
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            }
+          }
+        ]
+      },
+      "env": {
+        "income": {
+          "kind": "decimal",
+          "value": "99"
+        }
+      },
+      "covering": true,
+      "as_of": "2026-01-01",
+      "rule": "prior_income",
+      "fault": "missingInput",
+      "diagnostic": "missing input `us:policies/selected-year/rules#input.income` for entity `person:1` over 2025-01-01..2025-12-31",
+      "official_diagnostic": "missing input `us:policies/selected-year/rules#input.income` for entity `person:1` over 2025-01-01..2025-12-31"
+    },
+    {
+      "name": "redundant-same-start",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "10"
+              }
+            },
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "1234.567890123456789012345678"
+              }
+            },
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "1234.567890123456789012345678"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "person:1",
+            "outputs": [
+              "us:policies/selected-year/rules#prior_income"
+            ],
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            }
+          }
+        ]
+      },
+      "env": {
+        "@year:2025:us:policies/selected-year/rules#input.income": {
+          "kind": "decimal",
+          "value": "1234.567890123456789012345678"
+        }
+      },
+      "covering": true,
+      "as_of": "2026-01-01",
+      "rule": "prior_income",
+      "output": "1234.567890123456789012345678",
+      "official_value": "1234.567890123456789012345678"
+    }
+  ],
+  "admission_rejections": [
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "1234.567890123456789012345678"
+              }
+            },
+            {
+              "name": "us:policies/selected-year/rules#input.income",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "77"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "person:1",
+            "outputs": [
+              "us:policies/selected-year/rules#prior_income"
+            ],
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            }
+          }
+        ]
+      },
+      "official_diagnostic": "ambiguous input `us:policies/selected-year/rules#input.income` for entity `person:1`: records effective from 2025-01-01 have conflicting values; merge or split the spells so one value applies at each start date",
+      "binding_diagnostic": "conflicting input spell start"
+    }
+  ]
+}

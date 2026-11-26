@@ -1,0 +1,1305 @@
+{
+  "artifact_format_version": 3,
+  "engine_version": "0.3.0",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "source_closure": {
+    "root": "us:policies/decimal-dependency/rules",
+    "modules": [
+      {
+        "target": "us:policies/decimal-dependency/rules",
+        "sha256": "44e7d98103be93026697dc2c607add4f0d8bd23337ab9e55d60f03bb1cb878f5"
+      }
+    ],
+    "digest": "sha256:fcf36b0083358c1c4d04850866d4c60214081bc2692b1bf5fa44fc3f9eb8c6c1"
+  },
+  "program": {
+    "units": [
+      {
+        "name": "GBP",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "USD",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "EUR",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "CHF",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "NOK",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "GHS",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "GHp",
+        "kind": "currency",
+        "minor_units": 0
+      },
+      {
+        "name": "NGN",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "UGX",
+        "kind": "currency",
+        "minor_units": 0
+      },
+      {
+        "name": "ZMW",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "ETB",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "RWF",
+        "kind": "currency",
+        "minor_units": 0
+      },
+      {
+        "name": "TZS",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "DKK",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "AMD",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "ILS",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "TWD",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "count",
+        "kind": "count"
+      },
+      {
+        "name": "person",
+        "kind": "count"
+      },
+      {
+        "name": "ratio",
+        "kind": "ratio"
+      },
+      {
+        "name": "status",
+        "kind": "custom",
+        "label": "judgment"
+      }
+    ],
+    "relations": [],
+    "parameters": [
+      {
+        "id": "us:policies/decimal-dependency/rules#indexed_amounts",
+        "name": "indexed_amounts",
+        "unit": "USD",
+        "indexed_by": "bracket",
+        "source": null,
+        "source_url": null,
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "values": {
+              "-9223372036854775808": {
+                "kind": "decimal",
+                "value": "1.25"
+              },
+              "-1": {
+                "kind": "decimal",
+                "value": "2.50"
+              },
+              "0": {
+                "kind": "decimal",
+                "value": "3.75"
+              },
+              "9223372036854775807": {
+                "kind": "decimal",
+                "value": "4.25"
+              }
+            }
+          },
+          {
+            "effective_from": "2026-01-01",
+            "values": {
+              "0": {
+                "kind": "decimal",
+                "value": "5.25"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "derived": [
+      {
+        "id": "us:policies/decimal-dependency/rules#rounded_base",
+        "name": "rounded_base",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "rounding": "half_up",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "input",
+          "name": "amount"
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "input",
+              "name": "amount"
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#doubled",
+        "name": "doubled",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "mul",
+          "left": {
+            "kind": "derived",
+            "name": "rounded_base"
+          },
+          "right": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "2"
+            }
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "mul",
+              "left": {
+                "kind": "derived",
+                "name": "rounded_base"
+              },
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "decimal",
+                  "value": "2"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#rounded_half_even",
+        "name": "rounded_half_even",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "rounding": "half_even",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "input",
+          "name": "amount"
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "input",
+              "name": "amount"
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#doubled_half_even",
+        "name": "doubled_half_even",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "mul",
+          "left": {
+            "kind": "derived",
+            "name": "rounded_half_even"
+          },
+          "right": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "2"
+            }
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "mul",
+              "left": {
+                "kind": "derived",
+                "name": "rounded_half_even"
+              },
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "decimal",
+                  "value": "2"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#rounded_floor",
+        "name": "rounded_floor",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "rounding": "floor",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "input",
+          "name": "amount"
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "input",
+              "name": "amount"
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#doubled_floor",
+        "name": "doubled_floor",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "mul",
+          "left": {
+            "kind": "derived",
+            "name": "rounded_floor"
+          },
+          "right": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "2"
+            }
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "mul",
+              "left": {
+                "kind": "derived",
+                "name": "rounded_floor"
+              },
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "decimal",
+                  "value": "2"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#rounded_ceil",
+        "name": "rounded_ceil",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "rounding": "ceil",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "input",
+          "name": "amount"
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "input",
+              "name": "amount"
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#doubled_ceil",
+        "name": "doubled_ceil",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "mul",
+          "left": {
+            "kind": "derived",
+            "name": "rounded_ceil"
+          },
+          "right": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "2"
+            }
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "mul",
+              "left": {
+                "kind": "derived",
+                "name": "rounded_ceil"
+              },
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "decimal",
+                  "value": "2"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#bounded_whole_amount",
+        "name": "bounded_whole_amount",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "min",
+          "items": [
+            {
+              "kind": "max",
+              "items": [
+                {
+                  "kind": "floor",
+                  "value": {
+                    "kind": "input",
+                    "name": "amount"
+                  }
+                },
+                {
+                  "kind": "sub",
+                  "left": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0"
+                    }
+                  },
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "decimal",
+                      "value": "2"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "ceil",
+              "value": {
+                "kind": "add",
+                "items": [
+                  {
+                    "kind": "input",
+                    "name": "amount"
+                  },
+                  {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.25"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "2"
+              }
+            }
+          ]
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "min",
+              "items": [
+                {
+                  "kind": "max",
+                  "items": [
+                    {
+                      "kind": "floor",
+                      "value": {
+                        "kind": "input",
+                        "name": "amount"
+                      }
+                    },
+                    {
+                      "kind": "sub",
+                      "left": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "decimal",
+                          "value": "0"
+                        }
+                      },
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "decimal",
+                          "value": "2"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "ceil",
+                  "value": {
+                    "kind": "add",
+                    "items": [
+                      {
+                        "kind": "input",
+                        "name": "amount"
+                      },
+                      {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "decimal",
+                          "value": "0.25"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "2"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#guarded_amount",
+        "name": "guarded_amount",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "amount"
+            },
+            "op": "gte",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "1"
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "div",
+            "left": {
+              "kind": "input",
+              "name": "amount"
+            },
+            "right": {
+              "kind": "floor",
+              "value": {
+                "kind": "input",
+                "name": "amount"
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "input",
+            "name": "amount"
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "if",
+              "condition": {
+                "kind": "comparison",
+                "left": {
+                  "kind": "input",
+                  "name": "amount"
+                },
+                "op": "gte",
+                "right": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1"
+                  }
+                }
+              },
+              "then_expr": {
+                "kind": "div",
+                "left": {
+                  "kind": "input",
+                  "name": "amount"
+                },
+                "right": {
+                  "kind": "floor",
+                  "value": {
+                    "kind": "input",
+                    "name": "amount"
+                  }
+                }
+              },
+              "else_expr": {
+                "kind": "input",
+                "name": "amount"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#indexed_amount",
+        "name": "indexed_amount",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "mul",
+          "left": {
+            "kind": "parameter_lookup",
+            "parameter": "indexed_amounts",
+            "index": {
+              "kind": "div",
+              "left": {
+                "kind": "input",
+                "name": "amount"
+              },
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 1
+                }
+              }
+            }
+          },
+          "right": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "1"
+            }
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2024-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "mul",
+              "left": {
+                "kind": "parameter_lookup",
+                "parameter": "indexed_amounts",
+                "index": {
+                  "kind": "div",
+                  "left": {
+                    "kind": "input",
+                    "name": "amount"
+                  },
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "integer",
+                      "value": 1
+                    }
+                  }
+                }
+              },
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "decimal",
+                  "value": "1"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#eligible_amount",
+        "name": "eligible_amount",
+        "entity": "Person",
+        "dtype": "judgment",
+        "unit": null,
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "or",
+          "items": [
+            {
+              "kind": "comparison",
+              "left": {
+                "kind": "input",
+                "name": "amount"
+              },
+              "op": "eq",
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              }
+            },
+            {
+              "kind": "and",
+              "items": [
+                {
+                  "kind": "not",
+                  "item": {
+                    "kind": "comparison",
+                    "left": {
+                      "kind": "input",
+                      "name": "amount"
+                    },
+                    "op": "lt",
+                    "right": {
+                      "kind": "literal",
+                      "value": {
+                        "kind": "integer",
+                        "value": 1
+                      }
+                    }
+                  }
+                },
+                {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "div",
+                    "left": {
+                      "kind": "input",
+                      "name": "amount"
+                    },
+                    "right": {
+                      "kind": "floor",
+                      "value": {
+                        "kind": "input",
+                        "name": "amount"
+                      }
+                    }
+                  },
+                  "op": "gte",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "decimal",
+                      "value": "1.5"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "judgment",
+            "expr": {
+              "kind": "or",
+              "items": [
+                {
+                  "kind": "comparison",
+                  "left": {
+                    "kind": "input",
+                    "name": "amount"
+                  },
+                  "op": "eq",
+                  "right": {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "integer",
+                      "value": 0
+                    }
+                  }
+                },
+                {
+                  "kind": "and",
+                  "items": [
+                    {
+                      "kind": "not",
+                      "item": {
+                        "kind": "comparison",
+                        "left": {
+                          "kind": "input",
+                          "name": "amount"
+                        },
+                        "op": "lt",
+                        "right": {
+                          "kind": "literal",
+                          "value": {
+                            "kind": "integer",
+                            "value": 1
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "kind": "comparison",
+                      "left": {
+                        "kind": "div",
+                        "left": {
+                          "kind": "input",
+                          "name": "amount"
+                        },
+                        "right": {
+                          "kind": "floor",
+                          "value": {
+                            "kind": "input",
+                            "name": "amount"
+                          }
+                        }
+                      },
+                      "op": "gte",
+                      "right": {
+                        "kind": "literal",
+                        "value": {
+                          "kind": "decimal",
+                          "value": "1.5"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#eligible_amount_value",
+        "name": "eligible_amount_value",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "derived",
+            "name": "eligible_amount"
+          },
+          "then_expr": {
+            "kind": "add",
+            "items": [
+              {
+                "kind": "input",
+                "name": "amount"
+              },
+              {
+                "kind": "literal",
+                "value": {
+                  "kind": "decimal",
+                  "value": "1"
+                }
+              }
+            ]
+          },
+          "else_expr": {
+            "kind": "mul",
+            "left": {
+              "kind": "input",
+              "name": "amount"
+            },
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "1"
+              }
+            }
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "if",
+              "condition": {
+                "kind": "derived",
+                "name": "eligible_amount"
+              },
+              "then_expr": {
+                "kind": "add",
+                "items": [
+                  {
+                    "kind": "input",
+                    "name": "amount"
+                  },
+                  {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "decimal",
+                      "value": "1"
+                    }
+                  }
+                ]
+              },
+              "else_expr": {
+                "kind": "mul",
+                "left": {
+                  "kind": "input",
+                  "name": "amount"
+                },
+                "right": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#zero_denominator_amount",
+        "name": "zero_denominator_amount",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "div",
+          "left": {
+            "kind": "input",
+            "name": "amount"
+          },
+          "right": {
+            "kind": "floor",
+            "value": {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0.25"
+              }
+            }
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "div",
+              "left": {
+                "kind": "input",
+                "name": "amount"
+              },
+              "right": {
+                "kind": "floor",
+                "value": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0.25"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#skip_missing_version",
+        "name": "skip_missing_version",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "input",
+              "name": "amount"
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "mul",
+            "left": {
+              "kind": "input",
+              "name": "amount"
+            },
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "1"
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "derived",
+            "name": "doubled"
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2024-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "if",
+              "condition": {
+                "kind": "comparison",
+                "left": {
+                  "kind": "input",
+                  "name": "amount"
+                },
+                "op": "eq",
+                "right": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                }
+              },
+              "then_expr": {
+                "kind": "mul",
+                "left": {
+                  "kind": "input",
+                  "name": "amount"
+                },
+                "right": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1"
+                  }
+                }
+              },
+              "else_expr": {
+                "kind": "derived",
+                "name": "doubled"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:policies/decimal-dependency/rules#skip_missing_amount",
+        "name": "skip_missing_amount",
+        "entity": "Person",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": null,
+        "source_url": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "comparison",
+            "left": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            "op": "eq",
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            }
+          },
+          "then_expr": {
+            "kind": "mul",
+            "left": {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "1.25"
+              }
+            },
+            "right": {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "2"
+              }
+            }
+          },
+          "else_expr": {
+            "kind": "input",
+            "name": "amount"
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "2025-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "if",
+              "condition": {
+                "kind": "comparison",
+                "left": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 1
+                  }
+                },
+                "op": "eq",
+                "right": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 1
+                  }
+                }
+              },
+              "then_expr": {
+                "kind": "mul",
+                "left": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1.25"
+                  }
+                },
+                "right": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "2"
+                  }
+                }
+              },
+              "else_expr": {
+                "kind": "input",
+                "name": "amount"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "interface": {
+      "entities": [
+        {
+          "kind": "Person",
+          "id_template": "Person:{index}",
+          "instances": {
+            "source": "supplied"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "name": "amount",
+          "legal_id": "us:policies/decimal-dependency/rules#input.amount",
+          "entities": [
+            "Person"
+          ],
+          "dtype": null,
+          "dtype_basis": null,
+          "default": null,
+          "values": null,
+          "values_basis": null,
+          "election": null
+        }
+      ],
+      "relations": []
+    }
+  },
+  "metadata": {
+    "evaluation_order": [
+      "bounded_whole_amount",
+      "eligible_amount",
+      "eligible_amount_value",
+      "guarded_amount",
+      "indexed_amount",
+      "rounded_base",
+      "doubled",
+      "rounded_ceil",
+      "doubled_ceil",
+      "rounded_floor",
+      "doubled_floor",
+      "rounded_half_even",
+      "doubled_half_even",
+      "skip_missing_amount",
+      "skip_missing_version",
+      "zero_denominator_amount"
+    ],
+    "fast_path": {
+      "strategy": "generic_bulk",
+      "compatible": true,
+      "blockers": []
+    },
+    "input_catalog": [
+      {
+        "slot": "amount",
+        "canonical_request_name": "us:policies/decimal-dependency/rules#input.amount",
+        "request_names": [
+          "us:policies/decimal-dependency/rules#input.amount"
+        ]
+      },
+      {
+        "slot": "bracket",
+        "canonical_request_name": "us:policies/decimal-dependency/rules#input.bracket",
+        "request_names": [
+          "us:policies/decimal-dependency/rules#input.bracket"
+        ]
+      }
+    ]
+  }
+}

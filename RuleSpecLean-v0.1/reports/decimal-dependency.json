@@ -1,0 +1,709 @@
+{
+  "cases": 72,
+  "artifact_sha256": "0a967f16c09166d9ad796f2ff85aadc92fc09fab2ee76d47ec13b628c0836ffd",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "lean_generation": "automatic artifact lowering",
+  "status": "Rust/Python/Lean passed",
+  "results": [
+    {
+      "mode": "half_up",
+      "rule": "doubled",
+      "input": "1.005",
+      "as_of": "2025-01-01",
+      "output": "2.02",
+      "official_value": "2.02"
+    },
+    {
+      "mode": "half_up",
+      "rule": "doubled",
+      "input": "-1.005",
+      "as_of": "2025-01-01",
+      "output": "-2.02",
+      "official_value": "-2.02"
+    },
+    {
+      "mode": "half_up",
+      "rule": "doubled",
+      "input": "1.004",
+      "as_of": "2025-01-01",
+      "output": "2",
+      "official_value": "2"
+    },
+    {
+      "mode": "half_up",
+      "rule": "doubled",
+      "input": "1.015",
+      "as_of": "2025-01-01",
+      "output": "2.04",
+      "official_value": "2.04"
+    },
+    {
+      "mode": "half_up",
+      "rule": "doubled",
+      "input": "0.005",
+      "as_of": "2025-01-01",
+      "output": "0.02",
+      "official_value": "0.02"
+    },
+    {
+      "mode": "half_up",
+      "rule": "doubled",
+      "input": "-0.005",
+      "as_of": "2025-01-01",
+      "output": "-0.02",
+      "official_value": "-0.02"
+    },
+    {
+      "mode": "half_even",
+      "rule": "doubled_half_even",
+      "input": "1.005",
+      "as_of": "2025-01-01",
+      "output": "2",
+      "official_value": "2"
+    },
+    {
+      "mode": "half_even",
+      "rule": "doubled_half_even",
+      "input": "-1.005",
+      "as_of": "2025-01-01",
+      "output": "-2",
+      "official_value": "-2"
+    },
+    {
+      "mode": "half_even",
+      "rule": "doubled_half_even",
+      "input": "1.004",
+      "as_of": "2025-01-01",
+      "output": "2",
+      "official_value": "2"
+    },
+    {
+      "mode": "half_even",
+      "rule": "doubled_half_even",
+      "input": "1.015",
+      "as_of": "2025-01-01",
+      "output": "2.04",
+      "official_value": "2.04"
+    },
+    {
+      "mode": "half_even",
+      "rule": "doubled_half_even",
+      "input": "0.005",
+      "as_of": "2025-01-01",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "mode": "half_even",
+      "rule": "doubled_half_even",
+      "input": "-0.005",
+      "as_of": "2025-01-01",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "mode": "floor",
+      "rule": "doubled_floor",
+      "input": "1.005",
+      "as_of": "2025-01-01",
+      "output": "2",
+      "official_value": "2"
+    },
+    {
+      "mode": "floor",
+      "rule": "doubled_floor",
+      "input": "-1.005",
+      "as_of": "2025-01-01",
+      "output": "-2.02",
+      "official_value": "-2.02"
+    },
+    {
+      "mode": "floor",
+      "rule": "doubled_floor",
+      "input": "1.004",
+      "as_of": "2025-01-01",
+      "output": "2",
+      "official_value": "2"
+    },
+    {
+      "mode": "floor",
+      "rule": "doubled_floor",
+      "input": "1.015",
+      "as_of": "2025-01-01",
+      "output": "2.02",
+      "official_value": "2.02"
+    },
+    {
+      "mode": "floor",
+      "rule": "doubled_floor",
+      "input": "0.005",
+      "as_of": "2025-01-01",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "mode": "floor",
+      "rule": "doubled_floor",
+      "input": "-0.005",
+      "as_of": "2025-01-01",
+      "output": "-0.02",
+      "official_value": "-0.02"
+    },
+    {
+      "mode": "ceil",
+      "rule": "doubled_ceil",
+      "input": "1.005",
+      "as_of": "2025-01-01",
+      "output": "2.02",
+      "official_value": "2.02"
+    },
+    {
+      "mode": "ceil",
+      "rule": "doubled_ceil",
+      "input": "-1.005",
+      "as_of": "2025-01-01",
+      "output": "-2",
+      "official_value": "-2"
+    },
+    {
+      "mode": "ceil",
+      "rule": "doubled_ceil",
+      "input": "1.004",
+      "as_of": "2025-01-01",
+      "output": "2.02",
+      "official_value": "2.02"
+    },
+    {
+      "mode": "ceil",
+      "rule": "doubled_ceil",
+      "input": "1.015",
+      "as_of": "2025-01-01",
+      "output": "2.04",
+      "official_value": "2.04"
+    },
+    {
+      "mode": "ceil",
+      "rule": "doubled_ceil",
+      "input": "0.005",
+      "as_of": "2025-01-01",
+      "output": "0.02",
+      "official_value": "0.02"
+    },
+    {
+      "mode": "ceil",
+      "rule": "doubled_ceil",
+      "input": "-0.005",
+      "as_of": "2025-01-01",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "mode": null,
+      "rule": "bounded_whole_amount",
+      "input": "-3.25",
+      "as_of": "2025-01-01",
+      "output": "-3",
+      "official_value": "-3"
+    },
+    {
+      "mode": null,
+      "rule": "bounded_whole_amount",
+      "input": "-2",
+      "as_of": "2025-01-01",
+      "output": "-2",
+      "official_value": "-2"
+    },
+    {
+      "mode": null,
+      "rule": "bounded_whole_amount",
+      "input": "-1.0000000000000000000000000001",
+      "as_of": "2025-01-01",
+      "output": "-2",
+      "official_value": "-2"
+    },
+    {
+      "mode": null,
+      "rule": "bounded_whole_amount",
+      "input": "-0.25",
+      "as_of": "2025-01-01",
+      "output": "-1",
+      "official_value": "-1"
+    },
+    {
+      "mode": null,
+      "rule": "bounded_whole_amount",
+      "input": "0",
+      "as_of": "2025-01-01",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "mode": null,
+      "rule": "bounded_whole_amount",
+      "input": "1.9999999999999999999999999999",
+      "as_of": "2025-01-01",
+      "output": "1",
+      "official_value": "1"
+    },
+    {
+      "mode": null,
+      "rule": "bounded_whole_amount",
+      "input": "2.75",
+      "as_of": "2025-01-01",
+      "output": "2",
+      "official_value": "2"
+    },
+    {
+      "mode": null,
+      "rule": "guarded_amount",
+      "input": "-0.25",
+      "as_of": "2025-01-01",
+      "output": "-0.25",
+      "official_value": "-0.25"
+    },
+    {
+      "mode": null,
+      "rule": "guarded_amount",
+      "input": "0",
+      "as_of": "2025-01-01",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "mode": null,
+      "rule": "guarded_amount",
+      "input": "0.9999999999999999999999999999",
+      "as_of": "2025-01-01",
+      "output": "0.9999999999999999999999999999",
+      "official_value": "0.9999999999999999999999999999"
+    },
+    {
+      "mode": null,
+      "rule": "guarded_amount",
+      "input": "1",
+      "as_of": "2025-01-01",
+      "output": "1",
+      "official_value": "1"
+    },
+    {
+      "mode": null,
+      "rule": "guarded_amount",
+      "input": "1.00",
+      "as_of": "2025-01-01",
+      "output": "1",
+      "official_value": "1"
+    },
+    {
+      "mode": null,
+      "rule": "guarded_amount",
+      "input": "2.50",
+      "as_of": "2025-01-01",
+      "output": "1.25",
+      "official_value": "1.25"
+    },
+    {
+      "mode": null,
+      "rule": "eligible_amount_value",
+      "input": "-1",
+      "as_of": "2025-01-01",
+      "output": "-1",
+      "official_value": "-1"
+    },
+    {
+      "mode": null,
+      "rule": "eligible_amount_value",
+      "input": "0",
+      "as_of": "2025-01-01",
+      "output": "1",
+      "official_value": "1"
+    },
+    {
+      "mode": null,
+      "rule": "eligible_amount_value",
+      "input": "0.5",
+      "as_of": "2025-01-01",
+      "output": "0.5",
+      "official_value": "0.5"
+    },
+    {
+      "mode": null,
+      "rule": "eligible_amount_value",
+      "input": "1",
+      "as_of": "2025-01-01",
+      "output": "1",
+      "official_value": "1"
+    },
+    {
+      "mode": null,
+      "rule": "eligible_amount_value",
+      "input": "1.5",
+      "as_of": "2025-01-01",
+      "output": "2.5",
+      "official_value": "2.5"
+    },
+    {
+      "mode": null,
+      "rule": "eligible_amount_value",
+      "input": "2.5",
+      "as_of": "2025-01-01",
+      "output": "2.5",
+      "official_value": "2.5"
+    },
+    {
+      "mode": null,
+      "rule": "eligible_amount",
+      "input": "0",
+      "as_of": "2025-01-01",
+      "judgment": true,
+      "outcome": "holds"
+    },
+    {
+      "mode": null,
+      "rule": "eligible_amount",
+      "input": "0.5",
+      "as_of": "2025-01-01",
+      "judgment": true,
+      "outcome": "not_holds"
+    },
+    {
+      "mode": null,
+      "rule": "eligible_amount",
+      "input": "1.5",
+      "as_of": "2025-01-01",
+      "judgment": true,
+      "outcome": "holds"
+    },
+    {
+      "mode": null,
+      "rule": "eligible_amount",
+      "input": "2.5",
+      "as_of": "2025-01-01",
+      "judgment": true,
+      "outcome": "not_holds"
+    },
+    {
+      "mode": null,
+      "rule": "doubled",
+      "input": "-0.0000000000000000000000000000",
+      "as_of": "2025-01-01",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "mode": null,
+      "rule": "doubled",
+      "input": "-0.004",
+      "as_of": "2025-01-01",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "mode": null,
+      "rule": "doubled",
+      "input": "39614081257132168796771975167",
+      "as_of": "2025-01-01",
+      "output": "79228162514264337593543950334",
+      "official_value": "79228162514264337593543950334"
+    },
+    {
+      "mode": null,
+      "rule": "doubled",
+      "input": "39614081257132168796771975168",
+      "as_of": "2025-01-01",
+      "fault": "arithmeticOverflow",
+      "official_diagnostic": "arithmetic overflow: multiplication result is outside the representable decimal range"
+    },
+    {
+      "mode": null,
+      "rule": "doubled",
+      "input": "-79228162514264337593543950335",
+      "as_of": "2025-01-01",
+      "fault": "arithmeticOverflow",
+      "official_diagnostic": "arithmetic overflow: multiplication result is outside the representable decimal range"
+    },
+    {
+      "mode": null,
+      "rule": "doubled",
+      "input": "1",
+      "as_of": "2024-01-01",
+      "fault": "missingRuleVersion",
+      "official_diagnostic": "derived `doubled` has no formula version at 2024-01-01"
+    },
+    {
+      "mode": null,
+      "rule": "eligible_amount",
+      "input": "1",
+      "as_of": "2024-01-01",
+      "judgment": true,
+      "fault": "missingRuleVersion",
+      "official_diagnostic": "derived `eligible_amount` has no formula version at 2024-01-01"
+    },
+    {
+      "mode": null,
+      "rule": "skip_missing_version",
+      "input": "1",
+      "as_of": "2024-01-01",
+      "fault": "missingRuleVersion",
+      "official_diagnostic": "derived `doubled` has no formula version at 2024-01-01"
+    },
+    {
+      "mode": null,
+      "rule": "skip_missing_version",
+      "input": "0",
+      "as_of": "2024-01-01",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "mode": null,
+      "rule": "indexed_amount",
+      "input": "-9223372036854775808",
+      "as_of": "2025-01-01",
+      "output": "1.25",
+      "official_value": "1.25"
+    },
+    {
+      "mode": null,
+      "rule": "indexed_amount",
+      "input": "-1.0",
+      "as_of": "2025-01-01",
+      "output": "2.5",
+      "official_value": "2.5"
+    },
+    {
+      "mode": null,
+      "rule": "indexed_amount",
+      "input": "0.00",
+      "as_of": "2025-01-01",
+      "output": "3.75",
+      "official_value": "3.75"
+    },
+    {
+      "mode": null,
+      "rule": "indexed_amount",
+      "input": "9223372036854775807",
+      "as_of": "2025-01-01",
+      "output": "4.25",
+      "official_value": "4.25"
+    },
+    {
+      "mode": null,
+      "rule": "indexed_amount",
+      "input": "0",
+      "as_of": "2026-01-01",
+      "output": "5.25",
+      "official_value": "5.25"
+    },
+    {
+      "mode": null,
+      "rule": "indexed_amount",
+      "input": "-1.5",
+      "as_of": "2025-01-01",
+      "fault": "invalidParameterIndex",
+      "official_diagnostic": "type mismatch: parameter key for `indexed_amounts` must be an integer"
+    },
+    {
+      "mode": null,
+      "rule": "indexed_amount",
+      "input": "9223372036854775808",
+      "as_of": "2025-01-01",
+      "fault": "invalidParameterIndex",
+      "official_diagnostic": "type mismatch: parameter key for `indexed_amounts` must be an integer"
+    },
+    {
+      "mode": null,
+      "rule": "indexed_amount",
+      "input": "-9223372036854775809",
+      "as_of": "2025-01-01",
+      "fault": "invalidParameterIndex",
+      "official_diagnostic": "type mismatch: parameter key for `indexed_amounts` must be an integer"
+    },
+    {
+      "mode": null,
+      "rule": "indexed_amount",
+      "input": "0",
+      "as_of": "2024-01-01",
+      "fault": "missingParameterValue",
+      "official_diagnostic": "parameter `indexed_amounts` has no value for key `0` at 2024-01-01"
+    },
+    {
+      "mode": null,
+      "rule": "indexed_amount",
+      "input": "2",
+      "as_of": "2025-01-01",
+      "fault": "missingParameterValue",
+      "official_diagnostic": "parameter `indexed_amounts` has no value for key `2` at 2025-01-01"
+    },
+    {
+      "mode": null,
+      "rule": "indexed_amount",
+      "input": "-1",
+      "as_of": "2026-01-01",
+      "fault": "missingParameterValue",
+      "official_diagnostic": "parameter `indexed_amounts` has no value for key `-1` at 2026-01-01"
+    },
+    {
+      "mode": null,
+      "rule": "doubled",
+      "input": "1.005",
+      "as_of": "2025-01-01",
+      "covering_request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/decimal-dependency/rules#input.amount",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2023-01-01",
+                "end": "2027-01-01"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "9.005"
+              }
+            },
+            {
+              "name": "us:policies/decimal-dependency/rules#input.amount",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2026-01-01"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "1.005"
+              }
+            },
+            {
+              "name": "us:policies/decimal-dependency/rules#input.amount",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-07-01"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "8.005"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "person:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "outputs": [
+              "us:policies/decimal-dependency/rules#doubled"
+            ]
+          }
+        ]
+      },
+      "output": "2.02",
+      "official_value": "2.02"
+    },
+    {
+      "mode": null,
+      "rule": "doubled",
+      "input": "1.005",
+      "as_of": "2025-01-01",
+      "covering_request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/decimal-dependency/rules#input.amount",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-07-01"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "8.005"
+              }
+            },
+            {
+              "name": "us:policies/decimal-dependency/rules#input.amount",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2024-01-01",
+                "end": "2026-01-01"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "1.005"
+              }
+            },
+            {
+              "name": "us:policies/decimal-dependency/rules#input.amount",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2023-01-01",
+                "end": "2027-01-01"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "9.005"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "person:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2026-01-01"
+            },
+            "outputs": [
+              "us:policies/decimal-dependency/rules#doubled"
+            ]
+          }
+        ]
+      },
+      "output": "2.02",
+      "official_value": "2.02"
+    },
+    {
+      "mode": null,
+      "rule": "doubled",
+      "input": null,
+      "as_of": "2025-01-01",
+      "fault": "missingInput",
+      "official_diagnostic": "missing input `us:policies/decimal-dependency/rules#input.amount` for entity `person:1` over 2025-01-01..2026-01-01"
+    },
+    {
+      "mode": null,
+      "rule": "zero_denominator_amount",
+      "input": null,
+      "as_of": "2025-01-01",
+      "fault": "divisionByZero",
+      "official_diagnostic": "division by zero"
+    },
+    {
+      "mode": null,
+      "rule": "skip_missing_amount",
+      "input": null,
+      "as_of": "2025-01-01",
+      "output": "2.5",
+      "official_value": "2.5"
+    }
+  ]
+}

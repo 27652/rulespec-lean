@@ -1,0 +1,334 @@
+{
+  "artifact_format_version": 3,
+  "engine_version": "synthetic-fixture-not-upstream",
+  "engine_build": {
+    "commit": null,
+    "dirty": null
+  },
+  "program": {
+    "units": [],
+    "relations": [],
+    "parameters": [
+      {
+        "name": "child_amount",
+        "unit": null,
+        "versions": [
+          {
+            "effective_from": "2018-01-01",
+            "values": {
+              "0": {
+                "kind": "integer",
+                "value": 2000
+              }
+            }
+          },
+          {
+            "effective_from": "2025-01-01",
+            "values": {
+              "0": {
+                "kind": "integer",
+                "value": 2200
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "derived": [
+      {
+        "name": "joint",
+        "entity": "TaxUnit",
+        "dtype": "judgment",
+        "unit": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "comparison",
+          "op": "eq",
+          "left": {
+            "kind": "input",
+            "name": "joint_filing"
+          },
+          "right": {
+            "kind": "literal",
+            "value": {
+              "kind": "bool",
+              "value": true
+            }
+          }
+        }
+      },
+      {
+        "name": "eligible",
+        "entity": "TaxUnit",
+        "dtype": "judgment",
+        "unit": null,
+        "semantics": "judgment",
+        "expr": {
+          "kind": "and",
+          "items": [
+            {
+              "kind": "comparison",
+              "op": "eq",
+              "left": {
+                "kind": "input",
+                "name": "id_ok"
+              },
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            },
+            {
+              "kind": "comparison",
+              "op": "eq",
+              "left": {
+                "kind": "input",
+                "name": "year_ok"
+              },
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "bool",
+                  "value": true
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "threshold",
+        "entity": "TaxUnit",
+        "dtype": "decimal",
+        "unit": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "derived",
+            "name": "joint"
+          },
+          "then_expr": {
+            "kind": "literal",
+            "value": {
+              "kind": "integer",
+              "value": 400000
+            }
+          },
+          "else_expr": {
+            "kind": "literal",
+            "value": {
+              "kind": "integer",
+              "value": 200000
+            }
+          }
+        }
+      },
+      {
+        "name": "base_credit",
+        "entity": "TaxUnit",
+        "dtype": "decimal",
+        "unit": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "add",
+          "items": [
+            {
+              "kind": "mul",
+              "left": {
+                "kind": "input",
+                "name": "children"
+              },
+              "right": {
+                "kind": "parameter_lookup",
+                "parameter": "child_amount",
+                "index": {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "kind": "mul",
+              "left": {
+                "kind": "input",
+                "name": "other_dependents"
+              },
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 500
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "excess",
+        "entity": "TaxUnit",
+        "dtype": "decimal",
+        "unit": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "max",
+          "items": [
+            {
+              "kind": "literal",
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "kind": "sub",
+              "left": {
+                "kind": "input",
+                "name": "magi"
+              },
+              "right": {
+                "kind": "derived",
+                "name": "threshold"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "reduction",
+        "entity": "TaxUnit",
+        "dtype": "decimal",
+        "unit": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "mul",
+          "left": {
+            "kind": "literal",
+            "value": {
+              "kind": "integer",
+              "value": 50
+            }
+          },
+          "right": {
+            "kind": "ceil",
+            "value": {
+              "kind": "div",
+              "left": {
+                "kind": "derived",
+                "name": "excess"
+              },
+              "right": {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 1000
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "name": "credit",
+        "entity": "TaxUnit",
+        "dtype": "decimal",
+        "unit": null,
+        "semantics": "scalar",
+        "expr": {
+          "kind": "if",
+          "condition": {
+            "kind": "derived",
+            "name": "eligible"
+          },
+          "then_expr": {
+            "kind": "max",
+            "items": [
+              {
+                "kind": "literal",
+                "value": {
+                  "kind": "integer",
+                  "value": 0
+                }
+              },
+              {
+                "kind": "sub",
+                "left": {
+                  "kind": "derived",
+                  "name": "base_credit"
+                },
+                "right": {
+                  "kind": "derived",
+                  "name": "reduction"
+                }
+              }
+            ]
+          },
+          "else_expr": {
+            "kind": "literal",
+            "value": {
+              "kind": "decimal",
+              "value": "0"
+            }
+          }
+        },
+        "source": "Illustrative CTC-like model; not official legal coverage",
+        "versions": [
+          {
+            "effective_from": "2018-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "if",
+              "condition": {
+                "kind": "derived",
+                "name": "eligible"
+              },
+              "then_expr": {
+                "kind": "max",
+                "items": [
+                  {
+                    "kind": "literal",
+                    "value": {
+                      "kind": "integer",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "kind": "sub",
+                    "left": {
+                      "kind": "derived",
+                      "name": "base_credit"
+                    },
+                    "right": {
+                      "kind": "derived",
+                      "name": "reduction"
+                    }
+                  }
+                ]
+              },
+              "else_expr": {
+                "kind": "literal",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "interface": {}
+  },
+  "metadata": {
+    "evaluation_order": [],
+    "fast_path": {},
+    "input_catalog": []
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "prototype": "0.1.0",
+  "artifact_sha256": "2aa2b7b59dfaa8f6cc1f4cac0a3ffe9aceba0bd3d67c5f40e55bde5cabd08826",
+  "engine_version": "synthetic-fixture-not-upstream",
+  "engine_build": {
+    "commit": null,
+    "dirty": null
+  },
+  "source_closure": null,
+  "as_of": "2025-01-01",
+  "outputs": {
+    "credit": "output_0"
+  },
+  "rules": {
+    "eligible": {
+      "lean": "rule_0",
+      "semantics": "judgment",
+      "effective_from": null,
+      "effective_to": null,
+      "missing_version": false,
+      "source": null,
+      "source_url": null,
+      "corpus_citation_path": null,
+      "public_id": null
+    },
+    "base_credit": {
+      "lean": "rule_1",
+      "semantics": "scalar",
+      "effective_from": null,
+      "effective_to": null,
+      "missing_version": false,
+      "source": null,
+      "source_url": null,
+      "corpus_citation_path": null,
+      "public_id": null
+    },
+    "joint": {
+      "lean": "rule_2",
+      "semantics": "judgment",
+      "effective_from": null,
+      "effective_to": null,
+      "missing_version": false,
+      "source": null,
+      "source_url": null,
+      "corpus_citation_path": null,
+      "public_id": null
+    },
+    "threshold": {
+      "lean": "rule_3",
+      "semantics": "scalar",
+      "effective_from": null,
+      "effective_to": null,
+      "missing_version": false,
+      "source": null,
+      "source_url": null,
+      "corpus_citation_path": null,
+      "public_id": null
+    },
+    "excess": {
+      "lean": "rule_4",
+      "semantics": "scalar",
+      "effective_from": null,
+      "effective_to": null,
+      "missing_version": false,
+      "source": null,
+      "source_url": null,
+      "corpus_citation_path": null,
+      "public_id": null
+    },
+    "reduction": {
+      "lean": "rule_5",
+      "semantics": "scalar",
+      "effective_from": null,
+      "effective_to": null,
+      "missing_version": false,
+      "source": null,
+      "source_url": null,
+      "corpus_citation_path": null,
+      "public_id": null
+    },
+    "credit": {
+      "lean": "rule_6",
+      "semantics": "scalar",
+      "effective_from": "2018-01-01",
+      "effective_to": null,
+      "missing_version": false,
+      "source": "Illustrative CTC-like model; not official legal coverage",
+      "source_url": null,
+      "corpus_citation_path": null,
+      "public_id": null
+    }
+  },
+  "limits": "Single prebound entity/period, no pins, exact scale-6 numeric subset"
+}

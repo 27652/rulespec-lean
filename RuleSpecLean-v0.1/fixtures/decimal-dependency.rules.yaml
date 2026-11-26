@@ -1,0 +1,176 @@
+format: rulespec/v1
+units:
+  - name: USD
+    kind: currency
+    minor_units: 2
+rules:
+  - name: rounded_base
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    rounding: half_up
+    versions:
+      - effective_from: '2025-01-01'
+        formula: amount
+  - name: doubled
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    versions:
+      - effective_from: '2025-01-01'
+        formula: rounded_base * 2
+  - name: rounded_half_even
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    rounding: half_even
+    versions:
+      - effective_from: '2025-01-01'
+        formula: amount
+  - name: doubled_half_even
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    versions:
+      - effective_from: '2025-01-01'
+        formula: rounded_half_even * 2
+  - name: rounded_floor
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    rounding: floor
+    versions:
+      - effective_from: '2025-01-01'
+        formula: amount
+  - name: doubled_floor
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    versions:
+      - effective_from: '2025-01-01'
+        formula: rounded_floor * 2
+  - name: rounded_ceil
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    rounding: ceil
+    versions:
+      - effective_from: '2025-01-01'
+        formula: amount
+  - name: doubled_ceil
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    versions:
+      - effective_from: '2025-01-01'
+        formula: rounded_ceil * 2
+  - name: bounded_whole_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    versions:
+      - effective_from: '2025-01-01'
+        formula: min(max(floor(amount), -2), ceil(amount + 0.25), 2)
+  - name: guarded_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          if amount >= 1.00: amount / floor(amount)
+          else: amount
+  - name: indexed_amounts
+    kind: parameter
+    dtype: Money
+    unit: USD
+    indexed_by: bracket
+    versions:
+      - effective_from: '2025-01-01'
+        values:
+          -9223372036854775808: '1.25'
+          -1: '2.50'
+          0: '3.75'
+          9223372036854775807: '4.25'
+      - effective_from: '2026-01-01'
+        values:
+          0: '5.25'
+  - name: indexed_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    versions:
+      - effective_from: '2024-01-01'
+        formula: indexed_amounts[amount / 1] * 1
+  - name: eligible_amount
+    kind: derived
+    entity: Person
+    dtype: Judgment
+    period: Year
+    versions:
+      - effective_from: '2025-01-01'
+        formula: amount == 0 or (not (amount < 1) and amount / floor(amount) >= 1.5)
+  - name: eligible_amount_value
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          if eligible_amount: amount + 1
+          else: amount * 1
+  - name: zero_denominator_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    versions:
+      - effective_from: '2025-01-01'
+        formula: amount / floor(0.25)
+  - name: skip_missing_version
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    versions:
+      - effective_from: '2024-01-01'
+        formula: |-
+          if amount == 0: amount * 1
+          else: doubled
+  - name: skip_missing_amount
+    kind: derived
+    entity: Person
+    dtype: Money
+    period: Year
+    unit: USD
+    versions:
+      - effective_from: '2025-01-01'
+        formula: |-
+          if 1 == 1: 1.25 * 2
+          else: amount

@@ -1,0 +1,3 @@
+✔ [3/3] Built RuleSpecLean.DirectCountTests (835ms)
+Build completed successfully (3 jobs).
+Direct relation aggregation: 4 count and 5 filtered sum three-way checks passed

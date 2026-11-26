@@ -1,0 +1,548 @@
+{
+  "cases": 107,
+  "artifact_sha256": "6784d3f32785ce44286331c2bc395849c85677710d18a288918858aefa354da6",
+  "cases_sha256": "19442029d19a43d2f92c30d1146323f0e1944b4fad92da41d63865572a403478",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "comparison": "numeric value",
+  "status": "Rust/Python/Lean passed",
+  "results": [
+    {
+      "name": "income-0-0",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "name": "income-1-999",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "name": "income-2-1000",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "name": "income-3-1001",
+      "output": "1",
+      "official_value": "1"
+    },
+    {
+      "name": "income-4-2999",
+      "output": "200",
+      "official_value": "200"
+    },
+    {
+      "name": "income-5-3000",
+      "output": "400",
+      "official_value": "400"
+    },
+    {
+      "name": "income-6-3001",
+      "output": "401",
+      "official_value": "401"
+    },
+    {
+      "name": "income-7-497738",
+      "output": "99348",
+      "official_value": "99348"
+    },
+    {
+      "name": "income-8-466471",
+      "output": "93095",
+      "official_value": "93095"
+    },
+    {
+      "name": "income-9-33221",
+      "output": "6445",
+      "official_value": "6445"
+    },
+    {
+      "name": "income-10-654227",
+      "output": "130646",
+      "official_value": "130646"
+    },
+    {
+      "name": "income-11-703789",
+      "output": "140558",
+      "official_value": "140558"
+    },
+    {
+      "name": "income-12-84960",
+      "output": "16792",
+      "official_value": "16792"
+    },
+    {
+      "name": "income-13-897353",
+      "output": "179271",
+      "official_value": "179271"
+    },
+    {
+      "name": "income-14-305497",
+      "output": "60900",
+      "official_value": "60900"
+    },
+    {
+      "name": "income-15-340532",
+      "output": "67907",
+      "official_value": "67907"
+    },
+    {
+      "name": "income-16-670438",
+      "output": "133888",
+      "official_value": "133888"
+    },
+    {
+      "name": "income-17-235846",
+      "output": "46970",
+      "official_value": "46970"
+    },
+    {
+      "name": "income-18-662975",
+      "output": "132395",
+      "official_value": "132395"
+    },
+    {
+      "name": "income-19-656922",
+      "output": "131185",
+      "official_value": "131185"
+    },
+    {
+      "name": "income-20-308901",
+      "output": "61581",
+      "official_value": "61581"
+    },
+    {
+      "name": "income-21-109153",
+      "output": "21631",
+      "official_value": "21631"
+    },
+    {
+      "name": "income-22-427954",
+      "output": "85391",
+      "official_value": "85391"
+    },
+    {
+      "name": "income-23-361836",
+      "output": "72168",
+      "official_value": "72168"
+    },
+    {
+      "name": "income-24-258359",
+      "output": "51472",
+      "official_value": "51472"
+    },
+    {
+      "name": "income-25-570273",
+      "output": "113855",
+      "official_value": "113855"
+    },
+    {
+      "name": "income-26-826608",
+      "output": "165122",
+      "official_value": "165122"
+    },
+    {
+      "name": "income-27-134613",
+      "output": "26723",
+      "official_value": "26723"
+    },
+    {
+      "name": "income-28-561960",
+      "output": "112192",
+      "official_value": "112192"
+    },
+    {
+      "name": "income-29-684563",
+      "output": "136713",
+      "official_value": "136713"
+    },
+    {
+      "name": "income-30-596457",
+      "output": "119092",
+      "official_value": "119092"
+    },
+    {
+      "name": "income-31-894986",
+      "output": "178798",
+      "official_value": "178798"
+    },
+    {
+      "name": "income-32-425233",
+      "output": "84847",
+      "official_value": "84847"
+    },
+    {
+      "name": "income-33-412881",
+      "output": "82377",
+      "official_value": "82377"
+    },
+    {
+      "name": "income-34-726223",
+      "output": "145045",
+      "official_value": "145045"
+    },
+    {
+      "name": "income-35-386287",
+      "output": "77058",
+      "official_value": "77058"
+    },
+    {
+      "name": "income-36-389362",
+      "output": "77673",
+      "official_value": "77673"
+    },
+    {
+      "name": "income-37-214224",
+      "output": "42645",
+      "official_value": "42645"
+    },
+    {
+      "name": "income-38-517329",
+      "output": "103266",
+      "official_value": "103266"
+    },
+    {
+      "name": "income-39-874012",
+      "output": "174603",
+      "official_value": "174603"
+    },
+    {
+      "name": "income-40-78609",
+      "output": "15522",
+      "official_value": "15522"
+    },
+    {
+      "name": "income-41-600544",
+      "output": "119909",
+      "official_value": "119909"
+    },
+    {
+      "name": "income-42-761609",
+      "output": "152122",
+      "official_value": "152122"
+    },
+    {
+      "name": "income-43-247899",
+      "output": "49380",
+      "official_value": "49380"
+    },
+    {
+      "name": "income-44-746558",
+      "output": "149112",
+      "official_value": "149112"
+    },
+    {
+      "name": "income-45-810527",
+      "output": "161906",
+      "official_value": "161906"
+    },
+    {
+      "name": "income-46-829937",
+      "output": "165788",
+      "official_value": "165788"
+    },
+    {
+      "name": "income-47-110773",
+      "output": "21955",
+      "official_value": "21955"
+    },
+    {
+      "name": "income-48-368812",
+      "output": "73563",
+      "official_value": "73563"
+    },
+    {
+      "name": "income-49-631587",
+      "output": "126118",
+      "official_value": "126118"
+    },
+    {
+      "name": "income-50-417506",
+      "output": "83302",
+      "official_value": "83302"
+    },
+    {
+      "name": "income-51-268583",
+      "output": "53517",
+      "official_value": "53517"
+    },
+    {
+      "name": "income-52-551351",
+      "output": "110071",
+      "official_value": "110071"
+    },
+    {
+      "name": "income-53-383524",
+      "output": "76505",
+      "official_value": "76505"
+    },
+    {
+      "name": "income-54-272893",
+      "output": "54379",
+      "official_value": "54379"
+    },
+    {
+      "name": "income-55-38213",
+      "output": "7443",
+      "official_value": "7443"
+    },
+    {
+      "name": "income-56-436703",
+      "output": "87141",
+      "official_value": "87141"
+    },
+    {
+      "name": "income-57-310510",
+      "output": "61902",
+      "official_value": "61902"
+    },
+    {
+      "name": "income-58-29497",
+      "output": "5700",
+      "official_value": "5700"
+    },
+    {
+      "name": "income-59-185659",
+      "output": "36932",
+      "official_value": "36932"
+    },
+    {
+      "name": "income-60-481267",
+      "output": "96054",
+      "official_value": "96054"
+    },
+    {
+      "name": "income-61-355466",
+      "output": "70894",
+      "official_value": "70894"
+    },
+    {
+      "name": "income-62-190077",
+      "output": "37816",
+      "official_value": "37816"
+    },
+    {
+      "name": "income-63-139330",
+      "output": "27666",
+      "official_value": "27666"
+    },
+    {
+      "name": "income-64-142048",
+      "output": "28210",
+      "official_value": "28210"
+    },
+    {
+      "name": "income-65-221754",
+      "output": "44151",
+      "official_value": "44151"
+    },
+    {
+      "name": "income-66-983176",
+      "output": "196436",
+      "official_value": "196436"
+    },
+    {
+      "name": "income-67-652866",
+      "output": "130374",
+      "official_value": "130374"
+    },
+    {
+      "name": "income-68-358407",
+      "output": "71482",
+      "official_value": "71482"
+    },
+    {
+      "name": "income-69-831027",
+      "output": "166006",
+      "official_value": "166006"
+    },
+    {
+      "name": "income-70-931286",
+      "output": "186058",
+      "official_value": "186058"
+    },
+    {
+      "name": "income-71-865877",
+      "output": "172976",
+      "official_value": "172976"
+    },
+    {
+      "name": "income-72-817939",
+      "output": "163388",
+      "official_value": "163388"
+    },
+    {
+      "name": "income-73-486949",
+      "output": "97190",
+      "official_value": "97190"
+    },
+    {
+      "name": "income-74-650680",
+      "output": "129936",
+      "official_value": "129936"
+    },
+    {
+      "name": "income-75-810032",
+      "output": "161807",
+      "official_value": "161807"
+    },
+    {
+      "name": "income-76-354614",
+      "output": "70723",
+      "official_value": "70723"
+    },
+    {
+      "name": "income-77-422325",
+      "output": "84265",
+      "official_value": "84265"
+    },
+    {
+      "name": "income-78-634662",
+      "output": "126733",
+      "official_value": "126733"
+    },
+    {
+      "name": "income-79-788725",
+      "output": "157545",
+      "official_value": "157545"
+    },
+    {
+      "name": "income-80-601381",
+      "output": "120077",
+      "official_value": "120077"
+    },
+    {
+      "name": "income-81-820162",
+      "output": "163833",
+      "official_value": "163833"
+    },
+    {
+      "name": "income-82-474693",
+      "output": "94739",
+      "official_value": "94739"
+    },
+    {
+      "name": "income-83-451377",
+      "output": "90076",
+      "official_value": "90076"
+    },
+    {
+      "name": "income-84-97552",
+      "output": "19311",
+      "official_value": "19311"
+    },
+    {
+      "name": "income-85-873758",
+      "output": "174552",
+      "official_value": "174552"
+    },
+    {
+      "name": "income-86-458692",
+      "output": "91539",
+      "official_value": "91539"
+    },
+    {
+      "name": "income-87-743440",
+      "output": "148488",
+      "official_value": "148488"
+    },
+    {
+      "name": "income-88-551714",
+      "output": "110143",
+      "official_value": "110143"
+    },
+    {
+      "name": "income-89-604",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "name": "income-90-518272",
+      "output": "103455",
+      "official_value": "103455"
+    },
+    {
+      "name": "income-91-142639",
+      "output": "28328",
+      "official_value": "28328"
+    },
+    {
+      "name": "income-92-622967",
+      "output": "124394",
+      "official_value": "124394"
+    },
+    {
+      "name": "income-93-677322",
+      "output": "135265",
+      "official_value": "135265"
+    },
+    {
+      "name": "income-94-630513",
+      "output": "125903",
+      "official_value": "125903"
+    },
+    {
+      "name": "income-95-42047",
+      "output": "8210",
+      "official_value": "8210"
+    },
+    {
+      "name": "income-96-558323",
+      "output": "111465",
+      "official_value": "111465"
+    },
+    {
+      "name": "income-97-210841",
+      "output": "41969",
+      "official_value": "41969"
+    },
+    {
+      "name": "income-98-568754",
+      "output": "113551",
+      "official_value": "113551"
+    },
+    {
+      "name": "income-99-918788",
+      "output": "183558",
+      "official_value": "183558"
+    },
+    {
+      "name": "income-100-583454",
+      "output": "116491",
+      "official_value": "116491"
+    },
+    {
+      "name": "income-101-87976",
+      "output": "17396",
+      "official_value": "17396"
+    },
+    {
+      "name": "income-102-440442",
+      "output": "87889",
+      "official_value": "87889"
+    },
+    {
+      "name": "income-103-673037",
+      "output": "134408",
+      "official_value": "134408"
+    },
+    {
+      "name": "income-104-805110",
+      "output": "160822",
+      "official_value": "160822"
+    },
+    {
+      "name": "income-105-292404",
+      "output": "58281",
+      "official_value": "58281"
+    },
+    {
+      "name": "income-106-732989",
+      "output": "146398",
+      "official_value": "146398"
+    }
+  ]
+}

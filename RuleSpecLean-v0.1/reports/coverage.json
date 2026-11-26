@@ -1,0 +1,88 @@
+{
+  "as_of": "2025-01-01",
+  "errors": 0,
+  "meaning": "Static lowering only, not Lean compilation or legal coverage",
+  "lowered": 13,
+  "blocked": 0,
+  "blockers": {},
+  "results": [
+    {
+      "file": "fixtures/ctc-like.artifact.json",
+      "rule": "joint",
+      "status": "lowered",
+      "closure_rules": 1
+    },
+    {
+      "file": "fixtures/ctc-like.artifact.json",
+      "rule": "eligible",
+      "status": "lowered",
+      "closure_rules": 1
+    },
+    {
+      "file": "fixtures/ctc-like.artifact.json",
+      "rule": "threshold",
+      "status": "lowered",
+      "closure_rules": 2
+    },
+    {
+      "file": "fixtures/ctc-like.artifact.json",
+      "rule": "base_credit",
+      "status": "lowered",
+      "closure_rules": 1
+    },
+    {
+      "file": "fixtures/ctc-like.artifact.json",
+      "rule": "excess",
+      "status": "lowered",
+      "closure_rules": 3
+    },
+    {
+      "file": "fixtures/ctc-like.artifact.json",
+      "rule": "reduction",
+      "status": "lowered",
+      "closure_rules": 4
+    },
+    {
+      "file": "fixtures/ctc-like.artifact.json",
+      "rule": "credit",
+      "status": "lowered",
+      "closure_rules": 7
+    },
+    {
+      "file": "fixtures/upstream-flat-tax.artifact.json",
+      "rule": "gross_income",
+      "status": "lowered",
+      "closure_rules": 1
+    },
+    {
+      "file": "fixtures/upstream-flat-tax.artifact.json",
+      "rule": "taxable_income",
+      "status": "lowered",
+      "closure_rules": 2
+    },
+    {
+      "file": "fixtures/upstream-flat-tax.artifact.json",
+      "rule": "high_income",
+      "status": "lowered",
+      "closure_rules": 2
+    },
+    {
+      "file": "fixtures/upstream-flat-tax.artifact.json",
+      "rule": "tax_rate",
+      "status": "lowered",
+      "closure_rules": 3
+    },
+    {
+      "file": "fixtures/upstream-flat-tax.artifact.json",
+      "rule": "income_tax",
+      "status": "lowered",
+      "closure_rules": 5
+    },
+    {
+      "file": "fixtures/upstream-flat-tax.artifact.json",
+      "rule": "net_income",
+      "status": "lowered",
+      "closure_rules": 6
+    }
+  ]
+}

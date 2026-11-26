@@ -1,0 +1,174 @@
+{
+  "source": "us/statutes/26/1211.yaml",
+  "source_sha256": "b62892cdcd3177e8a457fa6bf76903722648ff18a1a53032ac189bdb87cea3ce",
+  "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+  "source_closure": {
+    "root": "us:statutes/26/1211",
+    "modules": [
+      {
+        "target": "us:statutes/26/1211",
+        "sha256": "b62892cdcd3177e8a457fa6bf76903722648ff18a1a53032ac189bdb87cea3ce"
+      }
+    ],
+    "digest": "sha256:aa2c958f9952847853d28873cfe0fbb1f057e42e9f91c2dab83cdbbdc07fb601"
+  },
+  "artifact_sha256": "e7df00b34b0a29494bca3ce884a751719c5ca707a7dbb79c02279f9a601a61a9",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "scope": "26 USC §1211(b)(1) filing-status match, including unmatched and missing subjects",
+  "status": "Rust/Python/Lean passed",
+  "cases": 4,
+  "results": [
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/1211#input.filing_status",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-12-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/1211#other_taxpayer_capital_loss_limit_by_filing_status"
+            ]
+          }
+        ]
+      },
+      "expected": "3000",
+      "output": "3000",
+      "official_value": 3000
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/1211#input.filing_status",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-12-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 2
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/1211#other_taxpayer_capital_loss_limit_by_filing_status"
+            ]
+          }
+        ]
+      },
+      "expected": "1500",
+      "output": "1500",
+      "official_value": 1500
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/1211#input.filing_status",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-12-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 9
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/1211#other_taxpayer_capital_loss_limit_by_filing_status"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "fault": "noMatchingArm",
+        "diagnostic": "no `match` arm in `us:statutes/26/1211#other_taxpayer_capital_loss_limit_by_filing_status` covers `filing_status` = 9 (arms: 2, 0, 1, 3, 4); add an arm for it or a final `_ =>` arm"
+      },
+      "fault": "noMatchingArm",
+      "official_diagnostic": "no `match` arm in `us:statutes/26/1211#other_taxpayer_capital_loss_limit_by_filing_status` covers `filing_status` = 9 (arms: 2, 0, 1, 3, 4); add an arm for it or a final `_ =>` arm"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": []
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/1211#other_taxpayer_capital_loss_limit_by_filing_status"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "fault": "missingInput",
+        "diagnostic": "missing input `us:statutes/26/1211#input.filing_status` for entity `entity:1` over 2026-01-01..2026-12-31"
+      },
+      "fault": "missingInput",
+      "official_diagnostic": "missing input `us:statutes/26/1211#input.filing_status` for entity `entity:1` over 2026-01-01..2026-12-31"
+    }
+  ],
+  "scale6_cases": 4
+}

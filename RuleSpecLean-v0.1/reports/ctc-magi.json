@@ -1,0 +1,419 @@
+{
+  "source": "us/statutes/26/24.yaml",
+  "source_sha256": "77b2f1231813f3321fae607588eaa840f103243067725aa08a4517d91d7d87a2",
+  "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+  "source_closure": {
+    "root": "us:statutes/26/24",
+    "modules": [
+      {
+        "target": "us:statutes/26/24",
+        "sha256": "77b2f1231813f3321fae607588eaa840f103243067725aa08a4517d91d7d87a2"
+      },
+      {
+        "target": "us:statutes/26/24/h",
+        "sha256": "80d253ad020aaf460588e169963b2d126ea532359124436c2905c343b7dbc103"
+      }
+    ],
+    "digest": "sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4"
+  },
+  "artifact_sha256": "c1545739cb332631b4105f720d6da4182220bdfff6694c240994f14f7b87f1b3",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "scope": "26 USC §24(b)(1) MAGI output only",
+  "status": "Rust/Python/Lean passed",
+  "cases": 5,
+  "results": [
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24#input.adjusted_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "401000"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_foreign_earned_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_possession_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_puerto_rico_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2018-01-01",
+              "end": "2018-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24#ctc_modified_adjusted_gross_income"
+            ]
+          }
+        ]
+      },
+      "expected": "401000",
+      "output": "401000",
+      "official_value": "401000"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24#input.adjusted_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_foreign_earned_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_possession_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_puerto_rico_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2018-01-01",
+                "end": "2018-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2018-01-01",
+              "end": "2018-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24#ctc_modified_adjusted_gross_income"
+            ]
+          }
+        ]
+      },
+      "expected": "0",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24#input.adjusted_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "100.10"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_foreign_earned_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0.02"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_possession_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0.30"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_puerto_rico_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "4.05"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24#ctc_modified_adjusted_gross_income"
+            ]
+          }
+        ]
+      },
+      "expected": "104.47",
+      "output": "104.47",
+      "official_value": "104.47"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24#input.adjusted_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "-10.50"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_foreign_earned_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "1"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_possession_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "2"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_puerto_rico_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "8.25"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24#ctc_modified_adjusted_gross_income"
+            ]
+          }
+        ]
+      },
+      "expected": "0.75",
+      "output": "0.75",
+      "official_value": "0.75"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24#input.adjusted_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "400000"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_foreign_earned_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "100"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_possession_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "200"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_puerto_rico_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "700"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24#ctc_modified_adjusted_gross_income"
+            ]
+          }
+        ]
+      },
+      "expected": "401000",
+      "output": "401000",
+      "official_value": "401000"
+    }
+  ]
+}

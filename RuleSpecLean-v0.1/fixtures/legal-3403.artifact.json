@@ -1,0 +1,263 @@
+{
+  "artifact_format_version": 3,
+  "engine_version": "0.3.0",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "source_closure": {
+    "root": "us:statutes/26/3403",
+    "modules": [
+      {
+        "target": "us:statutes/26/3403",
+        "sha256": "8c8164eb226ffa31e3b381d0513429823d8507fd9b230fbd8c0f200028054382"
+      }
+    ],
+    "digest": "sha256:f645e87170ed3209649f58a5bc91491e36a2a237a4aaf7c8d4e07aa50caeb3a1"
+  },
+  "program": {
+    "module": {
+      "summary": "The employer shall be liable for the payment of the tax required to be deducted and withheld under this chapter, and shall not be liable to any person for the amount of any such payment.",
+      "source_verification": {
+        "corpus_citation_path": "us/statute/26/3403"
+      }
+    },
+    "units": [
+      {
+        "name": "GBP",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "USD",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "EUR",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "CHF",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "NOK",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "GHS",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "GHp",
+        "kind": "currency",
+        "minor_units": 0
+      },
+      {
+        "name": "NGN",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "UGX",
+        "kind": "currency",
+        "minor_units": 0
+      },
+      {
+        "name": "ZMW",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "ETB",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "RWF",
+        "kind": "currency",
+        "minor_units": 0
+      },
+      {
+        "name": "TZS",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "DKK",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "AMD",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "ILS",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "TWD",
+        "kind": "currency",
+        "minor_units": 2
+      },
+      {
+        "name": "count",
+        "kind": "count"
+      },
+      {
+        "name": "person",
+        "kind": "count"
+      },
+      {
+        "name": "ratio",
+        "kind": "ratio"
+      },
+      {
+        "name": "status",
+        "kind": "custom",
+        "label": "judgment"
+      }
+    ],
+    "relations": [],
+    "parameters": [],
+    "derived": [
+      {
+        "id": "us:statutes/26/3403#employer_liability_for_chapter_withholding_tax_payment",
+        "name": "employer_liability_for_chapter_withholding_tax_payment",
+        "entity": "Employer",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": "26 USC 3403",
+        "source_url": null,
+        "corpus_citation_path": "us/statute/26/3403",
+        "semantics": "scalar",
+        "expr": {
+          "kind": "max",
+          "items": [
+            {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "kind": "input",
+              "name": "tax_required_to_be_deducted_and_withheld_under_this_chapter"
+            }
+          ]
+        },
+        "versions": [
+          {
+            "effective_from": "1990-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "max",
+              "items": [
+                {
+                  "kind": "literal",
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "kind": "input",
+                  "name": "tax_required_to_be_deducted_and_withheld_under_this_chapter"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "us:statutes/26/3403#employer_liability_to_any_person_for_chapter_withholding_tax_payment",
+        "name": "employer_liability_to_any_person_for_chapter_withholding_tax_payment",
+        "entity": "Employer",
+        "dtype": "decimal",
+        "unit": "USD",
+        "period": "Year",
+        "source": "26 USC 3403",
+        "source_url": null,
+        "corpus_citation_path": "us/statute/26/3403",
+        "semantics": "scalar",
+        "expr": {
+          "kind": "literal",
+          "value": {
+            "kind": "decimal",
+            "value": "0"
+          }
+        },
+        "versions": [
+          {
+            "effective_from": "1990-01-01",
+            "semantics": "scalar",
+            "expr": {
+              "kind": "literal",
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "interface": {
+      "entities": [
+        {
+          "kind": "Employer",
+          "id_template": "Employer:{index}",
+          "instances": {
+            "source": "supplied"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "name": "tax_required_to_be_deducted_and_withheld_under_this_chapter",
+          "legal_id": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+          "entities": [
+            "Employer"
+          ],
+          "dtype": "decimal",
+          "dtype_basis": "usage",
+          "default": null,
+          "values": null,
+          "values_basis": null,
+          "election": null
+        }
+      ],
+      "relations": []
+    }
+  },
+  "metadata": {
+    "evaluation_order": [
+      "employer_liability_for_chapter_withholding_tax_payment",
+      "employer_liability_to_any_person_for_chapter_withholding_tax_payment"
+    ],
+    "fast_path": {
+      "strategy": "generic_bulk",
+      "compatible": true,
+      "blockers": []
+    },
+    "input_catalog": [
+      {
+        "slot": "tax_required_to_be_deducted_and_withheld_under_this_chapter",
+        "canonical_request_name": "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter",
+        "request_names": [
+          "us:statutes/26/3403#input.tax_required_to_be_deducted_and_withheld_under_this_chapter"
+        ]
+      }
+    ]
+  }
+}

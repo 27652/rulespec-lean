@@ -1,0 +1,559 @@
+compiled_program: /mnt/data_server/llm_course/zzfs_202615/test/law/rulespec-lean/RuleSpecLean-v0.1/fixtures/upstream-flat-tax.artifact.json
+artifact_format_version: 3
+derived_outputs: 6
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: gross_income, high_income, tax_rate, taxable_income, income_tax, net_income
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 1
+interface_relations: 0
+source_closure_digest: sha256:9240e41546d21d5513e7d0b8407ff9e202d69bb083055a568a91071ffc3fae8f
+source_closure_modules: 1
+Prepared 107 cases; run tools.check_reference next
+compiled_program: /mnt/data_server/llm_course/zzfs_202615/test/law/rulespec-lean/RuleSpecLean-v0.1/fixtures/legal-3403.artifact.json
+artifact_format_version: 3
+derived_outputs: 2
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: employer_liability_for_chapter_withholding_tax_payment, employer_liability_to_any_person_for_chapter_withholding_tax_payment
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 1
+interface_relations: 0
+source_closure_digest: sha256:f645e87170ed3209649f58a5bc91491e36a2a237a4aaf7c8d4e07aa50caeb3a1
+source_closure_modules: 1
+compiled_program: /mnt/data_server/llm_course/zzfs_202615/test/law/rulespec-lean/RuleSpecLean-v0.1/fixtures/faults.artifact.json
+artifact_format_version: 3
+derived_outputs: 7
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: gross_income, high_income, quotient, tax_rate, taxable_income, income_tax, net_income
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 3
+interface_relations: 0
+source_closure_digest: sha256:8dfbd25658b60b20e7df843b95e11e7680f3eb8b4f9b2b925e44d11b5e63a14b
+source_closure_modules: 1
+compiled_program: /mnt/data_server/llm_course/zzfs_202615/test/law/rulespec-lean/RuleSpecLean-v0.1/fixtures/decimal-dependency.artifact.json
+artifact_format_version: 3
+derived_outputs: 16
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: bounded_whole_amount, eligible_amount, eligible_amount_value, guarded_amount, indexed_amount, rounded_base, doubled, rounded_ceil, doubled_ceil, rounded_floor, doubled_floor, rounded_half_even, doubled_half_even, skip_missing_amount, skip_missing_version, zero_denominator_amount
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 1
+interface_relations: 0
+source_closure_digest: sha256:fcf36b0083358c1c4d04850866d4c60214081bc2692b1bf5fa44fc3f9eb8c6c1
+source_closure_modules: 1
+compiled_program: /mnt/data_server/llm_course/zzfs_202615/test/law/rulespec-lean/RuleSpecLean-v0.1/fixtures/selected-year.artifact.json
+artifact_format_version: 3
+derived_outputs: 1
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: prior_income
+fast_path_blockers: prior_income: selected-year input requires Explain | prior_income: selected-year input requires Explain
+fast_path_compatible: false
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 1
+interface_relations: 0
+source_closure_digest: sha256:88474036afd38346c44a96fab2c3b6195d7e334cf7da60c82104bfc45ebc24a8
+source_closure_modules: 1
+Rust/Python: 107 matched; Lean: passed: lake build RuleSpecLean.ReferenceTests
+Build completed successfully (3 jobs).
+Fault comparisons: 4; Lean: passed: lake build RuleSpecLean.FaultTests
+Rust/Python: 105 matched; Lean: passed: lake build RuleSpecLean.Legal3403Tests
+✔ [3/3] Built RuleSpecLean.DecimalTests (17s)
+Build completed successfully (3 jobs).
+
+Decimal rounding: 3520 three-way checks passed
+✔ [3/3] Built RuleSpecLean.ArithmeticTests (6.2s)
+Build completed successfully (3 jobs).
+Arithmetic coefficients/scales/faults: 852 three-way checks passed
+Extended arithmetic: 17200 Rust/Python coefficient/scale and fault checks passed
+Build completed successfully (3 jobs).
+Decimal rules: 67 three-way checks passed (24 rounded dependencies, 7 numeric built-ins, 12 conditionals, 11 parameter lookups, 4 judgments, 2 covering-spell bindings, 3 missing-input cases, 4 version cases)
+✔ [3/3] Built RuleSpecLean.DecimalFlatTaxTests (4.5s)
+Build completed successfully (3 jobs).
+Decimal flat tax: 107 three-way checks passed
+✔ [3/3] Built RuleSpecLean.SelectedYearTests (766ms)
+Build completed successfully (3 jobs).
+Selected-year input: 5 three-way checks passed
+compiled_program: /tmp/rulespec-ctc-6c3cupdt/ctc.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+Build completed successfully (3 jobs).
+CTC MAGI: 5 three-way checks passed
+✔ [3/3] Built RuleSpecLean.DecimalDependencyTests (2.1s)
+Build completed successfully (3 jobs).
+Decimal rules: 72 three-way checks passed (24 rounded dependencies, 7 numeric built-ins, 12 conditionals, 11 parameter lookups, 4 judgments, 2 covering-spell bindings, 3 missing-input cases, 4 version cases, 5 numeric boundary cases)
+compiled_program: /tmp/rulespec-ctc-2v7nagp0/ctc.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+Build completed successfully (3 jobs).
+CTC MAGI: 5 three-way checks passed
+compiled_program: /tmp/opencode/rulespec-legal-vjo71lgb/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.CTCMagiTests (801ms)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-vfx9izgp/legal.json
+artifact_format_version: 3
+derived_outputs: 3
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: amount_excluded_from_gross_income_by_reason_of_section_112, earned_income_before_section_112_election, earned_income
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 21
+interface_relations: 0
+source_closure_digest: sha256:0b913e7fc9d624ba9936ece8d6a95f2f618443bd6f2bbab4abd55f20c9b895a7
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.EITCEarnedIncomeTests (778ms)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-s91imd02/legal.json
+artifact_format_version: 3
+derived_outputs: 9
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: snap_gross_income_limit_130_percent_fpl_48_states_dc, snap_gross_income_limit_130_percent_fpl_alaska, snap_gross_income_limit_130_percent_fpl_hawaii, snap_gross_income_limit_165_percent_fpl_48_states_dc, snap_gross_income_limit_165_percent_fpl_alaska, snap_gross_income_limit_165_percent_fpl_hawaii, snap_net_income_limit_100_percent_fpl_48_states_dc, snap_net_income_limit_100_percent_fpl_alaska, snap_net_income_limit_100_percent_fpl_hawaii
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 1
+interface_relations: 0
+source_closure_digest: sha256:2a88035be7914f18ad901ca99f26217a411493230eec2b78975c7b74dcbf8c6c
+source_closure_modules: 1
+✔ [3/3] Built RuleSpecLean.SNAPNetIncomeLimitTests (943ms)
+Build completed successfully (3 jobs).
+ctc-magi: 5 three-way checks passed
+eitc-earned-income: 3 three-way checks passed
+snap-net-income-limit: 5 three-way checks passed
+✔ [3/3] Built RuleSpecLean.InputDefaultTests (751ms)
+Build completed successfully (3 jobs).
+Input defaults: 3 three-way checks passed
+Build completed successfully (3 jobs).
+Decimal rules: 72 three-way checks passed (24 rounded dependencies, 7 numeric built-ins, 12 conditionals, 11 parameter lookups, 4 judgments, 2 covering-spell bindings, 3 missing-input cases, 4 version cases, 5 numeric boundary cases)
+Build completed successfully (3 jobs).
+Decimal flat tax: 107 three-way checks passed
+Build completed successfully (3 jobs).
+Selected-year input: 5 three-way checks passed
+✔ [3/3] Built RuleSpecLean.DirectCountTests (769ms)
+Build completed successfully (3 jobs).
+Direct relation counts: 4 three-way checks passed
+compiled_program: /tmp/opencode/rulespec-legal-1xqf6jre/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+✔ [2/3] Built RuleSpecLean.Decimal (2.1s)
+✔ [3/3] Built RuleSpecLean.CTCMagiTests (799ms)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-ptu774f5/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.CTCPhaseoutTests (1.0s)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-upyti2qx/legal.json
+artifact_format_version: 3
+derived_outputs: 3
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: amount_excluded_from_gross_income_by_reason_of_section_112, earned_income_before_section_112_election, earned_income
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 21
+interface_relations: 0
+source_closure_digest: sha256:0b913e7fc9d624ba9936ece8d6a95f2f618443bd6f2bbab4abd55f20c9b895a7
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.EITCEarnedIncomeTests (755ms)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-e_og4psd/legal.json
+artifact_format_version: 3
+derived_outputs: 9
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: snap_gross_income_limit_130_percent_fpl_48_states_dc, snap_gross_income_limit_130_percent_fpl_alaska, snap_gross_income_limit_130_percent_fpl_hawaii, snap_gross_income_limit_165_percent_fpl_48_states_dc, snap_gross_income_limit_165_percent_fpl_alaska, snap_gross_income_limit_165_percent_fpl_hawaii, snap_net_income_limit_100_percent_fpl_48_states_dc, snap_net_income_limit_100_percent_fpl_alaska, snap_net_income_limit_100_percent_fpl_hawaii
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 1
+interface_relations: 0
+source_closure_digest: sha256:2a88035be7914f18ad901ca99f26217a411493230eec2b78975c7b74dcbf8c6c
+source_closure_modules: 1
+✔ [3/3] Built RuleSpecLean.SNAPNetIncomeLimitTests (905ms)
+Build completed successfully (3 jobs).
+ctc-magi: 5 three-way checks passed
+ctc-phaseout: 7 three-way checks passed
+eitc-earned-income: 3 three-way checks passed
+snap-net-income-limit: 5 three-way checks passed
+compiled_program: /tmp/opencode/rulespec-legal-l_iahutr/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.CTCMagiTests (836ms)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-zehxjwb_/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.CTCPhaseoutTests (1.1s)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-uk6w18m3/legal.json
+artifact_format_version: 3
+derived_outputs: 3
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: amount_excluded_from_gross_income_by_reason_of_section_112, earned_income_before_section_112_election, earned_income
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 21
+interface_relations: 0
+source_closure_digest: sha256:0b913e7fc9d624ba9936ece8d6a95f2f618443bd6f2bbab4abd55f20c9b895a7
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.EITCEarnedIncomeTests (788ms)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-fovlggsi/legal.json
+artifact_format_version: 3
+derived_outputs: 9
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: snap_gross_income_limit_130_percent_fpl_48_states_dc, snap_gross_income_limit_130_percent_fpl_alaska, snap_gross_income_limit_130_percent_fpl_hawaii, snap_gross_income_limit_165_percent_fpl_48_states_dc, snap_gross_income_limit_165_percent_fpl_alaska, snap_gross_income_limit_165_percent_fpl_hawaii, snap_net_income_limit_100_percent_fpl_48_states_dc, snap_net_income_limit_100_percent_fpl_alaska, snap_net_income_limit_100_percent_fpl_hawaii
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 1
+interface_relations: 0
+source_closure_digest: sha256:2a88035be7914f18ad901ca99f26217a411493230eec2b78975c7b74dcbf8c6c
+source_closure_modules: 1
+✔ [3/3] Built RuleSpecLean.SNAPNetIncomeLimitTests (963ms)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-rd4t_ufl/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.CTCAfterAdvanceTests (1.3s)
+Build completed successfully (3 jobs).
+ctc-magi: 5 three-way checks passed
+ctc-phaseout: 7 three-way checks passed
+eitc-earned-income: 3 three-way checks passed
+snap-net-income-limit: 5 three-way checks passed
+ctc-after-advance: 5 three-way checks passed
+compiled_program: /tmp/opencode/rulespec-legal-3u7t_nb0/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-7343a5yw/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-oiyshsqp/legal.json
+artifact_format_version: 3
+derived_outputs: 3
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: amount_excluded_from_gross_income_by_reason_of_section_112, earned_income_before_section_112_election, earned_income
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 21
+interface_relations: 0
+source_closure_digest: sha256:0b913e7fc9d624ba9936ece8d6a95f2f618443bd6f2bbab4abd55f20c9b895a7
+source_closure_modules: 2
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-qlcwf9fx/legal.json
+artifact_format_version: 3
+derived_outputs: 9
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: snap_gross_income_limit_130_percent_fpl_48_states_dc, snap_gross_income_limit_130_percent_fpl_alaska, snap_gross_income_limit_130_percent_fpl_hawaii, snap_gross_income_limit_165_percent_fpl_48_states_dc, snap_gross_income_limit_165_percent_fpl_alaska, snap_gross_income_limit_165_percent_fpl_hawaii, snap_net_income_limit_100_percent_fpl_48_states_dc, snap_net_income_limit_100_percent_fpl_alaska, snap_net_income_limit_100_percent_fpl_hawaii
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 1
+interface_relations: 0
+source_closure_digest: sha256:2a88035be7914f18ad901ca99f26217a411493230eec2b78975c7b74dcbf8c6c
+source_closure_modules: 1
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-juwrn3_p/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.CTCAfterAdvanceTests (1.5s)
+Build completed successfully (3 jobs).
+ctc-magi: 5 three-way checks passed
+ctc-phaseout: 7 three-way checks passed
+eitc-earned-income: 3 three-way checks passed
+snap-net-income-limit: 5 three-way checks passed
+ctc-after-advance: 7 three-way checks passed
+compiled_program: /tmp/opencode/rulespec-legal-1f_pg7h6/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-okr0a_o0/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-0x5mw4gk/legal.json
+artifact_format_version: 3
+derived_outputs: 3
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: amount_excluded_from_gross_income_by_reason_of_section_112, earned_income_before_section_112_election, earned_income
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 21
+interface_relations: 0
+source_closure_digest: sha256:0b913e7fc9d624ba9936ece8d6a95f2f618443bd6f2bbab4abd55f20c9b895a7
+source_closure_modules: 2
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-lk0p3_64/legal.json
+artifact_format_version: 3
+derived_outputs: 9
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: snap_gross_income_limit_130_percent_fpl_48_states_dc, snap_gross_income_limit_130_percent_fpl_alaska, snap_gross_income_limit_130_percent_fpl_hawaii, snap_gross_income_limit_165_percent_fpl_48_states_dc, snap_gross_income_limit_165_percent_fpl_alaska, snap_gross_income_limit_165_percent_fpl_hawaii, snap_net_income_limit_100_percent_fpl_48_states_dc, snap_net_income_limit_100_percent_fpl_alaska, snap_net_income_limit_100_percent_fpl_hawaii
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 1
+interface_relations: 0
+source_closure_digest: sha256:2a88035be7914f18ad901ca99f26217a411493230eec2b78975c7b74dcbf8c6c
+source_closure_modules: 1
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-0w2z1cid/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+Build completed successfully (3 jobs).
+ctc-magi: 5 three-way checks passed
+ctc-phaseout: 7 three-way checks passed
+eitc-earned-income: 3 three-way checks passed
+snap-net-income-limit: 5 three-way checks passed
+ctc-after-advance: 7 three-way checks passed
+✔ [3/3] Built RuleSpecLean.DirectCountTests (811ms)
+Build completed successfully (3 jobs).
+Direct relation aggregation: 4 count and 3 filtered sum three-way checks passed
+compiled_program: /tmp/opencode/rulespec-legal-ttoijte9/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.CTCMagiTests (846ms)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-zls1kp12/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.CTCPhaseoutTests (1.1s)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-7vphqba8/legal.json
+artifact_format_version: 3
+derived_outputs: 3
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: amount_excluded_from_gross_income_by_reason_of_section_112, earned_income_before_section_112_election, earned_income
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 21
+interface_relations: 0
+source_closure_digest: sha256:0b913e7fc9d624ba9936ece8d6a95f2f618443bd6f2bbab4abd55f20c9b895a7
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.EITCEarnedIncomeTests (783ms)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-dxsfyran/legal.json
+artifact_format_version: 3
+derived_outputs: 9
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: snap_gross_income_limit_130_percent_fpl_48_states_dc, snap_gross_income_limit_130_percent_fpl_alaska, snap_gross_income_limit_130_percent_fpl_hawaii, snap_gross_income_limit_165_percent_fpl_48_states_dc, snap_gross_income_limit_165_percent_fpl_alaska, snap_gross_income_limit_165_percent_fpl_hawaii, snap_net_income_limit_100_percent_fpl_48_states_dc, snap_net_income_limit_100_percent_fpl_alaska, snap_net_income_limit_100_percent_fpl_hawaii
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 1
+interface_inputs: 1
+interface_relations: 0
+source_closure_digest: sha256:2a88035be7914f18ad901ca99f26217a411493230eec2b78975c7b74dcbf8c6c
+source_closure_modules: 1
+✔ [3/3] Built RuleSpecLean.SNAPNetIncomeLimitTests (919ms)
+Build completed successfully (3 jobs).
+compiled_program: /tmp/opencode/rulespec-legal-s1o8mno6/legal.json
+artifact_format_version: 3
+derived_outputs: 22
+engine_build: a4322e4
+engine_version: 0.3.0
+evaluation_order: ctc_child_identification_requirement_satisfied, ctc_child_ssn_requirement_satisfied_under_subsection_h, ctc_child_credit_disallowed_by_ssn_requirement_under_subsection_h, ctc_full_taxable_year_requirement_satisfied, ctc_modified_adjusted_gross_income, ctc_other_dependent_under_subsection_h, ctc_other_dependents_under_subsection_h, ctc_phase_out_threshold_under_subsection_h, ctc_phaseout_threshold_base, ctc_phaseout_threshold, ctc_phaseout_amount, ctc_prior_claim_restriction_satisfied, ctc_qualifying_child, ctc_qualifying_child_under_subsection_h, ctc_qualifying_children_count, ctc_qualifying_children_under_subsection_h, ctc_maximum_before_phase_out_under_subsection_h, ctc_maximum_before_phaseout, ctc_refundable_maximum_under_subsection_h, ctc_taxpayer_identification_requirement_satisfied, ctc_before_advance_payments, ctc_after_advance_payments
+fast_path_compatible: true
+fast_path_strategy: generic_bulk
+interface_entities: 2
+interface_inputs: 30
+interface_relations: 2
+source_closure_digest: sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4
+source_closure_modules: 2
+✔ [3/3] Built RuleSpecLean.CTCAfterAdvanceTests (1.5s)
+Build completed successfully (3 jobs).
+ctc-magi: 5 three-way checks passed
+ctc-phaseout: 7 three-way checks passed
+eitc-earned-income: 3 three-way checks passed
+snap-net-income-limit: 5 three-way checks passed
+ctc-after-advance: 7 three-way checks passed

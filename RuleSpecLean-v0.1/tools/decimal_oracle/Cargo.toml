@@ -1,0 +1,9 @@
+[package]
+name = "rulespec-decimal-oracle"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+rust_decimal = "=1.41.0"
+serde_json = "=1.0.149"

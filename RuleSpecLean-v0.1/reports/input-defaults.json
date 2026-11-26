@@ -1,0 +1,151 @@
+{
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "program": {
+    "derived": [
+      {
+        "name": "out",
+        "entity": "Person",
+        "dtype": "decimal",
+        "semantics": "scalar",
+        "expr": {
+          "kind": "add",
+          "items": [
+            {
+              "kind": "input_or_else",
+              "name": "amount",
+              "default": {
+                "kind": "decimal",
+                "value": "2.50"
+              }
+            },
+            {
+              "kind": "input_or_else",
+              "name": "amount",
+              "default": {
+                "kind": "decimal",
+                "value": "1.25"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "scope": "raw ProgramSpec, read-site defaults",
+  "status": "Rust/Python/Lean passed",
+  "cases": 3,
+  "results": [
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "p",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "out"
+            ]
+          }
+        ]
+      },
+      "expected": "3.75",
+      "official_value": {
+        "kind": "decimal",
+        "value": "3.75"
+      }
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "amount",
+              "entity": "Person",
+              "entity_id": "p",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "p",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "out"
+            ]
+          }
+        ]
+      },
+      "expected": "0",
+      "official_value": {
+        "kind": "decimal",
+        "value": "0"
+      }
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "amount",
+              "entity": "Person",
+              "entity_id": "p",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "-1.25"
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "p",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "out"
+            ]
+          }
+        ]
+      },
+      "expected": "-2.50",
+      "official_value": {
+        "kind": "decimal",
+        "value": "-2.5"
+      }
+    }
+  ]
+}

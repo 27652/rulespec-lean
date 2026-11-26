@@ -1,0 +1,939 @@
+{
+  "source": "us/statutes/26/24.yaml",
+  "source_sha256": "77b2f1231813f3321fae607588eaa840f103243067725aa08a4517d91d7d87a2",
+  "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+  "source_closure": {
+    "root": "us:statutes/26/24",
+    "modules": [
+      {
+        "target": "us:statutes/26/24",
+        "sha256": "77b2f1231813f3321fae607588eaa840f103243067725aa08a4517d91d7d87a2"
+      },
+      {
+        "target": "us:statutes/26/24/h",
+        "sha256": "80d253ad020aaf460588e169963b2d126ea532359124436c2905c343b7dbc103"
+      }
+    ],
+    "digest": "sha256:225f8da244ee51eef1115420d26c9955a791cc1192b2adac1c9614334eb57ff4"
+  },
+  "artifact_sha256": "c1545739cb332631b4105f720d6da4182220bdfff6694c240994f14f7b87f1b3",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "scope": "26 USC §24(b) phaseout amount only",
+  "status": "Rust/Python/Lean passed",
+  "cases": 7,
+  "results": [
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24#input.adjusted_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "399999.99"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_foreign_earned_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_possession_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_puerto_rico_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_subsection_h_special_rules_apply",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.filing_status",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_joint_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_separate_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24#ctc_phaseout_amount"
+            ]
+          }
+        ]
+      },
+      "expected": "0",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24#input.adjusted_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "400000"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_foreign_earned_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_possession_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_puerto_rico_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_subsection_h_special_rules_apply",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.filing_status",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_joint_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_separate_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24#ctc_phaseout_amount"
+            ]
+          }
+        ]
+      },
+      "expected": "0",
+      "output": "0",
+      "official_value": "0"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24#input.adjusted_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "400000.01"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_foreign_earned_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_possession_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_puerto_rico_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_subsection_h_special_rules_apply",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.filing_status",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_joint_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_separate_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24#ctc_phaseout_amount"
+            ]
+          }
+        ]
+      },
+      "expected": "50",
+      "output": "50",
+      "official_value": "50"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24#input.adjusted_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "201000.01"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_foreign_earned_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_possession_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_puerto_rico_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_subsection_h_special_rules_apply",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.filing_status",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_joint_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_separate_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24#ctc_phaseout_amount"
+            ]
+          }
+        ]
+      },
+      "expected": "100",
+      "output": "100",
+      "official_value": "100"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24#input.adjusted_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "111000"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_foreign_earned_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_possession_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_puerto_rico_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_subsection_h_special_rules_apply",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.filing_status",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_joint_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_separate_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24#ctc_phaseout_amount"
+            ]
+          }
+        ]
+      },
+      "expected": "50",
+      "output": "50",
+      "official_value": "50"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24#input.adjusted_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "55000.01"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_foreign_earned_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_possession_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_puerto_rico_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_subsection_h_special_rules_apply",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.filing_status",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_joint_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_separate_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24#ctc_phaseout_amount"
+            ]
+          }
+        ]
+      },
+      "expected": "50",
+      "output": "50",
+      "official_value": "50"
+    },
+    {
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "relations": [],
+          "inputs": [
+            {
+              "name": "us:statutes/26/24#input.adjusted_gross_income",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "75000.01"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_foreign_earned_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_possession_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_puerto_rico_income_exclusion_adjustment",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "decimal",
+                "value": "0"
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_subsection_h_special_rules_apply",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24/h#input.filing_status",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_joint_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:statutes/26/24#input.ctc_phaseout_separate_threshold_applies",
+              "entity": "TaxUnit",
+              "entity_id": "entity:1",
+              "interval": {
+                "start": "2025-01-01",
+                "end": "2025-12-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "entity:1",
+            "period": {
+              "period_kind": "tax_year",
+              "start": "2025-01-01",
+              "end": "2025-12-31"
+            },
+            "outputs": [
+              "us:statutes/26/24#ctc_phaseout_amount"
+            ]
+          }
+        ]
+      },
+      "expected": "50",
+      "output": "50",
+      "official_value": "50"
+    }
+  ]
+}
