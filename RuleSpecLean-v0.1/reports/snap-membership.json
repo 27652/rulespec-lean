@@ -1,0 +1,261 @@
+{
+  "fixture": "us/statutes/7/2012/j.test.yaml",
+  "fixture_sha256": "214764d205cedeefac37da18aa112df8886bb85ffd5681c0d0aa6cf243d333aa",
+  "compatibility_probe": {
+    "engine_build": {
+      "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+      "dirty": false
+    },
+    "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+    "slot_reference": {
+      "path": "us/policies/usda/snap/state-plan-composition.yaml",
+      "sha256": "a69101e09fe1b0b3c4a70c5df2d7329a5dd0931c194e8df54ec560412df71695",
+      "predicate": "member_of_household",
+      "arguments": [
+        "Person",
+        "Household"
+      ]
+    },
+    "overlay": {
+      "us/policies/usda/snap/fy-2026-cola/deductions.yaml": {
+        "original_sha256": "bb28d73d2566eebcd2a6d0b16098d108b35c10a20c892aab5dbc510c462b9264",
+        "overlay_sha256": "8832b48adfdbb25b6209e0e64823545b75ae8be844f2895000ba6f17ec3adafd"
+      },
+      "us/policies/usda/snap/fy-2026-cola/maximum-allotments.yaml": {
+        "original_sha256": "2e4708b8df906b506f07d091fe93dbcc6aefe603a31500502ecc270d436e9f2e",
+        "overlay_sha256": "145bb911fbd4c1eeaf6968848ee2d73291a742431ac83defe7abfae68a93fa93"
+      },
+      "us/statutes/7/2012/j.yaml": {
+        "original_sha256": "008f221da22fd95306625126232ca22ff7a4c8b622216bc7e8c092532e4e1bb9",
+        "overlay_sha256": "b2726f96a34bb3efb29e5c9bd64ec23a3bdf2c0b6ce53eda9790576608142b34"
+      }
+    },
+    "attempts": [
+      {
+        "stage": "metadata-only",
+        "entrypoint": "us/regulations/7-cfr/273/10.yaml",
+        "exit_code": 1,
+        "diagnostic": "<corpus-copy>/us/regulations/7-cfr/273/10.yaml: relation entity typing failed:\n[untyped_relation] relation `us:statutes/7/2012/j#relation.member_of_household` (arity 2) is executed by `us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member` but declares no entity kind for its tuple slots. Relation entity typing is mandatory: without slot kinds a dataset tuple stored in the other orientation aggregates nothing and yields a silent zero. Declare `data_relation.arguments` (one entity kind per slot, in tuple order) and recompile, or type an existing artifact with `axiom-rules-engine migrate artifact`."
+      },
+      {
+        "stage": "metadata-and-slots",
+        "entrypoint": "us/regulations/7-cfr/273/10.yaml",
+        "exit_code": 0,
+        "diagnostic": "",
+        "artifact_format_version": 3,
+        "artifact_sha256": "3906bf027b3aa1cd6e651d5377f0830341b13cfaf48dc9f458a3f9db1b32ee56",
+        "derived_outputs": 17,
+        "source_closure": {
+          "root": "us:regulations/7-cfr/273/10",
+          "modules": [
+            {
+              "target": "us:policies/usda/snap/fy-2026-cola/deductions",
+              "sha256": "8832b48adfdbb25b6209e0e64823545b75ae8be844f2895000ba6f17ec3adafd"
+            },
+            {
+              "target": "us:policies/usda/snap/fy-2026-cola/maximum-allotments",
+              "sha256": "145bb911fbd4c1eeaf6968848ee2d73291a742431ac83defe7abfae68a93fa93"
+            },
+            {
+              "target": "us:regulations/7-cfr/273/10",
+              "sha256": "f9b9f00101218d1d335aa9fff400f0578ae2dc314334693bae7e0dde51202dff"
+            },
+            {
+              "target": "us:statutes/7/2012/j",
+              "sha256": "b2726f96a34bb3efb29e5c9bd64ec23a3bdf2c0b6ce53eda9790576608142b34"
+            }
+          ],
+          "digest": "sha256:81ce807748eb45282ea417b485b88206b9e9b6ad75b75284dd7c9197e4709efe"
+        },
+        "compiled_relation": {
+          "name": "us:statutes/7/2012/j#relation.member_of_household",
+          "arity": 2,
+          "slot_entities": [
+            "Person",
+            "Household"
+          ]
+        }
+      }
+    ]
+  },
+  "lean_guards_passed": 2,
+  "results": [
+    {
+      "name": "household_has_elderly_or_disabled_member",
+      "expected": "holds",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:statutes/7/2012/j#input.snap_member_is_elderly_or_disabled",
+              "entity": "Person",
+              "entity_id": "person:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          ],
+          "relations": [
+            {
+              "name": "us:statutes/7/2012/j#relation.member_of_household",
+              "tuple": [
+                "person:1",
+                "household:1"
+              ],
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              }
+            }
+          ]
+        },
+        "queries": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": [
+              "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member"
+            ]
+          }
+        ]
+      },
+      "official_response": {
+        "metadata": {
+          "relation_binding": "strict",
+          "requested_mode": "explain",
+          "actual_mode": "explain",
+          "fallback_reason": null
+        },
+        "results": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": {
+              "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member": {
+                "kind": "judgment",
+                "name": "snap_household_has_elderly_or_disabled_member",
+                "id": "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                "unit": null,
+                "outcome": "holds"
+              }
+            },
+            "trace": {
+              "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member": {
+                "kind": "judgment",
+                "name": "snap_household_has_elderly_or_disabled_member",
+                "id": "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                "entity_id": "household:1",
+                "unit": null,
+                "outcome": "holds",
+                "source": "7 USC 2012(j)",
+                "executed_expression": "(count_related(\"us:statutes/7/2012/j#relation.member_of_household\", 1, 0, where: (input(\"snap_member_is_elderly_or_disabled\") == true)) > 0)",
+                "dependencies": []
+              }
+            }
+          }
+        ]
+      },
+      "bound_env": {
+        "@count:1:0:us:statutes/7/2012/j#relation.member_of_household": {
+          "kind": "integer",
+          "value": 1
+        },
+        "@members:1:0:us:statutes/7/2012/j#relation.member_of_household": [
+          {
+            "snap_member_is_elderly_or_disabled": {
+              "kind": "bool",
+              "value": true
+            }
+          }
+        ]
+      },
+      "python_outcome": "holds"
+    },
+    {
+      "name": "household_without_elderly_or_disabled_member",
+      "expected": "not_holds",
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": [
+              "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member"
+            ]
+          }
+        ]
+      },
+      "official_response": {
+        "metadata": {
+          "relation_binding": "strict",
+          "requested_mode": "explain",
+          "actual_mode": "explain",
+          "fallback_reason": null
+        },
+        "results": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": {
+              "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member": {
+                "kind": "judgment",
+                "name": "snap_household_has_elderly_or_disabled_member",
+                "id": "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                "unit": null,
+                "outcome": "not_holds"
+              }
+            },
+            "trace": {
+              "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member": {
+                "kind": "judgment",
+                "name": "snap_household_has_elderly_or_disabled_member",
+                "id": "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                "entity_id": "household:1",
+                "unit": null,
+                "outcome": "not_holds",
+                "source": "7 USC 2012(j)",
+                "executed_expression": "(count_related(\"us:statutes/7/2012/j#relation.member_of_household\", 1, 0, where: (input(\"snap_member_is_elderly_or_disabled\") == true)) > 0)",
+                "dependencies": []
+              }
+            }
+          }
+        ]
+      },
+      "bound_env": {
+        "@count:1:0:us:statutes/7/2012/j#relation.member_of_household": {
+          "kind": "integer",
+          "value": 0
+        },
+        "@members:1:0:us:statutes/7/2012/j#relation.member_of_household": []
+      },
+      "python_outcome": "not_holds"
+    }
+  ]
+}

@@ -46,6 +46,14 @@ SNAP 的第二阶段探针以固定语料中 `state-plan-composition.yaml` 的�
 
 复现：在项目子目录中安装 `PyYAML==6.0.3` 后运行 `python -m tools.probe_corpus_compat --engine "$ENGINE" --corpus "$CORPUS"`。实测见 [`corpus-compat-probe.log`](corpus-compat-probe.log)。同一命令附加 `--snap-report /tmp/opencode/snap-compat-probe.json` 可运行 SNAP 两阶段探针；诊断、声明出处、文件哈希与依赖闭包见 [`snap-compat-probe.json`](snap-compat-probe.json) 和 [`snap-compat-probe.log`](snap-compat-probe.log)。
 
+使用该探针生成的 §273.10 Artifact，对其中导入的 7 USC §2012(j) 家庭成员判断回放了两项 2026 年 1 月公开案例。Rust Explain、Python 与 Lean 均得到相同结果：含一名符合条件的成员为 `holds`，无成员记录为 `not_holds`。Python 按 Household 槽 1 绑定 Person 槽 0 的成员，Lean 对生成的 Decimal 快照执行带筛选计数和比较。完整请求、Explain 响应及绑定环境见 [`snap-membership.json`](snap-membership.json)。此证据限于导入的成员判断，不计入固定语料回放基线。
+
+```sh
+python -m tools.check_snap_membership --engine "$ENGINE" --corpus "$CORPUS" \
+  --lake "$(command -v lake)" --report /tmp/opencode/snap-membership.json \
+  --lean /tmp/opencode/SNAPMembershipTests.lean
+```
+
 在项目子目录复现：
 
 ```sh

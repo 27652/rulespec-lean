@@ -34,7 +34,10 @@ def main():
     parser.add_argument("--audit", default=Path("reports/corpus-static.json"), type=Path)
     parser.add_argument("--snap-report", type=Path,
                         help="Probe SNAP only, adding the corpus-defined relation slots in a second stage")
+    parser.add_argument("--snap-artifact", type=Path, help="Export the verified temporary SNAP artifact")
     args = parser.parse_args()
+    if args.snap_artifact and not args.snap_report:
+        parser.error("--snap-artifact requires --snap-report")
     engine = str(args.engine.resolve())
     audit = json.loads(args.audit.read_text())
     caps = subprocess.check_output([engine, "capabilities"], text=True, timeout=30)
@@ -140,6 +143,8 @@ def main():
                 raise SystemExit("SNAP metadata-only diagnostic differed from the expected relation error")
             if attempts[-1]["exit_code"] != 0:
                 raise SystemExit("SNAP overlay did not compile; see probe report")
+            if args.snap_artifact:
+                args.snap_artifact.write_bytes(raw_artifact)
 
 
 if __name__ == "__main__":
