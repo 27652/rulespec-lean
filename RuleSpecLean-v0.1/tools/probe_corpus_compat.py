@@ -21,6 +21,8 @@ ENTRYPOINTS = ("us/statutes/26/24/d.yaml", "us/statutes/26/32.yaml", "us/regulat
 SNAP_RELATION = "us/statutes/7/2012/j.yaml"
 SNAP_COMPOSITION = "us/policies/usda/snap/state-plan-composition.yaml"
 SNAP_RELATION_ID = "us:statutes/7/2012/j#relation.member_of_household"
+EITC_PAGE_15 = "us/policies/irs/rev-proc-2025-32/page-15.yaml"
+EITC_CITATIONS = [f"us/guidance/irs/rev-proc-2025-32/page-{page}" for page in (14, 15)]
 
 
 def digest(raw):
@@ -43,13 +45,56 @@ def retain_snap_verification(raw):
                        "legacy_values_sha256": digest(values)}
 
 
+def migrate_eitc_verification(raw, page_15):
+    """Use the page containing the amounts; archive the original cross-page record."""
+    block, = re.findall(rb"^  source_verification:\n(?:^    .*\n)+", raw, flags=re.M)
+    expected = yaml.safe_load(raw)
+    legacy = expected["module"]["source_verification"]
+    if set(legacy) != {"corpus_citation_paths", "values"} or legacy["corpus_citation_paths"] != EITC_CITATIONS:
+        raise ValueError("unexpected legacy EITC citations")
+    citation = EITC_CITATIONS[1]
+    reference = yaml.safe_load(page_15)
+    if reference["module"]["source_verification"]["corpus_citation_path"] != citation:
+        raise ValueError("unexpected EITC reference page")
+    rule_matches = {}
+    expected_values = {}
+    for rule in expected["rules"]:
+        version, = rule["versions"]
+        field = "values" if rule.get("indexed_by") else "formula"
+        name = rule["name"]
+        amount = version[field] if field == "values" else int(version[field])
+        matches = [reference_rule["name"] for reference_rule in reference["rules"]
+                   if reference_rule["kind"] == "parameter" and reference_rule["source"] == rule["source"]
+                   and any(v.get(field) == version[field] and v["effective_from"] == version["effective_from"]
+                           for v in reference_rule["versions"])
+                   and any(atom["source"].get("corpus_citation_path") == citation
+                           and atom["path"] == f"versions[0].{field}"
+                           for atom in reference_rule["metadata"]["proof"]["atoms"])]
+        if rule["kind"] != "parameter" or len(matches) != 1 or amount != legacy["values"].get(name):
+            raise ValueError(f"cannot corroborate EITC parameter on page 15: {name}")
+        rule_matches[name] = matches[0]
+        expected_values[name] = amount
+    if len(rule_matches) != 7 or set(rule_matches) != set(legacy["values"]):
+        raise ValueError("incomplete EITC parameter coverage")
+    retained = {"corpus_citation_path": citation}
+    expected["module"]["source_verification"] = retained
+    candidate = raw.replace(block, f"  source_verification:\n    corpus_citation_path: {citation}\n".encode(), 1)
+    if yaml.safe_load(candidate) != expected:
+        raise ValueError("EITC migration changed executable source")
+    return candidate, {"retained": retained, "context_citation_path": EITC_CITATIONS[0],
+                       "legacy_verification_yaml": block.decode(), "legacy_verification_sha256": digest(block),
+                       "reference": {"path": EITC_PAGE_15, "sha256": digest(page_15), "rule_matches": rule_matches}}, expected_values
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--engine", required=True, type=Path)
     parser.add_argument("--corpus", required=True, type=Path)
     parser.add_argument("--audit", default=Path("reports/corpus-static.json"), type=Path)
-    parser.add_argument("--snap-report", type=Path,
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--snap-report", type=Path,
                         help="Probe SNAP only, adding the corpus-defined relation slots in a second stage")
+    modes.add_argument("--eitc-report", type=Path, help="Probe the shared CTC/EITC dependency citation migration")
     parser.add_argument("--snap-artifact", type=Path, help="Export the verified temporary SNAP artifact")
     parser.add_argument("--retain-source-verification", action="store_true",
                         help="For SNAP, detach only legacy values and preserve the citation metadata")
@@ -65,11 +110,13 @@ def main():
         parser.error("engine build differs from static audit")
     audited = {row["source"]: row["sha256"] for row in audit["results"]}
 
-    dependencies = DEPENDENCIES[1:] if args.snap_report else DEPENDENCIES
-    entrypoints = ENTRYPOINTS[-1:] if args.snap_report else ENTRYPOINTS
+    dependencies = DEPENDENCIES[1:] if args.snap_report else DEPENDENCIES[:1] if args.eitc_report else DEPENDENCIES
+    entrypoints = ENTRYPOINTS[-1:] if args.snap_report else ENTRYPOINTS[:2] if args.eitc_report else ENTRYPOINTS
     sources = (*dependencies, *entrypoints)
     if args.snap_report:
         sources += (SNAP_RELATION, SNAP_COMPOSITION)
+    if args.eitc_report:
+        sources += (EITC_PAGE_15,)
 
     with tempfile.TemporaryDirectory(prefix="rulespec-compat-") as work:
         root = Path(work) / "rulespec-us"
@@ -80,11 +127,22 @@ def main():
         print(f"Engine: {audit['engine_build']['commit']}")
         print(f"Corpus audit pin: {audit['requested_corpus_pin']}")
         overlay = {}
+        original_failures = {}
+        if args.eitc_report:
+            for name in entrypoints:
+                result = compile_entry(engine, root, name, Path(work) / "original.json")
+                diagnostic = result.stderr.strip().replace(str(root), "<corpus-copy>")
+                if result.returncode != 1 or "declares removed plural `corpus_citation_paths`" not in diagnostic:
+                    parser.error(f"unexpected unmigrated EITC diagnostic: {name}: {diagnostic}")
+                original_failures[name] = {"exit_code": result.returncode, "diagnostic": diagnostic}
         verification_evidence = {}
         for name in dependencies:
             path = root / name
             raw = path.read_bytes()
-            if args.retain_source_verification:
+            if args.eitc_report:
+                candidate, verification_evidence[name], eitc_values = migrate_eitc_verification(
+                    raw, (root / EITC_PAGE_15).read_bytes())
+            elif args.retain_source_verification:
                 candidate, verification_evidence[name] = retain_snap_verification(raw)
             else:
                 candidate, count = re.subn(rb"^  source_verification:\n(?:^    .*\n)+", b"", raw, flags=re.M)
@@ -117,11 +175,10 @@ def main():
                 overlay[SNAP_RELATION] = digest(candidate)
                 print(f"{SNAP_RELATION}: {digest(raw)} -> {overlay[SNAP_RELATION]}; slots: {slots}")
             artifact = Path(work) / f"probe-{index}.json"
-            result = subprocess.run([engine, "compile", "--program", str(root / name),
-                                     "--rulespec-root", str(root), "--output", str(artifact)],
-                                    capture_output=True, text=True, timeout=120)
+            result = compile_entry(engine, root, name, artifact)
             print(f"{name}: exit {result.returncode}")
-            attempt = {"stage": "metadata-and-slots" if args.snap_report and index else "metadata-only",
+            attempt = {"stage": "singular-citation" if args.eitc_report else
+                       "metadata-and-slots" if args.snap_report and index else "metadata-only",
                        "entrypoint": name, "exit_code": result.returncode,
                        "diagnostic": result.stderr.strip().replace(str(root), "<corpus-copy>")}
             attempts.append(attempt)
@@ -144,6 +201,16 @@ def main():
                                artifact_sha256=digest(raw_artifact),
                                derived_outputs=len(program["program"]["derived"]),
                                source_closure=closure)
+                if args.eitc_report:
+                    dependency, = dependencies
+                    expected_root = name.removesuffix(".yaml").replace("us/", "us:", 1)
+                    if closure["root"] != expected_root or not {name, dependency} <= closure_paths:
+                        parser.error(f"EITC source closure omits entrypoint or migrated dependency: {name}")
+                    preimage = "axiom-rules-engine/source-closure/v1\n" + "".join(
+                        f"{module['target']}\t{module['sha256']}\n" for module in closure["modules"])
+                    if closure["digest"] != f"sha256:{digest(preimage.encode())}":
+                        parser.error(f"EITC source closure digest differs: {name}")
+                    attempt["compiled_eitc_parameters"] = check_eitc_parameters(program, dependency, eitc_values)
                 if args.snap_report and index == 1:
                     if closure_paths != {name, SNAP_RELATION, *dependencies}:
                         parser.error("unexpected SNAP source closure")
@@ -179,6 +246,38 @@ def main():
                 raise SystemExit("SNAP overlay did not compile; see probe report")
             if args.snap_artifact:
                 args.snap_artifact.write_bytes(raw_artifact)
+        if args.eitc_report:
+            args.eitc_report.write_text(json.dumps({
+                "engine_build": audit["engine_build"], "corpus_pin": audit["requested_corpus_pin"],
+                "original_failures": original_failures,
+                "overlay": {path: {"original_sha256": audited[path], "overlay_sha256": sha}
+                            for path, sha in overlay.items()},
+                "source_verification": verification_evidence, "attempts": attempts,
+            }, indent=2) + "\n")
+            if any(attempt["exit_code"] for attempt in attempts):
+                raise SystemExit("EITC overlay did not compile both entrypoints; see probe report")
+
+
+def compile_entry(engine, root, name, artifact):
+    return subprocess.run([engine, "compile", "--program", str(root / name),
+                           "--rulespec-root", str(root), "--output", str(artifact)],
+                          capture_output=True, text=True, timeout=120)
+
+
+def check_eitc_parameters(program, dependency, expected):
+    prefix = dependency.removesuffix(".yaml").replace("us/", "us:", 1) + "#"
+    parameters = [row for row in program["program"]["parameters"] if row["id"].startswith(prefix)]
+    if {row["id"].removeprefix(prefix) for row in parameters} != set(expected) or len(parameters) != len(expected):
+        raise ValueError("compiled EITC parameter IDs differ from the original dependency")
+    for parameter in parameters:
+        amount = expected[parameter["id"].removeprefix(prefix)]
+        values = amount if isinstance(amount, dict) else {0: amount}
+        version, = parameter["versions"]
+        if (parameter.get("corpus_citation_path") != EITC_CITATIONS[1] or
+                version != {"effective_from": "2026-01-01", "values": {
+                    str(key): {"kind": "integer", "value": value} for key, value in values.items()}}):
+            raise ValueError(f"compiled EITC citation or value differs: {parameter['id']}")
+    return [{key: row[key] for key in ("id", "corpus_citation_path", "versions")} for row in parameters]
 
 
 if __name__ == "__main__":

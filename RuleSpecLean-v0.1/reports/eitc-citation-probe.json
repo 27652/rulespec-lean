@@ -1,0 +1,520 @@
+{
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+  "original_failures": {
+    "us/statutes/26/24/d.yaml": {
+      "exit_code": 1,
+      "diagnostic": "failed to load RuleSpec module `<corpus-copy>/us/statutes/26/24/d.yaml`: RuleSpec module `us:policies/irs/rev-proc-2025-32/earned-income-credit` declares removed plural `corpus_citation_paths`; every source/proof node must declare exactly one singular `corpus_citation_path`"
+    },
+    "us/statutes/26/32.yaml": {
+      "exit_code": 1,
+      "diagnostic": "failed to load RuleSpec module `<corpus-copy>/us/statutes/26/32.yaml`: RuleSpec module `us:policies/irs/rev-proc-2025-32/earned-income-credit` declares removed plural `corpus_citation_paths`; every source/proof node must declare exactly one singular `corpus_citation_path`"
+    }
+  },
+  "overlay": {
+    "us/policies/irs/rev-proc-2025-32/earned-income-credit.yaml": {
+      "original_sha256": "299a7bc8a73cfb7dfad5d49fb82fca8fa29bf1b18c09e91180ebc5b3975fad7b",
+      "overlay_sha256": "bb0ec451690de91cea15edde720d7c3771ed5d831b1d9f690ef2779f9ab8ea13"
+    }
+  },
+  "source_verification": {
+    "us/policies/irs/rev-proc-2025-32/earned-income-credit.yaml": {
+      "retained": {
+        "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15"
+      },
+      "context_citation_path": "us/guidance/irs/rev-proc-2025-32/page-14",
+      "legacy_verification_yaml": "  source_verification:\n    corpus_citation_paths:\n      - us/guidance/irs/rev-proc-2025-32/page-14\n      - us/guidance/irs/rev-proc-2025-32/page-15\n    values:\n      eitc_earned_income_amounts:\n        0: 8680\n        1: 13020\n        2: 18290\n        3: 18290\n      eitc_maximum_credit_amounts:\n        0: 664\n        1: 4427\n        2: 7316\n        3: 8231\n      eitc_threshold_phaseout_amounts_joint:\n        0: 18140\n        1: 31160\n        2: 31160\n        3: 31160\n      eitc_completed_phaseout_amounts_joint:\n        0: 26820\n        1: 58863\n        2: 65899\n        3: 70244\n      eitc_threshold_phaseout_amounts_other:\n        0: 10860\n        1: 23890\n        2: 23890\n        3: 23890\n      eitc_completed_phaseout_amounts_other:\n        0: 19540\n        1: 51593\n        2: 58629\n        3: 62974\n      eitc_maximum_investment_income: 12200\n",
+      "legacy_verification_sha256": "81841528f1a81adebfb78cf13cfd57634f660026ba93575d7f105baeddb762bb",
+      "reference": {
+        "path": "us/policies/irs/rev-proc-2025-32/page-15.yaml",
+        "sha256": "b032822be996093985f5d04fb64477d613fefd239c133e4c3c45192cc281f58e",
+        "rule_matches": {
+          "eitc_earned_income_amounts": "earned_income_credit_earned_income_amounts",
+          "eitc_maximum_credit_amounts": "earned_income_credit_maximum_credit_amounts",
+          "eitc_threshold_phaseout_amounts_joint": "earned_income_credit_phaseout_threshold_joint_amounts",
+          "eitc_completed_phaseout_amounts_joint": "earned_income_credit_completed_phaseout_joint_amounts",
+          "eitc_threshold_phaseout_amounts_other": "earned_income_credit_phaseout_threshold_other_amounts",
+          "eitc_completed_phaseout_amounts_other": "earned_income_credit_completed_phaseout_other_amounts",
+          "eitc_maximum_investment_income": "earned_income_credit_maximum_investment_income"
+        }
+      }
+    }
+  },
+  "attempts": [
+    {
+      "stage": "singular-citation",
+      "entrypoint": "us/statutes/26/24/d.yaml",
+      "exit_code": 0,
+      "diagnostic": "",
+      "artifact_format_version": 3,
+      "artifact_sha256": "d7288f3a52965016e71acef47524c9470eb6e760c6fe81ba9cfbcd6ef1b20a40",
+      "derived_outputs": 71,
+      "source_closure": {
+        "root": "us:statutes/26/24/d",
+        "modules": [
+          {
+            "target": "us:policies/irs/rev-proc-2025-32/earned-income-credit",
+            "sha256": "bb0ec451690de91cea15edde720d7c3771ed5d831b1d9f690ef2779f9ab8ea13"
+          },
+          {
+            "target": "us:statutes/26/112",
+            "sha256": "a7549fc6774224d725eaf654655707e7e97aecfa9fcebf378918778482f67512"
+          },
+          {
+            "target": "us:statutes/26/151",
+            "sha256": "28fb0e7c50d48ad764ff1ddee8b654a18006fc3dde026034b4dfb6efb90a0fb2"
+          },
+          {
+            "target": "us:statutes/26/152/c",
+            "sha256": "6b4df92c453619173f7c6c8b4f06e38ebb84b63521b2f53c30f49acf7d4d79bb"
+          },
+          {
+            "target": "us:statutes/26/24/d",
+            "sha256": "eaacb8c883ea2c08daa7e0af850a1f40913f10243ed17d06ddda24d25ce8c3cd"
+          },
+          {
+            "target": "us:statutes/26/32",
+            "sha256": "979e101eb20ac9f43fd37884e7241f3afc1abb7f3eea5abc93cc1b67067d8179"
+          },
+          {
+            "target": "us:statutes/26/32/c/2",
+            "sha256": "67e13e5e77ecd7b4a7c5c03294843763c666830aabb567f1c15a22d6890c1408"
+          },
+          {
+            "target": "us:statutes/26/7703",
+            "sha256": "f5985ef078c17b2e45080a53e9f2689633ab3c8664c324f28735bfa0c118db68"
+          },
+          {
+            "target": "us:statutes/26/911/a",
+            "sha256": "b128d251a0f74fc46a27e516e864e53c8d25442f5b419c7bb3bb4b607542d725"
+          },
+          {
+            "target": "us:statutes/26/931",
+            "sha256": "1fa430ea6a413cdaea822ffd05121d78a82954e52929f5a8e48a80c85249c295"
+          },
+          {
+            "target": "us:statutes/26/933",
+            "sha256": "e9b939801362efae757d1886823555c38a5f4ea828538308fe531f3619adc72f"
+          }
+        ],
+        "digest": "sha256:38b495a81c09479d076d5f85775297d2cf16aa402663e3c93db1941a31eb5583"
+      },
+      "compiled_eitc_parameters": [
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_maximum_investment_income",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 12200
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_earned_income_amounts",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 8680
+                },
+                "1": {
+                  "kind": "integer",
+                  "value": 13020
+                },
+                "2": {
+                  "kind": "integer",
+                  "value": 18290
+                },
+                "3": {
+                  "kind": "integer",
+                  "value": 18290
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_maximum_credit_amounts",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 664
+                },
+                "1": {
+                  "kind": "integer",
+                  "value": 4427
+                },
+                "2": {
+                  "kind": "integer",
+                  "value": 7316
+                },
+                "3": {
+                  "kind": "integer",
+                  "value": 8231
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_threshold_phaseout_amounts_joint",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 18140
+                },
+                "1": {
+                  "kind": "integer",
+                  "value": 31160
+                },
+                "2": {
+                  "kind": "integer",
+                  "value": 31160
+                },
+                "3": {
+                  "kind": "integer",
+                  "value": 31160
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_completed_phaseout_amounts_joint",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 26820
+                },
+                "1": {
+                  "kind": "integer",
+                  "value": 58863
+                },
+                "2": {
+                  "kind": "integer",
+                  "value": 65899
+                },
+                "3": {
+                  "kind": "integer",
+                  "value": 70244
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_threshold_phaseout_amounts_other",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 10860
+                },
+                "1": {
+                  "kind": "integer",
+                  "value": 23890
+                },
+                "2": {
+                  "kind": "integer",
+                  "value": 23890
+                },
+                "3": {
+                  "kind": "integer",
+                  "value": 23890
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_completed_phaseout_amounts_other",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 19540
+                },
+                "1": {
+                  "kind": "integer",
+                  "value": 51593
+                },
+                "2": {
+                  "kind": "integer",
+                  "value": 58629
+                },
+                "3": {
+                  "kind": "integer",
+                  "value": 62974
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "singular-citation",
+      "entrypoint": "us/statutes/26/32.yaml",
+      "exit_code": 0,
+      "diagnostic": "",
+      "artifact_format_version": 3,
+      "artifact_sha256": "94fe2f1903ee569f23199b29b0d615889e1b378922c63a0a461981a8c459764b",
+      "derived_outputs": 61,
+      "source_closure": {
+        "root": "us:statutes/26/32",
+        "modules": [
+          {
+            "target": "us:policies/irs/rev-proc-2025-32/earned-income-credit",
+            "sha256": "bb0ec451690de91cea15edde720d7c3771ed5d831b1d9f690ef2779f9ab8ea13"
+          },
+          {
+            "target": "us:statutes/26/112",
+            "sha256": "a7549fc6774224d725eaf654655707e7e97aecfa9fcebf378918778482f67512"
+          },
+          {
+            "target": "us:statutes/26/151",
+            "sha256": "28fb0e7c50d48ad764ff1ddee8b654a18006fc3dde026034b4dfb6efb90a0fb2"
+          },
+          {
+            "target": "us:statutes/26/152/c",
+            "sha256": "6b4df92c453619173f7c6c8b4f06e38ebb84b63521b2f53c30f49acf7d4d79bb"
+          },
+          {
+            "target": "us:statutes/26/32",
+            "sha256": "979e101eb20ac9f43fd37884e7241f3afc1abb7f3eea5abc93cc1b67067d8179"
+          },
+          {
+            "target": "us:statutes/26/32/c/2",
+            "sha256": "67e13e5e77ecd7b4a7c5c03294843763c666830aabb567f1c15a22d6890c1408"
+          },
+          {
+            "target": "us:statutes/26/7703",
+            "sha256": "f5985ef078c17b2e45080a53e9f2689633ab3c8664c324f28735bfa0c118db68"
+          },
+          {
+            "target": "us:statutes/26/911/a",
+            "sha256": "b128d251a0f74fc46a27e516e864e53c8d25442f5b419c7bb3bb4b607542d725"
+          },
+          {
+            "target": "us:statutes/26/931",
+            "sha256": "1fa430ea6a413cdaea822ffd05121d78a82954e52929f5a8e48a80c85249c295"
+          },
+          {
+            "target": "us:statutes/26/933",
+            "sha256": "e9b939801362efae757d1886823555c38a5f4ea828538308fe531f3619adc72f"
+          }
+        ],
+        "digest": "sha256:5899c47feb7a08aa9357c945ca8f91543b771dbbe8a50447498fb44d2f724074"
+      },
+      "compiled_eitc_parameters": [
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_maximum_investment_income",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 12200
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_earned_income_amounts",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 8680
+                },
+                "1": {
+                  "kind": "integer",
+                  "value": 13020
+                },
+                "2": {
+                  "kind": "integer",
+                  "value": 18290
+                },
+                "3": {
+                  "kind": "integer",
+                  "value": 18290
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_maximum_credit_amounts",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 664
+                },
+                "1": {
+                  "kind": "integer",
+                  "value": 4427
+                },
+                "2": {
+                  "kind": "integer",
+                  "value": 7316
+                },
+                "3": {
+                  "kind": "integer",
+                  "value": 8231
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_threshold_phaseout_amounts_joint",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 18140
+                },
+                "1": {
+                  "kind": "integer",
+                  "value": 31160
+                },
+                "2": {
+                  "kind": "integer",
+                  "value": 31160
+                },
+                "3": {
+                  "kind": "integer",
+                  "value": 31160
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_completed_phaseout_amounts_joint",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 26820
+                },
+                "1": {
+                  "kind": "integer",
+                  "value": 58863
+                },
+                "2": {
+                  "kind": "integer",
+                  "value": 65899
+                },
+                "3": {
+                  "kind": "integer",
+                  "value": 70244
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_threshold_phaseout_amounts_other",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 10860
+                },
+                "1": {
+                  "kind": "integer",
+                  "value": 23890
+                },
+                "2": {
+                  "kind": "integer",
+                  "value": 23890
+                },
+                "3": {
+                  "kind": "integer",
+                  "value": 23890
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_completed_phaseout_amounts_other",
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+          "versions": [
+            {
+              "effective_from": "2026-01-01",
+              "values": {
+                "0": {
+                  "kind": "integer",
+                  "value": 19540
+                },
+                "1": {
+                  "kind": "integer",
+                  "value": 51593
+                },
+                "2": {
+                  "kind": "integer",
+                  "value": 58629
+                },
+                "3": {
+                  "kind": "integer",
+                  "value": 62974
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

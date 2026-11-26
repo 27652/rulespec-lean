@@ -40,6 +40,10 @@ scale-6 现可转换在快照日期没有有效版本的参数表读取，并保
 
 ### 上游兼容性探针
 
+CTC §24(d) 与 EITC §32 共用的 FY 2026 参数模块原有第 14、15 页两条来源路径。核对 [IRS Rev. Proc. 2025-32 原件](https://www.irs.gov/pub/irs-drop/rp-25-32.pdf) §3.06：第 14 页说明表格的适用口径，第 15 页刊载六组金额表和投资收入上限。临时迁移用第 15 页作为七个参数的单一编译引用，并逐项与固定语料中 `page-15.yaml` 的金额、起始日及证明引用对照。第 14 页上下文引用及包含旧值表的原始验证块随报告存档。两个入口在原始副本上均复现复数引用错误；迁移后分别生成 71 和 61 个派生输出，核验 11 和 10 个闭包模块及其闭包摘要，并逐项确认两份产物中的七个参数值与第 15 页引用。此项为来源迁移和编译验证，不是整条规则的执行或独立法律审计。
+
+复现：`python -m tools.probe_corpus_compat --engine "$ENGINE" --corpus "$CORPUS" --eitc-report /tmp/opencode/eitc-citation-probe.json`。证据见 [`eitc-citation-probe.json`](eitc-citation-probe.json)。原件的下载 SHA-256 为 `e9ada115fb43a4af5ea326ca91edd40ab0bf29b9be01d2c13d7b8fa96214635b`；可用 `pdftotext -f 14 -l 15 -layout` 核对页码及内容。
+
 在临时语料副本中，仅移除三个依赖的旧版 `module.source_verification` 块，保留公式、参数表和依赖边。锁定引擎随后成功编译 §24(d) 与 §32，分别生成含 71 和 61 个派生输出的 Artifact v3；7 CFR §273.10 则继续因 `member_of_household` 未声明关系槽实体类型而失败。探针会核对修改前后的文件哈希及成功编译产物的依赖闭包。该实验改变了来源验证元数据，只用于定位阻塞，不计入固定语料基线或法律验收。
 
 SNAP 的第二阶段探针以固定语料中 `state-plan-composition.yaml` 的声明为依据，在临时副本的 `us/statutes/7/2012/j.yaml` 中补入 `data_relation.arguments: [Person, Household]`。仅移除旧元数据时，锁定引擎以退出码 1 报告 `[untyped_relation]`；补入声明后，§273.10 以退出码 0 生成 Artifact v3，包含 17 个派生输出。产物中的 `slot_entities` 与语料声明顺序一致，4 个闭包模块均已按审计基线或临时修改后的 SHA-256 核对。这一结果仅验证编译准入，尚未验证完整 SNAP 执行。
