@@ -1,5 +1,0 @@
-import RuleSpecLean.Core
-import RuleSpecLean.Generated
-import RuleSpecLean.Tests
-import RuleSpecLean.ScalarPreservation
-import RuleSpecLean.VersionSelection

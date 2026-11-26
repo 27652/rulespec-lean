@@ -1,8 +1,6 @@
 name: RuleSpecLean
 on: [push, pull_request, workflow_dispatch]
-defaults:
-  run:
-    working-directory: RuleSpecLean-v0.1
+
 jobs:
   python-and-lean:
     runs-on: ubuntu-latest
@@ -11,27 +9,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m unittest discover -v
-      - run: python tools/compile_ir.py fixtures/ctc-like.artifact.json --as-of 2025-01-01 --output credit
-      - run: git diff --exit-code -- RuleSpecLean/Generated.lean generated-manifest.json
       - uses: leanprover/lean-action@v1
         with:
-          lake-package-directory: RuleSpecLean-v0.1
-          build: true
+          build: false
           test: false
-      - run: lake build RuleSpecLean.ReferenceTests
-      - run: lake build RuleSpecLean.FaultTests
-      - run: lake build RuleSpecLean.Legal3403Tests RuleSpecLean.Legal3403Preservation
-      - run: lake build RuleSpecLean.ProofAudit
-      - run: lake build RuleSpecLean.DecimalTests
-      - run: lake build RuleSpecLean.ArithmeticTests RuleSpecLean.DecimalDependencyTests RuleSpecLean.DecimalFlatTaxTests
-      - run: lake build RuleSpecLean.SelectedYearTests RuleSpecLean.InputDefaultTests RuleSpecLean.CTCMagiTests RuleSpecLean.CTCPhaseoutTests RuleSpecLean.EITCEarnedIncomeTests RuleSpecLean.SNAPNetIncomeLimitTests
-      - run: lake build RuleSpecLean.DirectCountTests
-      - run: lake build RuleSpecLean.SNAPMembershipTests RuleSpecLean.SNAPAllotmentTests RuleSpecLean.SNAPPublishedOutputsTests
-      - run: lake build RuleSpecLean.CTCAfterAdvanceTests RuleSpecLean.CTCRefundableCapTests RuleSpecLean.CTCRefundableCreditTests RuleSpecLean.CTCSocialSecurityExcessTests
-      - run: lake build RuleSpecLean.CTCSection112RefundableCreditTests RuleSpecLean.CTCSection911RefundableCreditTests
-      - run: lake build RuleSpecLean.EITCSection112ElectionTests RuleSpecLean.EITCFinalCreditTests RuleSpecLean.EITCInvestmentIncomeDenialTests
-      - run: lake build RuleSpecLean.CapitalLossMatchTests
+      - run: bash scripts/verify.sh offline
+
   upstream-integration:
     runs-on: ubuntu-latest
     steps:
@@ -49,164 +32,25 @@ jobs:
           repository: TheAxiomFoundation/rulespec-us
           ref: d8a4c9cb560ed55c6db47ea36214249f67319461
           path: rulespec-us
-      - name: Install pinned Rust
-        run: rustup toolchain install 1.98.1 --profile minimal
-      - name: Build official engine
-        working-directory: upstream-engine
-        run: cargo +1.98.1 build --locked --bin axiom-rules-engine
-      - name: Build decimal oracle
-        run: cargo +1.98.1 build --locked --manifest-path tools/decimal_oracle/Cargo.toml
-      - name: Compile upstream example
-        run: python -m tools.prepare_reference --engine ../upstream-engine/target/debug/axiom-rules-engine
-      - name: Recompile legal and fault modules
-        run: |
-          python -m tools.rebuild_fixtures --engine ../upstream-engine/target/debug/axiom-rules-engine
-          git diff --exit-code -- fixtures/legal-3403.artifact.json
-      - name: Compare Rust and Python
-        run: python -m tools.check_reference fixtures/upstream-flat-tax.artifact.json fixtures/upstream-flat-tax.cases.json --engine ../upstream-engine/target/debug/axiom-rules-engine
       - uses: leanprover/lean-action@v1
         with:
-          lake-package-directory: RuleSpecLean-v0.1
-          build: true
+          build: false
           test: false
-      - name: Compare all three runtimes
-        run: |
-          set -o pipefail
-          python -m tools.check_reference fixtures/upstream-flat-tax.artifact.json fixtures/upstream-flat-tax.cases.json --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" 2>&1 | tee reports/integration.log
-      - name: Compare evaluation faults
-        run: |
-          set -o pipefail
-          python -m tools.check_faults fixtures/faults.artifact.json fixtures/faults.cases.json --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" 2>&1 | tee reports/faults.log
-      - name: Compare legal scalar module
-        run: python -m tools.check_reference fixtures/legal-3403.artifact.json fixtures/legal-3403.cases.json --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --lean RuleSpecLean/Legal3403.lean --report reports/legal-3403.json
-      - name: Check generated §3403 output against its source term
-        run: lake build RuleSpecLean.Legal3403Preservation
-      - name: Compare the §3403 Rust and Lean version boundary
-        run: |
-          python -m tools.check_3403_rust_model --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --report reports/legal-3403-rust-model-ci.json
-          cmp reports/legal-3403-rust-model.json reports/legal-3403-rust-model-ci.json
-      - name: Compare extracted §3403 Rust functions with their Lean transcriptions
-        run: |
-          python -m tools.check_3403_rust_source --source ../upstream-engine --rustc "$(rustup which --toolchain 1.98.1 rustc)" --lake "$(command -v lake)" --report reports/legal-3403-rust-source-ci.json
-          cmp reports/legal-3403-rust-source.json reports/legal-3403-rust-source-ci.json
-      - name: Audit the axioms used by the proof targets
-        run: |
-          set -o pipefail
-          lake build RuleSpecLean.ProofAudit
-          lake env lean RuleSpecLean/ProofAudit.lean | tee reports/proof-axioms.log
-          if grep -q 'sorryAx' reports/proof-axioms.log; then exit 1; fi
-      - name: Compare decimal output rounding
-        run: python -m tools.check_decimal --oracle tools/decimal_oracle/target/debug/rulespec-decimal-oracle --lake "$(command -v lake)"
-      - name: Compare decimal arithmetic
-        run: python -m tools.check_arithmetic --oracle tools/decimal_oracle/target/debug/rulespec-decimal-oracle --lake "$(command -v lake)"
-      - name: Compare full-range decimal arithmetic samples
-        run: |
-          set -o pipefail
-          python -m tools.check_arithmetic --extended --oracle tools/decimal_oracle/target/debug/rulespec-decimal-oracle | tee reports/decimal-arithmetic-extended.log
-      - name: Compare rounded dependencies
-        run: python -m tools.check_decimal_dependency --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)"
-      - name: Compare flat-tax rules on the Decimal runtime
-        run: python -m tools.check_decimal_dependency --flat-tax --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)"
-      - name: Compare selected-year reads
-        run: python -m tools.check_selected_year --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)"
-      - name: Compare numeric read-site defaults
-        run: python -m tools.check_input_defaults --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)"
-      - name: Compare counts and sums over supplied binary relations
-        run: python -m tools.check_direct_count --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)"
-      - name: Measure federal corpus compilation and static lowering
-        run: |
-          python -m tools.audit_corpus --engine ../upstream-engine/target/debug/axiom-rules-engine --corpus ../rulespec-us --report reports/corpus-static-ci.json
-          cmp reports/corpus-static.json reports/corpus-static-ci.json
-      - name: Compare selected federal legal components
-        run: python -m tools.check_legal_components --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json
-      - name: Replay published federal scalar cases
-        run: |
-          set -o pipefail
-          python -m pip install PyYAML==6.0.3
-          python -m tools.replay_corpus --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --baseline reports/corpus-replay.json --report reports/corpus-replay-ci.json 2>&1 | tee reports/corpus-replay.log
-      - name: Verify the reviewed corpus patch against the pinned corpus
-        run: |
-          python -m tools.check_corpus_patch --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/corpus-patch-validation-ci.json
-          cmp reports/corpus-patch-validation.json reports/corpus-patch-validation-ci.json
-      - name: Compare the published EITC final-credit case on the compatibility overlay
-        run: |
-          python -m tools.check_eitc_final --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/eitc-final-credit-ci.json --lean "$RUNNER_TEMP/EITCFinalCreditTests.lean"
-          cmp "$RUNNER_TEMP/EITCFinalCreditTests.lean" RuleSpecLean/EITCFinalCreditTests.lean
-      - name: Compare the published EITC investment-income denial case
-        run: |
-          python -m tools.check_eitc_final --case investment_income_denies_credit --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/eitc-investment-income-denial-ci.json --lean "$RUNNER_TEMP/EITCInvestmentIncomeDenialTests.lean"
-          cmp "$RUNNER_TEMP/EITCInvestmentIncomeDenialTests.lean" RuleSpecLean/EITCInvestmentIncomeDenialTests.lean
-      - name: Compare the published CTC refundable-credit case on the compatibility overlay
-        run: |
-          python -m tools.check_eitc_final --case two_children_earned_income_phase_in_refundable_amount --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/ctc-refundable-credit-ci.json --lean "$RUNNER_TEMP/CTCRefundableCreditTests.lean"
-          cmp "$RUNNER_TEMP/CTCRefundableCreditTests.lean" RuleSpecLean/CTCRefundableCreditTests.lean
-      - name: Compare the published CTC Social Security excess case on the compatibility overlay
-        run: |
-          python -m tools.check_eitc_final --case three_children_social_security_excess_is_greater_than_earned_income_phase_in --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/ctc-social-security-excess-ci.json --lean "$RUNNER_TEMP/CTCSocialSecurityExcessTests.lean"
-          cmp "$RUNNER_TEMP/CTCSocialSecurityExcessTests.lean" RuleSpecLean/CTCSocialSecurityExcessTests.lean
-      - name: Compare the published CTC section 112 and section 911 cases
-        run: |
-          python -m tools.check_eitc_final --case section_112_excluded_amount_counts_as_earned_income --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/ctc-section112-refundable-credit-ci.json --lean "$RUNNER_TEMP/CTCSection112RefundableCreditTests.lean"
-          cmp "$RUNNER_TEMP/CTCSection112RefundableCreditTests.lean" RuleSpecLean/CTCSection112RefundableCreditTests.lean
-          python -m tools.check_eitc_final --case section_911_foreign_earned_income_exclusion_exception_denies_refundable_credit --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/ctc-section911-refundable-credit-ci.json --lean "$RUNNER_TEMP/CTCSection911RefundableCreditTests.lean"
-          cmp "$RUNNER_TEMP/CTCSection911RefundableCreditTests.lean" RuleSpecLean/CTCSection911RefundableCreditTests.lean
-      - name: Compare published SNAP membership cases on the compatibility overlay
-        run: |
-          python -m tools.check_snap_membership --retain-source-verification --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-membership-ci.json --lean "$RUNNER_TEMP/SNAPMembershipTests.lean"
-          cmp "$RUNNER_TEMP/SNAPMembershipTests.lean" RuleSpecLean/SNAPMembershipTests.lean
-      - name: Compare published SNAP monthly allotment cases on the compatibility overlay
-        run: |
-          python -m tools.check_snap_membership --retain-source-verification --allotment --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-allotment-ci.json --lean "$RUNNER_TEMP/SNAPAllotmentTests.lean"
-          cmp "$RUNNER_TEMP/SNAPAllotmentTests.lean" RuleSpecLean/SNAPAllotmentTests.lean
-      - name: Compare remaining published SNAP outputs on the compatibility overlay
-        run: |
-          python -m tools.check_snap_membership --retain-source-verification --other-outputs --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-other-outputs-ci.json --lean "$RUNNER_TEMP/SNAPPublishedOutputsTests.lean"
-          cmp "$RUNNER_TEMP/SNAPPublishedOutputsTests.lean" RuleSpecLean/SNAPPublishedOutputsTests.lean
-      - run: python -m unittest discover -v
-      - name: Archive integration evidence
+      - run: python -m pip install -r experiments/requirements.txt
+      - run: rustup toolchain install 1.98.1 --profile minimal
+      - run: cargo +1.98.1 build --locked --bin axiom-rules-engine
+        working-directory: upstream-engine
+      - run: cargo +1.98.1 build --locked --manifest-path experiments/decimal_oracle/Cargo.toml
+      - name: Reproduce upstream experiments
+        env:
+          ENGINE: upstream-engine/target/debug/axiom-rules-engine
+          ENGINE_SOURCE: upstream-engine
+          CORPUS: rulespec-us
+          ORACLE: experiments/decimal_oracle/target/debug/rulespec-decimal-oracle
+        run: RUSTC="$(rustup which --toolchain 1.98.1 rustc)" bash scripts/verify.sh upstream
+      - uses: actions/upload-artifact@v4
         if: always()
-        uses: actions/upload-artifact@v4
         with:
           name: upstream-integration
-          path: |
-            RuleSpecLean-v0.1/reports/reference.json
-            RuleSpecLean-v0.1/reports/integration.log
-            RuleSpecLean-v0.1/reports/faults.json
-            RuleSpecLean-v0.1/reports/faults.log
-            RuleSpecLean-v0.1/reports/legal-3403.json
-            RuleSpecLean-v0.1/reports/legal-3403-rust-model-ci.json
-            RuleSpecLean-v0.1/reports/legal-3403-rust-source-ci.json
-            RuleSpecLean-v0.1/reports/proof-axioms.log
-            RuleSpecLean-v0.1/reports/decimal-rounding.json
-            RuleSpecLean-v0.1/reports/decimal-arithmetic.json
-            RuleSpecLean-v0.1/reports/decimal-arithmetic-extended.log
-            RuleSpecLean-v0.1/reports/decimal-dependency.json
-            RuleSpecLean-v0.1/reports/decimal-flat-tax.json
-            RuleSpecLean-v0.1/reports/selected-year.json
-            RuleSpecLean-v0.1/reports/input-defaults.json
-            RuleSpecLean-v0.1/reports/direct-count.json
-            RuleSpecLean-v0.1/reports/ctc-magi.json
-            RuleSpecLean-v0.1/reports/ctc-phaseout.json
-            RuleSpecLean-v0.1/reports/ctc-after-advance.json
-            RuleSpecLean-v0.1/reports/corpus-replay-ci.json
-            RuleSpecLean-v0.1/reports/corpus-replay.log
-            RuleSpecLean-v0.1/reports/corpus-static-ci.json
-            RuleSpecLean-v0.1/reports/corpus-patch-validation-ci.json
-            RuleSpecLean-v0.1/reports/eitc-earned-income.json
-            RuleSpecLean-v0.1/reports/eitc-section112-election.json
-            RuleSpecLean-v0.1/reports/eitc-final-credit-ci.json
-            RuleSpecLean-v0.1/reports/eitc-investment-income-denial-ci.json
-            RuleSpecLean-v0.1/reports/capital-loss-match.json
-            RuleSpecLean-v0.1/reports/ctc-refundable-cap.json
-            RuleSpecLean-v0.1/reports/ctc-refundable-credit-ci.json
-            RuleSpecLean-v0.1/reports/ctc-social-security-excess-ci.json
-            RuleSpecLean-v0.1/reports/ctc-section112-refundable-credit-ci.json
-            RuleSpecLean-v0.1/reports/ctc-section911-refundable-credit-ci.json
-            RuleSpecLean-v0.1/reports/snap-net-income-limit.json
-            RuleSpecLean-v0.1/reports/snap-membership-ci.json
-            RuleSpecLean-v0.1/reports/snap-allotment-ci.json
-            RuleSpecLean-v0.1/reports/snap-other-outputs-ci.json
-            RuleSpecLean-v0.1/RuleSpecLean/FaultTests.lean
-            RuleSpecLean-v0.1/fixtures/upstream-flat-tax.artifact.json
-            RuleSpecLean-v0.1/fixtures/upstream-flat-tax.cases.json
-            RuleSpecLean-v0.1/RuleSpecLean/Reference*.lean
+          path: .verification/upstream/
+          include-hidden-files: true

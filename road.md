@@ -17,11 +17,11 @@
 | 依赖分析、固定日期版本选择、参数表 | 已实现 | 示例转换及单元测试 |
 | 精确 scale-6 数值子集 | 已实现 | 超出精度或范围时明确拒绝 |
 | Python 测试基线 | 87 项通过 | 含固定种子公式对照、artifact 回归、绑定及 Decimal 编译检查 |
-| Lean 4.26.0 构建与公理审计 | 已通过 | 本地 44 个构建任务；[公理审计日志](RuleSpecLean-v0.1/reports/proof-axioms.log) |
+| Lean 4.26.0 构建与公理审计 | 已通过 | 根目录布局从干净导出构建，完成 46 个任务；[公理审计日志](reports/v0.1/proofs/proof-axioms.log) |
 | 官方 Rust 编译与加载 | 已通过 | 上游模拟 flat-tax 示例的真实 v3 artifact |
 | Rust / Python / Lean 对照 | 107 组通过 | 边界及固定种子随机输入 |
-| 固定语料静态扫描 | 800 个模块编译成功，2,342 条规则实例正常转换 | 另有 734 条含缺失版本错误节点；分母和诊断见 `reports/corpus-static.json` |
-| 远端 CI | 已通过 | 提交 `9abeb38` 的[运行 45774870910](https://github.com/27652/rulespec-lean/actions/runs/45774870910)：`python-and-lean`、`upstream-integration` 均通过，包含兼容补丁验证 |
+| 固定语料静态扫描 | 800 个模块编译成功，2,342 条规则实例正常转换 | 另有 734 条含缺失版本错误节点；分母和诊断见 `reports/v0.1/corpus/corpus-static.json` |
+| 远端 CI | 重构前基线已通过；根目录布局待远端验证 | 提交 `9abeb38` 的[运行 45774870910](https://github.com/27652/rulespec-lean/actions/runs/45774870910)：`python-and-lean`、`upstream-integration` 均通过，包含兼容补丁验证 |
 
 上游引擎锁定提交：`a4322e45a035ba9fd412d01bebe078aeaa46cd54`。
 flat-tax 为上游模拟规则，CTC-like 为本项目手工构造规则，均不构成完整法律案例。
@@ -63,13 +63,14 @@ M2–M4 可按依赖逐步扩展；M5 的源语义建模可提前开展。M6 的
 
 | 优先级 | 工作项 | 可自主推进的工作与完成依据 | 人工介入条件 |
 | --- | --- | --- | --- |
+| 当前 | 研究交付重构 | 活跃工程迁至根目录，分离转换、语义、证明与实验；归档原始 ZIP、分类保留证据；以离线和上游实验复现确认迁移保持基线 | 由仓库负责人推送重构提交及归档标签，触发根目录布局的远端验证 |
 | 首要 | M4：解除三个完整入口的兼容阻塞 | 核查上游提交及 PR；在临时目录实测候选引擎与语料组合，记录无补丁编译结果、版本和诊断；如无可用修复，整理最小复现及上游 PR 草稿 | 需要发布上游 PR 时按仓库权限处理；由上游维护者决定是否合并 |
 | 随后 | M4/M6：评估并更新固定版本 | 候选组合须无补丁编译 CTC §24(d)、EITC §32 和 SNAP §273.10，重跑 39 项公开期望，并核对当前固定基线的既有通过项。若跨快照无法直接使用现有同版本回退门禁，则逐项对齐来源、案例和输出，单列变更与不可比项，再准备锁定版本更新 | 无候选达到条件时，由项目负责人决定等待上游或调整验收标准以接受维护补丁；不可比项不得自动视为通过 |
 | 并行 | M5：验证 Rust 源码对应性 | 评估源码验证工具对 §3403 实际输入查找和版本选择函数的支持；记录支持边界并接入公理审计。随后推进请求解析和 Decimal 求值的端到端证明 | 缩小证明范围或以差分替代形式验收时，由项目负责人确认 |
 | 并行 | M4：独立法律审计 | 准备法规版本、条文、参数出处、边界案例、Explain 轨迹和差异清单 | 由独立审阅者核对法律口径并出具结论 |
 | 持续 | Git 与 CI | 按主题提交、运行本地回归、核对远端提交及作业结果、更新验收证据 | 由仓库负责人推送；受保护分支或私有资源由具备权限的人员处理 |
 
-候选版本调查与本地验证无需等待人工决策。M2/M3 按各自支持域增量推进。每次里程碑状态、验收范围或阻塞发生变化时，更新本节及第 4 节；命令、完整日志和逐项结果保留在 `RuleSpecLean-v0.1/reports/`。状态更新以可复现证据为依据。
+候选版本调查与本地验证无需等待人工决策。M2/M3 按各自支持域增量推进。每次里程碑状态、验收范围或阻塞发生变化时，更新本节及第 4 节；命令、完整日志和逐项结果保留在 `reports/`。状态更新以可复现证据为依据。
 
 ### M1：可复现基线与后续诊断扩展
 
@@ -108,23 +109,23 @@ M2 当前交付：独立 Python/Lean 系数-scale 模型、96 位范围和 0..28
 另完成 11 组索引参数表对照，覆盖版本切换、i64 边界及索引错误。
 确定型数值判断支持短路 `and`、`or`、`not` 和独立判断输出；Decimal 专用规则样例共 72 组三方对照通过，包含缺失公式版本、惰性求值和 96 位溢出边界。
 零符号与 wire 表示逐字节等价不在当前支持域内。通用三值判断和全域语义证明仍未覆盖。
-参考矩阵与待办见 `RuleSpecLean-v0.1/reports/decimal-semantics.md`。
+参考矩阵与待办见 `reports/v0.1/decimal/decimal-semantics.md`。
 
 M3 当前交付：请求可选择起始日期最新且覆盖整个目标期间的记录，并接受同一起始日的相同输入值。显式 `input_for_year` 已通过 6 组三方对照，包括目标年度缺失和冗余记录；冲突记录另经 Rust 与 Python 入口拒绝验证。数值 `input_or_else` 通过 3 组原始 ProgramSpec 对照。直接二元关系支持去重、期间过滤和成员本地谓词；无筛选计数通过 4 组、带筛选求和通过 5 组三方对照，含所选成员缺失输入及加法溢出。带筛选计数在 CTC 金额案例中验证。多查询执行、派生关系、嵌套聚合及一般跨期运行仍待开发。
 
 M4 当前交付：CTC MAGI、递减额、预付款后金额及 §24(h)(5) 可退还上限分别完成 5、7、7、4 组三方对照；预付款后金额测试覆盖指定的基础及 §24(h) 路径。EITC 劳动所得在 §112 选择前完成 3 组，选择分支完成 2 组；SNAP 2024 财年净收入限额表完成 5 组。锁定引擎拒绝固定语料中完整 CTC §24(d)、EITC、SNAP 入口的传递依赖。临时副本中，CTC 与 EITC 共用参数模块改用刊载七个参数值的 IRS 原文第 15 页作为编译引用，第 14 页上下文及原始验证块存入报告；两个入口编译成功，分别核验 11 和 10 个闭包模块。SNAP §273.10 采用保留来源引用的兼容处理：将不受支持的旧版 `values` 字段原样存入报告，补齐 `member_of_household` 的 `Person`、`Household` 关系槽。编译成功后核验 4 个闭包模块及 32 条编译规则的引用；33 项 §273.10 公开输出期望及两项家庭成员判断通过三方对照。临时副本结果不计入固定语料验收。具体诊断见语料报告。
 
-兼容补丁的三入口回放共通过 39 项公开期望：CTC 4 项、EITC 2 项、SNAP §273.10 33 项。[补丁验证报告](RuleSpecLean-v0.1/reports/corpus-patch-validation.json)保留原始编译诊断、产物及回放证据；独立法律审计尚待完成。
+兼容补丁的三入口回放共通过 39 项公开期望：CTC 4 项、EITC 2 项、SNAP §273.10 33 项。[补丁验证报告](reports/v0.1/corpus/corpus-patch-validation.json)保留原始编译诊断、产物及回放证据；独立法律审计尚待完成。
 
 M5 当前交付：`ScalarPreservation.lean` 对 scale-6 字面量、预绑定数值输入、数值转换、四则运算、最大值、无匹配分支、十进制值参数表及带小于比较的惰性条件证明降低保持结果。参数表证明覆盖空表、索引错误、缺失键及数值边界。经证明的识别器校验 §3403 产物生成的 Lean 表达式与独立源项相符，对所有预绑定十进制环境保持值和错误。`VersionSelection.lean` 证明独立日期模型选出的版本有效且起始日最新，并刻画无可用版本的条件。`versioned_lowering_preserves_result` 证明降低前后按日期选中的公式求值一致，涵盖任意版本列表、公式求值错误及缺失版本。
 
-M5 Artifact 解析与请求绑定：`Legal3403Artifact.lean` 直接读取保留的 §3403 Artifact v3 JSON，验证付款义务输出的公式及唯一版本起始日。`Legal3403Binding.lean` 将单雇主、单事实、整数美元的年度 Explain 请求绑定为 scale-6 系数及查询起始日，并证明通过解码的请求满足现有保持性定理的前提；105 条保留请求逐一核对预期环境。`lake build RuleSpecLean.ProofAudit` 检查公理依赖。固定文件解析证书使用 `native_decide`，依赖 `Lean.ofReduceBool` 与 `Lean.trustCompiler`；以解析对应性为前提的保持性定理不依赖二者。通用请求绑定、通用 Artifact 解码及与 Rust 求值的等价性仍待证明。
+M5 Artifact 解析与请求绑定：`Legal3403Artifact.lean` 直接读取保留的 §3403 Artifact v3 JSON，验证付款义务输出的公式及唯一版本起始日。`Legal3403Binding.lean` 将单雇主、单事实、整数美元的年度 Explain 请求绑定为 scale-6 系数及查询起始日，并证明通过解码的请求满足现有保持性定理的前提；105 条保留请求逐一核对预期环境。`lake build RuleSpecLean.Proofs.ProofAudit` 检查公理依赖。固定文件解析证书使用 `native_decide`，依赖 `Lean.ofReduceBool` 与 `Lean.trustCompiler`；以解析对应性为前提的保持性定理不依赖二者。通用请求绑定、通用 Artifact 解码及与 Rust 求值的等价性仍待证明。
 
-M5 锁定引擎对应性：`Legal3403RustModel.lean` 按锁定引擎的 [`lookup_input`](https://github.com/TheAxiomFoundation/axiom-rules-engine/blob/a4322e45a035ba9fd412d01bebe078aeaa46cd54/src/engine.rs#L2914-L2950) 和 [`semantics_at` / `version_at`](https://github.com/TheAxiomFoundation/axiom-rules-engine/blob/a4322e45a035ba9fd412d01bebe078aeaa46cd54/src/model.rs#L564-L581) 建立单记录、单版本模型。锁定 Rust CLI 的 6 组生效边界请求与 12 条 Lean 断言见 [边界验证报告](RuleSpecLean-v0.1/reports/legal-3403-rust-model.json)。
+M5 锁定引擎对应性：`Legal3403RustModel.lean` 按锁定引擎的 [`lookup_input`](https://github.com/TheAxiomFoundation/axiom-rules-engine/blob/a4322e45a035ba9fd412d01bebe078aeaa46cd54/src/engine.rs#L2914-L2950) 和 [`semantics_at` / `version_at`](https://github.com/TheAxiomFoundation/axiom-rules-engine/blob/a4322e45a035ba9fd412d01bebe078aeaa46cd54/src/model.rs#L564-L581) 建立单记录、单版本模型。锁定 Rust CLI 的 6 组生效边界请求与 12 条 Lean 断言见 [边界验证报告](reports/v0.1/proofs/legal-3403-rust-model.json)。
 
-`Legal3403RustSource.lean` 证明索引查找、期间覆盖和版本筛选的单记录、单版本转写与既有模型一致，并将该结论接入请求保持性定理。`tools.check_3403_rust_source` 核对两份锁定源码的 SHA-256，直接编译提取的 Rust 函数体，在日期和金额已编码的测试容器中，对照 36 项输入查找和 9 项版本选择结果。CI 对比[源码差分报告](RuleSpecLean-v0.1/reports/legal-3403-rust-source.json)，并通过 `lake build RuleSpecLean.ProofAudit` 审计新增定理。源码转写与实际 Rust 实现之间的联系目前由差分验证支撑；Rust 源码的机器验证、请求解析与 Decimal 求值仍待完成。
+`Legal3403RustSource.lean` 证明索引查找、期间覆盖和版本筛选的单记录、单版本转写与既有模型一致，并将该结论接入请求保持性定理。`experiments.check_3403_rust_source` 核对两份锁定源码的 SHA-256，直接编译提取的 Rust 函数体，在日期和金额已编码的测试容器中，对照 36 项输入查找和 9 项版本选择结果。CI 对比[源码差分报告](reports/v0.1/proofs/legal-3403-rust-source.json)，并通过 `lake build RuleSpecLean.Proofs.ProofAudit` 审计新增定理。源码转写与实际 Rust 实现之间的联系目前由差分验证支撑；Rust 源码的机器验证、请求解析与 Decimal 求值仍待完成。
 
-M6 当前交付：固定语料扫描发现 2,304 个 YAML 文件，其中 1,152 个为案例文件。在 1,152 个编译候选中，800 个成功、352 个失败；3,099 条已编译规则实例中，2,342 条按快照正常转换、734 条转换后含缺失版本错误节点、23 条无法转换。33,954 项公开输出期望中，6,168 项通过三方对照（18.17%）；最新参数表版本支持新增 4 项，原有 6,164 项无一退回。各阶段分母及阻塞原因见 [语料验证报告](RuleSpecLean-v0.1/reports/corpus-validation.md)。
+M6 当前交付：固定语料扫描发现 2,304 个 YAML 文件，其中 1,152 个为案例文件。在 1,152 个编译候选中，800 个成功、352 个失败；3,099 条已编译规则实例中，2,342 条按快照正常转换、734 条转换后含缺失版本错误节点、23 条无法转换。33,954 项公开输出期望中，6,168 项通过三方对照（18.17%）；最新参数表版本支持新增 4 项，原有 6,164 项无一退回。各阶段分母及阻塞原因见 [语料验证报告](reports/v0.1/corpus/corpus-validation.md)。
 
 ## 6. 验证与交付规范
 
@@ -137,27 +138,13 @@ M6 当前交付：固定语料扫描发现 2,304 个 YAML 文件，其中 1,152 
 - 不支持的节点或数值语义显式拒绝，不静默改写。
 - 未经 CI 实际执行，不标记 CI 已通过；未完成真实法律案例，不声明法律准确率。
 
-主要交付物位于 `RuleSpecLean-v0.1/`：`tools/`、`RuleSpecLean/`、`fixtures/`、`reports/`。
-仓库级 CI 位于 `.github/workflows/ci.yml`。
+活跃项目位于仓库根目录。目录职责见 [README](README.md)，基线证据分版本保存在 [`reports/v0.1/`](reports/v0.1/)，历史布局及原始 ZIP 的归档方式见[开发历史](docs/history/README.md)。
+仓库级 CI 位于 `.github/workflows/ci.yml`，使用与本地相同的验证入口。
 
 ## 7. 本地验证
 
 ```sh
-cd RuleSpecLean-v0.1
-python -m unittest discover -v
-python tools/compile_ir.py fixtures/ctc-like.artifact.json --as-of 2025-01-01 --output credit
-python -m tools.scan_artifacts fixtures --as-of 2025-01-01
-lake build
-lake build RuleSpecLean.ReferenceTests
+bash scripts/verify.sh offline
 ```
 
-重新运行真实上游对照：
-
-```sh
-python -m tools.prepare_reference --engine /path/to/axiom-rules-engine
-python -m tools.check_reference fixtures/upstream-flat-tax.artifact.json \
-  fixtures/upstream-flat-tax.cases.json --engine /path/to/axiom-rules-engine \
-  --lake /path/to/lake
-```
-
-详细执行记录见 `RuleSpecLean-v0.1/reports/progress.md`；测试和对照结果以 `reports/` 中的最新文件为准。
+锁定引擎对照及全量语料复现见[复现指南](docs/reproduction.md)。本文件维护里程碑及验收状态，版本化报告保留每次实验的具体证据。
