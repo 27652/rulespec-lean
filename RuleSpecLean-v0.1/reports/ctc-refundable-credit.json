@@ -1,0 +1,2399 @@
+{
+  "fixture": "us/statutes/26/24/d.test.yaml",
+  "fixture_sha256": "f2fae4bc263a2d07accf3188aed310d8ae64be88e44c14256157654a36b8673b",
+  "case": "two_children_earned_income_phase_in_refundable_amount",
+  "expected_usd": 2550,
+  "compatibility_probe": {
+    "engine_build": {
+      "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+      "dirty": false
+    },
+    "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+    "original_failures": {
+      "us/statutes/26/24/d.yaml": {
+        "exit_code": 1,
+        "diagnostic": "failed to load RuleSpec module `<corpus-copy>/us/statutes/26/24/d.yaml`: RuleSpec module `us:policies/irs/rev-proc-2025-32/earned-income-credit` declares removed plural `corpus_citation_paths`; every source/proof node must declare exactly one singular `corpus_citation_path`"
+      },
+      "us/statutes/26/32.yaml": {
+        "exit_code": 1,
+        "diagnostic": "failed to load RuleSpec module `<corpus-copy>/us/statutes/26/32.yaml`: RuleSpec module `us:policies/irs/rev-proc-2025-32/earned-income-credit` declares removed plural `corpus_citation_paths`; every source/proof node must declare exactly one singular `corpus_citation_path`"
+      }
+    },
+    "overlay": {
+      "us/policies/irs/rev-proc-2025-32/earned-income-credit.yaml": {
+        "original_sha256": "299a7bc8a73cfb7dfad5d49fb82fca8fa29bf1b18c09e91180ebc5b3975fad7b",
+        "overlay_sha256": "bb0ec451690de91cea15edde720d7c3771ed5d831b1d9f690ef2779f9ab8ea13"
+      }
+    },
+    "source_verification": {
+      "us/policies/irs/rev-proc-2025-32/earned-income-credit.yaml": {
+        "retained": {
+          "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15"
+        },
+        "context_citation_path": "us/guidance/irs/rev-proc-2025-32/page-14",
+        "legacy_verification_yaml": "  source_verification:\n    corpus_citation_paths:\n      - us/guidance/irs/rev-proc-2025-32/page-14\n      - us/guidance/irs/rev-proc-2025-32/page-15\n    values:\n      eitc_earned_income_amounts:\n        0: 8680\n        1: 13020\n        2: 18290\n        3: 18290\n      eitc_maximum_credit_amounts:\n        0: 664\n        1: 4427\n        2: 7316\n        3: 8231\n      eitc_threshold_phaseout_amounts_joint:\n        0: 18140\n        1: 31160\n        2: 31160\n        3: 31160\n      eitc_completed_phaseout_amounts_joint:\n        0: 26820\n        1: 58863\n        2: 65899\n        3: 70244\n      eitc_threshold_phaseout_amounts_other:\n        0: 10860\n        1: 23890\n        2: 23890\n        3: 23890\n      eitc_completed_phaseout_amounts_other:\n        0: 19540\n        1: 51593\n        2: 58629\n        3: 62974\n      eitc_maximum_investment_income: 12200\n",
+        "legacy_verification_sha256": "81841528f1a81adebfb78cf13cfd57634f660026ba93575d7f105baeddb762bb",
+        "reference": {
+          "path": "us/policies/irs/rev-proc-2025-32/page-15.yaml",
+          "sha256": "b032822be996093985f5d04fb64477d613fefd239c133e4c3c45192cc281f58e",
+          "rule_matches": {
+            "eitc_earned_income_amounts": "earned_income_credit_earned_income_amounts",
+            "eitc_maximum_credit_amounts": "earned_income_credit_maximum_credit_amounts",
+            "eitc_threshold_phaseout_amounts_joint": "earned_income_credit_phaseout_threshold_joint_amounts",
+            "eitc_completed_phaseout_amounts_joint": "earned_income_credit_completed_phaseout_joint_amounts",
+            "eitc_threshold_phaseout_amounts_other": "earned_income_credit_phaseout_threshold_other_amounts",
+            "eitc_completed_phaseout_amounts_other": "earned_income_credit_completed_phaseout_other_amounts",
+            "eitc_maximum_investment_income": "earned_income_credit_maximum_investment_income"
+          }
+        }
+      }
+    },
+    "attempts": [
+      {
+        "stage": "singular-citation",
+        "entrypoint": "us/statutes/26/24/d.yaml",
+        "exit_code": 0,
+        "diagnostic": "",
+        "artifact_format_version": 3,
+        "artifact_sha256": "d7288f3a52965016e71acef47524c9470eb6e760c6fe81ba9cfbcd6ef1b20a40",
+        "derived_outputs": 71,
+        "source_closure": {
+          "root": "us:statutes/26/24/d",
+          "modules": [
+            {
+              "target": "us:policies/irs/rev-proc-2025-32/earned-income-credit",
+              "sha256": "bb0ec451690de91cea15edde720d7c3771ed5d831b1d9f690ef2779f9ab8ea13"
+            },
+            {
+              "target": "us:statutes/26/112",
+              "sha256": "a7549fc6774224d725eaf654655707e7e97aecfa9fcebf378918778482f67512"
+            },
+            {
+              "target": "us:statutes/26/151",
+              "sha256": "28fb0e7c50d48ad764ff1ddee8b654a18006fc3dde026034b4dfb6efb90a0fb2"
+            },
+            {
+              "target": "us:statutes/26/152/c",
+              "sha256": "6b4df92c453619173f7c6c8b4f06e38ebb84b63521b2f53c30f49acf7d4d79bb"
+            },
+            {
+              "target": "us:statutes/26/24/d",
+              "sha256": "eaacb8c883ea2c08daa7e0af850a1f40913f10243ed17d06ddda24d25ce8c3cd"
+            },
+            {
+              "target": "us:statutes/26/32",
+              "sha256": "979e101eb20ac9f43fd37884e7241f3afc1abb7f3eea5abc93cc1b67067d8179"
+            },
+            {
+              "target": "us:statutes/26/32/c/2",
+              "sha256": "67e13e5e77ecd7b4a7c5c03294843763c666830aabb567f1c15a22d6890c1408"
+            },
+            {
+              "target": "us:statutes/26/7703",
+              "sha256": "f5985ef078c17b2e45080a53e9f2689633ab3c8664c324f28735bfa0c118db68"
+            },
+            {
+              "target": "us:statutes/26/911/a",
+              "sha256": "b128d251a0f74fc46a27e516e864e53c8d25442f5b419c7bb3bb4b607542d725"
+            },
+            {
+              "target": "us:statutes/26/931",
+              "sha256": "1fa430ea6a413cdaea822ffd05121d78a82954e52929f5a8e48a80c85249c295"
+            },
+            {
+              "target": "us:statutes/26/933",
+              "sha256": "e9b939801362efae757d1886823555c38a5f4ea828538308fe531f3619adc72f"
+            }
+          ],
+          "digest": "sha256:38b495a81c09479d076d5f85775297d2cf16aa402663e3c93db1941a31eb5583"
+        },
+        "compiled_eitc_parameters": [
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_maximum_investment_income",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 12200
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_earned_income_amounts",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 8680
+                  },
+                  "1": {
+                    "kind": "integer",
+                    "value": 13020
+                  },
+                  "2": {
+                    "kind": "integer",
+                    "value": 18290
+                  },
+                  "3": {
+                    "kind": "integer",
+                    "value": 18290
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_maximum_credit_amounts",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 664
+                  },
+                  "1": {
+                    "kind": "integer",
+                    "value": 4427
+                  },
+                  "2": {
+                    "kind": "integer",
+                    "value": 7316
+                  },
+                  "3": {
+                    "kind": "integer",
+                    "value": 8231
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_threshold_phaseout_amounts_joint",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 18140
+                  },
+                  "1": {
+                    "kind": "integer",
+                    "value": 31160
+                  },
+                  "2": {
+                    "kind": "integer",
+                    "value": 31160
+                  },
+                  "3": {
+                    "kind": "integer",
+                    "value": 31160
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_completed_phaseout_amounts_joint",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 26820
+                  },
+                  "1": {
+                    "kind": "integer",
+                    "value": 58863
+                  },
+                  "2": {
+                    "kind": "integer",
+                    "value": 65899
+                  },
+                  "3": {
+                    "kind": "integer",
+                    "value": 70244
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_threshold_phaseout_amounts_other",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 10860
+                  },
+                  "1": {
+                    "kind": "integer",
+                    "value": 23890
+                  },
+                  "2": {
+                    "kind": "integer",
+                    "value": 23890
+                  },
+                  "3": {
+                    "kind": "integer",
+                    "value": 23890
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_completed_phaseout_amounts_other",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 19540
+                  },
+                  "1": {
+                    "kind": "integer",
+                    "value": 51593
+                  },
+                  "2": {
+                    "kind": "integer",
+                    "value": 58629
+                  },
+                  "3": {
+                    "kind": "integer",
+                    "value": 62974
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "stage": "singular-citation",
+        "entrypoint": "us/statutes/26/32.yaml",
+        "exit_code": 0,
+        "diagnostic": "",
+        "artifact_format_version": 3,
+        "artifact_sha256": "94fe2f1903ee569f23199b29b0d615889e1b378922c63a0a461981a8c459764b",
+        "derived_outputs": 61,
+        "source_closure": {
+          "root": "us:statutes/26/32",
+          "modules": [
+            {
+              "target": "us:policies/irs/rev-proc-2025-32/earned-income-credit",
+              "sha256": "bb0ec451690de91cea15edde720d7c3771ed5d831b1d9f690ef2779f9ab8ea13"
+            },
+            {
+              "target": "us:statutes/26/112",
+              "sha256": "a7549fc6774224d725eaf654655707e7e97aecfa9fcebf378918778482f67512"
+            },
+            {
+              "target": "us:statutes/26/151",
+              "sha256": "28fb0e7c50d48ad764ff1ddee8b654a18006fc3dde026034b4dfb6efb90a0fb2"
+            },
+            {
+              "target": "us:statutes/26/152/c",
+              "sha256": "6b4df92c453619173f7c6c8b4f06e38ebb84b63521b2f53c30f49acf7d4d79bb"
+            },
+            {
+              "target": "us:statutes/26/32",
+              "sha256": "979e101eb20ac9f43fd37884e7241f3afc1abb7f3eea5abc93cc1b67067d8179"
+            },
+            {
+              "target": "us:statutes/26/32/c/2",
+              "sha256": "67e13e5e77ecd7b4a7c5c03294843763c666830aabb567f1c15a22d6890c1408"
+            },
+            {
+              "target": "us:statutes/26/7703",
+              "sha256": "f5985ef078c17b2e45080a53e9f2689633ab3c8664c324f28735bfa0c118db68"
+            },
+            {
+              "target": "us:statutes/26/911/a",
+              "sha256": "b128d251a0f74fc46a27e516e864e53c8d25442f5b419c7bb3bb4b607542d725"
+            },
+            {
+              "target": "us:statutes/26/931",
+              "sha256": "1fa430ea6a413cdaea822ffd05121d78a82954e52929f5a8e48a80c85249c295"
+            },
+            {
+              "target": "us:statutes/26/933",
+              "sha256": "e9b939801362efae757d1886823555c38a5f4ea828538308fe531f3619adc72f"
+            }
+          ],
+          "digest": "sha256:5899c47feb7a08aa9357c945ca8f91543b771dbbe8a50447498fb44d2f724074"
+        },
+        "compiled_eitc_parameters": [
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_maximum_investment_income",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 12200
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_earned_income_amounts",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 8680
+                  },
+                  "1": {
+                    "kind": "integer",
+                    "value": 13020
+                  },
+                  "2": {
+                    "kind": "integer",
+                    "value": 18290
+                  },
+                  "3": {
+                    "kind": "integer",
+                    "value": 18290
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_maximum_credit_amounts",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 664
+                  },
+                  "1": {
+                    "kind": "integer",
+                    "value": 4427
+                  },
+                  "2": {
+                    "kind": "integer",
+                    "value": 7316
+                  },
+                  "3": {
+                    "kind": "integer",
+                    "value": 8231
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_threshold_phaseout_amounts_joint",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 18140
+                  },
+                  "1": {
+                    "kind": "integer",
+                    "value": 31160
+                  },
+                  "2": {
+                    "kind": "integer",
+                    "value": 31160
+                  },
+                  "3": {
+                    "kind": "integer",
+                    "value": 31160
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_completed_phaseout_amounts_joint",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 26820
+                  },
+                  "1": {
+                    "kind": "integer",
+                    "value": 58863
+                  },
+                  "2": {
+                    "kind": "integer",
+                    "value": 65899
+                  },
+                  "3": {
+                    "kind": "integer",
+                    "value": 70244
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_threshold_phaseout_amounts_other",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 10860
+                  },
+                  "1": {
+                    "kind": "integer",
+                    "value": 23890
+                  },
+                  "2": {
+                    "kind": "integer",
+                    "value": 23890
+                  },
+                  "3": {
+                    "kind": "integer",
+                    "value": 23890
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "us:policies/irs/rev-proc-2025-32/earned-income-credit#eitc_completed_phaseout_amounts_other",
+            "corpus_citation_path": "us/guidance/irs/rev-proc-2025-32/page-15",
+            "versions": [
+              {
+                "effective_from": "2026-01-01",
+                "values": {
+                  "0": {
+                    "kind": "integer",
+                    "value": 19540
+                  },
+                  "1": {
+                    "kind": "integer",
+                    "value": 51593
+                  },
+                  "2": {
+                    "kind": "integer",
+                    "value": 58629
+                  },
+                  "3": {
+                    "kind": "integer",
+                    "value": 62974
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "request": {
+    "mode": "explain",
+    "dataset": {
+      "inputs": [
+        {
+          "name": "us:statutes/26/32/c/2#input.penal_institution_service_compensation",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/32/c/2#input.nonresident_alien_income_not_connected_with_united_states_business",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/32/c/2#input.net_earnings_from_self_employment_after_self_employment_tax_deduction",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/24/d#input.ctc_credit_without_subsection_and_26a_limit",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 4000
+          }
+        },
+        {
+          "name": "us:statutes/26/24/d#input.aggregate_subpart_c_credits_without_subsection",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/24/d#input.aggregate_subpart_c_credits_with_increased_26a_limit",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 2550
+          }
+        },
+        {
+          "name": "us:statutes/26/32/c/2#input.taxpayer_elects_to_treat_section_112_excluded_amounts_as_earned_income",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.member_below_grade_of_commissioned_officer_in_armed_forces",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.served_in_combat_zone_during_month",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.hospitalized_resulting_from_combat_zone_wounds_disease_or_injury",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.months_beginning_after_combatant_activities_termination",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.vietnam_combat_zone_hospitalization_month_after_january_1978",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.active_service_compensation_as_enlisted_member_excluding_pensions_and_retirement_pay",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.commissioned_officer_in_armed_forces_excluding_commissioned_warrant_officer",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.active_service_compensation_as_commissioned_officer_excluding_pensions_and_retirement_pay",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.maximum_enlisted_amount_for_commissioned_officer_months",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.armed_forces_member_in_missing_status_during_vietnam_conflict_as_result_of_conflict",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.officially_absent_from_post_of_duty_without_authority",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.armed_forces_missing_status_active_service_compensation",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.civilian_employee_in_missing_status_during_vietnam_conflict_as_result_of_conflict",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/112#input.civilian_employee_missing_status_active_service_compensation",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/24/d#input.qualifying_children_count",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 2
+          }
+        },
+        {
+          "name": "us:statutes/26/24/d#input.employee_3101_3201a_taxes",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/24/d#input.american_employer_foreign_affiliate_equivalent_3121l_taxes",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/24/d#input.self_employment_1401_taxes",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/24/d#input.railroad_3211a_taxes",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/24/d#input.special_refund_social_security_taxes_under_6413c",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/24/d#input.elects_foreign_earned_income_exclusion_under_911",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.filing_status",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.adjusted_gross_income",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.eitc_relevant_investment_income",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.childless_taxpayer_principal_place_of_abode_in_united_states_more_than_half_year",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.childless_taxpayer_or_spouse_age_eligible_for_eitc",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.taxpayer_is_dependent_for_section_151_to_another_taxpayer",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.taxpayer_is_qualifying_child_of_another_taxpayer",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.taxpayer_claims_section_911_benefits",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.taxpayer_is_nonresident_alien_for_any_portion_of_year",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.taxpayer_treated_as_resident_by_section_6013_g_or_h_election",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/7703#input.taxpayer_married_at_time_of_spouse_death",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/7703#input.taxpayer_married_at_close_of_taxable_year",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.satisfies_eitc_separated_spouse_rules",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.taxable_year_is_full_12_months",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": true
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.taxable_year_closed_by_reason_of_taxpayer_death",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.eitc_disallowance_period_applies",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.prior_deficiency_denial_without_required_eligibility_information",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.taxpayer_includes_required_social_security_number_on_return",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32#input.spouse_includes_required_social_security_number_on_return",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "bool",
+            "value": false
+          }
+        },
+        {
+          "name": "us:statutes/26/32/c/2#input.employee_compensation_includible_in_gross_income",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 20000
+          }
+        },
+        {
+          "name": "us:statutes/26/32/c/2#input.pension_or_annuity_amount",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        },
+        {
+          "name": "us:statutes/26/32/c/2#input.subsidized_state_work_activity_service_compensation",
+          "entity": "TaxUnit",
+          "entity_id": "tax-unit:1",
+          "interval": {
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "value": {
+            "kind": "integer",
+            "value": 0
+          }
+        }
+      ],
+      "relations": []
+    },
+    "queries": [
+      {
+        "entity_id": "tax-unit:1",
+        "period": {
+          "period_kind": "tax_year",
+          "start": "2026-01-01",
+          "end": "2026-12-31"
+        },
+        "outputs": [
+          "us:statutes/26/24/d#refundable_ctc"
+        ]
+      }
+    ]
+  },
+  "unprojected_attempt": {
+    "request": {
+      "mode": "explain",
+      "dataset": {
+        "inputs": [
+          {
+            "name": "us:statutes/26/32/c/2#input.penal_institution_service_compensation",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/32/c/2#input.nonresident_alien_income_not_connected_with_united_states_business",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/32/c/2#input.net_earnings_from_self_employment_after_self_employment_tax_deduction",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/24/d#input.ctc_credit_without_subsection_and_26a_limit",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 4000
+            }
+          },
+          {
+            "name": "us:statutes/26/24/d#input.aggregate_subpart_c_credits_without_subsection",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/24/d#input.aggregate_subpart_c_credits_with_increased_26a_limit",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 2550
+            }
+          },
+          {
+            "name": "us:statutes/26/32/c/2#input.taxpayer_elects_to_treat_section_112_excluded_amounts_as_earned_income",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.member_below_grade_of_commissioned_officer_in_armed_forces",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.served_in_combat_zone_during_month",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.hospitalized_resulting_from_combat_zone_wounds_disease_or_injury",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.months_beginning_after_combatant_activities_termination",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.vietnam_combat_zone_hospitalization_month_after_january_1978",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.active_service_compensation_as_enlisted_member_excluding_pensions_and_retirement_pay",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.commissioned_officer_in_armed_forces_excluding_commissioned_warrant_officer",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.active_service_compensation_as_commissioned_officer_excluding_pensions_and_retirement_pay",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.maximum_enlisted_amount_for_commissioned_officer_months",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.armed_forces_member_in_missing_status_during_vietnam_conflict_as_result_of_conflict",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.officially_absent_from_post_of_duty_without_authority",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.armed_forces_missing_status_active_service_compensation",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.civilian_employee_in_missing_status_during_vietnam_conflict_as_result_of_conflict",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/112#input.civilian_employee_missing_status_active_service_compensation",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/24/d#input.qualifying_children_count",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 2
+            }
+          },
+          {
+            "name": "us:statutes/26/24/d#input.employee_3101_3201a_taxes",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/24/d#input.american_employer_foreign_affiliate_equivalent_3121l_taxes",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/24/d#input.self_employment_1401_taxes",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/24/d#input.railroad_3211a_taxes",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/24/d#input.special_refund_social_security_taxes_under_6413c",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/24/d#input.elects_foreign_earned_income_exclusion_under_911",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.filing_status",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.adjusted_gross_income",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.eitc_relevant_investment_income",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.childless_taxpayer_principal_place_of_abode_in_united_states_more_than_half_year",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.childless_taxpayer_or_spouse_age_eligible_for_eitc",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.taxpayer_is_dependent_for_section_151_to_another_taxpayer",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.taxpayer_is_qualifying_child_of_another_taxpayer",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.taxpayer_claims_section_911_benefits",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.taxpayer_is_nonresident_alien_for_any_portion_of_year",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.taxpayer_treated_as_resident_by_section_6013_g_or_h_election",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/7703#input.taxpayer_married_at_time_of_spouse_death",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/7703#input.taxpayer_married_at_close_of_taxable_year",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.satisfies_eitc_separated_spouse_rules",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.taxable_year_is_full_12_months",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": true
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.taxable_year_closed_by_reason_of_taxpayer_death",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.eitc_disallowance_period_applies",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.prior_deficiency_denial_without_required_eligibility_information",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.taxpayer_includes_required_social_security_number_on_return",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/32#input.spouse_includes_required_social_security_number_on_return",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": false
+            }
+          },
+          {
+            "name": "us:statutes/26/164/f#input.taxpayer_is_individual",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "bool",
+              "value": true
+            }
+          },
+          {
+            "name": "us:statutes/26/1401#input.filing_status",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/32/c/2#input.employee_compensation_includible_in_gross_income",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 20000
+            }
+          },
+          {
+            "name": "us:statutes/26/32/c/2#input.pension_or_annuity_amount",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          },
+          {
+            "name": "us:statutes/26/32/c/2#input.subsidized_state_work_activity_service_compensation",
+            "entity": "TaxUnit",
+            "entity_id": "tax-unit:1",
+            "interval": {
+              "start": "2026-01-01",
+              "end": "2026-12-31"
+            },
+            "value": {
+              "kind": "integer",
+              "value": 0
+            }
+          }
+        ],
+        "relations": []
+      },
+      "queries": [
+        {
+          "entity_id": "tax-unit:1",
+          "period": {
+            "period_kind": "tax_year",
+            "start": "2026-01-01",
+            "end": "2026-12-31"
+          },
+          "outputs": [
+            "us:statutes/26/24/d#refundable_ctc"
+          ]
+        }
+      ]
+    },
+    "exit_code": 1,
+    "diagnostic": "dataset input `us:statutes/26/164/f#input.taxpayer_is_individual` must use an absolute legal RuleSpec reference that resolves to an input slot in the compiled program; use a request name from the input catalog"
+  },
+  "omitted_outside_closure_inputs": [
+    {
+      "name": "us:statutes/26/164/f#input.taxpayer_is_individual",
+      "entity": "TaxUnit",
+      "entity_id": "tax-unit:1",
+      "interval": {
+        "start": "2026-01-01",
+        "end": "2026-12-31"
+      },
+      "value": {
+        "kind": "bool",
+        "value": true
+      }
+    },
+    {
+      "name": "us:statutes/26/1401#input.filing_status",
+      "entity": "TaxUnit",
+      "entity_id": "tax-unit:1",
+      "interval": {
+        "start": "2026-01-01",
+        "end": "2026-12-31"
+      },
+      "value": {
+        "kind": "integer",
+        "value": 0
+      }
+    }
+  ],
+  "official_response": {
+    "metadata": {
+      "relation_binding": "strict",
+      "requested_mode": "explain",
+      "actual_mode": "explain",
+      "fallback_reason": null
+    },
+    "results": [
+      {
+        "entity_id": "tax-unit:1",
+        "period": {
+          "period_kind": "tax_year",
+          "start": "2026-01-01",
+          "end": "2026-12-31"
+        },
+        "outputs": {
+          "us:statutes/26/24/d#refundable_ctc": {
+            "kind": "scalar",
+            "name": "refundable_ctc",
+            "id": "us:statutes/26/24/d#refundable_ctc",
+            "dtype": "decimal",
+            "unit": "USD",
+            "value": {
+              "kind": "decimal",
+              "value": "2550"
+            }
+          }
+        },
+        "trace": {
+          "us:statutes/26/112#amount_excluded_from_gross_income_by_reason_of_section_112": {
+            "kind": "scalar",
+            "name": "amount_excluded_from_gross_income_by_reason_of_section_112",
+            "id": "us:statutes/26/112#amount_excluded_from_gross_income_by_reason_of_section_112",
+            "entity_id": "tax-unit:1",
+            "dtype": "decimal",
+            "unit": "USD",
+            "value": {
+              "kind": "decimal",
+              "value": "0"
+            },
+            "source": "26 USC 112(a), 26 USC 112(b), 26 USC 112(c), 26 USC 112(d)",
+            "executed_expression": "((((if ((input(\"member_below_grade_of_commissioned_officer_in_armed_forces\") == true) and ((input(\"served_in_combat_zone_during_month\") == true) or (((input(\"hospitalized_resulting_from_combat_zone_wounds_disease_or_injury\") == true) and (input(\"months_beginning_after_combatant_activities_termination\") <= us:statutes/26/112#hospitalization_after_combat_zone_termination_limit_years[0])) and not ((input(\"vietnam_combat_zone_hospitalization_month_after_january_1978\") == true))))) then input(\"active_service_compensation_as_enlisted_member_excluding_pensions_and_retirement_pay\") else 0) + (if ((input(\"commissioned_officer_in_armed_forces_excluding_commissioned_warrant_officer\") == true) and ((input(\"served_in_combat_zone_during_month\") == true) or (((input(\"hospitalized_resulting_from_combat_zone_wounds_disease_or_injury\") == true) and (input(\"months_beginning_after_combatant_activities_termination\") <= us:statutes/26/112#hospitalization_after_combat_zone_termination_limit_years[0])) and not ((input(\"vietnam_combat_zone_hospitalization_month_after_january_1978\") == true))))) then min(input(\"active_service_compensation_as_commissioned_officer_excluding_pensions_and_retirement_pay\"), input(\"maximum_enlisted_amount_for_commissioned_officer_months\")) else 0)) + (if ((input(\"armed_forces_member_in_missing_status_during_vietnam_conflict_as_result_of_conflict\") == true) and not ((input(\"officially_absent_from_post_of_duty_without_authority\") == true))) then input(\"armed_forces_missing_status_active_service_compensation\") else 0)) + (if (input(\"civilian_employee_in_missing_status_during_vietnam_conflict_as_result_of_conflict\") == true) then input(\"civilian_employee_missing_status_active_service_compensation\") else 0))",
+            "dependencies": [],
+            "not_evaluated_dependencies": [
+              {
+                "dependency": "us:statutes/26/112#hospitalization_after_combat_zone_termination_limit_years",
+                "reason": "short_circuit"
+              }
+            ]
+          },
+          "us:statutes/26/24/d#ctc_phase_in_earned_income_base": {
+            "kind": "scalar",
+            "name": "ctc_phase_in_earned_income_base",
+            "id": "us:statutes/26/24/d#ctc_phase_in_earned_income_base",
+            "entity_id": "tax-unit:1",
+            "dtype": "decimal",
+            "unit": "USD",
+            "value": {
+              "kind": "decimal",
+              "value": "20000"
+            },
+            "source": "26 USC 24(d)(1)(B)(i)",
+            "executed_expression": "(us:statutes/26/32/c/2#earned_income_before_section_112_election + us:statutes/26/112#amount_excluded_from_gross_income_by_reason_of_section_112)",
+            "dependencies": [
+              "us:statutes/26/32/c/2#earned_income_before_section_112_election",
+              "us:statutes/26/112#amount_excluded_from_gross_income_by_reason_of_section_112"
+            ]
+          },
+          "us:statutes/26/24/d#ctc_phase_in_relevant_earnings": {
+            "kind": "scalar",
+            "name": "ctc_phase_in_relevant_earnings",
+            "id": "us:statutes/26/24/d#ctc_phase_in_relevant_earnings",
+            "entity_id": "tax-unit:1",
+            "dtype": "decimal",
+            "unit": "USD",
+            "value": {
+              "kind": "decimal",
+              "value": "2550"
+            },
+            "source": "26 USC 24(d)(1)(B)(i)",
+            "executed_expression": "(us:statutes/26/24/d#ctc_refundable_phase_in_rate[0] * max(0, (us:statutes/26/24/d#ctc_phase_in_earned_income_base - us:statutes/26/24/d#ctc_refundable_phase_in_threshold[0])))",
+            "parameter_reads": [
+              {
+                "parameter": "us:statutes/26/24/d#ctc_refundable_phase_in_rate",
+                "name": "ctc_refundable_phase_in_rate",
+                "id": "us:statutes/26/24/d#ctc_refundable_phase_in_rate",
+                "index": 0,
+                "value": {
+                  "kind": "decimal",
+                  "value": "0.15"
+                },
+                "effective_from": "2026-01-01",
+                "source": "26 USC 24(d)(1)(B)(i)"
+              },
+              {
+                "parameter": "us:statutes/26/24/d#ctc_refundable_phase_in_threshold",
+                "name": "ctc_refundable_phase_in_threshold",
+                "id": "us:statutes/26/24/d#ctc_refundable_phase_in_threshold",
+                "index": 0,
+                "value": {
+                  "kind": "integer",
+                  "value": 3000
+                },
+                "unit": "USD",
+                "effective_from": "2026-01-01",
+                "source": "26 USC 24(d)(1)(B)(i)"
+              }
+            ],
+            "dependencies": [
+              "us:statutes/26/24/d#ctc_phase_in_earned_income_base"
+            ]
+          },
+          "us:statutes/26/24/d#ctc_refundable_cap": {
+            "kind": "scalar",
+            "name": "ctc_refundable_cap",
+            "id": "us:statutes/26/24/d#ctc_refundable_cap",
+            "entity_id": "tax-unit:1",
+            "dtype": "decimal",
+            "unit": "USD",
+            "value": {
+              "kind": "integer",
+              "value": 4000
+            },
+            "source": "26 USC 24(d)(1)(A)",
+            "executed_expression": "input(\"ctc_credit_without_subsection_and_26a_limit\")",
+            "dependencies": []
+          },
+          "us:statutes/26/24/d#ctc_refundable_foreign_income_eligible": {
+            "kind": "judgment",
+            "name": "ctc_refundable_foreign_income_eligible",
+            "id": "us:statutes/26/24/d#ctc_refundable_foreign_income_eligible",
+            "entity_id": "tax-unit:1",
+            "unit": null,
+            "outcome": "holds",
+            "source": "26 USC 24(d)(3)",
+            "executed_expression": "not ((input(\"elects_foreign_earned_income_exclusion_under_911\") == true))",
+            "dependencies": []
+          },
+          "us:statutes/26/24/d#ctc_refundable_limitation_increase_amount": {
+            "kind": "scalar",
+            "name": "ctc_refundable_limitation_increase_amount",
+            "id": "us:statutes/26/24/d#ctc_refundable_limitation_increase_amount",
+            "entity_id": "tax-unit:1",
+            "dtype": "decimal",
+            "unit": "USD",
+            "value": {
+              "kind": "decimal",
+              "value": "2550"
+            },
+            "source": "26 USC 24(d)(1)(B)",
+            "executed_expression": "max(us:statutes/26/24/d#ctc_phase_in_relevant_earnings, us:statutes/26/24/d#ctc_social_security_excess)",
+            "dependencies": [
+              "us:statutes/26/24/d#ctc_phase_in_relevant_earnings",
+              "us:statutes/26/24/d#ctc_social_security_excess"
+            ]
+          },
+          "us:statutes/26/24/d#ctc_refundable_tax_increase": {
+            "kind": "scalar",
+            "name": "ctc_refundable_tax_increase",
+            "id": "us:statutes/26/24/d#ctc_refundable_tax_increase",
+            "entity_id": "tax-unit:1",
+            "dtype": "decimal",
+            "unit": "USD",
+            "value": {
+              "kind": "decimal",
+              "value": "2550"
+            },
+            "source": "26 USC 24(d)(1)(B)",
+            "executed_expression": "max(0, (input(\"aggregate_subpart_c_credits_with_increased_26a_limit\") - input(\"aggregate_subpart_c_credits_without_subsection\")))",
+            "dependencies": []
+          },
+          "us:statutes/26/24/d#ctc_social_security_excess": {
+            "kind": "scalar",
+            "name": "ctc_social_security_excess",
+            "id": "us:statutes/26/24/d#ctc_social_security_excess",
+            "entity_id": "tax-unit:1",
+            "dtype": "decimal",
+            "unit": "USD",
+            "value": {
+              "kind": "decimal",
+              "value": "0"
+            },
+            "source": "26 USC 24(d)(1)(B)(ii)",
+            "executed_expression": "(if (input(\"qualifying_children_count\") >= us:statutes/26/24/d#ctc_refundable_min_children_for_ss_excess[0]) then max(0, (us:statutes/26/24/d#ctc_social_security_tax - us:statutes/26/32#eitc)) else 0)",
+            "parameter_reads": [
+              {
+                "parameter": "us:statutes/26/24/d#ctc_refundable_min_children_for_ss_excess",
+                "name": "ctc_refundable_min_children_for_ss_excess",
+                "id": "us:statutes/26/24/d#ctc_refundable_min_children_for_ss_excess",
+                "index": 0,
+                "value": {
+                  "kind": "integer",
+                  "value": 3
+                },
+                "effective_from": "2026-01-01",
+                "source": "26 USC 24(d)(1)(B)(ii)"
+              }
+            ],
+            "dependencies": [],
+            "not_evaluated_dependencies": [
+              {
+                "dependency": "us:statutes/26/24/d#ctc_social_security_tax",
+                "reason": "branch_not_selected"
+              },
+              {
+                "dependency": "us:statutes/26/32#eitc",
+                "reason": "branch_not_selected"
+              }
+            ]
+          },
+          "us:statutes/26/24/d#refundable_ctc": {
+            "kind": "scalar",
+            "name": "refundable_ctc",
+            "id": "us:statutes/26/24/d#refundable_ctc",
+            "entity_id": "tax-unit:1",
+            "dtype": "decimal",
+            "unit": "USD",
+            "value": {
+              "kind": "decimal",
+              "value": "2550"
+            },
+            "source": "26 USC 24(d)(1)",
+            "executed_expression": "(if us:statutes/26/24/d#ctc_refundable_foreign_income_eligible then min(us:statutes/26/24/d#ctc_refundable_cap, min(us:statutes/26/24/d#ctc_refundable_limitation_increase_amount, us:statutes/26/24/d#ctc_refundable_tax_increase)) else 0)",
+            "dependencies": [
+              "us:statutes/26/24/d#ctc_refundable_foreign_income_eligible",
+              "us:statutes/26/24/d#ctc_refundable_cap",
+              "us:statutes/26/24/d#ctc_refundable_limitation_increase_amount",
+              "us:statutes/26/24/d#ctc_refundable_tax_increase"
+            ]
+          },
+          "us:statutes/26/32/c/2#earned_income_before_section_112_election": {
+            "kind": "scalar",
+            "name": "earned_income_before_section_112_election",
+            "id": "us:statutes/26/32/c/2#earned_income_before_section_112_election",
+            "entity_id": "tax-unit:1",
+            "dtype": "decimal",
+            "unit": "USD",
+            "value": {
+              "kind": "decimal",
+              "value": "20000"
+            },
+            "source": "26 USC 32(c)(2)(A), 26 USC 32(c)(2)(B)(i)-(v)",
+            "executed_expression": "max(0, (((((input(\"employee_compensation_includible_in_gross_income\") + input(\"net_earnings_from_self_employment_after_self_employment_tax_deduction\")) - input(\"pension_or_annuity_amount\")) - input(\"nonresident_alien_income_not_connected_with_united_states_business\")) - input(\"penal_institution_service_compensation\")) - input(\"subsidized_state_work_activity_service_compensation\")))",
+            "dependencies": []
+          }
+        }
+      }
+    ]
+  },
+  "bound_env": {
+    "penal_institution_service_compensation": {
+      "kind": "integer",
+      "value": 0
+    },
+    "nonresident_alien_income_not_connected_with_united_states_business": {
+      "kind": "integer",
+      "value": 0
+    },
+    "net_earnings_from_self_employment_after_self_employment_tax_deduction": {
+      "kind": "integer",
+      "value": 0
+    },
+    "ctc_credit_without_subsection_and_26a_limit": {
+      "kind": "integer",
+      "value": 4000
+    },
+    "aggregate_subpart_c_credits_without_subsection": {
+      "kind": "integer",
+      "value": 0
+    },
+    "aggregate_subpart_c_credits_with_increased_26a_limit": {
+      "kind": "integer",
+      "value": 2550
+    },
+    "taxpayer_elects_to_treat_section_112_excluded_amounts_as_earned_income": {
+      "kind": "bool",
+      "value": false
+    },
+    "member_below_grade_of_commissioned_officer_in_armed_forces": {
+      "kind": "bool",
+      "value": false
+    },
+    "served_in_combat_zone_during_month": {
+      "kind": "bool",
+      "value": false
+    },
+    "hospitalized_resulting_from_combat_zone_wounds_disease_or_injury": {
+      "kind": "bool",
+      "value": false
+    },
+    "months_beginning_after_combatant_activities_termination": {
+      "kind": "integer",
+      "value": 0
+    },
+    "vietnam_combat_zone_hospitalization_month_after_january_1978": {
+      "kind": "bool",
+      "value": false
+    },
+    "active_service_compensation_as_enlisted_member_excluding_pensions_and_retirement_pay": {
+      "kind": "integer",
+      "value": 0
+    },
+    "commissioned_officer_in_armed_forces_excluding_commissioned_warrant_officer": {
+      "kind": "bool",
+      "value": false
+    },
+    "active_service_compensation_as_commissioned_officer_excluding_pensions_and_retirement_pay": {
+      "kind": "integer",
+      "value": 0
+    },
+    "maximum_enlisted_amount_for_commissioned_officer_months": {
+      "kind": "integer",
+      "value": 0
+    },
+    "armed_forces_member_in_missing_status_during_vietnam_conflict_as_result_of_conflict": {
+      "kind": "bool",
+      "value": false
+    },
+    "officially_absent_from_post_of_duty_without_authority": {
+      "kind": "bool",
+      "value": false
+    },
+    "armed_forces_missing_status_active_service_compensation": {
+      "kind": "integer",
+      "value": 0
+    },
+    "civilian_employee_in_missing_status_during_vietnam_conflict_as_result_of_conflict": {
+      "kind": "bool",
+      "value": false
+    },
+    "civilian_employee_missing_status_active_service_compensation": {
+      "kind": "integer",
+      "value": 0
+    },
+    "qualifying_children_count": {
+      "kind": "integer",
+      "value": 2
+    },
+    "employee_3101_3201a_taxes": {
+      "kind": "integer",
+      "value": 0
+    },
+    "american_employer_foreign_affiliate_equivalent_3121l_taxes": {
+      "kind": "integer",
+      "value": 0
+    },
+    "self_employment_1401_taxes": {
+      "kind": "integer",
+      "value": 0
+    },
+    "railroad_3211a_taxes": {
+      "kind": "integer",
+      "value": 0
+    },
+    "special_refund_social_security_taxes_under_6413c": {
+      "kind": "integer",
+      "value": 0
+    },
+    "elects_foreign_earned_income_exclusion_under_911": {
+      "kind": "bool",
+      "value": false
+    },
+    "filing_status": {
+      "kind": "integer",
+      "value": 0
+    },
+    "adjusted_gross_income": {
+      "kind": "integer",
+      "value": 0
+    },
+    "eitc_relevant_investment_income": {
+      "kind": "integer",
+      "value": 0
+    },
+    "childless_taxpayer_principal_place_of_abode_in_united_states_more_than_half_year": {
+      "kind": "bool",
+      "value": false
+    },
+    "childless_taxpayer_or_spouse_age_eligible_for_eitc": {
+      "kind": "bool",
+      "value": false
+    },
+    "taxpayer_is_dependent_for_section_151_to_another_taxpayer": {
+      "kind": "bool",
+      "value": false
+    },
+    "taxpayer_is_qualifying_child_of_another_taxpayer": {
+      "kind": "bool",
+      "value": false
+    },
+    "taxpayer_claims_section_911_benefits": {
+      "kind": "bool",
+      "value": false
+    },
+    "taxpayer_is_nonresident_alien_for_any_portion_of_year": {
+      "kind": "bool",
+      "value": false
+    },
+    "taxpayer_treated_as_resident_by_section_6013_g_or_h_election": {
+      "kind": "bool",
+      "value": false
+    },
+    "taxpayer_married_at_time_of_spouse_death": {
+      "kind": "bool",
+      "value": false
+    },
+    "taxpayer_married_at_close_of_taxable_year": {
+      "kind": "bool",
+      "value": false
+    },
+    "satisfies_eitc_separated_spouse_rules": {
+      "kind": "bool",
+      "value": false
+    },
+    "taxable_year_is_full_12_months": {
+      "kind": "bool",
+      "value": true
+    },
+    "taxable_year_closed_by_reason_of_taxpayer_death": {
+      "kind": "bool",
+      "value": false
+    },
+    "eitc_disallowance_period_applies": {
+      "kind": "bool",
+      "value": false
+    },
+    "prior_deficiency_denial_without_required_eligibility_information": {
+      "kind": "bool",
+      "value": false
+    },
+    "taxpayer_includes_required_social_security_number_on_return": {
+      "kind": "bool",
+      "value": false
+    },
+    "spouse_includes_required_social_security_number_on_return": {
+      "kind": "bool",
+      "value": false
+    },
+    "employee_compensation_includible_in_gross_income": {
+      "kind": "integer",
+      "value": 20000
+    },
+    "pension_or_annuity_amount": {
+      "kind": "integer",
+      "value": 0
+    },
+    "subsidized_state_work_activity_service_compensation": {
+      "kind": "integer",
+      "value": 0
+    },
+    "@count:0:1:us:statutes/26/151#relation.exemption_individual_of_tax_unit": {
+      "kind": "integer",
+      "value": 0
+    },
+    "@members:0:1:us:statutes/26/151#relation.exemption_individual_of_tax_unit": [],
+    "@count:0:1:us:statutes/26/151#relation.senior_deduction_individual_of_tax_unit": {
+      "kind": "integer",
+      "value": 0
+    },
+    "@members:0:1:us:statutes/26/151#relation.senior_deduction_individual_of_tax_unit": [],
+    "@count:0:1:us:statutes/26/7703#relation.living_apart_child_of_tax_unit": {
+      "kind": "integer",
+      "value": 0
+    },
+    "@members:0:1:us:statutes/26/7703#relation.living_apart_child_of_tax_unit": [],
+    "@count:0:1:us:statutes/26/32#relation.qualifying_child_of_tax_unit": {
+      "kind": "integer",
+      "value": 0
+    },
+    "@members:0:1:us:statutes/26/32#relation.qualifying_child_of_tax_unit": []
+  },
+  "python_value": "2550.00",
+  "lean_guards_passed": 1
+}

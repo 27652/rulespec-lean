@@ -1,4 +1,4 @@
-"""Replay a public §32 final-credit case on the citation overlay."""
+"""Replay a public §32 or §24(d) final-credit case on the citation overlay."""
 
 import argparse
 from fractions import Fraction
@@ -20,11 +20,16 @@ from tools.request_binding import bind
 FIXTURE = "us/statutes/26/32.test.yaml"
 CASE = "one_child_phase_in_and_allowed"
 DENIAL_CASE = "investment_income_denies_credit"
+CTC_CASE = "two_children_earned_income_phase_in_refundable_amount"
+CTC_OUTSIDE_CLOSURE = {
+    "us:statutes/26/164/f#input.taxpayer_is_individual",
+    "us:statutes/26/1401#input.filing_status",
+}
 OUTPUT = "us:statutes/26/32#eitc"
 RELATION = "us:statutes/26/32#relation.qualifying_child_of_tax_unit"
 
 
-def build_request(case, artifact):
+def build_request(case, artifact, output=OUTPUT):
     period = case["period"]
     interval = {key: period[key] for key in ("start", "end")}
     tax_unit = "tax-unit:1"
@@ -41,18 +46,20 @@ def build_request(case, artifact):
 
     for name, value in case["input"].items():
         if name == RELATION:
-            if not isinstance(value, list) or len(value) != 1:
-                raise ValueError("expected one supplied child row")
-            person = "person:1"
-            relations.append({"name": name, "tuple": [tax_unit, person], "interval": interval})
-            for member_input, member_value in value[0].items():
-                append_fact(member_input, member_value, "Person", person)
+            expected_rows = 1 if output == OUTPUT else 0
+            if not isinstance(value, list) or len(value) != expected_rows:
+                raise ValueError(f"expected {expected_rows} supplied EITC child rows")
+            for index, row in enumerate(value, start=1):
+                person = f"person:{index}"
+                relations.append({"name": name, "tuple": [tax_unit, person], "interval": interval})
+                for member_input, member_value in row.items():
+                    append_fact(member_input, member_value, "Person", person)
         else:
             append_fact(name, value, "TaxUnit", tax_unit)
-    if not relations:
+    if output == OUTPUT and not relations:
         raise ValueError("public one-child case has no child relation")
     return {"mode": "explain", "dataset": {"inputs": inputs, "relations": relations},
-            "queries": [{"entity_id": tax_unit, "period": period, "outputs": [OUTPUT]}]}
+            "queries": [{"entity_id": tax_unit, "period": period, "outputs": [output]}]}
 
 
 def main():
@@ -60,67 +67,95 @@ def main():
     for option in ("engine", "lake", "corpus", "report", "lean"):
         parser.add_argument(f"--{option}", type=Path, required=True)
     parser.add_argument("--audit", type=Path, default=Path("reports/corpus-static.json"))
-    parser.add_argument("--case", choices=(CASE, DENIAL_CASE), default=CASE)
+    parser.add_argument("--case", choices=(CASE, DENIAL_CASE, CTC_CASE), default=CASE)
     args = parser.parse_args()
-    namespace = "EITCFinalCredit" if args.case == CASE else "EITCInvestmentIncomeDenial"
+    ctc = args.case == CTC_CASE
+    namespace = {CASE: "EITCFinalCredit", DENIAL_CASE: "EITCInvestmentIncomeDenial", CTC_CASE: "CTCRefundableCredit"}[args.case]
+    fixture = "us/statutes/26/24/d.test.yaml" if ctc else FIXTURE
+    output = "us:statutes/26/24/d#refundable_ctc" if ctc else OUTPUT
+    root, rule = output.split("#")
     audit = json.loads(args.audit.read_bytes())
-    raw_fixture = (args.corpus / FIXTURE).read_bytes()
-    fixture_hash, = (row["sha256"] for row in audit["results"] if row["source"] == FIXTURE)
+    raw_fixture = (args.corpus / fixture).read_bytes()
+    fixture_hash, = (row["sha256"] for row in audit["results"] if row["source"] == fixture)
     if digest(raw_fixture) != fixture_hash:
-        raise ValueError("public EITC fixture differs from the pinned audit")
+        raise ValueError("public fixture differs from the pinned audit")
     case, = (row for row in yaml.safe_load(raw_fixture) if row["name"] == args.case)
-    expected = case["output"][OUTPUT]
+    expected = case["output"][output]
     if type(expected) is not int:
         raise ValueError("expected a published whole-dollar credit")
 
-    with tempfile.TemporaryDirectory(prefix="rulespec-eitc-final-") as work:
-        artifact = Path(work) / "eitc.json"
+    with tempfile.TemporaryDirectory(prefix="rulespec-final-credit-") as work:
+        artifact = Path(work) / "credit.json"
         probe = Path(work) / "probe.json"
         subprocess.run([sys.executable, "-m", "tools.probe_corpus_compat", "--engine", str(args.engine),
                         "--corpus", str(args.corpus), "--audit", str(args.audit),
-                        "--eitc-report", str(probe), "--eitc-artifact", str(artifact)], check=True, timeout=300)
+                        "--eitc-report", str(probe), "--ctc-artifact" if ctc else "--eitc-artifact",
+                        str(artifact)], check=True, timeout=300)
         provenance = json.loads(probe.read_bytes())
         raw_artifact = artifact.read_bytes()
-        attempt, = (row for row in provenance["attempts"] if row["source_closure"]["root"] == "us:statutes/26/32")
+        attempt, = (row for row in provenance["attempts"] if row["source_closure"]["root"] == root)
         if digest(raw_artifact) != attempt["artifact_sha256"]:
-            raise ValueError("exported EITC artifact differs from the verified §32 artifact")
+            raise ValueError(f"exported artifact differs from the verified {root} artifact")
         program = json.loads(raw_artifact)
-        request = build_request(case, program)
+        request = build_request(case, program, output)
         query = request["queries"][0]
+        report = {"fixture": fixture, "fixture_sha256": fixture_hash, "case": args.case,
+                  "expected_usd": expected, "compatibility_probe": provenance, "request": request}
         execution = subprocess.run([str(args.engine.resolve()), "run-compiled", "--artifact", str(artifact)],
                                    input=json.dumps(request), capture_output=True, text=True, timeout=60)
+        if ctc:
+            catalog = {name for row in program["metadata"]["input_catalog"] for name in row["request_names"]}
+            inputs = request["dataset"]["inputs"]
+            extra = {fact["name"] for fact in inputs} - catalog
+            closure = {module["target"] for module in attempt["source_closure"]["modules"]}
+            if (extra != CTC_OUTSIDE_CLOSURE or any(name.split("#")[0] in closure for name in extra)
+                    or execution.returncode != 1 or execution.stdout.strip()
+                    or not any(f"dataset input `{name}` must use an absolute legal RuleSpec reference"
+                               in execution.stderr for name in extra)):
+                report["failure"] = {"stage": "unprojected Rust request", "diagnostic": execution.stderr.strip()}
+                args.report.write_text(json.dumps(report, indent=2) + "\n")
+                raise ValueError("unexpected unprojected CTC input catalog or Rust diagnostic")
+            report["unprojected_attempt"] = {"request": request, "exit_code": execution.returncode,
+                                             "diagnostic": execution.stderr.strip()}
+            report["omitted_outside_closure_inputs"] = [fact for fact in inputs if fact["name"] in extra]
+            request = {**request, "dataset": {**request["dataset"],
+                                              "inputs": [fact for fact in inputs if fact["name"] not in extra]}}
+            report["request"] = request
+            execution = subprocess.run([str(args.engine.resolve()), "run-compiled", "--artifact", str(artifact)],
+                                       input=json.dumps(request), capture_output=True, text=True, timeout=60)
         status = {}
         official = explain_output(status, execution, query)
         if execution.stderr.strip() or official is None or official.get("kind") != "scalar" or official.get("unit") != "USD":
-            raise ValueError(f"unexpected EITC Explain result: {status or official}; {execution.stderr}")
+            report["failure"] = {"stage": "Rust Explain", "diagnostic": execution.stderr.strip(),
+                                 "response_stdout": execution.stdout, "status": status}
+            args.report.write_text(json.dumps(report, indent=2) + "\n")
+            raise ValueError(f"unexpected Explain result: {status or official}; {execution.stderr}")
         response = json.loads(execution.stdout)
         if response["metadata"]["relation_binding"] != "strict":
             raise ValueError("expected strict EITC relation binding")
         official_value = DecimalValue.from_literal(official["value"])
-        report = {"fixture": FIXTURE, "fixture_sha256": fixture_hash, "case": args.case,
-                  "expected_usd": expected, "compatibility_probe": provenance, "request": request,
-                  "official_response": response}
+        report["official_response"] = response
         stage = "Rust comparison"
         try:
             if Fraction(str(official_value)) != expected:
                 raise ValueError(f"Rust result {official_value} differs from published {expected}")
             stage = "Python binding"
             as_of = query["period"]["start"]
-            env = bind(program, request, "eitc", validate_value=snapshot_literal, filtered_counts=True)
+            env = bind(program, request, rule, validate_value=snapshot_literal, filtered_counts=True)
             report["bound_env"] = env
             stage = "Python evaluation"
-            actual = NumericRuntime(program, as_of).rule("eitc", env)
+            actual = NumericRuntime(program, as_of).rule(rule, env)
             report["python_value"] = str(actual)
             if Fraction(str(actual)) != expected:
                 raise ValueError(f"Python result {actual} differs from published {expected}")
             stage = "Lean lowering"
-            source = DecimalCompiler(program, as_of, env, allow_missing=True).emit("eitc", namespace)
+            source = DecimalCompiler(program, as_of, env, allow_missing=True).emit(rule, namespace)
             source += ("\nopen RuleSpecLean.DecimalModel\n\n"
                        f"#guard match eval {namespace}.output with\n"
                        f"  | .ok value => equalValue value ⟨({expected}), 0⟩\n"
                        "  | .error _ => false\n")
             stage = "Lean evaluation"
-            check = Path(work) / "EITCFinalCreditTests.lean"
+            check = Path(work) / f"{namespace}Tests.lean"
             check.write_text(source)
             subprocess.run([str(args.lake.resolve()), "build", "RuleSpecLean.Decimal"], check=True, timeout=300)
             verification = subprocess.run([str(args.lake.resolve()), "env", "lean", str(check)],
@@ -134,7 +169,7 @@ def main():
     args.lean.write_text(source)
     report["lean_guards_passed"] = 1
     args.report.write_text(json.dumps(report, indent=2) + "\n")
-    print(f"EITC §32 {args.case}: published {expected}, Rust {official_value}, Python {actual}, Lean guard passed")
+    print(f"{root} {args.case}: published {expected}, Rust {official_value}, Python {actual}, Lean guard passed")
 
 
 if __name__ == "__main__":

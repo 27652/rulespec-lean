@@ -97,6 +97,7 @@ def main():
     modes.add_argument("--eitc-report", type=Path, help="Probe the shared CTC/EITC dependency citation migration")
     parser.add_argument("--snap-artifact", type=Path, help="Export the verified temporary SNAP artifact")
     parser.add_argument("--eitc-artifact", type=Path, help="Export the verified temporary §32 artifact")
+    parser.add_argument("--ctc-artifact", type=Path, help="Export the verified temporary §24(d) artifact")
     parser.add_argument("--retain-source-verification", action="store_true",
                         help="For SNAP, detach only legacy values and preserve the citation metadata")
     args = parser.parse_args()
@@ -104,6 +105,8 @@ def main():
         parser.error("--snap-artifact requires --snap-report")
     if args.eitc_artifact and not args.eitc_report:
         parser.error("--eitc-artifact requires --eitc-report")
+    if args.ctc_artifact and not args.eitc_report:
+        parser.error("--ctc-artifact requires --eitc-report")
     if args.retain_source_verification and not args.snap_report:
         parser.error("--retain-source-verification requires --snap-report")
     engine = str(args.engine.resolve())
@@ -261,6 +264,8 @@ def main():
                 raise SystemExit("EITC overlay did not compile both entrypoints; see probe report")
             if args.eitc_artifact:
                 args.eitc_artifact.write_bytes(raw_artifact)
+            if args.ctc_artifact:
+                args.ctc_artifact.write_bytes((Path(work) / "probe-0.json").read_bytes())
 
 
 def compile_entry(engine, root, name, artifact):

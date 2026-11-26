@@ -63,6 +63,15 @@ python -m tools.check_eitc_final --case investment_income_denies_credit \
   --lean /tmp/opencode/EITCInvestmentIncomeDenialTests.lean
 ```
 
+CTC §24(d) 公开案例 `two_children_earned_income_phase_in_refundable_amount` 在保留来源引用的临时产物上回放最终输出 `refundable_ctc`。原始请求在 Rust 输入校验时被拒绝：§164(f) 的 `taxpayer_is_individual` 与 §1401 的 `filing_status` 均不在 §24(d) 产物的来源闭包和输入目录中。回放仅移除这两项（不重命名、不改变其他输入），随后 Rust Explain、Python、Lean 和公开期望均为 2,550 美元。通过的请求未遇到不支持的求值节点。[回放报告](ctc-refundable-credit.json)保留原始请求与拒绝诊断、移除的输入、实际请求与响应、绑定环境及 11 个闭包模块。
+
+```sh
+python -m tools.check_eitc_final --case two_children_earned_income_phase_in_refundable_amount \
+  --engine "$ENGINE" --corpus "$CORPUS" --lake "$(command -v lake)" \
+  --report /tmp/opencode/ctc-refundable-credit.json \
+  --lean /tmp/opencode/CTCRefundableCreditTests.lean
+```
+
 SNAP 的第二阶段探针以固定语料中 `state-plan-composition.yaml` 的声明为依据，在临时副本的 `us/statutes/7/2012/j.yaml` 中补入 `data_relation.arguments: [Person, Household]`。仅移除旧元数据时，锁定引擎以退出码 1 报告 `[untyped_relation]`；补入声明后，§273.10 以退出码 0 生成 Artifact v3，包含 17 个派生输出。产物中的 `slot_entities` 与语料声明顺序一致，4 个闭包模块均已按审计基线或临时修改后的 SHA-256 核对。这一结果仅验证编译准入，尚未验证完整 SNAP 执行。
 
 复现：在项目子目录中安装 `PyYAML==6.0.3` 后运行 `python -m tools.probe_corpus_compat --engine "$ENGINE" --corpus "$CORPUS"`。实测见 [`corpus-compat-probe.log`](corpus-compat-probe.log)。同一命令附加 `--snap-report /tmp/opencode/snap-compat-probe.json` 可运行 SNAP 两阶段探针；诊断、声明出处、文件哈希与依赖闭包见 [`snap-compat-probe.json`](snap-compat-probe.json) 和 [`snap-compat-probe.log`](snap-compat-probe.log)。
