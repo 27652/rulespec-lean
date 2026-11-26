@@ -1,0 +1,3736 @@
+{
+  "fixture": "us/regulations/7-cfr/273/10.test.yaml",
+  "fixture_sha256": "f8a7bf1d017a590fa1e2fb9ace86470d90f9c4dd5bff8b0a5135681621519420",
+  "compatibility_probe": {
+    "engine_build": {
+      "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+      "dirty": false
+    },
+    "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+    "slot_reference": {
+      "path": "us/policies/usda/snap/state-plan-composition.yaml",
+      "sha256": "a69101e09fe1b0b3c4a70c5df2d7329a5dd0931c194e8df54ec560412df71695",
+      "predicate": "member_of_household",
+      "arguments": [
+        "Person",
+        "Household"
+      ]
+    },
+    "overlay": {
+      "us/policies/usda/snap/fy-2026-cola/deductions.yaml": {
+        "original_sha256": "bb28d73d2566eebcd2a6d0b16098d108b35c10a20c892aab5dbc510c462b9264",
+        "overlay_sha256": "8832b48adfdbb25b6209e0e64823545b75ae8be844f2895000ba6f17ec3adafd"
+      },
+      "us/policies/usda/snap/fy-2026-cola/maximum-allotments.yaml": {
+        "original_sha256": "2e4708b8df906b506f07d091fe93dbcc6aefe603a31500502ecc270d436e9f2e",
+        "overlay_sha256": "145bb911fbd4c1eeaf6968848ee2d73291a742431ac83defe7abfae68a93fa93"
+      },
+      "us/statutes/7/2012/j.yaml": {
+        "original_sha256": "008f221da22fd95306625126232ca22ff7a4c8b622216bc7e8c092532e4e1bb9",
+        "overlay_sha256": "b2726f96a34bb3efb29e5c9bd64ec23a3bdf2c0b6ce53eda9790576608142b34"
+      }
+    },
+    "attempts": [
+      {
+        "stage": "metadata-only",
+        "entrypoint": "us/regulations/7-cfr/273/10.yaml",
+        "exit_code": 1,
+        "diagnostic": "<corpus-copy>/us/regulations/7-cfr/273/10.yaml: relation entity typing failed:\n[untyped_relation] relation `us:statutes/7/2012/j#relation.member_of_household` (arity 2) is executed by `us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member` but declares no entity kind for its tuple slots. Relation entity typing is mandatory: without slot kinds a dataset tuple stored in the other orientation aggregates nothing and yields a silent zero. Declare `data_relation.arguments` (one entity kind per slot, in tuple order) and recompile, or type an existing artifact with `axiom-rules-engine migrate artifact`."
+      },
+      {
+        "stage": "metadata-and-slots",
+        "entrypoint": "us/regulations/7-cfr/273/10.yaml",
+        "exit_code": 0,
+        "diagnostic": "",
+        "artifact_format_version": 3,
+        "artifact_sha256": "3906bf027b3aa1cd6e651d5377f0830341b13cfaf48dc9f458a3f9db1b32ee56",
+        "derived_outputs": 17,
+        "source_closure": {
+          "root": "us:regulations/7-cfr/273/10",
+          "modules": [
+            {
+              "target": "us:policies/usda/snap/fy-2026-cola/deductions",
+              "sha256": "8832b48adfdbb25b6209e0e64823545b75ae8be844f2895000ba6f17ec3adafd"
+            },
+            {
+              "target": "us:policies/usda/snap/fy-2026-cola/maximum-allotments",
+              "sha256": "145bb911fbd4c1eeaf6968848ee2d73291a742431ac83defe7abfae68a93fa93"
+            },
+            {
+              "target": "us:regulations/7-cfr/273/10",
+              "sha256": "f9b9f00101218d1d335aa9fff400f0578ae2dc314334693bae7e0dde51202dff"
+            },
+            {
+              "target": "us:statutes/7/2012/j",
+              "sha256": "b2726f96a34bb3efb29e5c9bd64ec23a3bdf2c0b6ce53eda9790576608142b34"
+            }
+          ],
+          "digest": "sha256:81ce807748eb45282ea417b485b88206b9e9b6ad75b75284dd7c9197e4709efe"
+        },
+        "compiled_relation": {
+          "name": "us:statutes/7/2012/j#relation.member_of_household",
+          "arity": 2,
+          "slot_entities": [
+            "Person",
+            "Household"
+          ]
+        }
+      }
+    ]
+  },
+  "lean_guards_passed": 5,
+  "results": [
+    {
+      "name": "net_income_and_allotment_with_capped_shelter_deduction",
+      "expected": 182,
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/usda/snap/fy-2026-cola/deductions#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_gross_monthly_earned_income",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1000
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_monthly_unearned_income",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_income_exclusions",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_entitled_to_excess_medical_deduction",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_medical_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_allowable_monthly_dependent_care_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_allowable_monthly_child_support_payments",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_claimed_homeless_shelter_deduction",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_allowable_shelter_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 500
+              }
+            },
+            {
+              "name": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.state_agency_rounds_thirty_percent_net_income_up",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_initial_month",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": [
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment"
+            ]
+          }
+        ]
+      },
+      "official_response": {
+        "metadata": {
+          "relation_binding": "strict",
+          "requested_mode": "explain",
+          "actual_mode": "explain",
+          "fallback_reason": null
+        },
+        "results": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": {
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment": {
+                "kind": "scalar",
+                "name": "snap_monthly_allotment",
+                "id": "us:regulations/7-cfr/273/10#snap_monthly_allotment",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "182"
+                }
+              }
+            },
+            "trace": {
+              "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction": {
+                "kind": "scalar",
+                "name": "snap_standard_deduction",
+                "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 209
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc",
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc"
+                ]
+              },
+              "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc": {
+                "kind": "scalar",
+                "name": "snap_standard_deduction_48_states_dc",
+                "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 209
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table[min(input(\"household_size\"), 6)]",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table",
+                    "name": "snap_standard_deduction_48_states_dc_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 209
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment": {
+                "kind": "scalar",
+                "name": "snap_maximum_allotment",
+                "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "298"
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "(us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table[max(min(input(\"household_size\"), 8), 1)] + (max((input(\"household_size\") - 8), 0) * us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "name": "snap_maximum_allotment_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 298
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  },
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member",
+                    "name": "snap_maximum_allotment_additional_member",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 218
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_one_person_thrifty_food_plan_cost": {
+                "kind": "scalar",
+                "name": "snap_one_person_thrifty_food_plan_cost",
+                "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_one_person_thrifty_food_plan_cost",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 298
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table[1]",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "name": "snap_maximum_allotment_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 298
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums": {
+                "kind": "scalar",
+                "name": "snap_calculated_monthly_allotment_before_minimums",
+                "id": "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "182"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)(A)",
+                "executed_expression": "(if (input(\"state_agency_rounds_thirty_percent_net_income_up\") == true) then max(0, (us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment - ceil((us:regulations/7-cfr/273/10#snap_net_monthly_income * us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate[0])))) else max(0, floor((us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment - (us:regulations/7-cfr/273/10#snap_net_monthly_income * us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate[0])))))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "name": "snap_allotment_net_income_reduction_rate",
+                    "id": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.3"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(A)"
+                  }
+                ],
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                  "us:regulations/7-cfr/273/10#snap_net_monthly_income"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_net_monthly_income",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_earned_income_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "200"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(B) with the (e)(1)(ii) rounding election",
+                "executed_expression": "floor((input(\"snap_gross_monthly_earned_income\") * us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income",
+                    "name": "snap_earned_income_deduction_rate_for_net_income",
+                    "id": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.2"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(1)(i)(B)"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_excess_medical_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(D)",
+                "executed_expression": "(if (input(\"household_entitled_to_excess_medical_deduction\") == true) then max(0, (input(\"snap_total_medical_expenses\") - us:regulations/7-cfr/273/10#snap_medical_expense_threshold[0])) else 0)",
+                "dependencies": [],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_medical_expense_threshold",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_shelter_cost": {
+                "kind": "scalar",
+                "name": "snap_excess_shelter_cost",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_cost",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "205"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(H)",
+                "executed_expression": "(if (us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income > 0) then 0 else max(0, floor(((input(\"snap_total_allowable_shelter_expenses\") - (us:regulations/7-cfr/273/10#snap_net_income_before_shelter * us:regulations/7-cfr/273/10#snap_excess_shelter_income_share[0])) + 0.5))))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_excess_shelter_income_share",
+                    "name": "snap_excess_shelter_income_share",
+                    "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_income_share",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.5"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(1)(i)(H)"
+                  }
+                ],
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income",
+                  "us:regulations/7-cfr/273/10#snap_net_income_before_shelter"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_excess_shelter_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "205"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(I)",
+                "executed_expression": "(if us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member then us:regulations/7-cfr/273/10#snap_excess_shelter_cost else min(us:regulations/7-cfr/273/10#snap_excess_shelter_cost, us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "name": "snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 744
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": [
+                  "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                  "us:regulations/7-cfr/273/10#snap_excess_shelter_cost"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_excess_shelter_cost",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_homeless_shelter_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(G)",
+                "executed_expression": "floor((min(input(\"snap_claimed_homeless_shelter_deduction\"), us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction[0]) + 0.5))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction",
+                    "name": "snap_homeless_shelter_deduction",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "198.99"
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_minimum_benefit": {
+                "kind": "scalar",
+                "name": "snap_minimum_benefit",
+                "id": "us:regulations/7-cfr/273/10#snap_minimum_benefit",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "24"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)(C)",
+                "executed_expression": "floor(((us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_one_person_thrifty_food_plan_cost * us:regulations/7-cfr/273/10#snap_minimum_benefit_rate[0]) + 0.5))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_minimum_benefit_rate",
+                    "name": "snap_minimum_benefit_rate",
+                    "id": "us:regulations/7-cfr/273/10#snap_minimum_benefit_rate",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.08"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(C)"
+                  }
+                ],
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_one_person_thrifty_food_plan_cost"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment": {
+                "kind": "scalar",
+                "name": "snap_monthly_allotment",
+                "id": "us:regulations/7-cfr/273/10#snap_monthly_allotment",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "182"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)",
+                "executed_expression": "(if ((input(\"household_initial_month\") == true) and (us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums < us:regulations/7-cfr/273/10#snap_initial_month_minimum_issuance[0])) then 0 else (if ((not ((input(\"household_initial_month\") == true)) and (input(\"household_size\") <= us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit[0])) and (us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums < us:regulations/7-cfr/273/10#snap_minimum_benefit)) then us:regulations/7-cfr/273/10#snap_minimum_benefit else us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit",
+                    "name": "snap_minimum_benefit_household_size_limit",
+                    "id": "us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 2
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(C)"
+                  }
+                ],
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                  "us:regulations/7-cfr/273/10#snap_minimum_benefit"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                    "reason": "short_circuit"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_initial_month_minimum_issuance",
+                    "reason": "short_circuit"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_minimum_benefit",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_net_income_before_shelter": {
+                "kind": "scalar",
+                "name": "snap_net_income_before_shelter",
+                "id": "us:regulations/7-cfr/273/10#snap_net_income_before_shelter",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "591"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(A)-(H)",
+                "executed_expression": "max(0, ((((((us:regulations/7-cfr/273/10#snap_total_gross_income - us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income) - us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction) - us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income) - input(\"snap_allowable_monthly_dependent_care_expenses\")) - input(\"snap_allowable_monthly_child_support_payments\")) - us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income))",
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_total_gross_income",
+                  "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income",
+                  "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction",
+                  "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income",
+                  "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_net_monthly_income": {
+                "kind": "scalar",
+                "name": "snap_net_monthly_income",
+                "id": "us:regulations/7-cfr/273/10#snap_net_monthly_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "386"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)",
+                "executed_expression": "max(0, (us:regulations/7-cfr/273/10#snap_net_income_before_shelter - us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income))",
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_net_income_before_shelter",
+                  "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_total_gross_income": {
+                "kind": "scalar",
+                "name": "snap_total_gross_income",
+                "id": "us:regulations/7-cfr/273/10#snap_total_gross_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "1000"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(A)",
+                "executed_expression": "((input(\"snap_gross_monthly_earned_income\") + input(\"snap_total_monthly_unearned_income\")) - input(\"snap_income_exclusions\"))",
+                "dependencies": []
+              },
+              "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member": {
+                "kind": "judgment",
+                "name": "snap_household_has_elderly_or_disabled_member",
+                "id": "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                "entity_id": "household:1",
+                "unit": null,
+                "outcome": "not_holds",
+                "source": "7 USC 2012(j)",
+                "executed_expression": "(count_related(\"us:statutes/7/2012/j#relation.member_of_household\", 1, 0, where: (input(\"snap_member_is_elderly_or_disabled\") == true)) > 0)",
+                "dependencies": []
+              }
+            }
+          }
+        ]
+      },
+      "bound_env": {
+        "household_size": {
+          "kind": "integer",
+          "value": 1
+        },
+        "snap_gross_monthly_earned_income": {
+          "kind": "integer",
+          "value": 1000
+        },
+        "snap_total_monthly_unearned_income": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_income_exclusions": {
+          "kind": "integer",
+          "value": 0
+        },
+        "household_entitled_to_excess_medical_deduction": {
+          "kind": "bool",
+          "value": false
+        },
+        "snap_total_medical_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_allowable_monthly_dependent_care_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_allowable_monthly_child_support_payments": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_claimed_homeless_shelter_deduction": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_total_allowable_shelter_expenses": {
+          "kind": "integer",
+          "value": 500
+        },
+        "state_agency_rounds_thirty_percent_net_income_up": {
+          "kind": "bool",
+          "value": true
+        },
+        "household_initial_month": {
+          "kind": "bool",
+          "value": false
+        },
+        "@count:1:0:us:statutes/7/2012/j#relation.member_of_household": {
+          "kind": "integer",
+          "value": 0
+        },
+        "@members:1:0:us:statutes/7/2012/j#relation.member_of_household": []
+      },
+      "python_value": "182"
+    },
+    {
+      "name": "homeless_shelter_deduction_replaces_shelter_cost_computation",
+      "expected": 270,
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/usda/snap/fy-2026-cola/deductions#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_gross_monthly_earned_income",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_monthly_unearned_income",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 500
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_income_exclusions",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_entitled_to_excess_medical_deduction",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_medical_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_allowable_monthly_dependent_care_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_allowable_monthly_child_support_payments",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_claimed_homeless_shelter_deduction",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 200
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_allowable_shelter_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 900
+              }
+            },
+            {
+              "name": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.state_agency_rounds_thirty_percent_net_income_up",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_initial_month",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": [
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment"
+            ]
+          }
+        ]
+      },
+      "official_response": {
+        "metadata": {
+          "relation_binding": "strict",
+          "requested_mode": "explain",
+          "actual_mode": "explain",
+          "fallback_reason": null
+        },
+        "results": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": {
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment": {
+                "kind": "scalar",
+                "name": "snap_monthly_allotment",
+                "id": "us:regulations/7-cfr/273/10#snap_monthly_allotment",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "270"
+                }
+              }
+            },
+            "trace": {
+              "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction": {
+                "kind": "scalar",
+                "name": "snap_standard_deduction",
+                "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 209
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc",
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc"
+                ]
+              },
+              "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc": {
+                "kind": "scalar",
+                "name": "snap_standard_deduction_48_states_dc",
+                "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 209
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table[min(input(\"household_size\"), 6)]",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table",
+                    "name": "snap_standard_deduction_48_states_dc_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 209
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment": {
+                "kind": "scalar",
+                "name": "snap_maximum_allotment",
+                "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "298"
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "(us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table[max(min(input(\"household_size\"), 8), 1)] + (max((input(\"household_size\") - 8), 0) * us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "name": "snap_maximum_allotment_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 298
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  },
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member",
+                    "name": "snap_maximum_allotment_additional_member",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 218
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_one_person_thrifty_food_plan_cost": {
+                "kind": "scalar",
+                "name": "snap_one_person_thrifty_food_plan_cost",
+                "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_one_person_thrifty_food_plan_cost",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 298
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table[1]",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "name": "snap_maximum_allotment_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 298
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums": {
+                "kind": "scalar",
+                "name": "snap_calculated_monthly_allotment_before_minimums",
+                "id": "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "270"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)(A)",
+                "executed_expression": "(if (input(\"state_agency_rounds_thirty_percent_net_income_up\") == true) then max(0, (us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment - ceil((us:regulations/7-cfr/273/10#snap_net_monthly_income * us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate[0])))) else max(0, floor((us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment - (us:regulations/7-cfr/273/10#snap_net_monthly_income * us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate[0])))))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "name": "snap_allotment_net_income_reduction_rate",
+                    "id": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.3"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(A)"
+                  }
+                ],
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                  "us:regulations/7-cfr/273/10#snap_net_monthly_income"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_net_monthly_income",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_earned_income_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(B) with the (e)(1)(ii) rounding election",
+                "executed_expression": "floor((input(\"snap_gross_monthly_earned_income\") * us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income",
+                    "name": "snap_earned_income_deduction_rate_for_net_income",
+                    "id": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.2"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(1)(i)(B)"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_excess_medical_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(D)",
+                "executed_expression": "(if (input(\"household_entitled_to_excess_medical_deduction\") == true) then max(0, (input(\"snap_total_medical_expenses\") - us:regulations/7-cfr/273/10#snap_medical_expense_threshold[0])) else 0)",
+                "dependencies": [],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_medical_expense_threshold",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_shelter_cost": {
+                "kind": "scalar",
+                "name": "snap_excess_shelter_cost",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_cost",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(H)",
+                "executed_expression": "(if (us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income > 0) then 0 else max(0, floor(((input(\"snap_total_allowable_shelter_expenses\") - (us:regulations/7-cfr/273/10#snap_net_income_before_shelter * us:regulations/7-cfr/273/10#snap_excess_shelter_income_share[0])) + 0.5))))",
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_net_income_before_shelter",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_excess_shelter_income_share",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_excess_shelter_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(I)",
+                "executed_expression": "(if us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member then us:regulations/7-cfr/273/10#snap_excess_shelter_cost else min(us:regulations/7-cfr/273/10#snap_excess_shelter_cost, us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "name": "snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 744
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": [
+                  "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                  "us:regulations/7-cfr/273/10#snap_excess_shelter_cost"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_excess_shelter_cost",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_homeless_shelter_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "199"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(G)",
+                "executed_expression": "floor((min(input(\"snap_claimed_homeless_shelter_deduction\"), us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction[0]) + 0.5))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction",
+                    "name": "snap_homeless_shelter_deduction",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "198.99"
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_minimum_benefit": {
+                "kind": "scalar",
+                "name": "snap_minimum_benefit",
+                "id": "us:regulations/7-cfr/273/10#snap_minimum_benefit",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "24"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)(C)",
+                "executed_expression": "floor(((us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_one_person_thrifty_food_plan_cost * us:regulations/7-cfr/273/10#snap_minimum_benefit_rate[0]) + 0.5))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_minimum_benefit_rate",
+                    "name": "snap_minimum_benefit_rate",
+                    "id": "us:regulations/7-cfr/273/10#snap_minimum_benefit_rate",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.08"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(C)"
+                  }
+                ],
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_one_person_thrifty_food_plan_cost"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment": {
+                "kind": "scalar",
+                "name": "snap_monthly_allotment",
+                "id": "us:regulations/7-cfr/273/10#snap_monthly_allotment",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "270"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)",
+                "executed_expression": "(if ((input(\"household_initial_month\") == true) and (us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums < us:regulations/7-cfr/273/10#snap_initial_month_minimum_issuance[0])) then 0 else (if ((not ((input(\"household_initial_month\") == true)) and (input(\"household_size\") <= us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit[0])) and (us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums < us:regulations/7-cfr/273/10#snap_minimum_benefit)) then us:regulations/7-cfr/273/10#snap_minimum_benefit else us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit",
+                    "name": "snap_minimum_benefit_household_size_limit",
+                    "id": "us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 2
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(C)"
+                  }
+                ],
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                  "us:regulations/7-cfr/273/10#snap_minimum_benefit"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                    "reason": "short_circuit"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_initial_month_minimum_issuance",
+                    "reason": "short_circuit"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_minimum_benefit",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_net_income_before_shelter": {
+                "kind": "scalar",
+                "name": "snap_net_income_before_shelter",
+                "id": "us:regulations/7-cfr/273/10#snap_net_income_before_shelter",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "92"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(A)-(H)",
+                "executed_expression": "max(0, ((((((us:regulations/7-cfr/273/10#snap_total_gross_income - us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income) - us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction) - us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income) - input(\"snap_allowable_monthly_dependent_care_expenses\")) - input(\"snap_allowable_monthly_child_support_payments\")) - us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income))",
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_total_gross_income",
+                  "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income",
+                  "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction",
+                  "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income",
+                  "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_net_monthly_income": {
+                "kind": "scalar",
+                "name": "snap_net_monthly_income",
+                "id": "us:regulations/7-cfr/273/10#snap_net_monthly_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "92"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)",
+                "executed_expression": "max(0, (us:regulations/7-cfr/273/10#snap_net_income_before_shelter - us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income))",
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_net_income_before_shelter",
+                  "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_total_gross_income": {
+                "kind": "scalar",
+                "name": "snap_total_gross_income",
+                "id": "us:regulations/7-cfr/273/10#snap_total_gross_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "500"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(A)",
+                "executed_expression": "((input(\"snap_gross_monthly_earned_income\") + input(\"snap_total_monthly_unearned_income\")) - input(\"snap_income_exclusions\"))",
+                "dependencies": []
+              },
+              "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member": {
+                "kind": "judgment",
+                "name": "snap_household_has_elderly_or_disabled_member",
+                "id": "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                "entity_id": "household:1",
+                "unit": null,
+                "outcome": "not_holds",
+                "source": "7 USC 2012(j)",
+                "executed_expression": "(count_related(\"us:statutes/7/2012/j#relation.member_of_household\", 1, 0, where: (input(\"snap_member_is_elderly_or_disabled\") == true)) > 0)",
+                "dependencies": []
+              }
+            }
+          }
+        ]
+      },
+      "bound_env": {
+        "household_size": {
+          "kind": "integer",
+          "value": 1
+        },
+        "snap_gross_monthly_earned_income": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_total_monthly_unearned_income": {
+          "kind": "integer",
+          "value": 500
+        },
+        "snap_income_exclusions": {
+          "kind": "integer",
+          "value": 0
+        },
+        "household_entitled_to_excess_medical_deduction": {
+          "kind": "bool",
+          "value": false
+        },
+        "snap_total_medical_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_allowable_monthly_dependent_care_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_allowable_monthly_child_support_payments": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_claimed_homeless_shelter_deduction": {
+          "kind": "integer",
+          "value": 200
+        },
+        "snap_total_allowable_shelter_expenses": {
+          "kind": "integer",
+          "value": 900
+        },
+        "state_agency_rounds_thirty_percent_net_income_up": {
+          "kind": "bool",
+          "value": true
+        },
+        "household_initial_month": {
+          "kind": "bool",
+          "value": false
+        },
+        "@count:1:0:us:statutes/7/2012/j#relation.member_of_household": {
+          "kind": "integer",
+          "value": 0
+        },
+        "@members:1:0:us:statutes/7/2012/j#relation.member_of_household": []
+      },
+      "python_value": "270"
+    },
+    {
+      "name": "initial_month_under_ten_dollars_not_issued",
+      "expected": 90,
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/usda/snap/fy-2026-cola/deductions#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_gross_monthly_earned_income",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_monthly_unearned_income",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 900
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_income_exclusions",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_entitled_to_excess_medical_deduction",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_medical_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_allowable_monthly_dependent_care_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_allowable_monthly_child_support_payments",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_claimed_homeless_shelter_deduction",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_allowable_shelter_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.state_agency_rounds_thirty_percent_net_income_up",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_initial_month",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": [
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment"
+            ]
+          }
+        ]
+      },
+      "official_response": {
+        "metadata": {
+          "relation_binding": "strict",
+          "requested_mode": "explain",
+          "actual_mode": "explain",
+          "fallback_reason": null
+        },
+        "results": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": {
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment": {
+                "kind": "scalar",
+                "name": "snap_monthly_allotment",
+                "id": "us:regulations/7-cfr/273/10#snap_monthly_allotment",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "90"
+                }
+              }
+            },
+            "trace": {
+              "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction": {
+                "kind": "scalar",
+                "name": "snap_standard_deduction",
+                "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 209
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc",
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc"
+                ]
+              },
+              "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc": {
+                "kind": "scalar",
+                "name": "snap_standard_deduction_48_states_dc",
+                "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 209
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table[min(input(\"household_size\"), 6)]",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table",
+                    "name": "snap_standard_deduction_48_states_dc_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 209
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment": {
+                "kind": "scalar",
+                "name": "snap_maximum_allotment",
+                "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "298"
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "(us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table[max(min(input(\"household_size\"), 8), 1)] + (max((input(\"household_size\") - 8), 0) * us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "name": "snap_maximum_allotment_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 298
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  },
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member",
+                    "name": "snap_maximum_allotment_additional_member",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 218
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums": {
+                "kind": "scalar",
+                "name": "snap_calculated_monthly_allotment_before_minimums",
+                "id": "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "90"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)(A)",
+                "executed_expression": "(if (input(\"state_agency_rounds_thirty_percent_net_income_up\") == true) then max(0, (us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment - ceil((us:regulations/7-cfr/273/10#snap_net_monthly_income * us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate[0])))) else max(0, floor((us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment - (us:regulations/7-cfr/273/10#snap_net_monthly_income * us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate[0])))))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "name": "snap_allotment_net_income_reduction_rate",
+                    "id": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.3"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(A)"
+                  }
+                ],
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                  "us:regulations/7-cfr/273/10#snap_net_monthly_income"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_net_monthly_income",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_earned_income_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(B) with the (e)(1)(ii) rounding election",
+                "executed_expression": "floor((input(\"snap_gross_monthly_earned_income\") * us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income",
+                    "name": "snap_earned_income_deduction_rate_for_net_income",
+                    "id": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.2"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(1)(i)(B)"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_excess_medical_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(D)",
+                "executed_expression": "(if (input(\"household_entitled_to_excess_medical_deduction\") == true) then max(0, (input(\"snap_total_medical_expenses\") - us:regulations/7-cfr/273/10#snap_medical_expense_threshold[0])) else 0)",
+                "dependencies": [],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_medical_expense_threshold",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_shelter_cost": {
+                "kind": "scalar",
+                "name": "snap_excess_shelter_cost",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_cost",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(H)",
+                "executed_expression": "(if (us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income > 0) then 0 else max(0, floor(((input(\"snap_total_allowable_shelter_expenses\") - (us:regulations/7-cfr/273/10#snap_net_income_before_shelter * us:regulations/7-cfr/273/10#snap_excess_shelter_income_share[0])) + 0.5))))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_excess_shelter_income_share",
+                    "name": "snap_excess_shelter_income_share",
+                    "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_income_share",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.5"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(1)(i)(H)"
+                  }
+                ],
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income",
+                  "us:regulations/7-cfr/273/10#snap_net_income_before_shelter"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_excess_shelter_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(I)",
+                "executed_expression": "(if us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member then us:regulations/7-cfr/273/10#snap_excess_shelter_cost else min(us:regulations/7-cfr/273/10#snap_excess_shelter_cost, us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "name": "snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 744
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": [
+                  "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                  "us:regulations/7-cfr/273/10#snap_excess_shelter_cost"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_excess_shelter_cost",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_homeless_shelter_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(G)",
+                "executed_expression": "floor((min(input(\"snap_claimed_homeless_shelter_deduction\"), us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction[0]) + 0.5))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction",
+                    "name": "snap_homeless_shelter_deduction",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "198.99"
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment": {
+                "kind": "scalar",
+                "name": "snap_monthly_allotment",
+                "id": "us:regulations/7-cfr/273/10#snap_monthly_allotment",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "90"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)",
+                "executed_expression": "(if ((input(\"household_initial_month\") == true) and (us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums < us:regulations/7-cfr/273/10#snap_initial_month_minimum_issuance[0])) then 0 else (if ((not ((input(\"household_initial_month\") == true)) and (input(\"household_size\") <= us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit[0])) and (us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums < us:regulations/7-cfr/273/10#snap_minimum_benefit)) then us:regulations/7-cfr/273/10#snap_minimum_benefit else us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_initial_month_minimum_issuance",
+                    "name": "snap_initial_month_minimum_issuance",
+                    "id": "us:regulations/7-cfr/273/10#snap_initial_month_minimum_issuance",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 10
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(B)"
+                  }
+                ],
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit",
+                    "reason": "short_circuit"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                    "reason": "short_circuit"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_minimum_benefit",
+                    "reason": "short_circuit"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_minimum_benefit",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_net_income_before_shelter": {
+                "kind": "scalar",
+                "name": "snap_net_income_before_shelter",
+                "id": "us:regulations/7-cfr/273/10#snap_net_income_before_shelter",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "691"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(A)-(H)",
+                "executed_expression": "max(0, ((((((us:regulations/7-cfr/273/10#snap_total_gross_income - us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income) - us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction) - us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income) - input(\"snap_allowable_monthly_dependent_care_expenses\")) - input(\"snap_allowable_monthly_child_support_payments\")) - us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income))",
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_total_gross_income",
+                  "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income",
+                  "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction",
+                  "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income",
+                  "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_net_monthly_income": {
+                "kind": "scalar",
+                "name": "snap_net_monthly_income",
+                "id": "us:regulations/7-cfr/273/10#snap_net_monthly_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "691"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)",
+                "executed_expression": "max(0, (us:regulations/7-cfr/273/10#snap_net_income_before_shelter - us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income))",
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_net_income_before_shelter",
+                  "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_total_gross_income": {
+                "kind": "scalar",
+                "name": "snap_total_gross_income",
+                "id": "us:regulations/7-cfr/273/10#snap_total_gross_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "900"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(A)",
+                "executed_expression": "((input(\"snap_gross_monthly_earned_income\") + input(\"snap_total_monthly_unearned_income\")) - input(\"snap_income_exclusions\"))",
+                "dependencies": []
+              },
+              "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member": {
+                "kind": "judgment",
+                "name": "snap_household_has_elderly_or_disabled_member",
+                "id": "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                "entity_id": "household:1",
+                "unit": null,
+                "outcome": "not_holds",
+                "source": "7 USC 2012(j)",
+                "executed_expression": "(count_related(\"us:statutes/7/2012/j#relation.member_of_household\", 1, 0, where: (input(\"snap_member_is_elderly_or_disabled\") == true)) > 0)",
+                "dependencies": []
+              }
+            }
+          }
+        ]
+      },
+      "bound_env": {
+        "household_size": {
+          "kind": "integer",
+          "value": 1
+        },
+        "snap_gross_monthly_earned_income": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_total_monthly_unearned_income": {
+          "kind": "integer",
+          "value": 900
+        },
+        "snap_income_exclusions": {
+          "kind": "integer",
+          "value": 0
+        },
+        "household_entitled_to_excess_medical_deduction": {
+          "kind": "bool",
+          "value": false
+        },
+        "snap_total_medical_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_allowable_monthly_dependent_care_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_allowable_monthly_child_support_payments": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_claimed_homeless_shelter_deduction": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_total_allowable_shelter_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "state_agency_rounds_thirty_percent_net_income_up": {
+          "kind": "bool",
+          "value": true
+        },
+        "household_initial_month": {
+          "kind": "bool",
+          "value": true
+        },
+        "@count:1:0:us:statutes/7/2012/j#relation.member_of_household": {
+          "kind": "integer",
+          "value": 0
+        },
+        "@members:1:0:us:statutes/7/2012/j#relation.member_of_household": []
+      },
+      "python_value": "90"
+    },
+    {
+      "name": "minimum_benefit_applies_to_non_initial_one_person_household",
+      "expected": 24,
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/usda/snap/fy-2026-cola/deductions#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_gross_monthly_earned_income",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_monthly_unearned_income",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1180
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_income_exclusions",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_entitled_to_excess_medical_deduction",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_medical_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_allowable_monthly_dependent_care_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_allowable_monthly_child_support_payments",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_claimed_homeless_shelter_deduction",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_allowable_shelter_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.state_agency_rounds_thirty_percent_net_income_up",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_initial_month",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": [
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment"
+            ]
+          }
+        ]
+      },
+      "official_response": {
+        "metadata": {
+          "relation_binding": "strict",
+          "requested_mode": "explain",
+          "actual_mode": "explain",
+          "fallback_reason": null
+        },
+        "results": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": {
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment": {
+                "kind": "scalar",
+                "name": "snap_monthly_allotment",
+                "id": "us:regulations/7-cfr/273/10#snap_monthly_allotment",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "24"
+                }
+              }
+            },
+            "trace": {
+              "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction": {
+                "kind": "scalar",
+                "name": "snap_standard_deduction",
+                "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 209
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc",
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc"
+                ]
+              },
+              "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc": {
+                "kind": "scalar",
+                "name": "snap_standard_deduction_48_states_dc",
+                "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 209
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table[min(input(\"household_size\"), 6)]",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table",
+                    "name": "snap_standard_deduction_48_states_dc_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 209
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment": {
+                "kind": "scalar",
+                "name": "snap_maximum_allotment",
+                "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "298"
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "(us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table[max(min(input(\"household_size\"), 8), 1)] + (max((input(\"household_size\") - 8), 0) * us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "name": "snap_maximum_allotment_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 298
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  },
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member",
+                    "name": "snap_maximum_allotment_additional_member",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 218
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_one_person_thrifty_food_plan_cost": {
+                "kind": "scalar",
+                "name": "snap_one_person_thrifty_food_plan_cost",
+                "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_one_person_thrifty_food_plan_cost",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 298
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table[1]",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "name": "snap_maximum_allotment_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 298
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums": {
+                "kind": "scalar",
+                "name": "snap_calculated_monthly_allotment_before_minimums",
+                "id": "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "6"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)(A)",
+                "executed_expression": "(if (input(\"state_agency_rounds_thirty_percent_net_income_up\") == true) then max(0, (us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment - ceil((us:regulations/7-cfr/273/10#snap_net_monthly_income * us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate[0])))) else max(0, floor((us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment - (us:regulations/7-cfr/273/10#snap_net_monthly_income * us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate[0])))))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "name": "snap_allotment_net_income_reduction_rate",
+                    "id": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.3"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(A)"
+                  }
+                ],
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                  "us:regulations/7-cfr/273/10#snap_net_monthly_income"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_net_monthly_income",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_earned_income_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(B) with the (e)(1)(ii) rounding election",
+                "executed_expression": "floor((input(\"snap_gross_monthly_earned_income\") * us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income",
+                    "name": "snap_earned_income_deduction_rate_for_net_income",
+                    "id": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.2"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(1)(i)(B)"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_excess_medical_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(D)",
+                "executed_expression": "(if (input(\"household_entitled_to_excess_medical_deduction\") == true) then max(0, (input(\"snap_total_medical_expenses\") - us:regulations/7-cfr/273/10#snap_medical_expense_threshold[0])) else 0)",
+                "dependencies": [],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_medical_expense_threshold",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_shelter_cost": {
+                "kind": "scalar",
+                "name": "snap_excess_shelter_cost",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_cost",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(H)",
+                "executed_expression": "(if (us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income > 0) then 0 else max(0, floor(((input(\"snap_total_allowable_shelter_expenses\") - (us:regulations/7-cfr/273/10#snap_net_income_before_shelter * us:regulations/7-cfr/273/10#snap_excess_shelter_income_share[0])) + 0.5))))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_excess_shelter_income_share",
+                    "name": "snap_excess_shelter_income_share",
+                    "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_income_share",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.5"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(1)(i)(H)"
+                  }
+                ],
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income",
+                  "us:regulations/7-cfr/273/10#snap_net_income_before_shelter"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_excess_shelter_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(I)",
+                "executed_expression": "(if us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member then us:regulations/7-cfr/273/10#snap_excess_shelter_cost else min(us:regulations/7-cfr/273/10#snap_excess_shelter_cost, us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "name": "snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 744
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": [
+                  "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                  "us:regulations/7-cfr/273/10#snap_excess_shelter_cost"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_excess_shelter_cost",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_homeless_shelter_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(G)",
+                "executed_expression": "floor((min(input(\"snap_claimed_homeless_shelter_deduction\"), us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction[0]) + 0.5))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction",
+                    "name": "snap_homeless_shelter_deduction",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "198.99"
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_minimum_benefit": {
+                "kind": "scalar",
+                "name": "snap_minimum_benefit",
+                "id": "us:regulations/7-cfr/273/10#snap_minimum_benefit",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "24"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)(C)",
+                "executed_expression": "floor(((us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_one_person_thrifty_food_plan_cost * us:regulations/7-cfr/273/10#snap_minimum_benefit_rate[0]) + 0.5))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_minimum_benefit_rate",
+                    "name": "snap_minimum_benefit_rate",
+                    "id": "us:regulations/7-cfr/273/10#snap_minimum_benefit_rate",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.08"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(C)"
+                  }
+                ],
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_one_person_thrifty_food_plan_cost"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment": {
+                "kind": "scalar",
+                "name": "snap_monthly_allotment",
+                "id": "us:regulations/7-cfr/273/10#snap_monthly_allotment",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "24"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)",
+                "executed_expression": "(if ((input(\"household_initial_month\") == true) and (us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums < us:regulations/7-cfr/273/10#snap_initial_month_minimum_issuance[0])) then 0 else (if ((not ((input(\"household_initial_month\") == true)) and (input(\"household_size\") <= us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit[0])) and (us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums < us:regulations/7-cfr/273/10#snap_minimum_benefit)) then us:regulations/7-cfr/273/10#snap_minimum_benefit else us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit",
+                    "name": "snap_minimum_benefit_household_size_limit",
+                    "id": "us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 2
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(C)"
+                  }
+                ],
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                  "us:regulations/7-cfr/273/10#snap_minimum_benefit"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                    "reason": "short_circuit"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_initial_month_minimum_issuance",
+                    "reason": "short_circuit"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_net_income_before_shelter": {
+                "kind": "scalar",
+                "name": "snap_net_income_before_shelter",
+                "id": "us:regulations/7-cfr/273/10#snap_net_income_before_shelter",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "971"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(A)-(H)",
+                "executed_expression": "max(0, ((((((us:regulations/7-cfr/273/10#snap_total_gross_income - us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income) - us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction) - us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income) - input(\"snap_allowable_monthly_dependent_care_expenses\")) - input(\"snap_allowable_monthly_child_support_payments\")) - us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income))",
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_total_gross_income",
+                  "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income",
+                  "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction",
+                  "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income",
+                  "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_net_monthly_income": {
+                "kind": "scalar",
+                "name": "snap_net_monthly_income",
+                "id": "us:regulations/7-cfr/273/10#snap_net_monthly_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "971"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)",
+                "executed_expression": "max(0, (us:regulations/7-cfr/273/10#snap_net_income_before_shelter - us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income))",
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_net_income_before_shelter",
+                  "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_total_gross_income": {
+                "kind": "scalar",
+                "name": "snap_total_gross_income",
+                "id": "us:regulations/7-cfr/273/10#snap_total_gross_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "1180"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(A)",
+                "executed_expression": "((input(\"snap_gross_monthly_earned_income\") + input(\"snap_total_monthly_unearned_income\")) - input(\"snap_income_exclusions\"))",
+                "dependencies": []
+              },
+              "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member": {
+                "kind": "judgment",
+                "name": "snap_household_has_elderly_or_disabled_member",
+                "id": "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                "entity_id": "household:1",
+                "unit": null,
+                "outcome": "not_holds",
+                "source": "7 USC 2012(j)",
+                "executed_expression": "(count_related(\"us:statutes/7/2012/j#relation.member_of_household\", 1, 0, where: (input(\"snap_member_is_elderly_or_disabled\") == true)) > 0)",
+                "dependencies": []
+              }
+            }
+          }
+        ]
+      },
+      "bound_env": {
+        "household_size": {
+          "kind": "integer",
+          "value": 1
+        },
+        "snap_gross_monthly_earned_income": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_total_monthly_unearned_income": {
+          "kind": "integer",
+          "value": 1180
+        },
+        "snap_income_exclusions": {
+          "kind": "integer",
+          "value": 0
+        },
+        "household_entitled_to_excess_medical_deduction": {
+          "kind": "bool",
+          "value": false
+        },
+        "snap_total_medical_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_allowable_monthly_dependent_care_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_allowable_monthly_child_support_payments": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_claimed_homeless_shelter_deduction": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_total_allowable_shelter_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "state_agency_rounds_thirty_percent_net_income_up": {
+          "kind": "bool",
+          "value": true
+        },
+        "household_initial_month": {
+          "kind": "bool",
+          "value": false
+        },
+        "@count:1:0:us:statutes/7/2012/j#relation.member_of_household": {
+          "kind": "integer",
+          "value": 0
+        },
+        "@members:1:0:us:statutes/7/2012/j#relation.member_of_household": []
+      },
+      "python_value": "24"
+    },
+    {
+      "name": "initial_month_high_income_zero_allotment",
+      "expected": 0,
+      "request": {
+        "mode": "explain",
+        "dataset": {
+          "inputs": [
+            {
+              "name": "us:policies/usda/snap/fy-2026-cola/deductions#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_gross_monthly_earned_income",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_monthly_unearned_income",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1200
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_income_exclusions",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_entitled_to_excess_medical_deduction",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": false
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_medical_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_allowable_monthly_dependent_care_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_allowable_monthly_child_support_payments",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_claimed_homeless_shelter_deduction",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.snap_total_allowable_shelter_expenses",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 0
+              }
+            },
+            {
+              "name": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#input.household_size",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "integer",
+                "value": 1
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.state_agency_rounds_thirty_percent_net_income_up",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            },
+            {
+              "name": "us:regulations/7-cfr/273/10#input.household_initial_month",
+              "entity": "Household",
+              "entity_id": "household:1",
+              "interval": {
+                "start": "2026-01-01",
+                "end": "2026-01-31"
+              },
+              "value": {
+                "kind": "bool",
+                "value": true
+              }
+            }
+          ],
+          "relations": []
+        },
+        "queries": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": [
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment"
+            ]
+          }
+        ]
+      },
+      "official_response": {
+        "metadata": {
+          "relation_binding": "strict",
+          "requested_mode": "explain",
+          "actual_mode": "explain",
+          "fallback_reason": null
+        },
+        "results": [
+          {
+            "entity_id": "household:1",
+            "period": {
+              "period_kind": "month",
+              "start": "2026-01-01",
+              "end": "2026-01-31"
+            },
+            "outputs": {
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment": {
+                "kind": "scalar",
+                "name": "snap_monthly_allotment",
+                "id": "us:regulations/7-cfr/273/10#snap_monthly_allotment",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                }
+              }
+            },
+            "trace": {
+              "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction": {
+                "kind": "scalar",
+                "name": "snap_standard_deduction",
+                "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 209
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc",
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc"
+                ]
+              },
+              "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc": {
+                "kind": "scalar",
+                "name": "snap_standard_deduction_48_states_dc",
+                "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "integer",
+                  "value": 209
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table[min(input(\"household_size\"), 6)]",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table",
+                    "name": "snap_standard_deduction_48_states_dc_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction_48_states_dc_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 209
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment": {
+                "kind": "scalar",
+                "name": "snap_maximum_allotment",
+                "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "298"
+                },
+                "source": "USDA SNAP FY 2026 maximum allotments and deductions",
+                "executed_expression": "(us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table[max(min(input(\"household_size\"), 8), 1)] + (max((input(\"household_size\") - 8), 0) * us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "name": "snap_maximum_allotment_table",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_table",
+                    "index": 1,
+                    "value": {
+                      "kind": "integer",
+                      "value": 298
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  },
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member",
+                    "name": "snap_maximum_allotment_additional_member",
+                    "id": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment_additional_member",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 218
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums": {
+                "kind": "scalar",
+                "name": "snap_calculated_monthly_allotment_before_minimums",
+                "id": "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)(A)",
+                "executed_expression": "(if (input(\"state_agency_rounds_thirty_percent_net_income_up\") == true) then max(0, (us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment - ceil((us:regulations/7-cfr/273/10#snap_net_monthly_income * us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate[0])))) else max(0, floor((us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment - (us:regulations/7-cfr/273/10#snap_net_monthly_income * us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate[0])))))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "name": "snap_allotment_net_income_reduction_rate",
+                    "id": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.3"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(A)"
+                  }
+                ],
+                "dependencies": [
+                  "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                  "us:regulations/7-cfr/273/10#snap_net_monthly_income"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:policies/usda/snap/fy-2026-cola/maximum-allotments#snap_maximum_allotment",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_net_monthly_income",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_allotment_net_income_reduction_rate",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_earned_income_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(B) with the (e)(1)(ii) rounding election",
+                "executed_expression": "floor((input(\"snap_gross_monthly_earned_income\") * us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income",
+                    "name": "snap_earned_income_deduction_rate_for_net_income",
+                    "id": "us:regulations/7-cfr/273/10#snap_earned_income_deduction_rate_for_net_income",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.2"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(1)(i)(B)"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_excess_medical_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(D)",
+                "executed_expression": "(if (input(\"household_entitled_to_excess_medical_deduction\") == true) then max(0, (input(\"snap_total_medical_expenses\") - us:regulations/7-cfr/273/10#snap_medical_expense_threshold[0])) else 0)",
+                "dependencies": [],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_medical_expense_threshold",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_shelter_cost": {
+                "kind": "scalar",
+                "name": "snap_excess_shelter_cost",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_cost",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(H)",
+                "executed_expression": "(if (us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income > 0) then 0 else max(0, floor(((input(\"snap_total_allowable_shelter_expenses\") - (us:regulations/7-cfr/273/10#snap_net_income_before_shelter * us:regulations/7-cfr/273/10#snap_excess_shelter_income_share[0])) + 0.5))))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_excess_shelter_income_share",
+                    "name": "snap_excess_shelter_income_share",
+                    "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_income_share",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "0.5"
+                    },
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(1)(i)(H)"
+                  }
+                ],
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income",
+                  "us:regulations/7-cfr/273/10#snap_net_income_before_shelter"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_excess_shelter_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(I)",
+                "executed_expression": "(if us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member then us:regulations/7-cfr/273/10#snap_excess_shelter_cost else min(us:regulations/7-cfr/273/10#snap_excess_shelter_cost, us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc[0]))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "name": "snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_maximum_excess_shelter_deduction_48_states_dc",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 744
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": [
+                  "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                  "us:regulations/7-cfr/273/10#snap_excess_shelter_cost"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_excess_shelter_cost",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income": {
+                "kind": "scalar",
+                "name": "snap_homeless_shelter_deduction_for_net_income",
+                "id": "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(G)",
+                "executed_expression": "floor((min(input(\"snap_claimed_homeless_shelter_deduction\"), us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction[0]) + 0.5))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction",
+                    "name": "snap_homeless_shelter_deduction",
+                    "id": "us:policies/usda/snap/fy-2026-cola/deductions#snap_homeless_shelter_deduction",
+                    "index": 0,
+                    "value": {
+                      "kind": "decimal",
+                      "value": "198.99"
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "USDA SNAP FY 2026 maximum allotments and deductions"
+                  }
+                ],
+                "dependencies": []
+              },
+              "us:regulations/7-cfr/273/10#snap_monthly_allotment": {
+                "kind": "scalar",
+                "name": "snap_monthly_allotment",
+                "id": "us:regulations/7-cfr/273/10#snap_monthly_allotment",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "0"
+                },
+                "source": "7 CFR 273.10(e)(2)(ii)",
+                "executed_expression": "(if ((input(\"household_initial_month\") == true) and (us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums < us:regulations/7-cfr/273/10#snap_initial_month_minimum_issuance[0])) then 0 else (if ((not ((input(\"household_initial_month\") == true)) and (input(\"household_size\") <= us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit[0])) and (us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums < us:regulations/7-cfr/273/10#snap_minimum_benefit)) then us:regulations/7-cfr/273/10#snap_minimum_benefit else us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums))",
+                "parameter_reads": [
+                  {
+                    "parameter": "us:regulations/7-cfr/273/10#snap_initial_month_minimum_issuance",
+                    "name": "snap_initial_month_minimum_issuance",
+                    "id": "us:regulations/7-cfr/273/10#snap_initial_month_minimum_issuance",
+                    "index": 0,
+                    "value": {
+                      "kind": "integer",
+                      "value": 10
+                    },
+                    "unit": "USD",
+                    "effective_from": "2025-10-01",
+                    "source": "7 CFR 273.10(e)(2)(ii)(B)"
+                  }
+                ],
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums"
+                ],
+                "not_evaluated_dependencies": [
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_calculated_monthly_allotment_before_minimums",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_minimum_benefit",
+                    "reason": "branch_not_selected"
+                  },
+                  {
+                    "dependency": "us:regulations/7-cfr/273/10#snap_minimum_benefit_household_size_limit",
+                    "reason": "branch_not_selected"
+                  }
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_net_income_before_shelter": {
+                "kind": "scalar",
+                "name": "snap_net_income_before_shelter",
+                "id": "us:regulations/7-cfr/273/10#snap_net_income_before_shelter",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "991"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(A)-(H)",
+                "executed_expression": "max(0, ((((((us:regulations/7-cfr/273/10#snap_total_gross_income - us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income) - us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction) - us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income) - input(\"snap_allowable_monthly_dependent_care_expenses\")) - input(\"snap_allowable_monthly_child_support_payments\")) - us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income))",
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_total_gross_income",
+                  "us:regulations/7-cfr/273/10#snap_earned_income_deduction_for_net_income",
+                  "us:policies/usda/snap/fy-2026-cola/deductions#snap_standard_deduction",
+                  "us:regulations/7-cfr/273/10#snap_excess_medical_deduction_for_net_income",
+                  "us:regulations/7-cfr/273/10#snap_homeless_shelter_deduction_for_net_income"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_net_monthly_income": {
+                "kind": "scalar",
+                "name": "snap_net_monthly_income",
+                "id": "us:regulations/7-cfr/273/10#snap_net_monthly_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "991"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)",
+                "executed_expression": "max(0, (us:regulations/7-cfr/273/10#snap_net_income_before_shelter - us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income))",
+                "dependencies": [
+                  "us:regulations/7-cfr/273/10#snap_net_income_before_shelter",
+                  "us:regulations/7-cfr/273/10#snap_excess_shelter_deduction_for_net_income"
+                ]
+              },
+              "us:regulations/7-cfr/273/10#snap_total_gross_income": {
+                "kind": "scalar",
+                "name": "snap_total_gross_income",
+                "id": "us:regulations/7-cfr/273/10#snap_total_gross_income",
+                "entity_id": "household:1",
+                "dtype": "decimal",
+                "unit": "USD",
+                "value": {
+                  "kind": "decimal",
+                  "value": "1200"
+                },
+                "source": "7 CFR 273.10(e)(1)(i)(A)",
+                "executed_expression": "((input(\"snap_gross_monthly_earned_income\") + input(\"snap_total_monthly_unearned_income\")) - input(\"snap_income_exclusions\"))",
+                "dependencies": []
+              },
+              "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member": {
+                "kind": "judgment",
+                "name": "snap_household_has_elderly_or_disabled_member",
+                "id": "us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member",
+                "entity_id": "household:1",
+                "unit": null,
+                "outcome": "not_holds",
+                "source": "7 USC 2012(j)",
+                "executed_expression": "(count_related(\"us:statutes/7/2012/j#relation.member_of_household\", 1, 0, where: (input(\"snap_member_is_elderly_or_disabled\") == true)) > 0)",
+                "dependencies": []
+              }
+            }
+          }
+        ]
+      },
+      "bound_env": {
+        "household_size": {
+          "kind": "integer",
+          "value": 1
+        },
+        "snap_gross_monthly_earned_income": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_total_monthly_unearned_income": {
+          "kind": "integer",
+          "value": 1200
+        },
+        "snap_income_exclusions": {
+          "kind": "integer",
+          "value": 0
+        },
+        "household_entitled_to_excess_medical_deduction": {
+          "kind": "bool",
+          "value": false
+        },
+        "snap_total_medical_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_allowable_monthly_dependent_care_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_allowable_monthly_child_support_payments": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_claimed_homeless_shelter_deduction": {
+          "kind": "integer",
+          "value": 0
+        },
+        "snap_total_allowable_shelter_expenses": {
+          "kind": "integer",
+          "value": 0
+        },
+        "state_agency_rounds_thirty_percent_net_income_up": {
+          "kind": "bool",
+          "value": true
+        },
+        "household_initial_month": {
+          "kind": "bool",
+          "value": true
+        },
+        "@count:1:0:us:statutes/7/2012/j#relation.member_of_household": {
+          "kind": "integer",
+          "value": 0
+        },
+        "@members:1:0:us:statutes/7/2012/j#relation.member_of_household": []
+      },
+      "python_value": "0"
+    }
+  ]
+}
