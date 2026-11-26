@@ -1,0 +1,80 @@
+# 本轮进度（2026-11-26）
+
+## 已实际验证
+
+- 原始源码已解压至 `RuleSpecLean-v0.1/`，保留 ZIP 和 `road.md`。
+- Python 全量测试 87/87 通过；其中包含原始 10,000 组固定种子公式对照。Lean 联合构建 30 个 jobs 通过，见 `lean-build.log`；集成套件日志见 `full-integration-rerun.log`，最新错误对照见 `faults.log`，法律组件结果见 `legal-components.log`。
+- 快照、版本和请求日期统一校验 `YYYY-MM-DD`。本地回归覆盖闰日、版本结束日包含、起始日并列及拒绝空结束日期。
+- 锁定引擎求值错误对照扩大至 8 组，包含缺失公式版本、缺失参数表版本，以及缺失输入与非整数索引优先于缺失参数表版本，见 `faults.json` 和 `faults.log`。Lean 的 `eval_emptyLookup` 证明空表仍先求值并校验索引。`and`、`or` 短路与 `undetermined` 左操作数的证明覆盖 scale-6 运行时，通用三值输入尚未支持。
+- §3403 的 `snapshot_target_preserves_result` 将生成项及缺失版本分支统一到一个保持性定理，覆盖所有已编码日期；日期解析与实际请求绑定仍独立于定理。
+- 重新生成示例 Lean AST，7 条规则；静态扫描 7 条成功、0 条阻塞。
+- 回归测试覆盖扫描器两种调用方式、无效目录、非法 IR、对照脚本不一致拒绝等。
+- 获取真实上游引擎源码，锁定提交 `a4322e45a035ba9fd412d01bebe078aeaa46cd54`。
+- 保存上游 flat-tax 源文件、SHA-256、许可；该文件是上游模拟示例，不是美国法律语料。
+
+## 已完成的真实上游对照
+
+- Rust 引擎以锁定提交的源码及 Cargo.lock 构建成功，导出源码通过上游支持的环境变量记录 build commit 和 dirty=false。
+- 官方编译器生成 `fixtures/upstream-flat-tax.artifact.json`，官方 loader 成功加载。
+- 107 组边界和固定种子随机输入，真实 Rust Explain 与 Python 标量值及标签全部一致。
+- 结果见 `reports/reference.json`；生成的 Lean 断言见 `RuleSpecLean/ReferenceTests.lean`。
+- 增加真实 artifact 离线回归：检查哈希和构建身份，重放 107 组保留结果，核对生成模块及断言未发生漂移。离线重放不计为新增 Rust 执行。
+- 修正实际接口差异：canonical 根目录需 jurisdiction/content-root；模块 ID 包含 `/rules`；年度 period_kind 为 `tax_year`。
+
+## Lean 验证已完成（受限示例）
+
+- Lean 4.26.0 镜像下载成功，SHA-256 与 GitHub 官方 release 元数据一致：
+  `873c252b1c6b1392e5720ad8d5a137aabbe72c9f96a930fdb5a1dd1ddc5da454`。
+- `lake build` 成功：基础运行时、示例、13 条断言及 3 个定理通过编译。
+- `lake build RuleSpecLean.ReferenceTests` 成功：107 个 Rust/Python 对照结果的 Lean 断言全部通过。
+- `check_reference --lake` 已重新跑通并将实际 Lean 构建结果记录至 `reports/reference.json`。
+
+## 已实现的配套功能
+
+- Decimal 专用规则完成 72 组官方三方对照，包括缺失公式版本、惰性求值、负零数值边界和 96 位乘法溢出。
+- M3：单查询 Explain 请求支持最新覆盖记录与数值 `input_for_year`，6 组三方对照见 `selected-year.json`，包括同一起始日的相同记录；同日冲突的入口拒绝另行统计。数值 `input_or_else` 的 3 组原始 ProgramSpec 对照见 `input-defaults.json`。直接二元关系通过 4 组无筛选计数及 5 组带筛选求和对照，见 `direct-count.json`。
+- M4：真实语料中的 CTC MAGI（5 组）、递减额（7 组）、预付款后金额（7 组）及 §24(h)(5) 可退还上限（4 组），EITC 劳动所得（§112 选择前 3 组、选择分支 2 组），以及 SNAP FY 2024 净收入限额（5 组）已通过三方对照。CTC 预付款后金额覆盖指定的基础及 §24(h) 路径，使用多实体成员事实及带筛选计数。完整 §24(d) 入口与完整 EITC 共用一项锁定引擎无法加载的依赖。
+- M5：`RuleSpecLean/Legal3403Preservation.lean` 对 §3403 实际生成的 Lean 项完成保真检查，定理覆盖所有预绑定十进制环境。`VersionSelection.lean` 证明独立版本模型的有效性、最大起始日和缺失版本条件。新增 `versioned_lowering_preserves_result` 将版本选择与受限数值片段的降低证明连接起来，覆盖任意已建模的版本列表以及无活跃版本的错误。构建 `RuleSpecLean.Legal3403Preservation` 和 `RuleSpecLean.Decimal` 后，运行 `lake env lean RuleSpecLean/ProofAudit.lean` 可复现 `proof-axioms.log`；已审计的定理未依赖 `sorryAx`。Artifact 解析、日期编码和实际请求绑定仍不在定理范围内。
+- M6：固定语料 1,152 个编译候选中 800 个通过、352 个失败；3,099 条已编译规则实例中，2,342 条正常转换、734 条含缺失版本节点、23 条无法转换。公开案例回放中，33,954 项输出期望有 6,164 项通过三方验证（18.15%）；多行表格适配新增 68 项，原有 6,096 项无一退回。静态转换与回放分母见 `corpus-validation.md`。
+- 单一实体类型的多行表格按行独立回放；§3121(v) 专项验证 32 项输出期望和 40 条 Lean 断言。全量报告按输出字段计数，行级请求和断言单独计数。
+
+- Decimal 支持数值比较条件、比较判断引用及版本化无索引参数；6 组条件边界和 107 组上游模拟 flat-tax 官方三方对照通过。
+- Decimal 索引参数表新增 11 组官方三方对照，包含 5 组成功结果及 6 组索引或参数缺失错误。
+
+- Decimal 路径扩展 `min`、`max`、`ceil`、`floor`，7 组官方 Rust/Python/自动生成 Lean 对照通过；另有 24 组依赖舍入仍通过。
+- Decimal 请求可校验 28 位小数，并共享 Python 运行时和生成器的精确字面量校验。新增无操作数极值、非精确或越界字面量回归。
+
+- 新增数值子集 artifact → Decimal Expr 自动编译，依赖优先且保留规则舍入节点。
+- 舍入依赖测试由手工 Expr 改为自动生成，四种规则舍入共 24 组官方 Rust/Python/Lean 对照通过。
+- 6 项新编译器回归测试覆盖循环、货币精度、版本/输入缺失、生成顺序及产物漂移；数值比较不冒充表示 scale 一致。
+
+- M2 算术通过 852 组三方及 17,200 组 Rust/Python 扩展对照，比较系数、scale 与错误；零符号未纳入比较。
+- 独立数值解释器与 Lean Decimal Expr 完成 6 组官方引擎依赖舍入对照。1.005 先舍入，再被依赖读取，最终 2.02。
+
+- M2 已开始：Python/Lean 独立 Decimal 系数与 scale 表示、96 位系数范围、scale 0..28、四种输出舍入。
+- rust_decimal 1.41.0 oracle 与 Python/Lean 完成 3,520 组边界/随机舍入差分，全部通过；Lean DecimalTests 构建成功。
+- Rust oracle 使用锁定版本和 Cargo.lock；无编译警告。CI 已添加数值库差分任务，远端执行仍待权限。
+- Decimal 与原 scale-6 规则解释器并存。比较契约见 `decimal-semantics.md`。
+
+- 锁定真实 `rulespec-us` 提交 d8a4c9cb560ed55c6db47ea36214249f67319461，26 USC 3403 模块完成 105 组三方对照，见 `reports/legal-3403.json`。保留源码及许可，不视为独立法律审计。
+- 新增 `rebuild_fixtures`，实际通过官方编译器重新生成法律及错误 artifact；CI 已接入重新编译。
+- 新增保守请求绑定校验，拒绝与官方输入不一致的预绑定环境、起始日相同而值不同的输入，以及未开启的期间、实体和默认值适配。
+- 本地完整 Python 测试 47/47；Lean 基础、ReferenceTests、FaultTests、Legal3403Tests 均构建通过。
+- 本环境的 GitHub SSH 认证返回 `Permission denied (publickey)`；本地提交由具备写权限的维护者推送，远端 CI 尚未验证。
+
+- `tools.check_faults` 最初的四组错误差分覆盖缺失输入、类型错误、除零优先于缺失分子，以及非零分母时缺失分子；其后增加了缺失版本。
+- 错误分类仅接受锁定引擎的完整诊断模式，未知退出原因拒绝匹配；报告见 `reports/faults.json`。
+- 错误样例由上游模拟 flat-tax 源码附加 quotient 规则构成，不计为真实法律案例。集成 CI 已加入错误对照及 Lean FaultTests 构建。
+
+- 新增锁定 Rust 1.98.1 与上游提交的集成 CI，自动执行官方编译和三方对照，上传案例、artifact、生成模块、报告和日志。远端 CI 尚未运行验证。
+- 对照脚本新增空案例、重复名称、输出身份、结果数量、输出键与非 Explain 回退检查；补充 CLI 失败等 6 项回归测试。
+- 本轮重新执行真实 107 组 Rust/Python/Lean 对照，全部通过。
+
+- `tools.prepare_reference`：校验版本及源码，调用官方编译器，准备 107 个边界/随机输入。
+- `tools.check_reference`：官方 Explain 与 Python 标量结果对照，生成 Lean 检查模块。
+- 仓库根目录 CI：Python 全量测试、确定性再生成、Lean 构建。
+
+对照脚本的单元测试使用 mock；上面单独列出的 107 组则实际调用了 Rust。
+镜像地址为 `https://gh-proxy.com/https://github.com/leanprover/lean4/releases/download/v4.26.0/lean-4.26.0-linux.tar.zst`。
+所有工具链安装仅位于 `/tmp/opencode`，未更改全局配置。
+M1 本地链路已验证；远端 GitHub Actions 仍受写权限限制。M2–M6 的剩余验收项见 `../../road.md`。
