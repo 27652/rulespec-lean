@@ -1,0 +1,10 @@
+Engine: a4322e45a035ba9fd412d01bebe078aeaa46cd54
+Corpus audit pin: d8a4c9cb560ed55c6db47ea36214249f67319461
+us/policies/usda/snap/fy-2026-cola/deductions.yaml: bb28d73d2566eebcd2a6d0b16098d108b35c10a20c892aab5dbc510c462b9264 -> 8832b48adfdbb25b6209e0e64823545b75ae8be844f2895000ba6f17ec3adafd
+us/policies/usda/snap/fy-2026-cola/maximum-allotments.yaml: 2e4708b8df906b506f07d091fe93dbcc6aefe603a31500502ecc270d436e9f2e -> 145bb911fbd4c1eeaf6968848ee2d73291a742431ac83defe7abfae68a93fa93
+us/regulations/7-cfr/273/10.yaml: exit 1
+<corpus-copy>/us/regulations/7-cfr/273/10.yaml: relation entity typing failed:
+[untyped_relation] relation `us:statutes/7/2012/j#relation.member_of_household` (arity 2) is executed by `us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member` but declares no entity kind for its tuple slots. Relation entity typing is mandatory: without slot kinds a dataset tuple stored in the other orientation aggregates nothing and yields a silent zero. Declare `data_relation.arguments` (one entity kind per slot, in tuple order) and recompile, or type an existing artifact with `axiom-rules-engine migrate artifact`.
+us/statutes/7/2012/j.yaml: 008f221da22fd95306625126232ca22ff7a4c8b622216bc7e8c092532e4e1bb9 -> b2726f96a34bb3efb29e5c9bd64ec23a3bdf2c0b6ce53eda9790576608142b34; slots: ['Person', 'Household']
+us/regulations/7-cfr/273/10.yaml: exit 0
+  Artifact v3; 17 derived outputs

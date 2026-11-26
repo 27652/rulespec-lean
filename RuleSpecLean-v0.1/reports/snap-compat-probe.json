@@ -1,0 +1,77 @@
+{
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+  "slot_reference": {
+    "path": "us/policies/usda/snap/state-plan-composition.yaml",
+    "sha256": "a69101e09fe1b0b3c4a70c5df2d7329a5dd0931c194e8df54ec560412df71695",
+    "predicate": "member_of_household",
+    "arguments": [
+      "Person",
+      "Household"
+    ]
+  },
+  "overlay": {
+    "us/policies/usda/snap/fy-2026-cola/deductions.yaml": {
+      "original_sha256": "bb28d73d2566eebcd2a6d0b16098d108b35c10a20c892aab5dbc510c462b9264",
+      "overlay_sha256": "8832b48adfdbb25b6209e0e64823545b75ae8be844f2895000ba6f17ec3adafd"
+    },
+    "us/policies/usda/snap/fy-2026-cola/maximum-allotments.yaml": {
+      "original_sha256": "2e4708b8df906b506f07d091fe93dbcc6aefe603a31500502ecc270d436e9f2e",
+      "overlay_sha256": "145bb911fbd4c1eeaf6968848ee2d73291a742431ac83defe7abfae68a93fa93"
+    },
+    "us/statutes/7/2012/j.yaml": {
+      "original_sha256": "008f221da22fd95306625126232ca22ff7a4c8b622216bc7e8c092532e4e1bb9",
+      "overlay_sha256": "b2726f96a34bb3efb29e5c9bd64ec23a3bdf2c0b6ce53eda9790576608142b34"
+    }
+  },
+  "attempts": [
+    {
+      "stage": "metadata-only",
+      "entrypoint": "us/regulations/7-cfr/273/10.yaml",
+      "exit_code": 1,
+      "diagnostic": "<corpus-copy>/us/regulations/7-cfr/273/10.yaml: relation entity typing failed:\n[untyped_relation] relation `us:statutes/7/2012/j#relation.member_of_household` (arity 2) is executed by `us:statutes/7/2012/j#snap_household_has_elderly_or_disabled_member` but declares no entity kind for its tuple slots. Relation entity typing is mandatory: without slot kinds a dataset tuple stored in the other orientation aggregates nothing and yields a silent zero. Declare `data_relation.arguments` (one entity kind per slot, in tuple order) and recompile, or type an existing artifact with `axiom-rules-engine migrate artifact`."
+    },
+    {
+      "stage": "metadata-and-slots",
+      "entrypoint": "us/regulations/7-cfr/273/10.yaml",
+      "exit_code": 0,
+      "diagnostic": "",
+      "artifact_format_version": 3,
+      "artifact_sha256": "3906bf027b3aa1cd6e651d5377f0830341b13cfaf48dc9f458a3f9db1b32ee56",
+      "derived_outputs": 17,
+      "source_closure": {
+        "root": "us:regulations/7-cfr/273/10",
+        "modules": [
+          {
+            "target": "us:policies/usda/snap/fy-2026-cola/deductions",
+            "sha256": "8832b48adfdbb25b6209e0e64823545b75ae8be844f2895000ba6f17ec3adafd"
+          },
+          {
+            "target": "us:policies/usda/snap/fy-2026-cola/maximum-allotments",
+            "sha256": "145bb911fbd4c1eeaf6968848ee2d73291a742431ac83defe7abfae68a93fa93"
+          },
+          {
+            "target": "us:regulations/7-cfr/273/10",
+            "sha256": "f9b9f00101218d1d335aa9fff400f0578ae2dc314334693bae7e0dde51202dff"
+          },
+          {
+            "target": "us:statutes/7/2012/j",
+            "sha256": "b2726f96a34bb3efb29e5c9bd64ec23a3bdf2c0b6ce53eda9790576608142b34"
+          }
+        ],
+        "digest": "sha256:81ce807748eb45282ea417b485b88206b9e9b6ad75b75284dd7c9197e4709efe"
+      },
+      "compiled_relation": {
+        "name": "us:statutes/7/2012/j#relation.member_of_household",
+        "arity": 2,
+        "slot_entities": [
+          "Person",
+          "Household"
+        ]
+      }
+    }
+  ]
+}
