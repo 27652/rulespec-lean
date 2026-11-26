@@ -75,7 +75,7 @@ def main():
     with tempfile.TemporaryDirectory(prefix="rulespec-review-patch-") as work:
         directory = Path(work)
         root = directory / "rulespec-us"
-        shutil.copytree(args.corpus.resolve(), root)
+        shutil.copytree(args.corpus.resolve(), root, ignore=shutil.ignore_patterns(".git"))
         for name in ENTRYPOINTS:
             result = compile_entry(engine, root, name, directory / "unpatched.json")
             diagnostic = result.stderr.strip().replace(str(root), "<corpus-copy>")

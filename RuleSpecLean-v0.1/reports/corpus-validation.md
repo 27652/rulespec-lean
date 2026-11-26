@@ -52,6 +52,8 @@ scale-6 现可转换在快照日期没有有效版本的参数表读取，并保
 
 [`corpus-patch-validation.json`](corpus-patch-validation.json) 保存原始编译诊断、补丁与文件哈希、实际补丁产物的闭包及八份回放报告的哈希。验证器只在临时副本应用补丁，随后直接回放该副本编译出的产物；三份 Artifact、八份回放报告和八份 Lean 源文件均与已提交证据逐字节一致。CTC 四项回放仅移除下文所述的两条闭包外输入。固定语料全量基线为 **6,168 / 33,954（18.17%）**，补丁上的 39 项期望单独统计。
 
+CI 使用当次固定语料静态审计报告运行该验证器，逐字节核对并上传补丁验证报告。临时副本不包含 `.git`，以便 Git 检出目录与无版本控制元数据的源码导出目录使用相同的验证流程。
+
 ```sh
 python -m tools.check_corpus_patch --engine "$ENGINE" --corpus "$CORPUS" \
   --lake "$(command -v lake)" --report /tmp/opencode/corpus-patch-validation.json
