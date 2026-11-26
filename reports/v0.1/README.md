@@ -8,7 +8,7 @@
 | [`decimal/`](decimal/) | [比较口径](decimal/decimal-semantics.md)、舍入、算术及规则级 Decimal 差分 |
 | [`binding/`](binding/) | 年度读取、默认值和直接关系聚合实验 |
 | [`legal/`](legal/) | 选定法律组件及兼容产物的公开案例和诊断 |
-| [`corpus/`](corpus/) | [固定语料静态扫描与回放](corpus/corpus-validation.md)，以及单独记录的兼容补丁验证 |
+| [`corpus/`](corpus/) | [固定语料静态扫描与回放](corpus/corpus-validation.md)、兼容补丁验证及[上游候选筛选](corpus/upstream-candidates.md) |
 | [`proofs/`](proofs/) | 公理审计、§3403 生效边界及提取 Rust 函数差分 |
 | [`logs/`](logs/) | 历史运行日志，保留生成时的路径与输出 |
 
