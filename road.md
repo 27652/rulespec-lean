@@ -109,7 +109,9 @@ M5 当前交付：`ScalarPreservation.lean` 对 scale-6 字面量、预绑定数
 
 M5 Artifact 解析与请求绑定：`Legal3403Artifact.lean` 直接读取保留的 §3403 Artifact v3 JSON，验证付款义务输出的公式及唯一版本起始日。`Legal3403Binding.lean` 将单雇主、单事实、整数美元的年度 Explain 请求绑定为 scale-6 系数及查询起始日，并证明通过解码的请求满足现有保持性定理的前提；105 条保留请求逐一核对预期环境。`lake build RuleSpecLean.ProofAudit` 检查公理依赖。固定文件解析证书使用 `native_decide`，依赖 `Lean.ofReduceBool` 与 `Lean.trustCompiler`；以解析对应性为前提的保持性定理不依赖二者。通用请求绑定、通用 Artifact 解码及与 Rust 求值的等价性仍待证明。
 
-M5 锁定引擎对应性：`Legal3403RustModel.lean` 按锁定引擎的 [`lookup_input`](https://github.com/TheAxiomFoundation/axiom-rules-engine/blob/a4322e45a035ba9fd412d01bebe078aeaa46cd54/src/engine.rs#L2914-L2950) 和 [`semantics_at` / `version_at`](https://github.com/TheAxiomFoundation/axiom-rules-engine/blob/a4322e45a035ba9fd412d01bebe078aeaa46cd54/src/model.rs#L564-L581) 建立单记录、单版本模型。定理证明该模型与 Lean 绑定及版本选择一致，前提包括已解析日期、已解析输入槽和已编码金额。锁定 Rust CLI 的 6 组生效边界请求与 12 条 Lean 断言见 [边界验证报告](RuleSpecLean-v0.1/reports/legal-3403-rust-model.json)。Rust 源码与该模型的等价性，以及 Rust 求值器本身的验证仍待完成。
+M5 锁定引擎对应性：`Legal3403RustModel.lean` 按锁定引擎的 [`lookup_input`](https://github.com/TheAxiomFoundation/axiom-rules-engine/blob/a4322e45a035ba9fd412d01bebe078aeaa46cd54/src/engine.rs#L2914-L2950) 和 [`semantics_at` / `version_at`](https://github.com/TheAxiomFoundation/axiom-rules-engine/blob/a4322e45a035ba9fd412d01bebe078aeaa46cd54/src/model.rs#L564-L581) 建立单记录、单版本模型。锁定 Rust CLI 的 6 组生效边界请求与 12 条 Lean 断言见 [边界验证报告](RuleSpecLean-v0.1/reports/legal-3403-rust-model.json)。
+
+`Legal3403RustSource.lean` 证明索引查找、期间覆盖和版本筛选的单记录、单版本转写与既有模型一致，并将该结论接入请求保持性定理。`tools.check_3403_rust_source` 核对两份锁定源码的 SHA-256，直接编译提取的 Rust 函数体，在日期和金额已编码的测试容器中，对照 36 项输入查找和 9 项版本选择结果。CI 对比[源码差分报告](RuleSpecLean-v0.1/reports/legal-3403-rust-source.json)，并通过 `lake build RuleSpecLean.ProofAudit` 审计新增定理。源码转写与实际 Rust 实现之间的联系目前由差分验证支撑；Rust 源码的机器验证、请求解析与 Decimal 求值仍待完成。
 
 M6 当前交付：固定语料扫描发现 2,304 个 YAML 文件，其中 1,152 个为案例文件。在 1,152 个编译候选中，800 个成功、352 个失败；3,099 条已编译规则实例中，2,342 条按快照正常转换、734 条转换后含缺失版本错误节点、23 条无法转换。33,954 项公开输出期望中，6,168 项通过三方对照（18.17%）；最新参数表版本支持新增 4 项，原有 6,164 项无一退回。各阶段分母及阻塞原因见 [语料验证报告](RuleSpecLean-v0.1/reports/corpus-validation.md)。
 

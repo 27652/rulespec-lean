@@ -1,0 +1,350 @@
+{
+  "source_sha256": {
+    "engine.rs": "77dadaab5955f1608791a2af964430e0ad833be041c3fb05200c6ff28c3fd279",
+    "model.rs": "407ec64a9c1aa73d30e244cdeb40efe4bb82eb31f9cf61076991af5e577ce753"
+  },
+  "results": [
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "employer",
+      "start": 9,
+      "end": 19,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "employer",
+      "start": 9,
+      "end": 20,
+      "rust_result": -15
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "employer",
+      "start": 9,
+      "end": 21,
+      "rust_result": -15
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "employer",
+      "start": 10,
+      "end": 19,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "employer",
+      "start": 10,
+      "end": 20,
+      "rust_result": -15
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "employer",
+      "start": 10,
+      "end": 21,
+      "rust_result": -15
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "employer",
+      "start": 11,
+      "end": 19,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "employer",
+      "start": 11,
+      "end": 20,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "employer",
+      "start": 11,
+      "end": 21,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "other",
+      "start": 9,
+      "end": 19,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "other",
+      "start": 9,
+      "end": 20,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "other",
+      "start": 9,
+      "end": 21,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "other",
+      "start": 10,
+      "end": 19,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "other",
+      "start": 10,
+      "end": 20,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "other",
+      "start": 10,
+      "end": 21,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "other",
+      "start": 11,
+      "end": 19,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "other",
+      "start": 11,
+      "end": 20,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "slot",
+      "employer": "other",
+      "start": 11,
+      "end": 21,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "employer",
+      "start": 9,
+      "end": 19,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "employer",
+      "start": 9,
+      "end": 20,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "employer",
+      "start": 9,
+      "end": 21,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "employer",
+      "start": 10,
+      "end": 19,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "employer",
+      "start": 10,
+      "end": 20,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "employer",
+      "start": 10,
+      "end": 21,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "employer",
+      "start": 11,
+      "end": 19,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "employer",
+      "start": 11,
+      "end": 20,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "employer",
+      "start": 11,
+      "end": 21,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "other",
+      "start": 9,
+      "end": 19,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "other",
+      "start": 9,
+      "end": 20,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "other",
+      "start": 9,
+      "end": 21,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "other",
+      "start": 10,
+      "end": 19,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "other",
+      "start": 10,
+      "end": 20,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "other",
+      "start": 10,
+      "end": 21,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "other",
+      "start": 11,
+      "end": 19,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "other",
+      "start": 11,
+      "end": 20,
+      "rust_result": null
+    },
+    {
+      "kind": "input",
+      "slot": "other",
+      "employer": "other",
+      "start": 11,
+      "end": 21,
+      "rust_result": null
+    },
+    {
+      "kind": "version",
+      "start": 9,
+      "end": null,
+      "rust_result": 42
+    },
+    {
+      "kind": "version",
+      "start": 9,
+      "end": 9,
+      "rust_result": null
+    },
+    {
+      "kind": "version",
+      "start": 9,
+      "end": 10,
+      "rust_result": 42
+    },
+    {
+      "kind": "version",
+      "start": 9,
+      "end": 11,
+      "rust_result": 42
+    },
+    {
+      "kind": "version",
+      "start": 10,
+      "end": null,
+      "rust_result": 42
+    },
+    {
+      "kind": "version",
+      "start": 10,
+      "end": 10,
+      "rust_result": 42
+    },
+    {
+      "kind": "version",
+      "start": 10,
+      "end": 11,
+      "rust_result": 42
+    },
+    {
+      "kind": "version",
+      "start": 11,
+      "end": null,
+      "rust_result": null
+    },
+    {
+      "kind": "version",
+      "start": 11,
+      "end": 11,
+      "rust_result": null
+    }
+  ]
+}

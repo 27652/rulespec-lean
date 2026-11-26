@@ -52,3 +52,7 @@
 'RuleSpecLean.Legal3403RustModel.rust_binding_corresponds' depends on axioms: [propext]
 'RuleSpecLean.Legal3403RustModel.rust_version_corresponds' depends on axioms: [propext, Quot.sound]
 'RuleSpecLean.Legal3403RustModel.rust_model_matches_wire' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RuleSpecLean.Legal3403RustSource.input_body_matches_model' depends on axioms: [propext]
+'RuleSpecLean.Legal3403RustSource.version_body_matches_model' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.Legal3403RustSource.source_bodies_match_model' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.Legal3403RustSource.source_bodies_match_wire' depends on axioms: [propext, Classical.choice, Quot.sound]
