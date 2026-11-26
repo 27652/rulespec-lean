@@ -1,4 +1,5 @@
 'RuleSpecLean.ScalarPreservation.lowering_preserves_result' depends on axioms: [propext, Quot.sound]
+'RuleSpecLean.ScalarPreservation.lookup_preserves_result' depends on axioms: [propext, Quot.sound]
 'RuleSpecLean.ScalarPreservation.recognize_sound' depends on axioms: [propext, Quot.sound]
 'RuleSpecLean.ScalarPreservation.recognized_target_preserves_result' depends on axioms: [propext, Quot.sound]
 'RuleSpecLean.Legal3403Preservation.generated_preserves_result' depends on axioms: [propext, Quot.sound]

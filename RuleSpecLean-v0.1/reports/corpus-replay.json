@@ -9,16 +9,16 @@
   "output_expectations": 33954,
   "counts": {
     "moduleUnavailable": 26951,
-    "matched": 6164,
+    "matched": 6168,
     "notDerivedOutput": 473,
     "comparisonUnavailable": 32,
-    "outsideReplaySubset": 328,
+    "outsideReplaySubset": 324,
     "engineRejected": 6
   },
-  "official_attempted": 6375,
-  "official_explain_responses": 6369,
-  "lean_attempted": 6337,
-  "lean_guards": 6337,
+  "official_attempted": 6379,
+  "official_explain_responses": 6373,
+  "lean_attempted": 6341,
+  "lean_guards": 6341,
   "results": [
     {
       "source": "us/policies/aca/ptc_pipeline.yaml",
@@ -625622,14 +625622,382 @@
         {
           "case": 2,
           "output": "us:statutes/26/25D#residential_clean_energy_credit_applicable_percentage",
-          "status": "outsideReplaySubset",
-          "reason": "no parameter version for snapshot"
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/25D#input.taxable_year_begins_after_credit_termination_date",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.property_placed_in_service_after_2016_and_before_2020",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.property_placed_in_service_after_2019_and_before_2022",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_solar_electric_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "20000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_solar_water_heating_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_fuel_cell_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.qualified_fuel_cell_property_capacity_in_half_kilowatt_units",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_small_wind_energy_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_geothermal_heat_pump_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_battery_storage_technology_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.income_tax_before_refundable_credits_under_section_26_a",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "4000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.other_nonrefundable_personal_credits_under_this_subpart_except_residential_clean_energy_credit",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2021-01-01",
+                  "end": "2021-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/25D#residential_clean_energy_credit_applicable_percentage"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            260000
+          ],
+          "official": [
+            "decimal",
+            260000
+          ],
+          "status": "matched"
         },
         {
           "case": 2,
           "output": "us:statutes/26/25D#residential_clean_energy_credit_potential",
-          "status": "outsideReplaySubset",
-          "reason": "no parameter version for snapshot"
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/25D#input.taxable_year_begins_after_credit_termination_date",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.property_placed_in_service_after_2016_and_before_2020",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.property_placed_in_service_after_2019_and_before_2022",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_solar_electric_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "20000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_solar_water_heating_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_fuel_cell_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.qualified_fuel_cell_property_capacity_in_half_kilowatt_units",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_small_wind_energy_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_geothermal_heat_pump_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_battery_storage_technology_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.income_tax_before_refundable_credits_under_section_26_a",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "4000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.other_nonrefundable_personal_credits_under_this_subpart_except_residential_clean_energy_credit",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2021-01-01",
+                  "end": "2021-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/25D#residential_clean_energy_credit_potential"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            5200000000
+          ],
+          "official": [
+            "decimal",
+            5200000000
+          ],
+          "status": "matched"
         },
         {
           "case": 2,
@@ -625824,14 +626192,382 @@
         {
           "case": 2,
           "output": "us:statutes/26/25D#residential_clean_energy_credit",
-          "status": "outsideReplaySubset",
-          "reason": "no parameter version for snapshot"
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/25D#input.taxable_year_begins_after_credit_termination_date",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.property_placed_in_service_after_2016_and_before_2020",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.property_placed_in_service_after_2019_and_before_2022",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_solar_electric_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "20000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_solar_water_heating_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_fuel_cell_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.qualified_fuel_cell_property_capacity_in_half_kilowatt_units",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_small_wind_energy_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_geothermal_heat_pump_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_battery_storage_technology_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.income_tax_before_refundable_credits_under_section_26_a",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "4000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.other_nonrefundable_personal_credits_under_this_subpart_except_residential_clean_energy_credit",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2021-01-01",
+                  "end": "2021-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/25D#residential_clean_energy_credit"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            3000000000
+          ],
+          "official": [
+            "decimal",
+            3000000000
+          ],
+          "status": "matched"
         },
         {
           "case": 2,
           "output": "us:statutes/26/25D#residential_clean_energy_credit_carryforward_to_succeeding_taxable_year",
-          "status": "outsideReplaySubset",
-          "reason": "no parameter version for snapshot"
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/25D#input.taxable_year_begins_after_credit_termination_date",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.property_placed_in_service_after_2016_and_before_2020",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.property_placed_in_service_after_2019_and_before_2022",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_solar_electric_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "20000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_solar_water_heating_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_fuel_cell_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.qualified_fuel_cell_property_capacity_in_half_kilowatt_units",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_small_wind_energy_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_geothermal_heat_pump_property_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.total_qualified_battery_storage_technology_expenditures",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "0"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.income_tax_before_refundable_credits_under_section_26_a",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "4000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/25D#input.other_nonrefundable_personal_credits_under_this_subpart_except_residential_clean_energy_credit",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2021-01-01",
+                    "end": "2021-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2021-01-01",
+                  "end": "2021-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/25D#residential_clean_energy_credit_carryforward_to_succeeding_taxable_year"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            2200000000
+          ],
+          "official": [
+            "decimal",
+            2200000000
+          ],
+          "status": "matched"
         },
         {
           "case": 3,
@@ -969539,7 +970275,7 @@
           "case": 4,
           "output": "us:statutes/26/85#temporary_unemployment_compensation_exclusion",
           "status": "outsideReplaySubset",
-          "reason": "no parameter version for snapshot"
+          "reason": "unsupported scalar node sum_related"
         },
         {
           "case": 4,

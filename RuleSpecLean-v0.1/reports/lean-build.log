@@ -1,14 +1,6 @@
-✔ [18/30] Built RuleSpecLean.Core (2.3s)
-✔ [19/30] Built RuleSpecLean.Generated (769ms)
-✔ [20/30] Built RuleSpecLean.Reference (769ms)
-✔ [21/30] Built RuleSpecLean.Legal3403 (768ms)
-✔ [22/30] Built RuleSpecLean.FaultTests (888ms)
-✔ [23/30] Built RuleSpecLean.CapitalLossMatchTests (1.0s)
-ℹ [24/30] Built RuleSpecLean.Tests (1.0s)
+ℹ [4/30] Replayed RuleSpecLean.Tests
 info: RuleSpecLean/Tests.lean:13:0: Except.ok (RuleSpecLean.Value.decimal 4800000000)
-✔ [25/30] Built RuleSpecLean.ReferenceTests (1.2s)
-✔ [26/30] Built RuleSpecLean.Legal3403Tests (1.2s)
-✔ [27/30] Built RuleSpecLean.ScalarPreservation (3.0s)
-✔ [28/30] Built RuleSpecLean (708ms)
-✔ [30/30] Built RuleSpecLean.Legal3403Preservation (805ms)
+✔ [27/30] Built RuleSpecLean.ScalarPreservation (4.6s)
+✔ [28/30] Built RuleSpecLean (745ms)
+✔ [30/30] Built RuleSpecLean.Legal3403Preservation (839ms)
 Build completed successfully (30 jobs).

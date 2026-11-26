@@ -31,8 +31,8 @@ refundable-cap outputs exercise filtered counts; `reports/direct-count.json`
 includes filtered sum cases.
 See `reports/decimal-arithmetic.json` and `reports/decimal-dependency.json`.
 
-The pinned corpus replay passed **6,164 of 33,954** published output expectations
-(18.15%), including single-entity-type table cases checked row by row. See
+The pinned corpus replay passed **6,168 of 33,954** published output expectations
+(18.17%), including single-entity-type table cases checked row by row. See
 [corpus-validation.md](reports/corpus-validation.md) for the static audit, replay
 denominators, and scoped CTC, EITC, and SNAP comparisons.
 

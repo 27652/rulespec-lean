@@ -3,12 +3,13 @@ import RuleSpecLean.Core
 namespace RuleSpecLean.ScalarPreservation
 
 /-- A numeric source fragment with coefficients in the scale-6 representation.
-Inputs are prebound decimal coefficients. Tables and date resolution are outside this fragment. -/
+Inputs and table values are decimal coefficients. Date resolution is outside this fragment. -/
 inductive Source where
   | literal (coefficient : Int)
   | input (name : String)
   | normalize (operand : Source)
   | noMatch (subject : Source)
+  | lookup (entries : List (Int × Int)) (index : Source)
   | add (left right : Source)
   | subtract (left right : Source)
   | multiply (left right : Source)
@@ -21,6 +22,7 @@ def lower : Source → Expr
   | .input name => .input name
   | .normalize a => .unary .numeric (lower a)
   | .noMatch a => .noMatch (lower a)
+  | .lookup entries idx => .lookup (entries.map fun (k, v) => (k, .decimal v)) (lower idx)
   | .add a b => .binary .add (lower a) (lower b)
   | .subtract a b => .binary .sub (lower a) (lower b)
   | .multiply a b => .binary .mul (lower a) (lower b)
@@ -45,6 +47,16 @@ def evaluate (env : List (String × Int)) : Source → Except Fault Int
   | .noMatch a => do
       let _ ← evaluate env a
       .error .noMatchingArm
+  | .lookup entries idx => do
+      let n ← evaluate env idx
+      if n % scale != 0 then .error .typeMismatch
+      else
+        let key := n / scale
+        if key < -(2^63 : Int) ∨ key ≥ (2^63 : Int) then .error .typeMismatch
+        else
+          match entries.find? (fun p => p.1 == key) with
+          | some p => bounded p.2
+          | none => .error .missingParameter
   | .add a b => do
       let x ← evaluate env a
       let y ← evaluate env b
@@ -94,6 +106,21 @@ private theorem input_preserved (env : List (String × Int)) (name : String) :
       · simp [encodeEnv, eval, evaluate, List.find?, h, validateValue, checked_eq]
       · simpa [encodeEnv, eval, evaluate, List.find?, h] using ih
 
+private theorem table_preserved (entries : List (Int × Int)) (key : Int) :
+    (match (entries.map fun (k, v) => (k, Value.decimal v)).find? (fun p => p.1 == key) with
+     | some p => validateValue p.2
+     | none => .error .missingParameter) =
+    encode (match entries.find? (fun p => p.1 == key) with
+            | some p => bounded p.2
+            | none => .error .missingParameter) := by
+  induction entries with
+  | nil => rfl
+  | cons entry rest ih =>
+      obtain ⟨k, v⟩ := entry
+      by_cases h : (k == key) = true
+      · simp [List.find?, h, validateValue, checked_eq]
+      · simpa [List.find?, h] using ih
+
 theorem lowering_preserves_result (env : List (String × Int)) (term : Source) :
     eval (encodeEnv env) (lower term) = encode (evaluate env term) := by
   induction term with
@@ -105,6 +132,17 @@ theorem lowering_preserves_result (env : List (String × Int)) (term : Source) :
   | noMatch a ha =>
       rw [lower, eval_noMatch, ha]
       cases h : evaluate env a <;> simp [evaluate, h, encode, bind, Except.bind]
+  | lookup entries idx hi =>
+      simp only [lower, eval, hi, evaluate]
+      cases evaluate env idx with
+      | error => rfl
+      | ok n =>
+          simp only [encode, bind, Except.bind, asNum]
+          split
+          · rfl
+          · split
+            · rfl
+            · exact table_preserved entries (n / scale)
   | add a b ha hb =>
       simp only [lower, evaluate, eval, ha, hb]
       cases evaluate env a <;> cases evaluate env b <;>
@@ -146,6 +184,27 @@ theorem lowering_preserves_result (env : List (String × Int)) (term : Source) :
                 simp [encode, bind, Except.bind, binary, compareValues, compareNumbers,
                   asNum, asJudgment, truth, h, hy, hn, holds, notHolds]
 
+private def recognizeTable : List (Int × Value) → Option (List (Int × Int))
+  | [] => some []
+  | (key, .decimal value) :: rest => ((key, value) :: ·) <$> recognizeTable rest
+  | _ => none
+
+private theorem recognizeTable_sound (table : List (Int × Value)) (entries : List (Int × Int))
+    (h : recognizeTable table = some entries) :
+    (entries.map fun (key, value) => (key, Value.decimal value)) = table := by
+  induction table generalizing entries with
+  | nil => cases h; rfl
+  | cons entry rest ih =>
+    obtain ⟨key, value⟩ := entry
+    cases value <;> simp [recognizeTable] at h
+    rename_i value
+    cases ht : recognizeTable rest with
+    | none => simp [ht] at h
+    | some tail =>
+      simp [ht] at h
+      subst entries
+      simp [ih tail ht]
+
 /-- Independently check that a generated target term belongs to this fragment.
 Every accepted tree is reconstructed without consulting Python or artifact metadata. -/
 def recognize : Expr → Option Source
@@ -153,6 +212,7 @@ def recognize : Expr → Option Source
   | .input name => some (.input name)
   | .unary .numeric a => .normalize <$> recognize a
   | .noMatch a => .noMatch <$> recognize a
+  | .lookup entries idx => Source.lookup <$> recognizeTable entries <*> recognize idx
   | .binary .add a b => Source.add <$> recognize a <*> recognize b
   | .binary .sub a b => Source.subtract <$> recognize a <*> recognize b
   | .binary .mul a b => Source.multiply <$> recognize a <*> recognize b
@@ -168,11 +228,30 @@ theorem recognize_sound (target : Expr) (source : Source)
     simp_all [recognize, Seq.seq, Functor.map, Option.map] <;>
     repeat' (first | split at h | cases h | rfl | contradiction) <;>
     simp_all [lower]
+  exact recognizeTable_sound _ _ (by assumption)
 
 theorem recognized_target_preserves_result (env : List (String × Int))
     (target : Expr) (source : Source) (h : recognize target = some source) :
     eval (encodeEnv env) target = encode (evaluate env source) := by
   rw [← recognize_sound target source h]
   exact lowering_preserves_result env source
+
+theorem lookup_preserves_result (env : List (String × Int))
+    (entries : List (Int × Int)) (idx : Source) :
+    eval (encodeEnv env) (.lookup (entries.map fun (k, v) => (k, .decimal v)) (lower idx)) =
+      encode (evaluate env (.lookup entries idx)) :=
+  lowering_preserves_result env (.lookup entries idx)
+
+example : (recognize (.lookup [(0, .decimal 1250000)] (.input "index"))).isSome = true := rfl
+
+example : recognize (.lookup [(0, .integer 1)] (.input "index")) = none := rfl
+
+example : evaluate [("index", 0)] (.lookup [(0, 1250000)] (.input "index")) = .ok 1250000 := rfl
+
+example : evaluate [("index", 500000)] (.lookup [] (.input "index")) = .error .typeMismatch := rfl
+
+example : evaluate [] (.lookup [] (.input "index")) = .error .missingInput := rfl
+
+example : evaluate [("index", 0)] (.lookup [] (.input "index")) = .error .missingParameter := rfl
 
 end RuleSpecLean.ScalarPreservation

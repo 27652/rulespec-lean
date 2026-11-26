@@ -2,6 +2,7 @@ import RuleSpecLean.Legal3403Preservation
 import RuleSpecLean.Decimal
 
 #print axioms RuleSpecLean.ScalarPreservation.lowering_preserves_result
+#print axioms RuleSpecLean.ScalarPreservation.lookup_preserves_result
 #print axioms RuleSpecLean.ScalarPreservation.recognize_sound
 #print axioms RuleSpecLean.ScalarPreservation.recognized_target_preserves_result
 #print axioms RuleSpecLean.Legal3403Preservation.generated_preserves_result
