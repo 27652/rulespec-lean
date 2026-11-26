@@ -1,0 +1,2 @@
+Corpus replay: 1152 modules; 33954 expectations; {'moduleUnavailable': 26951, 'matched': 6164, 'notDerivedOutput': 473, 'comparisonUnavailable': 32, 'outsideReplaySubset': 328, 'engineRejected': 6}
+Lost baseline matches: 0

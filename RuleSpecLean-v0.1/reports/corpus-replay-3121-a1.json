@@ -1,0 +1,2805 @@
+{
+  "prefix": "us/statutes/26/3121/a/1.yaml",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+  "modules": 1,
+  "output_expectations": 20,
+  "counts": {
+    "matched": 20
+  },
+  "official_attempted": 20,
+  "official_explain_responses": 20,
+  "lean_attempted": 20,
+  "lean_guards": 20,
+  "results": [
+    {
+      "source": "us/statutes/26/3121/a/1.yaml",
+      "fixture": "us/statutes/26/3121/a/1.test.yaml",
+      "outputs": [
+        {
+          "case": 0,
+          "output": "us:statutes/26/3121/a/1#successor_employer_base_continuity_applies",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 50000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "80000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "10000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#successor_employer_base_continuity_applies"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "judgment",
+            "notHolds"
+          ],
+          "official": [
+            "judgment",
+            "notHolds"
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 0,
+          "output": "us:statutes/26/3121/a/1#predecessor_remuneration_counted_for_successor_base",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 50000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "80000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "10000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#predecessor_remuneration_counted_for_successor_base"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            0
+          ],
+          "official": [
+            "decimal",
+            0
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 0,
+          "output": "us:statutes/26/3121/a/1#remuneration_counted_toward_oasdi_base_before_payment",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 50000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "80000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "10000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#remuneration_counted_toward_oasdi_base_before_payment"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            80000000000
+          ],
+          "official": [
+            "decimal",
+            80000000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 0,
+          "output": "us:statutes/26/3121/a/1#remaining_oasdi_contribution_and_benefit_base_before_payment",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 50000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "80000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "10000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#remaining_oasdi_contribution_and_benefit_base_before_payment"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            20000000000
+          ],
+          "official": [
+            "decimal",
+            20000000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 0,
+          "output": "us:statutes/26/3121/a/1#oasdi_wage_base_excess_excluded_remuneration",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 50000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "80000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "10000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#oasdi_wage_base_excess_excluded_remuneration"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            0
+          ],
+          "official": [
+            "decimal",
+            0
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 1,
+          "output": "us:statutes/26/3121/a/1#successor_employer_base_continuity_applies",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "90000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "30000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#successor_employer_base_continuity_applies"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "judgment",
+            "notHolds"
+          ],
+          "official": [
+            "judgment",
+            "notHolds"
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 1,
+          "output": "us:statutes/26/3121/a/1#predecessor_remuneration_counted_for_successor_base",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "90000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "30000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#predecessor_remuneration_counted_for_successor_base"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            0
+          ],
+          "official": [
+            "decimal",
+            0
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 1,
+          "output": "us:statutes/26/3121/a/1#remuneration_counted_toward_oasdi_base_before_payment",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "90000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "30000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#remuneration_counted_toward_oasdi_base_before_payment"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            90000000000
+          ],
+          "official": [
+            "decimal",
+            90000000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 1,
+          "output": "us:statutes/26/3121/a/1#remaining_oasdi_contribution_and_benefit_base_before_payment",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "90000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "30000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#remaining_oasdi_contribution_and_benefit_base_before_payment"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            10000000000
+          ],
+          "official": [
+            "decimal",
+            10000000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 1,
+          "output": "us:statutes/26/3121/a/1#oasdi_wage_base_excess_excluded_remuneration",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "90000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "30000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#oasdi_wage_base_excess_excluded_remuneration"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            20000000000
+          ],
+          "official": [
+            "decimal",
+            20000000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 2,
+          "output": "us:statutes/26/3121/a/1#successor_employer_base_continuity_applies",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 50000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "60000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "20000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#successor_employer_base_continuity_applies"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "judgment",
+            "holds"
+          ],
+          "official": [
+            "judgment",
+            "holds"
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 2,
+          "output": "us:statutes/26/3121/a/1#predecessor_remuneration_counted_for_successor_base",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 50000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "60000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "20000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#predecessor_remuneration_counted_for_successor_base"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            50000000000
+          ],
+          "official": [
+            "integer",
+            50000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 2,
+          "output": "us:statutes/26/3121/a/1#remuneration_counted_toward_oasdi_base_before_payment",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 50000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "60000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "20000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#remuneration_counted_toward_oasdi_base_before_payment"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            110000000000
+          ],
+          "official": [
+            "decimal",
+            110000000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 2,
+          "output": "us:statutes/26/3121/a/1#remaining_oasdi_contribution_and_benefit_base_before_payment",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 50000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "60000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "20000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#remaining_oasdi_contribution_and_benefit_base_before_payment"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            0
+          ],
+          "official": [
+            "decimal",
+            0
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 2,
+          "output": "us:statutes/26/3121/a/1#oasdi_wage_base_excess_excluded_remuneration",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 50000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "60000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "20000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#oasdi_wage_base_excess_excluded_remuneration"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            20000000000
+          ],
+          "official": [
+            "decimal",
+            20000000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 3,
+          "output": "us:statutes/26/3121/a/1#successor_employer_base_continuity_applies",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 30000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "75000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "10000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#successor_employer_base_continuity_applies"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "judgment",
+            "holds"
+          ],
+          "official": [
+            "judgment",
+            "holds"
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 3,
+          "output": "us:statutes/26/3121/a/1#predecessor_remuneration_counted_for_successor_base",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 30000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "75000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "10000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#predecessor_remuneration_counted_for_successor_base"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            30000000000
+          ],
+          "official": [
+            "integer",
+            30000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 3,
+          "output": "us:statutes/26/3121/a/1#remuneration_counted_toward_oasdi_base_before_payment",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 30000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "75000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "10000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#remuneration_counted_toward_oasdi_base_before_payment"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            105000000000
+          ],
+          "official": [
+            "decimal",
+            105000000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 3,
+          "output": "us:statutes/26/3121/a/1#remaining_oasdi_contribution_and_benefit_base_before_payment",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 30000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "75000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "10000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#remaining_oasdi_contribution_and_benefit_base_before_payment"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            0
+          ],
+          "official": [
+            "decimal",
+            0
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 3,
+          "output": "us:statutes/26/3121/a/1#oasdi_wage_base_excess_excluded_remuneration",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_trade_or_business_property_from_predecessor_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": false
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.successor_employer_acquired_substantially_all_property_used_in_separate_unit_of_predecessor_trade_or_business_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_successor_immediately_after_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.individual_employed_by_predecessor_immediately_before_acquisition",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "bool",
+                    "value": true
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.predecessor_remuneration_other_than_succeeding_paragraphs_paid_or_considered_paid_to_individual_before_acquisition_during_calendar_year",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 30000
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_other_than_succeeding_paragraphs_paid_to_individual_by_employer_during_calendar_year_before_payment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "75000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.contribution_and_benefit_base_under_section_230_of_social_security_act",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "100000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/3121/a/1#input.remuneration_paid_to_individual_by_employer_with_respect_to_employment",
+                  "entity": "Payment",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "10000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "custom",
+                  "name": "calendar_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/3121/a/1#oasdi_wage_base_excess_excluded_remuneration"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            10000000000
+          ],
+          "official": [
+            "decimal",
+            10000000000
+          ],
+          "status": "matched"
+        }
+      ]
+    }
+  ]
+}

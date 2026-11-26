@@ -1,0 +1,753 @@
+{
+  "prefix": "us/statutes/26/1211.yaml",
+  "engine_build": {
+    "commit": "a4322e45a035ba9fd412d01bebe078aeaa46cd54",
+    "dirty": false
+  },
+  "corpus_pin": "d8a4c9cb560ed55c6db47ea36214249f67319461",
+  "modules": 1,
+  "output_expectations": 12,
+  "counts": {
+    "matched": 10,
+    "notDerivedOutput": 2
+  },
+  "official_attempted": 10,
+  "official_explain_responses": 10,
+  "lean_attempted": 10,
+  "lean_guards": 10,
+  "results": [
+    {
+      "source": "us/statutes/26/1211.yaml",
+      "fixture": "us/statutes/26/1211.test.yaml",
+      "outputs": [
+        {
+          "case": 0,
+          "output": "us:statutes/26/1211#corporation_capital_losses_allowed",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/1211#input.gains_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "Corporation",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1200"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.losses_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "Corporation",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "5000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/1211#corporation_capital_losses_allowed"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            1200000000
+          ],
+          "official": [
+            "decimal",
+            1200000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 1,
+          "output": "us:statutes/26/1211#other_taxpayer_capital_loss_limit",
+          "status": "notDerivedOutput"
+        },
+        {
+          "case": 1,
+          "output": "us:statutes/26/1211#married_separate_capital_loss_limit",
+          "status": "notDerivedOutput"
+        },
+        {
+          "case": 1,
+          "output": "us:statutes/26/1211#other_taxpayer_capital_loss_limit_by_filing_status",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/1211#input.filing_status",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.gains_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.losses_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "6000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/1211#other_taxpayer_capital_loss_limit_by_filing_status"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            3000000000
+          ],
+          "official": [
+            "integer",
+            3000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 1,
+          "output": "us:statutes/26/1211#capital_losses_excess_over_gains",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/1211#input.filing_status",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.gains_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.losses_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "6000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/1211#capital_losses_excess_over_gains"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            5000000000
+          ],
+          "official": [
+            "decimal",
+            5000000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 1,
+          "output": "us:statutes/26/1211#other_taxpayer_capital_losses_allowed",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/1211#input.filing_status",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 0
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.gains_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.losses_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "6000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/1211#other_taxpayer_capital_losses_allowed"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            4000000000
+          ],
+          "official": [
+            "decimal",
+            4000000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 2,
+          "output": "us:statutes/26/1211#other_taxpayer_capital_loss_limit_by_filing_status",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/1211#input.filing_status",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 2
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.gains_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.losses_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "6000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/1211#other_taxpayer_capital_loss_limit_by_filing_status"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            1500000000
+          ],
+          "official": [
+            "integer",
+            1500
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 2,
+          "output": "us:statutes/26/1211#capital_losses_excess_over_gains",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/1211#input.filing_status",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 2
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.gains_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.losses_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "6000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/1211#capital_losses_excess_over_gains"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            5000000000
+          ],
+          "official": [
+            "decimal",
+            5000000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 2,
+          "output": "us:statutes/26/1211#other_taxpayer_capital_losses_allowed",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/1211#input.filing_status",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 2
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.gains_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.losses_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "6000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/1211#other_taxpayer_capital_losses_allowed"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            2500000000
+          ],
+          "official": [
+            "decimal",
+            2500000000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 3,
+          "output": "us:statutes/26/1211#other_taxpayer_capital_loss_limit_by_filing_status",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/1211#input.filing_status",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 1
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.gains_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "6000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.losses_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/1211#other_taxpayer_capital_loss_limit_by_filing_status"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            3000000000
+          ],
+          "official": [
+            "integer",
+            3000
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 3,
+          "output": "us:statutes/26/1211#capital_losses_excess_over_gains",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/1211#input.filing_status",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 1
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.gains_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "6000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.losses_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/1211#capital_losses_excess_over_gains"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            0
+          ],
+          "official": [
+            "decimal",
+            0
+          ],
+          "status": "matched"
+        },
+        {
+          "case": 3,
+          "output": "us:statutes/26/1211#other_taxpayer_capital_losses_allowed",
+          "request": {
+            "mode": "explain",
+            "dataset": {
+              "inputs": [
+                {
+                  "name": "us:statutes/26/1211#input.filing_status",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "integer",
+                    "value": 1
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.gains_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "6000"
+                  }
+                },
+                {
+                  "name": "us:statutes/26/1211#input.losses_from_sales_or_exchanges_of_capital_assets",
+                  "entity": "TaxUnit",
+                  "entity_id": "entity:1",
+                  "interval": {
+                    "start": "2026-01-01",
+                    "end": "2026-12-31"
+                  },
+                  "value": {
+                    "kind": "decimal",
+                    "value": "1000"
+                  }
+                }
+              ],
+              "relations": []
+            },
+            "queries": [
+              {
+                "entity_id": "entity:1",
+                "period": {
+                  "period_kind": "tax_year",
+                  "start": "2026-01-01",
+                  "end": "2026-12-31"
+                },
+                "outputs": [
+                  "us:statutes/26/1211#other_taxpayer_capital_losses_allowed"
+                ]
+              }
+            ]
+          },
+          "expected": [
+            "decimal",
+            1000000000
+          ],
+          "official": [
+            "decimal",
+            1000000000
+          ],
+          "status": "matched"
+        }
+      ]
+    }
+  ]
+}
