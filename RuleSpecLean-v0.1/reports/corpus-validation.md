@@ -72,6 +72,16 @@ python -m tools.check_eitc_final --case two_children_earned_income_phase_in_refu
   --lean /tmp/opencode/CTCRefundableCreditTests.lean
 ```
 
+三名子女案例 `three_children_social_security_excess_is_greater_than_earned_income_phase_in` 在同一兼容产物上得到 3,000 美元，符合公开期望，Rust Explain、Python 和 Lean 三方一致。Explain 轨迹与公开期望逐项核对：劳动收入递增额为 0，社会保障税超额为 3,000 美元，可退还限额增量取两者中的较大值 3,000 美元。原始请求的首个输入校验错误仍是 §164(f) 的 `taxpayer_is_individual`；仅移除上述两项闭包外输入后，未出现绑定或求值差异。完整证据见 [`ctc-social-security-excess.json`](ctc-social-security-excess.json)。
+
+```sh
+python -m tools.check_eitc_final \
+  --case three_children_social_security_excess_is_greater_than_earned_income_phase_in \
+  --engine "$ENGINE" --corpus "$CORPUS" --lake "$(command -v lake)" \
+  --report /tmp/opencode/ctc-social-security-excess.json \
+  --lean /tmp/opencode/CTCSocialSecurityExcessTests.lean
+```
+
 SNAP 的第二阶段探针以固定语料中 `state-plan-composition.yaml` 的声明为依据，在临时副本的 `us/statutes/7/2012/j.yaml` 中补入 `data_relation.arguments: [Person, Household]`。仅移除旧元数据时，锁定引擎以退出码 1 报告 `[untyped_relation]`；补入声明后，§273.10 以退出码 0 生成 Artifact v3，包含 17 个派生输出。产物中的 `slot_entities` 与语料声明顺序一致，4 个闭包模块均已按审计基线或临时修改后的 SHA-256 核对。这一结果仅验证编译准入，尚未验证完整 SNAP 执行。
 
 复现：在项目子目录中安装 `PyYAML==6.0.3` 后运行 `python -m tools.probe_corpus_compat --engine "$ENGINE" --corpus "$CORPUS"`。实测见 [`corpus-compat-probe.log`](corpus-compat-probe.log)。同一命令附加 `--snap-report /tmp/opencode/snap-compat-probe.json` 可运行 SNAP 两阶段探针；诊断、声明出处、文件哈希与依赖闭包见 [`snap-compat-probe.json`](snap-compat-probe.json) 和 [`snap-compat-probe.log`](snap-compat-probe.log)。

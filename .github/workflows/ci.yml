@@ -27,7 +27,7 @@ jobs:
       - run: lake build RuleSpecLean.SelectedYearTests RuleSpecLean.InputDefaultTests RuleSpecLean.CTCMagiTests RuleSpecLean.CTCPhaseoutTests RuleSpecLean.EITCEarnedIncomeTests RuleSpecLean.SNAPNetIncomeLimitTests
       - run: lake build RuleSpecLean.DirectCountTests
       - run: lake build RuleSpecLean.SNAPMembershipTests RuleSpecLean.SNAPAllotmentTests RuleSpecLean.SNAPPublishedOutputsTests
-      - run: lake build RuleSpecLean.CTCAfterAdvanceTests RuleSpecLean.CTCRefundableCapTests RuleSpecLean.CTCRefundableCreditTests
+      - run: lake build RuleSpecLean.CTCAfterAdvanceTests RuleSpecLean.CTCRefundableCapTests RuleSpecLean.CTCRefundableCreditTests RuleSpecLean.CTCSocialSecurityExcessTests
       - run: lake build RuleSpecLean.EITCSection112ElectionTests RuleSpecLean.EITCFinalCreditTests RuleSpecLean.EITCInvestmentIncomeDenialTests
       - run: lake build RuleSpecLean.CapitalLossMatchTests
   upstream-integration:
@@ -122,6 +122,10 @@ jobs:
         run: |
           python -m tools.check_eitc_final --case two_children_earned_income_phase_in_refundable_amount --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/ctc-refundable-credit-ci.json --lean "$RUNNER_TEMP/CTCRefundableCreditTests.lean"
           cmp "$RUNNER_TEMP/CTCRefundableCreditTests.lean" RuleSpecLean/CTCRefundableCreditTests.lean
+      - name: Compare the published CTC Social Security excess case on the compatibility overlay
+        run: |
+          python -m tools.check_eitc_final --case three_children_social_security_excess_is_greater_than_earned_income_phase_in --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/ctc-social-security-excess-ci.json --lean "$RUNNER_TEMP/CTCSocialSecurityExcessTests.lean"
+          cmp "$RUNNER_TEMP/CTCSocialSecurityExcessTests.lean" RuleSpecLean/CTCSocialSecurityExcessTests.lean
       - name: Compare published SNAP membership cases on the compatibility overlay
         run: |
           python -m tools.check_snap_membership --retain-source-verification --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-membership-ci.json --lean "$RUNNER_TEMP/SNAPMembershipTests.lean"
@@ -168,6 +172,7 @@ jobs:
             RuleSpecLean-v0.1/reports/capital-loss-match.json
             RuleSpecLean-v0.1/reports/ctc-refundable-cap.json
             RuleSpecLean-v0.1/reports/ctc-refundable-credit-ci.json
+            RuleSpecLean-v0.1/reports/ctc-social-security-excess-ci.json
             RuleSpecLean-v0.1/reports/snap-net-income-limit.json
             RuleSpecLean-v0.1/reports/snap-membership-ci.json
             RuleSpecLean-v0.1/reports/snap-allotment-ci.json

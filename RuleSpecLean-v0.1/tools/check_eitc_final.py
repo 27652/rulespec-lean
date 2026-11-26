@@ -21,6 +21,7 @@ FIXTURE = "us/statutes/26/32.test.yaml"
 CASE = "one_child_phase_in_and_allowed"
 DENIAL_CASE = "investment_income_denies_credit"
 CTC_CASE = "two_children_earned_income_phase_in_refundable_amount"
+CTC_SS_CASE = "three_children_social_security_excess_is_greater_than_earned_income_phase_in"
 CTC_OUTSIDE_CLOSURE = {
     "us:statutes/26/164/f#input.taxpayer_is_individual",
     "us:statutes/26/1401#input.filing_status",
@@ -67,10 +68,16 @@ def main():
     for option in ("engine", "lake", "corpus", "report", "lean"):
         parser.add_argument(f"--{option}", type=Path, required=True)
     parser.add_argument("--audit", type=Path, default=Path("reports/corpus-static.json"))
-    parser.add_argument("--case", choices=(CASE, DENIAL_CASE, CTC_CASE), default=CASE)
+    namespaces = {
+        CASE: "EITCFinalCredit",
+        DENIAL_CASE: "EITCInvestmentIncomeDenial",
+        CTC_CASE: "CTCRefundableCredit",
+        CTC_SS_CASE: "CTCSocialSecurityExcess",
+    }
+    parser.add_argument("--case", choices=namespaces, default=CASE)
     args = parser.parse_args()
-    ctc = args.case == CTC_CASE
-    namespace = {CASE: "EITCFinalCredit", DENIAL_CASE: "EITCInvestmentIncomeDenial", CTC_CASE: "CTCRefundableCredit"}[args.case]
+    ctc = args.case in (CTC_CASE, CTC_SS_CASE)
+    namespace = namespaces[args.case]
     fixture = "us/statutes/26/24/d.test.yaml" if ctc else FIXTURE
     output = "us:statutes/26/24/d#refundable_ctc" if ctc else OUTPUT
     root, rule = output.split("#")
@@ -139,6 +146,15 @@ def main():
         try:
             if Fraction(str(official_value)) != expected:
                 raise ValueError(f"Rust result {official_value} differs from published {expected}")
+            if args.case == CTC_SS_CASE:
+                stage = "Rust branch trace"
+                trace = response["results"][0]["trace"]
+                for name in ("ctc_phase_in_relevant_earnings", "ctc_social_security_excess",
+                             "ctc_refundable_limitation_increase_amount"):
+                    trace_id = f"{root}#{name}"
+                    traced = DecimalValue.from_literal(trace[trace_id]["value"])
+                    if Fraction(str(traced)) != case["output"][trace_id]:
+                        raise ValueError(f"{trace_id}: Rust {traced} differs from published {case['output'][trace_id]}")
             stage = "Python binding"
             as_of = query["period"]["start"]
             env = bind(program, request, rule, validate_value=snapshot_literal, filtered_counts=True)
