@@ -30,7 +30,7 @@ private def decodeFormula (node : Json) : Except String Source := do
   pure (.maximum (.normalize (.literal 0)) (.normalize (.input name)))
 
 /-- Gregorian ordinal of January 1, from the number of completed years. -/
-private def jan1 (year : Nat) : Int :=
+def jan1 (year : Nat) : Int :=
   let completed := year - 1
   Int.ofNat (365 * completed + completed / 4 - completed / 100 + completed / 400 + 1)
 

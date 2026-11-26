@@ -37,3 +37,15 @@
  Lean.ofReduceBool,
  Lean.trustCompiler,
  Quot.sound]
+'RuleSpecLean.Legal3403Binding.bind_corresponds' depends on axioms: [propext]
+'RuleSpecLean.Legal3403Binding.bind_rejects' depends on axioms: [propext]
+'RuleSpecLean.Legal3403Binding.decoded_request_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RuleSpecLean.Legal3403Binding.bound_request_preserves_result' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'RuleSpecLean.Legal3403Binding.wire_request_preserves_result' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RuleSpecLean.Legal3403Binding.retained_wire_request_preserves_result' depends on axioms: [propext,
+ Classical.choice,
+ Lean.ofReduceBool,
+ Lean.trustCompiler,
+ Quot.sound]
