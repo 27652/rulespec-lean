@@ -9,7 +9,7 @@ import subprocess
 import sys
 import tempfile
 
-from tools.check_eitc_final import CASE, CTC_CASE, CTC_SS_CASE, DENIAL_CASE
+from tools.check_eitc_final import CASE, CTC_CASE, CTC_SECTION_112, CTC_SECTION_911, CTC_SS_CASE, DENIAL_CASE
 from tools.probe_corpus_compat import (
     DEPENDENCIES, EITC_PAGE_15, ENTRYPOINTS, SNAP_COMPOSITION, SNAP_RELATION,
     compile_entry, digest, migrate_eitc_verification, retain_snap_verification, type_snap_relation,
@@ -119,6 +119,8 @@ def main():
         suites = (
             (0, ["--case", CTC_CASE], "ctc-refundable-credit", "CTCRefundableCreditTests"),
             (0, ["--case", CTC_SS_CASE], "ctc-social-security-excess", "CTCSocialSecurityExcessTests"),
+            (0, ["--case", CTC_SECTION_112], "ctc-section112-refundable-credit", "CTCSection112RefundableCreditTests"),
+            (0, ["--case", CTC_SECTION_911], "ctc-section911-refundable-credit", "CTCSection911RefundableCreditTests"),
             (1, ["--case", CASE], "eitc-final-credit", "EITCFinalCreditTests"),
             (1, ["--case", DENIAL_CASE], "eitc-investment-income-denial", "EITCInvestmentIncomeDenialTests"),
             (2, ["--allotment"], "snap-allotment", "SNAPAllotmentTests"),

@@ -22,6 +22,8 @@ CASE = "one_child_phase_in_and_allowed"
 DENIAL_CASE = "investment_income_denies_credit"
 CTC_CASE = "two_children_earned_income_phase_in_refundable_amount"
 CTC_SS_CASE = "three_children_social_security_excess_is_greater_than_earned_income_phase_in"
+CTC_SECTION_112 = "section_112_excluded_amount_counts_as_earned_income"
+CTC_SECTION_911 = "section_911_foreign_earned_income_exclusion_exception_denies_refundable_credit"
 CTC_OUTSIDE_CLOSURE = {
     "us:statutes/26/164/f#input.taxpayer_is_individual",
     "us:statutes/26/1401#input.filing_status",
@@ -74,10 +76,12 @@ def main():
         DENIAL_CASE: "EITCInvestmentIncomeDenial",
         CTC_CASE: "CTCRefundableCredit",
         CTC_SS_CASE: "CTCSocialSecurityExcess",
+        CTC_SECTION_112: "CTCSection112RefundableCredit",
+        CTC_SECTION_911: "CTCSection911RefundableCredit",
     }
     parser.add_argument("--case", choices=namespaces, default=CASE)
     args = parser.parse_args()
-    ctc = args.case in (CTC_CASE, CTC_SS_CASE)
+    ctc = args.case in (CTC_CASE, CTC_SS_CASE, CTC_SECTION_112, CTC_SECTION_911)
     namespace = namespaces[args.case]
     fixture = "us/statutes/26/24/d.test.yaml" if ctc else FIXTURE
     output = "us:statutes/26/24/d#refundable_ctc" if ctc else OUTPUT
@@ -145,15 +149,22 @@ def main():
         try:
             if Fraction(str(official_value)) != expected:
                 raise ValueError(f"Rust result {official_value} differs from published {expected}")
-            if args.case == CTC_SS_CASE:
+            trace_rules = {
+                CTC_SS_CASE: ("ctc_phase_in_relevant_earnings", "ctc_social_security_excess",
+                              "ctc_refundable_limitation_increase_amount"),
+                CTC_SECTION_112: ("ctc_phase_in_earned_income_base", "ctc_phase_in_relevant_earnings"),
+                CTC_SECTION_911: ("ctc_refundable_foreign_income_eligible",),
+            }.get(args.case, ())
+            if trace_rules:
                 stage = "Rust branch trace"
                 trace = response["results"][0]["trace"]
-                for name in ("ctc_phase_in_relevant_earnings", "ctc_social_security_excess",
-                             "ctc_refundable_limitation_increase_amount"):
+                for name in trace_rules:
                     trace_id = f"{root}#{name}"
-                    traced = DecimalValue.from_literal(trace[trace_id]["value"])
-                    if Fraction(str(traced)) != case["output"][trace_id]:
-                        raise ValueError(f"{trace_id}: Rust {traced} differs from published {case['output'][trace_id]}")
+                    published = case["output"][trace_id]
+                    traced = (trace[trace_id]["outcome"] if isinstance(published, str)
+                              else Fraction(str(DecimalValue.from_literal(trace[trace_id]["value"]))))
+                    if traced != published:
+                        raise ValueError(f"{trace_id}: Rust {traced} differs from published {published}")
             stage = "Python binding"
             as_of = query["period"]["start"]
             env = bind(program, request, rule, validate_value=snapshot_literal, filtered_counts=True)

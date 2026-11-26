@@ -46,11 +46,11 @@ scale-6 现可转换在快照日期没有有效版本的参数表读取，并保
 
 | 完整入口 | 未修改语料的首条编译错误 | 补丁后派生输出 | 补丁后核验的闭包模块 | 补丁后三方回放通过的公开期望 |
 | --- | --- | ---: | ---: | ---: |
-| CTC §24(d) | 不支持复数 `corpus_citation_paths` | 71 | 11 | 2 |
+| CTC §24(d) | 不支持复数 `corpus_citation_paths` | 71 | 11 | 4 |
 | EITC §32 | 不支持复数 `corpus_citation_paths` | 61 | 10 | 2 |
 | SNAP §273.10 | 不支持 `source_verification.values` | 17 | 4 | 33 |
 
-[`corpus-patch-validation.json`](corpus-patch-validation.json) 保存原始编译诊断、补丁与文件哈希、实际补丁产物的闭包及六份回放报告的哈希。验证器只在临时副本应用补丁，随后直接回放该副本编译出的产物；三份 Artifact、六份回放报告和六份 Lean 源文件均与已有证据逐字节一致。CTC 两项回放仍按下文所述仅移除两条闭包外输入。固定语料全量基线维持 **6,168 / 33,954（18.17%）**，补丁上的 37 项期望单独统计。
+[`corpus-patch-validation.json`](corpus-patch-validation.json) 保存原始编译诊断、补丁与文件哈希、实际补丁产物的闭包及八份回放报告的哈希。验证器只在临时副本应用补丁，随后直接回放该副本编译出的产物；三份 Artifact、八份回放报告和八份 Lean 源文件均与已提交证据逐字节一致。CTC 四项回放仅移除下文所述的两条闭包外输入。固定语料全量基线为 **6,168 / 33,954（18.17%）**，补丁上的 39 项期望单独统计。
 
 ```sh
 python -m tools.check_corpus_patch --engine "$ENGINE" --corpus "$CORPUS" \
@@ -101,6 +101,8 @@ python -m tools.check_eitc_final \
   --report /tmp/opencode/ctc-social-security-excess.json \
   --lean /tmp/opencode/CTCSocialSecurityExcessTests.lean
 ```
+
+§24(d) 公开案例文件中的其余两个最终可退还抵免额期望也通过三方回放。§112 案例的 Explain 轨迹显示劳动收入基数为 5,000 美元、递增额为 300 美元，最终可退还抵免为 [300 美元](ctc-section112-refundable-credit.json)。§911 案例的境外收入资格判定为 `not_holds`，最终可退还抵免为 [0 美元](ctc-section911-refundable-credit.json)。至此，该文件的四项 `refundable_ctc` 期望均已回放；其他公开输出不计入该项覆盖率。
 
 SNAP 的第二阶段探针以固定语料中 `state-plan-composition.yaml` 的声明为依据，在临时副本的 `us/statutes/7/2012/j.yaml` 中补入 `data_relation.arguments: [Person, Household]`。仅移除旧元数据时，锁定引擎以退出码 1 报告 `[untyped_relation]`；补入声明后，§273.10 以退出码 0 生成 Artifact v3，包含 17 个派生输出。产物中的 `slot_entities` 与语料声明顺序一致，4 个闭包模块均已按审计基线或临时修改后的 SHA-256 核对。这一结果仅验证编译准入，尚未验证完整 SNAP 执行。
 

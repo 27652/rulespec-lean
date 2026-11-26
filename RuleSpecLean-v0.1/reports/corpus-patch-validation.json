@@ -190,6 +190,16 @@
       "report": "reports/ctc-social-security-excess.json",
       "report_sha256": "0b53237cfbe0d3b0bcf586c650ed3e38a4d1dbabfa35d73c3006e65a8850fe39"
     },
+    "ctc-section112-refundable-credit": {
+      "public_expectations_passed": 1,
+      "report": "reports/ctc-section112-refundable-credit.json",
+      "report_sha256": "95e4181dfe9de2b8a12d90da4d838d4cc340f0807b6604082258caa1b9b70ca9"
+    },
+    "ctc-section911-refundable-credit": {
+      "public_expectations_passed": 1,
+      "report": "reports/ctc-section911-refundable-credit.json",
+      "report_sha256": "6b20991daa759d4addb50f22bd0b65e929c282b5c9213d519764ac27fc5d36cd"
+    },
     "eitc-final-credit": {
       "public_expectations_passed": 1,
       "report": "reports/eitc-final-credit.json",
