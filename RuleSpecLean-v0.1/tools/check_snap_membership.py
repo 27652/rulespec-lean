@@ -14,7 +14,9 @@ import yaml
 from tools.compile_decimal import DecimalCompiler
 from tools.decimal_model import DecimalValue, snapshot_literal
 from tools.decimal_runtime import NumericRuntime
-from tools.probe_corpus_compat import ENTRYPOINTS, SNAP_RELATION, SNAP_RELATION_ID, digest
+from tools.probe_corpus_compat import (
+    ENTRYPOINTS, SNAP_RELATION, SNAP_RELATION_ID, add_verified_artifact_args, digest, load_verified_artifact,
+)
 from tools.replay_corpus import example_period, explain_output, wire
 from tools.request_binding import bind
 
@@ -95,6 +97,7 @@ def main():
     for option in ("engine", "lake", "corpus", "report", "lean"):
         parser.add_argument(f"--{option}", type=Path, required=True)
     parser.add_argument("--audit", type=Path, default=Path("reports/corpus-static.json"))
+    add_verified_artifact_args(parser)
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--allotment", action="store_true", help="Replay §273.10 monthly allotment outputs")
     mode.add_argument("--other-outputs", action="store_true", help="Replay the remaining published §273.10 outputs")
@@ -116,14 +119,16 @@ def main():
     with tempfile.TemporaryDirectory(prefix="rulespec-snap-replay-") as work:
         artifact = Path(work) / "snap.json"
         probe = Path(work) / "probe.json"
-        command = [sys.executable, "-m", "tools.probe_corpus_compat", "--engine", str(args.engine),
-                   "--corpus", str(args.corpus), "--audit", str(args.audit),
-                   "--snap-report", str(probe), "--snap-artifact", str(artifact)]
-        if args.retain_source_verification:
-            command.append("--retain-source-verification")
-        subprocess.run(command, check=True, timeout=300)
-        provenance = json.loads(probe.read_bytes())
-        program = json.loads(artifact.read_bytes())
+        if args.verified_artifact:
+            artifact, probe = args.verified_artifact
+        else:
+            command = [sys.executable, "-m", "tools.probe_corpus_compat", "--engine", str(args.engine),
+                       "--corpus", str(args.corpus), "--audit", str(args.audit),
+                       "--snap-report", str(probe), "--snap-artifact", str(artifact)]
+            if args.retain_source_verification:
+                command.append("--retain-source-verification")
+            subprocess.run(command, check=True, timeout=300)
+        program, provenance, _ = load_verified_artifact(args.engine, artifact, probe, ALLOTMENT_OUTPUT.split("#")[0], audit)
         targets = [(case, output) for case in cases for output in (
             [key for key in case["output"] if key != ALLOTMENT_OUTPUT] if args.other_outputs
             else [ALLOTMENT_OUTPUT if args.allotment else OUTPUT])]

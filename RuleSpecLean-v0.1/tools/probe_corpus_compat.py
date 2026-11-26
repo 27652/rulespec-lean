@@ -86,6 +86,41 @@ def migrate_eitc_verification(raw, page_15):
                        "reference": {"path": EITC_PAGE_15, "sha256": digest(page_15), "rule_matches": rule_matches}}, expected_values
 
 
+def type_snap_relation(raw, composition):
+    reference, = (rule["data_relation"] for rule in yaml.safe_load(composition)["rules"]
+                  if rule["kind"] == "data_relation" and rule["name"] == "member_of_household")
+    slots = reference["arguments"]
+    expected = yaml.safe_load(raw)
+    relation, = (rule["data_relation"] for rule in expected["rules"]
+                 if rule["kind"] == "data_relation" and rule["name"] == "member_of_household")
+    if reference["arity"] != relation["arity"] or relation != {"arity": 2} or slots != ["Person", "Household"]:
+        raise ValueError("unexpected SNAP relation signature")
+    relation["arguments"] = slots
+    candidate = raw.replace(b"      arity: 2\n", b"      arity: 2\n      arguments: [Person, Household]\n", 1)
+    if yaml.safe_load(candidate) != expected:
+        raise ValueError("unexpected changes outside the SNAP relation declaration")
+    return candidate, slots
+
+
+def add_verified_artifact_args(parser):
+    parser.add_argument("--verified-artifact", nargs=2, type=Path, metavar=("ARTIFACT", "PROBE"),
+                        help="Replay an already compiled artifact that matches the given compatibility probe")
+
+
+def load_verified_artifact(engine, artifact, probe, root, audit):
+    provenance = json.loads(probe.read_bytes())
+    build = json.loads(subprocess.check_output([str(engine.resolve()), "capabilities"], timeout=30))["engine_build"]
+    if build != audit["engine_build"] or build != provenance["engine_build"]:
+        raise ValueError("engine build differs from the audit or probe")
+    if provenance["corpus_pin"] != audit["requested_corpus_pin"]:
+        raise ValueError("probe corpus pin differs from the audit")
+    attempt, = (row for row in provenance["attempts"] if row["exit_code"] == 0 and row["source_closure"]["root"] == root)
+    raw = artifact.read_bytes()
+    if digest(raw) != attempt["artifact_sha256"]:
+        raise ValueError(f"artifact differs from the verified {root} artifact")
+    return json.loads(raw), provenance, attempt
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--engine", required=True, type=Path)
@@ -162,21 +197,9 @@ def main():
         attempts = []
         for index, name in enumerate((*entrypoints, *entrypoints) if args.snap_report else entrypoints):
             if args.snap_report and index == 1:
-                composition = yaml.safe_load((root / SNAP_COMPOSITION).read_bytes())
-                reference, = (rule["data_relation"] for rule in composition["rules"]
-                              if rule["kind"] == "data_relation" and rule["name"] == "member_of_household")
-                slots = reference["arguments"]
                 path = root / SNAP_RELATION
                 raw = path.read_bytes()
-                expected = yaml.safe_load(raw)
-                relation, = (rule["data_relation"] for rule in expected["rules"]
-                             if rule["kind"] == "data_relation" and rule["name"] == "member_of_household")
-                if reference["arity"] != relation["arity"] or relation != {"arity": 2} or slots != ["Person", "Household"]:
-                    parser.error("unexpected SNAP relation signature")
-                relation["arguments"] = slots
-                candidate = raw.replace(b"      arity: 2\n", b"      arity: 2\n      arguments: [Person, Household]\n", 1)
-                if yaml.safe_load(candidate) != expected:
-                    parser.error("unexpected changes outside the SNAP relation declaration")
+                candidate, slots = type_snap_relation(raw, (root / SNAP_COMPOSITION).read_bytes())
                 path.write_bytes(candidate)
                 overlay[SNAP_RELATION] = digest(candidate)
                 print(f"{SNAP_RELATION}: {digest(raw)} -> {overlay[SNAP_RELATION]}; slots: {slots}")

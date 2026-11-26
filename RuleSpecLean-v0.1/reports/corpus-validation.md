@@ -40,6 +40,26 @@ scale-6 现可转换在快照日期没有有效版本的参数表读取，并保
 
 ### 上游兼容性探针
 
+#### 可审查语料补丁与固定基线
+
+[`corpus-compat.patch`](corpus-compat.patch) 可在锁定语料根目录使用 `git apply --check` 审查。补丁仅涉及四份 YAML：CTC/EITC 共用参数模块采用刊载金额的 IRS 原文第 15 页作为编译引用；两个 SNAP 参数模块保留来源路径并移出旧 `values` 字段；`member_of_household` 按现有 composition 声明补齐 `[Person, Household]`。分离的来源信息仍见下文对应的探针报告。补丁不修改公式、可执行参数表和公开案例。
+
+| 完整入口 | 未修改语料的首条编译错误 | 补丁后派生输出 | 补丁后核验的闭包模块 | 补丁后三方回放通过的公开期望 |
+| --- | --- | ---: | ---: | ---: |
+| CTC §24(d) | 不支持复数 `corpus_citation_paths` | 71 | 11 | 2 |
+| EITC §32 | 不支持复数 `corpus_citation_paths` | 61 | 10 | 2 |
+| SNAP §273.10 | 不支持 `source_verification.values` | 17 | 4 | 33 |
+
+[`corpus-patch-validation.json`](corpus-patch-validation.json) 保存原始编译诊断、补丁与文件哈希、实际补丁产物的闭包及六份回放报告的哈希。验证器只在临时副本应用补丁，随后直接回放该副本编译出的产物；三份 Artifact、六份回放报告和六份 Lean 源文件均与已有证据逐字节一致。CTC 两项回放仍按下文所述仅移除两条闭包外输入。固定语料全量基线维持 **6,168 / 33,954（18.17%）**，补丁上的 37 项期望单独统计。
+
+```sh
+python -m tools.check_corpus_patch --engine "$ENGINE" --corpus "$CORPUS" \
+  --lake "$(command -v lake)" --report /tmp/opencode/corpus-patch-validation.json
+cmp /tmp/opencode/corpus-patch-validation.json reports/corpus-patch-validation.json
+```
+
+#### 单入口诊断与回放
+
 CTC §24(d) 与 EITC §32 共用的 FY 2026 参数模块原有第 14、15 页两条来源路径。核对 [IRS Rev. Proc. 2025-32 原件](https://www.irs.gov/pub/irs-drop/rp-25-32.pdf) §3.06：第 14 页说明表格的适用口径，第 15 页刊载六组金额表和投资收入上限。临时迁移用第 15 页作为七个参数的单一编译引用，并逐项与固定语料中 `page-15.yaml` 的金额、起始日及证明引用对照。第 14 页上下文引用及包含旧值表的原始验证块随报告存档。两个入口在原始副本上均复现复数引用错误；迁移后分别生成 71 和 61 个派生输出，核验 11 和 10 个闭包模块及其闭包摘要，并逐项确认两份产物中的七个参数值与第 15 页引用。此项为来源迁移和编译验证，不是整条规则的执行或独立法律审计。
 
 复现：`python -m tools.probe_corpus_compat --engine "$ENGINE" --corpus "$CORPUS" --eitc-report /tmp/opencode/eitc-citation-probe.json`。证据见 [`eitc-citation-probe.json`](eitc-citation-probe.json)。原件的下载 SHA-256 为 `e9ada115fb43a4af5ea326ca91edd40ab0bf29b9be01d2c13d7b8fa96214635b`；可用 `pdftotext -f 14 -l 15 -layout` 核对页码及内容。

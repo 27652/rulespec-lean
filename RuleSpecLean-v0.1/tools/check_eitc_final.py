@@ -13,7 +13,7 @@ import yaml
 from tools.compile_decimal import DecimalCompiler
 from tools.decimal_model import DecimalValue, snapshot_literal
 from tools.decimal_runtime import NumericRuntime
-from tools.probe_corpus_compat import digest
+from tools.probe_corpus_compat import add_verified_artifact_args, digest, load_verified_artifact
 from tools.replay_corpus import explain_output, wire
 from tools.request_binding import bind
 
@@ -68,6 +68,7 @@ def main():
     for option in ("engine", "lake", "corpus", "report", "lean"):
         parser.add_argument(f"--{option}", type=Path, required=True)
     parser.add_argument("--audit", type=Path, default=Path("reports/corpus-static.json"))
+    add_verified_artifact_args(parser)
     namespaces = {
         CASE: "EITCFinalCredit",
         DENIAL_CASE: "EITCInvestmentIncomeDenial",
@@ -94,16 +95,14 @@ def main():
     with tempfile.TemporaryDirectory(prefix="rulespec-final-credit-") as work:
         artifact = Path(work) / "credit.json"
         probe = Path(work) / "probe.json"
-        subprocess.run([sys.executable, "-m", "tools.probe_corpus_compat", "--engine", str(args.engine),
-                        "--corpus", str(args.corpus), "--audit", str(args.audit),
-                        "--eitc-report", str(probe), "--ctc-artifact" if ctc else "--eitc-artifact",
-                        str(artifact)], check=True, timeout=300)
-        provenance = json.loads(probe.read_bytes())
-        raw_artifact = artifact.read_bytes()
-        attempt, = (row for row in provenance["attempts"] if row["source_closure"]["root"] == root)
-        if digest(raw_artifact) != attempt["artifact_sha256"]:
-            raise ValueError(f"exported artifact differs from the verified {root} artifact")
-        program = json.loads(raw_artifact)
+        if args.verified_artifact:
+            artifact, probe = args.verified_artifact
+        else:
+            subprocess.run([sys.executable, "-m", "tools.probe_corpus_compat", "--engine", str(args.engine),
+                            "--corpus", str(args.corpus), "--audit", str(args.audit),
+                            "--eitc-report", str(probe), "--ctc-artifact" if ctc else "--eitc-artifact",
+                            str(artifact)], check=True, timeout=300)
+        program, provenance, attempt = load_verified_artifact(args.engine, artifact, probe, root, audit)
         request = build_request(case, program, output)
         query = request["queries"][0]
         report = {"fixture": fixture, "fixture_sha256": fixture_hash, "case": args.case,
