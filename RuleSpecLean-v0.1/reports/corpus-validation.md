@@ -54,6 +54,15 @@ python -m tools.check_eitc_final --engine "$ENGINE" --corpus "$CORPUS" \
   --lean /tmp/opencode/EITCFinalCreditTests.lean
 ```
 
+同一保留引用的 §32 产物也用于 `investment_income_denies_credit`：公开期望、Rust Explain、Python 和 Lean 的最终抵免额均为 0 美元。Explain 轨迹确认 13,000 美元投资收入超过 12,200 美元上限，`eitc_investment_income_eligible` 和 `eitc_allowed` 均为 `not_holds`。本案例的绑定、求值和 Lean 转换未遇到不支持的节点。请求、响应和绑定环境见 [`eitc-investment-income-denial.json`](eitc-investment-income-denial.json)。
+
+```sh
+python -m tools.check_eitc_final --case investment_income_denies_credit \
+  --engine "$ENGINE" --corpus "$CORPUS" --lake "$(command -v lake)" \
+  --report /tmp/opencode/eitc-investment-income-denial.json \
+  --lean /tmp/opencode/EITCInvestmentIncomeDenialTests.lean
+```
+
 SNAP 的第二阶段探针以固定语料中 `state-plan-composition.yaml` 的声明为依据，在临时副本的 `us/statutes/7/2012/j.yaml` 中补入 `data_relation.arguments: [Person, Household]`。仅移除旧元数据时，锁定引擎以退出码 1 报告 `[untyped_relation]`；补入声明后，§273.10 以退出码 0 生成 Artifact v3，包含 17 个派生输出。产物中的 `slot_entities` 与语料声明顺序一致，4 个闭包模块均已按审计基线或临时修改后的 SHA-256 核对。这一结果仅验证编译准入，尚未验证完整 SNAP 执行。
 
 复现：在项目子目录中安装 `PyYAML==6.0.3` 后运行 `python -m tools.probe_corpus_compat --engine "$ENGINE" --corpus "$CORPUS"`。实测见 [`corpus-compat-probe.log`](corpus-compat-probe.log)。同一命令附加 `--snap-report /tmp/opencode/snap-compat-probe.json` 可运行 SNAP 两阶段探针；诊断、声明出处、文件哈希与依赖闭包见 [`snap-compat-probe.json`](snap-compat-probe.json) 和 [`snap-compat-probe.log`](snap-compat-probe.log)。

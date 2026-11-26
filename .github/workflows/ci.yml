@@ -28,7 +28,7 @@ jobs:
       - run: lake build RuleSpecLean.DirectCountTests
       - run: lake build RuleSpecLean.SNAPMembershipTests RuleSpecLean.SNAPAllotmentTests RuleSpecLean.SNAPPublishedOutputsTests
       - run: lake build RuleSpecLean.CTCAfterAdvanceTests RuleSpecLean.CTCRefundableCapTests
-      - run: lake build RuleSpecLean.EITCSection112ElectionTests RuleSpecLean.EITCFinalCreditTests
+      - run: lake build RuleSpecLean.EITCSection112ElectionTests RuleSpecLean.EITCFinalCreditTests RuleSpecLean.EITCInvestmentIncomeDenialTests
       - run: lake build RuleSpecLean.CapitalLossMatchTests
   upstream-integration:
     runs-on: ubuntu-latest
@@ -114,6 +114,10 @@ jobs:
         run: |
           python -m tools.check_eitc_final --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/eitc-final-credit-ci.json --lean "$RUNNER_TEMP/EITCFinalCreditTests.lean"
           cmp "$RUNNER_TEMP/EITCFinalCreditTests.lean" RuleSpecLean/EITCFinalCreditTests.lean
+      - name: Compare the published EITC investment-income denial case
+        run: |
+          python -m tools.check_eitc_final --case investment_income_denies_credit --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/eitc-investment-income-denial-ci.json --lean "$RUNNER_TEMP/EITCInvestmentIncomeDenialTests.lean"
+          cmp "$RUNNER_TEMP/EITCInvestmentIncomeDenialTests.lean" RuleSpecLean/EITCInvestmentIncomeDenialTests.lean
       - name: Compare published SNAP membership cases on the compatibility overlay
         run: |
           python -m tools.check_snap_membership --retain-source-verification --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-membership-ci.json --lean "$RUNNER_TEMP/SNAPMembershipTests.lean"
@@ -156,6 +160,7 @@ jobs:
             RuleSpecLean-v0.1/reports/eitc-earned-income.json
             RuleSpecLean-v0.1/reports/eitc-section112-election.json
             RuleSpecLean-v0.1/reports/eitc-final-credit-ci.json
+            RuleSpecLean-v0.1/reports/eitc-investment-income-denial-ci.json
             RuleSpecLean-v0.1/reports/capital-loss-match.json
             RuleSpecLean-v0.1/reports/ctc-refundable-cap.json
             RuleSpecLean-v0.1/reports/snap-net-income-limit.json

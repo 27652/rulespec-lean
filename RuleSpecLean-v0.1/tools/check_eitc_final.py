@@ -1,4 +1,4 @@
-"""Replay the public one-child §32 final-credit case on the citation overlay."""
+"""Replay a public §32 final-credit case on the citation overlay."""
 
 import argparse
 from fractions import Fraction
@@ -19,6 +19,7 @@ from tools.request_binding import bind
 
 FIXTURE = "us/statutes/26/32.test.yaml"
 CASE = "one_child_phase_in_and_allowed"
+DENIAL_CASE = "investment_income_denies_credit"
 OUTPUT = "us:statutes/26/32#eitc"
 RELATION = "us:statutes/26/32#relation.qualifying_child_of_tax_unit"
 
@@ -59,13 +60,15 @@ def main():
     for option in ("engine", "lake", "corpus", "report", "lean"):
         parser.add_argument(f"--{option}", type=Path, required=True)
     parser.add_argument("--audit", type=Path, default=Path("reports/corpus-static.json"))
+    parser.add_argument("--case", choices=(CASE, DENIAL_CASE), default=CASE)
     args = parser.parse_args()
+    namespace = "EITCFinalCredit" if args.case == CASE else "EITCInvestmentIncomeDenial"
     audit = json.loads(args.audit.read_bytes())
     raw_fixture = (args.corpus / FIXTURE).read_bytes()
     fixture_hash, = (row["sha256"] for row in audit["results"] if row["source"] == FIXTURE)
     if digest(raw_fixture) != fixture_hash:
         raise ValueError("public EITC fixture differs from the pinned audit")
-    case, = (row for row in yaml.safe_load(raw_fixture) if row["name"] == CASE)
+    case, = (row for row in yaml.safe_load(raw_fixture) if row["name"] == args.case)
     expected = case["output"][OUTPUT]
     if type(expected) is not int:
         raise ValueError("expected a published whole-dollar credit")
@@ -94,7 +97,7 @@ def main():
         if response["metadata"]["relation_binding"] != "strict":
             raise ValueError("expected strict EITC relation binding")
         official_value = DecimalValue.from_literal(official["value"])
-        report = {"fixture": FIXTURE, "fixture_sha256": fixture_hash, "case": CASE,
+        report = {"fixture": FIXTURE, "fixture_sha256": fixture_hash, "case": args.case,
                   "expected_usd": expected, "compatibility_probe": provenance, "request": request,
                   "official_response": response}
         stage = "Rust comparison"
@@ -111,9 +114,9 @@ def main():
             if Fraction(str(actual)) != expected:
                 raise ValueError(f"Python result {actual} differs from published {expected}")
             stage = "Lean lowering"
-            source = DecimalCompiler(program, as_of, env, allow_missing=True).emit("eitc", "EITCFinalCredit")
+            source = DecimalCompiler(program, as_of, env, allow_missing=True).emit("eitc", namespace)
             source += ("\nopen RuleSpecLean.DecimalModel\n\n"
-                       "#guard match eval EITCFinalCredit.output with\n"
+                       f"#guard match eval {namespace}.output with\n"
                        f"  | .ok value => equalValue value ⟨({expected}), 0⟩\n"
                        "  | .error _ => false\n")
             stage = "Lean evaluation"
@@ -131,7 +134,7 @@ def main():
     args.lean.write_text(source)
     report["lean_guards_passed"] = 1
     args.report.write_text(json.dumps(report, indent=2) + "\n")
-    print(f"EITC §32 {CASE}: published {expected}, Rust {official_value}, Python {actual}, Lean guard passed")
+    print(f"EITC §32 {args.case}: published {expected}, Rust {official_value}, Python {actual}, Lean guard passed")
 
 
 if __name__ == "__main__":
