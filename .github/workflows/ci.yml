@@ -26,7 +26,7 @@ jobs:
       - run: lake build RuleSpecLean.ArithmeticTests RuleSpecLean.DecimalDependencyTests RuleSpecLean.DecimalFlatTaxTests
       - run: lake build RuleSpecLean.SelectedYearTests RuleSpecLean.InputDefaultTests RuleSpecLean.CTCMagiTests RuleSpecLean.CTCPhaseoutTests RuleSpecLean.EITCEarnedIncomeTests RuleSpecLean.SNAPNetIncomeLimitTests
       - run: lake build RuleSpecLean.DirectCountTests
-      - run: lake build RuleSpecLean.SNAPMembershipTests RuleSpecLean.SNAPAllotmentTests
+      - run: lake build RuleSpecLean.SNAPMembershipTests RuleSpecLean.SNAPAllotmentTests RuleSpecLean.SNAPPublishedOutputsTests
       - run: lake build RuleSpecLean.CTCAfterAdvanceTests RuleSpecLean.CTCRefundableCapTests
       - run: lake build RuleSpecLean.EITCSection112ElectionTests
       - run: lake build RuleSpecLean.CapitalLossMatchTests
@@ -118,6 +118,10 @@ jobs:
         run: |
           python -m tools.check_snap_membership --allotment --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-allotment-ci.json --lean "$RUNNER_TEMP/SNAPAllotmentTests.lean"
           cmp "$RUNNER_TEMP/SNAPAllotmentTests.lean" RuleSpecLean/SNAPAllotmentTests.lean
+      - name: Compare remaining published SNAP outputs on the compatibility overlay
+        run: |
+          python -m tools.check_snap_membership --other-outputs --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-other-outputs-ci.json --lean "$RUNNER_TEMP/SNAPPublishedOutputsTests.lean"
+          cmp "$RUNNER_TEMP/SNAPPublishedOutputsTests.lean" RuleSpecLean/SNAPPublishedOutputsTests.lean
       - run: python -m unittest discover -v
       - name: Archive integration evidence
         if: always()
@@ -152,6 +156,7 @@ jobs:
             RuleSpecLean-v0.1/reports/snap-net-income-limit.json
             RuleSpecLean-v0.1/reports/snap-membership-ci.json
             RuleSpecLean-v0.1/reports/snap-allotment-ci.json
+            RuleSpecLean-v0.1/reports/snap-other-outputs-ci.json
             RuleSpecLean-v0.1/RuleSpecLean/FaultTests.lean
             RuleSpecLean-v0.1/fixtures/upstream-flat-tax.artifact.json
             RuleSpecLean-v0.1/fixtures/upstream-flat-tax.cases.json

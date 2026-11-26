@@ -54,12 +54,20 @@ python -m tools.check_snap_membership --engine "$ENGINE" --corpus "$CORPUS" \
   --lean /tmp/opencode/SNAPMembershipTests.lean
 ```
 
-同一临时 Artifact 上，§273.10 公开案例文件中的 5 项 `snap_monthly_allotment` 均通过 Rust Explain、Python、Lean 与原始期望的数值对照，按原文顺序为 182、270、90、24、0 美元。现有 Decimal 路径支持这些案例使用的条件、取整、参数表及空家庭成员关系，无需新增求值节点。此次仅查询最终月补助额，未回放同一文件的其他输出，也未验证固定语料的编译准入或独立法律准确性。请求、完整 Explain 响应和绑定环境见 [`snap-allotment.json`](snap-allotment.json)。
+同一临时 Artifact 上，§273.10 公开案例文件中的 5 项 `snap_monthly_allotment` 均通过 Rust Explain、Python、Lean 与原始期望的数值对照，按原文顺序为 182、270、90、24、0 美元。请求、完整 Explain 响应和绑定环境见 [`snap-allotment.json`](snap-allotment.json)。
 
 ```sh
 python -m tools.check_snap_membership --allotment --engine "$ENGINE" --corpus "$CORPUS" \
   --lake "$(command -v lake)" --report /tmp/opencode/snap-allotment.json \
   --lean /tmp/opencode/SNAPAllotmentTests.lean
+```
+
+其余 28 项公开输出期望也全部通过同一对照，其中 21 项为派生输出（包括净收入、扣除额和最低补助额），7 项为无索引参数（包括扣除率和起发金额）。回放适配器将这 7 项转换为所选月份的键 0 参数查找，直接复用 Python 和 Lean 的参数求值；期望中的十进制小数不经过浮点转换。未发现其他不支持的依赖或求值节点。逐项证据见 [`snap-other-outputs.json`](snap-other-outputs.json)。合计通过该文件全部 33 项输出期望；固定语料准入和独立法律审计仍是单独的验收项。
+
+```sh
+python -m tools.check_snap_membership --other-outputs --engine "$ENGINE" --corpus "$CORPUS" \
+  --lake "$(command -v lake)" --report /tmp/opencode/snap-other-outputs.json \
+  --lean /tmp/opencode/SNAPPublishedOutputsTests.lean
 ```
 
 在项目子目录复现：
