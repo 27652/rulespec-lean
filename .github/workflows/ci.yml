@@ -112,15 +112,15 @@ jobs:
           python -m tools.replay_corpus --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --baseline reports/corpus-replay.json --report reports/corpus-replay-ci.json 2>&1 | tee reports/corpus-replay.log
       - name: Compare published SNAP membership cases on the compatibility overlay
         run: |
-          python -m tools.check_snap_membership --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-membership-ci.json --lean "$RUNNER_TEMP/SNAPMembershipTests.lean"
+          python -m tools.check_snap_membership --retain-source-verification --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-membership-ci.json --lean "$RUNNER_TEMP/SNAPMembershipTests.lean"
           cmp "$RUNNER_TEMP/SNAPMembershipTests.lean" RuleSpecLean/SNAPMembershipTests.lean
       - name: Compare published SNAP monthly allotment cases on the compatibility overlay
         run: |
-          python -m tools.check_snap_membership --allotment --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-allotment-ci.json --lean "$RUNNER_TEMP/SNAPAllotmentTests.lean"
+          python -m tools.check_snap_membership --retain-source-verification --allotment --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-allotment-ci.json --lean "$RUNNER_TEMP/SNAPAllotmentTests.lean"
           cmp "$RUNNER_TEMP/SNAPAllotmentTests.lean" RuleSpecLean/SNAPAllotmentTests.lean
       - name: Compare remaining published SNAP outputs on the compatibility overlay
         run: |
-          python -m tools.check_snap_membership --other-outputs --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-other-outputs-ci.json --lean "$RUNNER_TEMP/SNAPPublishedOutputsTests.lean"
+          python -m tools.check_snap_membership --retain-source-verification --other-outputs --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-other-outputs-ci.json --lean "$RUNNER_TEMP/SNAPPublishedOutputsTests.lean"
           cmp "$RUNNER_TEMP/SNAPPublishedOutputsTests.lean" RuleSpecLean/SNAPPublishedOutputsTests.lean
       - run: python -m unittest discover -v
       - name: Archive integration evidence

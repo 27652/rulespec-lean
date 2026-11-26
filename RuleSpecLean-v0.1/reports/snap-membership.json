@@ -19,11 +19,11 @@
     "overlay": {
       "us/policies/usda/snap/fy-2026-cola/deductions.yaml": {
         "original_sha256": "bb28d73d2566eebcd2a6d0b16098d108b35c10a20c892aab5dbc510c462b9264",
-        "overlay_sha256": "8832b48adfdbb25b6209e0e64823545b75ae8be844f2895000ba6f17ec3adafd"
+        "overlay_sha256": "97111165dccc1ebd82f520b7cacc03736e347bbc17063ab85f499760dc5bfdb5"
       },
       "us/policies/usda/snap/fy-2026-cola/maximum-allotments.yaml": {
         "original_sha256": "2e4708b8df906b506f07d091fe93dbcc6aefe603a31500502ecc270d436e9f2e",
-        "overlay_sha256": "145bb911fbd4c1eeaf6968848ee2d73291a742431ac83defe7abfae68a93fa93"
+        "overlay_sha256": "c7e848a4bd0674693eb13ae394695a2b29d319a495b157247d2f2be3552d4620"
       },
       "us/statutes/7/2012/j.yaml": {
         "original_sha256": "008f221da22fd95306625126232ca22ff7a4c8b622216bc7e8c092532e4e1bb9",
@@ -43,18 +43,18 @@
         "exit_code": 0,
         "diagnostic": "",
         "artifact_format_version": 3,
-        "artifact_sha256": "3906bf027b3aa1cd6e651d5377f0830341b13cfaf48dc9f458a3f9db1b32ee56",
+        "artifact_sha256": "b06bab1470412b9c83937d519f3b09493c1c13a916aa2f231901e88a3687bb26",
         "derived_outputs": 17,
         "source_closure": {
           "root": "us:regulations/7-cfr/273/10",
           "modules": [
             {
               "target": "us:policies/usda/snap/fy-2026-cola/deductions",
-              "sha256": "8832b48adfdbb25b6209e0e64823545b75ae8be844f2895000ba6f17ec3adafd"
+              "sha256": "97111165dccc1ebd82f520b7cacc03736e347bbc17063ab85f499760dc5bfdb5"
             },
             {
               "target": "us:policies/usda/snap/fy-2026-cola/maximum-allotments",
-              "sha256": "145bb911fbd4c1eeaf6968848ee2d73291a742431ac83defe7abfae68a93fa93"
+              "sha256": "c7e848a4bd0674693eb13ae394695a2b29d319a495b157247d2f2be3552d4620"
             },
             {
               "target": "us:regulations/7-cfr/273/10",
@@ -65,7 +65,7 @@
               "sha256": "b2726f96a34bb3efb29e5c9bd64ec23a3bdf2c0b6ce53eda9790576608142b34"
             }
           ],
-          "digest": "sha256:81ce807748eb45282ea417b485b88206b9e9b6ad75b75284dd7c9197e4709efe"
+          "digest": "sha256:cc0808562e821359a6e84b9f4d54180b2e14adc95fe5e3127282c21beb1d83cb"
         },
         "compiled_relation": {
           "name": "us:statutes/7/2012/j#relation.member_of_household",
@@ -76,7 +76,25 @@
           ]
         }
       }
-    ]
+    ],
+    "source_verification": {
+      "us/policies/usda/snap/fy-2026-cola/deductions.yaml": {
+        "retained": {
+          "corpus_citation_path": "us/guidance/usda/fns/snap-fy2026-cola/page-2"
+        },
+        "legacy_values_yaml": "    values:\n      snap_standard_deduction_48_states_dc_table:\n        1: 209\n        2: 209\n        3: 209\n        4: 223\n        5: 261\n        6: 299\n      snap_standard_deduction_alaska_table:\n        1: 358\n        2: 358\n        3: 358\n        4: 358\n        5: 358\n        6: 374\n      snap_standard_deduction_guam_table:\n        1: 420\n        2: 420\n        3: 420\n        4: 445\n        5: 522\n        6: 598\n      snap_standard_deduction_hawaii_table:\n        1: 295\n        2: 295\n        3: 295\n        4: 295\n        5: 300\n        6: 344\n      snap_standard_deduction_virgin_islands_table:\n        1: 184\n        2: 184\n        3: 185\n        4: 223\n        5: 261\n        6: 299\n      snap_maximum_excess_shelter_deduction_48_states_dc: 744\n      snap_maximum_excess_shelter_deduction_alaska: 1189\n      snap_maximum_excess_shelter_deduction_guam: 873\n      snap_maximum_excess_shelter_deduction_hawaii: 1003\n      snap_maximum_excess_shelter_deduction_virgin_islands: 586\n      snap_homeless_shelter_deduction: 198.99\n      snap_asset_limit_elderly_or_disabled_member: 4500\n      snap_asset_limit_other_households: 3000\n",
+        "legacy_values_sha256": "7479500fde0844135b5a7a7ebf9ca15bca95728a110a72cdb160210ff421ab7d",
+        "compiled_rule_count": 16
+      },
+      "us/policies/usda/snap/fy-2026-cola/maximum-allotments.yaml": {
+        "retained": {
+          "corpus_citation_path": "us/guidance/usda/fns/snap-fy2026-cola/page-1"
+        },
+        "legacy_values_yaml": "    values:\n      snap_maximum_allotment_table:\n        1: 298\n        2: 546\n        3: 785\n        4: 994\n        5: 1183\n        6: 1421\n        7: 1571\n        8: 1789\n      snap_maximum_allotment_additional_member: 218\n      snap_maximum_allotment_alaska_urban_table:\n        1: 385\n        2: 707\n        3: 1015\n        4: 1285\n        5: 1529\n        6: 1838\n        7: 2031\n        8: 2314\n      snap_maximum_allotment_alaska_urban_additional_member: 282\n      snap_maximum_allotment_alaska_rural_1_table:\n        1: 491\n        2: 901\n        3: 1295\n        4: 1639\n        5: 1950\n        6: 2344\n        7: 2590\n        8: 2950\n      snap_maximum_allotment_alaska_rural_1_additional_member: 360\n      snap_maximum_allotment_alaska_rural_2_table:\n        1: 598\n        2: 1097\n        3: 1576\n        4: 1995\n        5: 2374\n        6: 2853\n        7: 3152\n        8: 3591\n      snap_maximum_allotment_alaska_rural_2_additional_member: 438\n      snap_maximum_allotment_guam_table:\n        1: 439\n        2: 806\n        3: 1157\n        4: 1465\n        5: 1743\n        6: 2095\n        7: 2315\n        8: 2637\n      snap_maximum_allotment_guam_additional_member: 322\n      snap_maximum_allotment_hawaii_table:\n        1: 506\n        2: 929\n        3: 1334\n        4: 1689\n        5: 2010\n        6: 2415\n        7: 2668\n        8: 3040\n      snap_maximum_allotment_hawaii_additional_member: 371\n      snap_maximum_allotment_virgin_islands_table:\n        1: 383\n        2: 703\n        3: 1009\n        4: 1278\n        5: 1521\n        6: 1827\n        7: 2019\n        8: 2300\n      snap_maximum_allotment_virgin_islands_additional_member: 281\n",
+        "legacy_values_sha256": "bf7d0d055f9be214beb2da07b25ce0c50e898df00363a53d3e47247ee91df2b5",
+        "compiled_rule_count": 16
+      }
+    }
   },
   "lean_guards_passed": 2,
   "results": [

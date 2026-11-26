@@ -46,10 +46,12 @@ SNAP 的第二阶段探针以固定语料中 `state-plan-composition.yaml` 的�
 
 复现：在项目子目录中安装 `PyYAML==6.0.3` 后运行 `python -m tools.probe_corpus_compat --engine "$ENGINE" --corpus "$CORPUS"`。实测见 [`corpus-compat-probe.log`](corpus-compat-probe.log)。同一命令附加 `--snap-report /tmp/opencode/snap-compat-probe.json` 可运行 SNAP 两阶段探针；诊断、声明出处、文件哈希与依赖闭包见 [`snap-compat-probe.json`](snap-compat-probe.json) 和 [`snap-compat-probe.log`](snap-compat-probe.log)。
 
-使用该探针生成的 §273.10 Artifact，对其中导入的 7 USC §2012(j) 家庭成员判断回放了两项 2026 年 1 月公开案例。Rust Explain、Python 与 Lean 均得到相同结果：含一名符合条件的成员为 `holds`，无成员记录为 `not_holds`。Python 按 Household 槽 1 绑定 Person 槽 0 的成员，Lean 对生成的 Decimal 快照执行带筛选计数和比较。完整请求、Explain 响应及绑定环境见 [`snap-membership.json`](snap-membership.json)。此证据限于导入的成员判断，不计入固定语料回放基线。
+保留来源验证的 SNAP 探针使用 `--retain-source-verification`：仅从两份 FY 2026 依赖中分离锁定引擎不接受的 `module.source_verification.values` 字段，在报告中逐字节保存原始 YAML 及其 SHA-256。模块的 `corpus_citation_path`、来源声明、规则证明元数据与可执行参数表均保留。补齐关系槽后，锁定引擎生成 17 个派生输出；探针核验 4 个闭包模块的 SHA-256，并逐项检查两个依赖的 32 条编译规则携带对应的原始来源路径。分离的旧版字段由报告保留，锁定引擎不读取它；该检查不替代对来源文本或法律含义的审计。
+
+使用保留来源验证的 §273.10 Artifact，对其中导入的 7 USC §2012(j) 家庭成员判断回放了两项 2026 年 1 月公开案例。Rust Explain、Python 与 Lean 均得到相同结果：含一名符合条件的成员为 `holds`，无成员记录为 `not_holds`。Python 按 Household 槽 1 绑定 Person 槽 0 的成员，Lean 对生成的 Decimal 快照执行带筛选计数和比较。完整请求、Explain 响应及绑定环境见 [`snap-membership.json`](snap-membership.json)。此证据限于导入的成员判断，不计入固定语料回放基线。
 
 ```sh
-python -m tools.check_snap_membership --engine "$ENGINE" --corpus "$CORPUS" \
+python -m tools.check_snap_membership --retain-source-verification --engine "$ENGINE" --corpus "$CORPUS" \
   --lake "$(command -v lake)" --report /tmp/opencode/snap-membership.json \
   --lean /tmp/opencode/SNAPMembershipTests.lean
 ```
@@ -57,7 +59,7 @@ python -m tools.check_snap_membership --engine "$ENGINE" --corpus "$CORPUS" \
 同一临时 Artifact 上，§273.10 公开案例文件中的 5 项 `snap_monthly_allotment` 均通过 Rust Explain、Python、Lean 与原始期望的数值对照，按原文顺序为 182、270、90、24、0 美元。请求、完整 Explain 响应和绑定环境见 [`snap-allotment.json`](snap-allotment.json)。
 
 ```sh
-python -m tools.check_snap_membership --allotment --engine "$ENGINE" --corpus "$CORPUS" \
+python -m tools.check_snap_membership --retain-source-verification --allotment --engine "$ENGINE" --corpus "$CORPUS" \
   --lake "$(command -v lake)" --report /tmp/opencode/snap-allotment.json \
   --lean /tmp/opencode/SNAPAllotmentTests.lean
 ```
@@ -65,7 +67,7 @@ python -m tools.check_snap_membership --allotment --engine "$ENGINE" --corpus "$
 其余 28 项公开输出期望也全部通过同一对照，其中 21 项为派生输出（包括净收入、扣除额和最低补助额），7 项为无索引参数（包括扣除率和起发金额）。回放适配器将这 7 项转换为所选月份的键 0 参数查找，直接复用 Python 和 Lean 的参数求值；期望中的十进制小数不经过浮点转换。未发现其他不支持的依赖或求值节点。逐项证据见 [`snap-other-outputs.json`](snap-other-outputs.json)。合计通过该文件全部 33 项输出期望；固定语料准入和独立法律审计仍是单独的验收项。
 
 ```sh
-python -m tools.check_snap_membership --other-outputs --engine "$ENGINE" --corpus "$CORPUS" \
+python -m tools.check_snap_membership --retain-source-verification --other-outputs --engine "$ENGINE" --corpus "$CORPUS" \
   --lake "$(command -v lake)" --report /tmp/opencode/snap-other-outputs.json \
   --lean /tmp/opencode/SNAPPublishedOutputsTests.lean
 ```

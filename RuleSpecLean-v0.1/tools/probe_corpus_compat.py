@@ -27,6 +27,22 @@ def digest(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def retain_snap_verification(raw):
+    """Detach only the obsolete values field, retaining its exact YAML for audit."""
+    block, = re.findall(rb"^  source_verification:\n(?:^    .*\n)+", raw, flags=re.M)
+    values, = re.findall(rb"^    values:\n(?:^      .*\n)+", block, flags=re.M)
+    expected = yaml.safe_load(raw)
+    verification = expected["module"]["source_verification"]
+    legacy = verification.pop("values")
+    if yaml.safe_load(values) != {"values": legacy} or not verification.get("corpus_citation_path"):
+        raise ValueError("unexpected legacy source verification structure")
+    candidate = raw.replace(block, block.replace(values, b""), 1)
+    if yaml.safe_load(candidate) != expected:
+        raise ValueError("unexpected change outside module.source_verification.values")
+    return candidate, {"retained": verification, "legacy_values_yaml": values.decode("utf-8"),
+                       "legacy_values_sha256": digest(values)}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--engine", required=True, type=Path)
@@ -35,9 +51,13 @@ def main():
     parser.add_argument("--snap-report", type=Path,
                         help="Probe SNAP only, adding the corpus-defined relation slots in a second stage")
     parser.add_argument("--snap-artifact", type=Path, help="Export the verified temporary SNAP artifact")
+    parser.add_argument("--retain-source-verification", action="store_true",
+                        help="For SNAP, detach only legacy values and preserve the citation metadata")
     args = parser.parse_args()
     if args.snap_artifact and not args.snap_report:
         parser.error("--snap-artifact requires --snap-report")
+    if args.retain_source_verification and not args.snap_report:
+        parser.error("--retain-source-verification requires --snap-report")
     engine = str(args.engine.resolve())
     audit = json.loads(args.audit.read_text())
     caps = subprocess.check_output([engine, "capabilities"], text=True, timeout=30)
@@ -60,14 +80,18 @@ def main():
         print(f"Engine: {audit['engine_build']['commit']}")
         print(f"Corpus audit pin: {audit['requested_corpus_pin']}")
         overlay = {}
+        verification_evidence = {}
         for name in dependencies:
             path = root / name
             raw = path.read_bytes()
-            candidate, count = re.subn(rb"^  source_verification:\n(?:^    .*\n)+", b"", raw, flags=re.M)
-            expected = yaml.safe_load(raw)
-            del expected["module"]["source_verification"]
-            if count != 1 or expected != yaml.safe_load(candidate):
-                parser.error(f"unexpected change outside module.source_verification: {name}")
+            if args.retain_source_verification:
+                candidate, verification_evidence[name] = retain_snap_verification(raw)
+            else:
+                candidate, count = re.subn(rb"^  source_verification:\n(?:^    .*\n)+", b"", raw, flags=re.M)
+                expected = yaml.safe_load(raw)
+                del expected["module"]["source_verification"]
+                if count != 1 or expected != yaml.safe_load(candidate):
+                    parser.error(f"unexpected change outside module.source_verification: {name}")
             path.write_bytes(candidate)
             overlay[name] = digest(candidate)
             print(f"{name}: {digest(raw)} -> {overlay[name]}")
@@ -128,6 +152,14 @@ def main():
                     if relation["arity"] != len(slots) or relation["slot_entities"] != slots:
                         parser.error("compiled SNAP relation slot order differs from corpus reference")
                     attempt["compiled_relation"] = relation
+                    for path, evidence in verification_evidence.items():
+                        module_id = path.removesuffix(".yaml").replace("us/", "us:", 1)
+                        citation = evidence["retained"]["corpus_citation_path"]
+                        rules = [row for kind in ("parameters", "derived") for row in program["program"][kind]
+                                 if row["id"].startswith(f"{module_id}#")]
+                        if not rules or any(row.get("corpus_citation_path") != citation for row in rules):
+                            parser.error(f"compiled rule citation differs from retained source verification: {path}")
+                        evidence["compiled_rule_count"] = len(rules)
             else:
                 print(attempt["diagnostic"])
 
@@ -137,6 +169,8 @@ def main():
                                          "predicate": "member_of_household", "arguments": slots},
                       "overlay": {path: {"original_sha256": audited[path], "overlay_sha256": sha}
                                   for path, sha in overlay.items()}, "attempts": attempts}
+            if args.retain_source_verification:
+                report["source_verification"] = verification_evidence
             args.snap_report.write_text(json.dumps(report, indent=2) + "\n")
             if (attempts[0]["exit_code"] != 1 or
                     f"[untyped_relation] relation `{SNAP_RELATION_ID}`" not in attempts[0]["diagnostic"]):

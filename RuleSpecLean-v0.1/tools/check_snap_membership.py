@@ -98,6 +98,8 @@ def main():
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--allotment", action="store_true", help="Replay §273.10 monthly allotment outputs")
     mode.add_argument("--other-outputs", action="store_true", help="Replay the remaining published §273.10 outputs")
+    parser.add_argument("--retain-source-verification", action="store_true",
+                        help="Use the SNAP compatibility overlay that retains source citations")
     args = parser.parse_args()
     scalar = args.allotment or args.other_outputs
     fixture = ALLOTMENT_FIXTURE if scalar else FIXTURE
@@ -114,9 +116,12 @@ def main():
     with tempfile.TemporaryDirectory(prefix="rulespec-snap-replay-") as work:
         artifact = Path(work) / "snap.json"
         probe = Path(work) / "probe.json"
-        subprocess.run([sys.executable, "-m", "tools.probe_corpus_compat", "--engine", str(args.engine),
-                        "--corpus", str(args.corpus), "--audit", str(args.audit),
-                        "--snap-report", str(probe), "--snap-artifact", str(artifact)], check=True, timeout=300)
+        command = [sys.executable, "-m", "tools.probe_corpus_compat", "--engine", str(args.engine),
+                   "--corpus", str(args.corpus), "--audit", str(args.audit),
+                   "--snap-report", str(probe), "--snap-artifact", str(artifact)]
+        if args.retain_source_verification:
+            command.append("--retain-source-verification")
+        subprocess.run(command, check=True, timeout=300)
         provenance = json.loads(probe.read_bytes())
         program = json.loads(artifact.read_bytes())
         targets = [(case, output) for case in cases for output in (
