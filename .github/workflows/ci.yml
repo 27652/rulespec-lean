@@ -28,7 +28,7 @@ jobs:
       - run: lake build RuleSpecLean.DirectCountTests
       - run: lake build RuleSpecLean.SNAPMembershipTests RuleSpecLean.SNAPAllotmentTests RuleSpecLean.SNAPPublishedOutputsTests
       - run: lake build RuleSpecLean.CTCAfterAdvanceTests RuleSpecLean.CTCRefundableCapTests
-      - run: lake build RuleSpecLean.EITCSection112ElectionTests
+      - run: lake build RuleSpecLean.EITCSection112ElectionTests RuleSpecLean.EITCFinalCreditTests
       - run: lake build RuleSpecLean.CapitalLossMatchTests
   upstream-integration:
     runs-on: ubuntu-latest
@@ -110,6 +110,10 @@ jobs:
           set -o pipefail
           python -m pip install PyYAML==6.0.3
           python -m tools.replay_corpus --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --baseline reports/corpus-replay.json --report reports/corpus-replay-ci.json 2>&1 | tee reports/corpus-replay.log
+      - name: Compare the published EITC final-credit case on the compatibility overlay
+        run: |
+          python -m tools.check_eitc_final --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/eitc-final-credit-ci.json --lean "$RUNNER_TEMP/EITCFinalCreditTests.lean"
+          cmp "$RUNNER_TEMP/EITCFinalCreditTests.lean" RuleSpecLean/EITCFinalCreditTests.lean
       - name: Compare published SNAP membership cases on the compatibility overlay
         run: |
           python -m tools.check_snap_membership --retain-source-verification --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json --report reports/snap-membership-ci.json --lean "$RUNNER_TEMP/SNAPMembershipTests.lean"
@@ -151,6 +155,7 @@ jobs:
             RuleSpecLean-v0.1/reports/corpus-static-ci.json
             RuleSpecLean-v0.1/reports/eitc-earned-income.json
             RuleSpecLean-v0.1/reports/eitc-section112-election.json
+            RuleSpecLean-v0.1/reports/eitc-final-credit-ci.json
             RuleSpecLean-v0.1/reports/capital-loss-match.json
             RuleSpecLean-v0.1/reports/ctc-refundable-cap.json
             RuleSpecLean-v0.1/reports/snap-net-income-limit.json

@@ -46,6 +46,14 @@ CTC §24(d) 与 EITC §32 共用的 FY 2026 参数模块原有第 14、15 页两
 
 在临时语料副本中，仅移除三个依赖的旧版 `module.source_verification` 块，保留公式、参数表和依赖边。锁定引擎随后成功编译 §24(d) 与 §32，分别生成含 71 和 61 个派生输出的 Artifact v3；7 CFR §273.10 则继续因 `member_of_household` 未声明关系槽实体类型而失败。探针会核对修改前后的文件哈希及成功编译产物的依赖闭包。该实验改变了来源验证元数据，只用于定位阻塞，不计入固定语料基线或法律验收。
 
+EITC §32 公开案例 `one_child_phase_in_and_allowed` 在保留来源引用的兼容产物上查询最终抵免额 `eitc`。公开期望、Rust Explain、Python 与 Lean 均为 3,400 美元。案例包含一名子女，按编译后的 `[TaxUnit, Person]` 槽顺序绑定；所经求值路径未遇到不支持的节点。完整请求、Explain 响应与轨迹、绑定环境和产物来源闭包见 [`eitc-final-credit.json`](eitc-final-credit.json)。该结果仅覆盖此公开案例，不计入固定语料回放基线。
+
+```sh
+python -m tools.check_eitc_final --engine "$ENGINE" --corpus "$CORPUS" \
+  --lake "$(command -v lake)" --report /tmp/opencode/eitc-final-credit.json \
+  --lean /tmp/opencode/EITCFinalCreditTests.lean
+```
+
 SNAP 的第二阶段探针以固定语料中 `state-plan-composition.yaml` 的声明为依据，在临时副本的 `us/statutes/7/2012/j.yaml` 中补入 `data_relation.arguments: [Person, Household]`。仅移除旧元数据时，锁定引擎以退出码 1 报告 `[untyped_relation]`；补入声明后，§273.10 以退出码 0 生成 Artifact v3，包含 17 个派生输出。产物中的 `slot_entities` 与语料声明顺序一致，4 个闭包模块均已按审计基线或临时修改后的 SHA-256 核对。这一结果仅验证编译准入，尚未验证完整 SNAP 执行。
 
 复现：在项目子目录中安装 `PyYAML==6.0.3` 后运行 `python -m tools.probe_corpus_compat --engine "$ENGINE" --corpus "$CORPUS"`。实测见 [`corpus-compat-probe.log`](corpus-compat-probe.log)。同一命令附加 `--snap-report /tmp/opencode/snap-compat-probe.json` 可运行 SNAP 两阶段探针；诊断、声明出处、文件哈希与依赖闭包见 [`snap-compat-probe.json`](snap-compat-probe.json) 和 [`snap-compat-probe.log`](snap-compat-probe.log)。
