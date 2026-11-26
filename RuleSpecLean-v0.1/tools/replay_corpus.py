@@ -4,6 +4,7 @@ from calendar import monthrange
 from collections import Counter
 import hashlib
 import json
+from os.path import abspath
 from pathlib import Path
 import re
 import subprocess
@@ -254,7 +255,7 @@ def main():
     if args.baseline and args.baseline.resolve() == args.report.resolve():
         parser.error("the baseline and output report must be separate files")
     engine = args.engine.resolve()
-    root = args.corpus.absolute()
+    root = Path(abspath(args.corpus))
     capabilities = json.loads(subprocess.check_output([str(engine), "capabilities"], timeout=30))
     if capabilities["engine_build"] != audit["engine_build"]:
         parser.error("engine build does not match static audit")

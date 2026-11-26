@@ -4,6 +4,7 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import json
+from os.path import abspath
 from pathlib import Path
 import shutil
 import subprocess
@@ -67,7 +68,7 @@ def main():
     args = parser.parse_args()
     if args.jobs < 1:
         parser.error("--jobs must be positive")
-    root, engine = args.corpus.absolute(), args.engine.resolve()
+    root, engine = Path(abspath(args.corpus)), args.engine.resolve()
     if root.name != "rulespec-us" or root.is_symlink() or not (root / "us").is_dir():
         parser.error("--corpus must be a real rulespec-us directory")
     pin = json.loads(Path("fixtures/legal-pin.json").read_text())

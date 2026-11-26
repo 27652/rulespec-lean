@@ -3,6 +3,7 @@ import argparse
 from fractions import Fraction
 import hashlib
 import json
+from os.path import abspath
 from pathlib import Path
 import subprocess
 import tempfile
@@ -25,7 +26,7 @@ def main():
     parser.add_argument("--audit", default=Path("reports/corpus-static.json"), type=Path,
                         help="Static audit used to verify the source and import-closure hashes")
     args = parser.parse_args()
-    root = args.corpus.absolute()
+    root = Path(abspath(args.corpus))
     pin = json.loads(Path("fixtures/upstream-pin.json").read_text())
     corpus_pin = json.loads(Path("fixtures/legal-pin.json").read_text())
     audit = json.loads(args.audit.read_text())

@@ -102,7 +102,9 @@ jobs:
       - name: Compare counts and sums over supplied binary relations
         run: python -m tools.check_direct_count --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)"
       - name: Measure federal corpus compilation and static lowering
-        run: python -m tools.audit_corpus --engine ../upstream-engine/target/debug/axiom-rules-engine --corpus ../rulespec-us --report reports/corpus-static-ci.json
+        run: |
+          python -m tools.audit_corpus --engine ../upstream-engine/target/debug/axiom-rules-engine --corpus ../rulespec-us --report reports/corpus-static-ci.json
+          cmp reports/corpus-static.json reports/corpus-static-ci.json
       - name: Compare selected federal legal components
         run: python -m tools.check_legal_components --engine ../upstream-engine/target/debug/axiom-rules-engine --lake "$(command -v lake)" --corpus ../rulespec-us --audit reports/corpus-static-ci.json
       - name: Replay published federal scalar cases
