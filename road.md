@@ -1,151 +1,132 @@
-# RuleSpecLean 项目规划
+# RuleSpecLean roadmap
 
-更新日期：2026-11-26
+Last updated: 2026-11-26
 
-## 1. 项目目标
+## 1. Project objectives
 
-将 Axiom RuleSpec 编译产物转换为 Lean 4 表达式，在明确的支持范围内保持规则求值语义，并逐步建立编译正确性证明和法律语料验证体系。
+Translate compiled Axiom RuleSpec artifacts into Lean 4 expressions, preserve rule evaluation within explicit supported domains, and build a reproducible basis for compiler correctness proofs and legal corpus validation.
 
-近期目标是完成真实编译产物的标量规则验证；中长期目标包括十进制与舍入、实体关系、跨期计算、典型税务福利案例和语义保持证明。完整覆盖美国法律库不属于 v0.1 的交付范围。
+The initial goal is scalar validation on real compiled artifacts. Later work covers decimal arithmetic and rounding, entity relations, cross-period computation, representative tax and benefit cases, and semantic preservation. Full coverage of U.S. law is outside v0.1 scope.
 
-## 2. 当前基线
+## 2. Current baseline
 
-| 项目 | 状态 | 验证依据 |
+| Item | Status | Evidence |
 | --- | --- | --- |
-| Artifact v3 子集转换 | 已实现 | Python 转换器、生成代码及清单 |
-| 标量运算、三值逻辑、惰性分支 | 已实现 | Python 测试、Lean 断言 |
-| 依赖分析、固定日期版本选择、参数表 | 已实现 | 示例转换及单元测试 |
-| 精确 scale-6 数值子集 | 已实现 | 超出精度或范围时明确拒绝 |
-| Python 测试基线 | 87 项通过 | 含固定种子公式对照、artifact 回归、绑定及 Decimal 编译检查 |
-| Lean 4.26.0 构建与公理审计 | 已通过 | 根目录布局从干净导出构建，完成 46 个任务；[公理审计日志](reports/v0.1/proofs/proof-axioms.log) |
-| 官方 Rust 编译与加载 | 已通过 | 上游模拟 flat-tax 示例的真实 v3 artifact |
-| Rust / Python / Lean 对照 | 107 组通过 | 边界及固定种子随机输入 |
-| 固定语料静态扫描 | 800 个模块编译成功，2,342 条规则实例正常转换 | 另有 734 条含缺失版本错误节点；分母和诊断见 `reports/v0.1/corpus/corpus-static.json` |
-| 根目录上游验证 | 本地完整入口通过 | 从提交导出用 PyYAML 6.0.3 运行；静态、回放和补丁报告逐字节一致，6,168 项公开期望无回退 |
-| 远端 CI | 重构前基线已通过；根目录布局待远端验证 | 提交 `9abeb38` 的[运行 45774870910](https://github.com/27652/rulespec-lean/actions/runs/45774870910)：`python-and-lean`、`upstream-integration` 均通过，包含兼容补丁验证 |
+| Artifact v3 subset translation | Implemented | Python translator, generated code, and manifest |
+| Scalar arithmetic, three-valued logic, and lazy branches | Implemented | Python tests and Lean assertions |
+| Dependency analysis, fixed-date version selection, and parameter tables | Implemented | Example translations and unit tests |
+| Exact scale-6 numeric subset | Implemented | Explicit rejection outside precision or range limits |
+| Python test suite | 87 passed | Seeded formula comparisons, artifact regression, binding, and Decimal compiler tests |
+| Lean 4.26.0 build and axiom audit | Passed | 46 build jobs from a clean export of the root layout; [axiom audit log](reports/v0.1/proofs/proof-axioms.log) |
+| Official Rust compilation and loading | Passed | Genuine v3 artifact for the upstream synthetic flat-tax example |
+| Rust/Python/Lean comparison | 107 flat-tax cases passed | Boundary and seeded random inputs |
+| Fixed-corpus static scan | 800 modules compiled; 2,342 rule instances translated normally | 734 more contain missing-version fault nodes; see `reports/v0.1/corpus/corpus-static.json` for denominators and diagnostics |
+| Root-layout upstream verification | Complete local run passed | A committed export with PyYAML 6.0.3 reproduced static, replay, and patch reports byte-for-byte; no loss among 6,168 passing expectations |
+| Remote CI | Pre-restructuring baseline and root layout passed | [Run 45783084227](https://github.com/27652/rulespec-lean/actions/runs/45783084227) on `a44f5c5`: `python-and-lean` and `upstream-integration` passed, and the integration artifact was uploaded. The pre-restructuring baseline passed in [run 45774870910](https://github.com/27652/rulespec-lean/actions/runs/45774870910) on `9abeb38` |
 
-上游引擎锁定提交：`a4322e45a035ba9fd412d01bebe078aeaa46cd54`。
-flat-tax 为上游模拟规则，CTC-like 为本项目手工构造规则，均不构成完整法律案例。
-Lean 已证明独立 scale-6 算术片段的降低保持值与求值错误；证明不涵盖 Python 转换器或 Rust 引擎。
+The upstream engine is pinned to `a4322e45a035ba9fd412d01bebe078aeaa46cd54`. Flat-tax is an upstream synthetic rule, and CTC-like is a hand-authored fixture; neither implements a complete legal case. Lean proves that lowering the independent scale-6 arithmetic fragment preserves values and evaluation faults. That proof does not cover the Python translator or the Rust engine.
 
-## 3. 技术架构
+## 3. Architecture
 
 ```text
-RuleSpec 源码
-    │ 官方 Rust 编译器与 loader
+RuleSpec source
+    │ Official Rust compiler and loader
     ▼
-Compiled Artifact v3 + 官方 Explain 请求
-    │ 固定日期版本选择、依赖分析、AST 降低
-    ├── Python 解释器 ─────────┐
-    └── Lean Expr → Lean 解释器 ├── 值、标签、错误优先级对照
-        Rust Explain ────────┘
+Compiled Artifact v3 + official Explain request
+    │ Fixed-date version selection, dependency analysis, AST lowering
+    ├── Python interpreter ───────────┐
+    └── Lean Expr → Lean interpreter ─┼── Compare values, tags, and fault precedence
+        Rust Explain ─────────────────┘
 ```
 
-Decimal 编译器支持预绑定环境或单查询 Explain 请求，可读取最新覆盖记录、指定年度、数值读取点默认值及直接二元关系成员事实。通用实体与期间绑定仍待扩展。
-Decimal 路径支持四种规则输出舍入；完整 Rust Decimal 表示、关系聚合及一般跨期计算尚未验收。
+The Decimal compiler accepts a prebound environment or a single-query Explain request. It supports latest covering records, explicit year reads, defaults at numeric read sites, and direct binary relation membership facts. General entity and period binding remains open. The Decimal path supports four output rounding modes; full Rust Decimal representation, general relation aggregation, and general cross-period evaluation remain outside acceptance.
 
-## 4. 里程碑与验收标准
+## 4. Milestones and acceptance criteria
 
-| 阶段 | 目标 | 状态 | 验收标准 |
+| Milestone | Goal | Status | Acceptance criteria |
 | --- | --- | --- | --- |
-| M0 | 标量转换原型 | 已完成 | 转换器、解释器、确定性生成、Python 与 Lean 基础测试通过 |
-| M1 | 真实 Artifact 端到端验证 | 已通过本地及远端验收 | 锁定源码和工具链；官方编译与加载；同输入 Rust/Python/Lean 对照；真实美国法律标量模块验证；错误优先级测试；CI 可复现 |
-| M2 | Rust Decimal 与法定舍入 | 算术及舍入子集已验证；通用三值判断及更多边界诊断待补 | 系数与精度、范围、溢出及舍入策略明确；随机与对抗输入对照通过 |
-| M3 | 时间、实体及聚合 | 单查询、年度读取和直接关系聚合子集已验证；通用跨期与聚合待补 | 实体与期间绑定、默认值、跨期读取、关系过滤与聚合对照通过 |
-| M4 | CTC、EITC、SNAP 案例 | 补丁上 39 项公开期望通过；固定语料完整入口与独立法律审计待完成 | 锁定法规版本、维护输入案例及预期结果、保留来源引用、完成三方验证与独立法律审计 |
-| M5 | 编译语义保持证明 | §3403 受限 Lean 证明与 Rust 源码差分通过；实际 Rust 实现的形式对应性待证明 | 独立源语义和目标语义、支持域定义、转换证明或证书检查、不含未证明占位；按层报告端到端证明缺口 |
-| M6 | 美国税务福利语料验证 | 固定基线测量已完成，远端回归门禁通过 | 固定语料快照；分别报告编译、转换、运行、对照覆盖率及明确分母；保留阻塞清单 |
+| M0 | Scalar translation prototype | Complete | Translator, interpreter, deterministic generation, and basic Python and Lean tests |
+| M1 | End-to-end verification on real artifacts | Passed locally and remotely | Pinned source and toolchain, official compile and load, same-input Rust/Python/Lean comparisons, a real U.S. legal scalar module, fault precedence tests, and reproducible CI |
+| M2 | Rust Decimal and statutory rounding | Arithmetic and rounding subset validated; general three-valued judgments and additional boundary diagnostics open | Define coefficient, precision, range, overflow, and rounding; pass randomized and adversarial comparisons |
+| M3 | Time, entities, and aggregation | Single-query, selected-year, and direct relation aggregation subsets validated; general cross-period evaluation and aggregation open | Compare entity and period binding, defaults, cross-period reads, relation filtering, and aggregation |
+| M4 | CTC, EITC, and SNAP cases | 39 published expectations passed with the patch; unpatched full entry points and independent legal review open | Pin legal versions, maintain cases and expectations, retain citations, complete three-way validation and independent legal review |
+| M5 | Semantic preservation | Restricted §3403 Lean proofs and Rust source comparisons passed; formal correspondence with the actual Rust implementation open | Independent source and target semantics, explicit domains, translation proofs or certificate checks, no admitted placeholders, and a record of remaining end-to-end gaps by layer |
+| M6 | U.S. tax and benefit corpus validation | Fixed baseline measured; remote regression gate passed | Pin the corpus, report distinct compilation, translation, execution, and comparison rates with explicit denominators, and retain blockers |
 
-M2–M4 可按依赖逐步扩展；M5 的源语义建模可提前开展。M6 的覆盖率结论依赖前置验证，不以静态转换成功率替代语义一致性。
+M2–M4 can advance as dependencies allow. M5 source semantics can be modeled in parallel. M6 coverage depends on earlier validation; static translation success is not semantic agreement.
 
-## 5. 近期任务
+## 5. Near-term work
 
-### 当前优先级与分工
-
-| 优先级 | 工作项 | 可自主推进的工作与完成依据 | 人工介入条件 |
+| Priority | Work | Next steps and evidence | Maintainer or reviewer action |
 | --- | --- | --- | --- |
-| 待远端复验 | 研究交付重构 | 根目录布局已通过本地离线和锁定引擎复验 | 由仓库负责人推送重构提交及归档标签，触发根目录布局的远端验证 |
-| 首要 | M4：解除三个完整入口的兼容阻塞 | [候选实测](reports/v0.1/corpus/upstream-candidates.md)显示 0.1.2 可无补丁编译三个入口，但只生成 v2，无法进入现有 v3 验证路径。继续筛选 v3 兼容修复并整理最小复现 | 需要发布上游 PR 时按仓库权限处理；由上游维护者决定是否合并 |
-| 随后 | M4/M6：评估并更新固定版本 | 候选组合须无补丁编译 CTC §24(d)、EITC §32 和 SNAP §273.10，重跑 39 项公开期望，并核对当前固定基线的既有通过项。若跨快照无法直接使用现有同版本回退门禁，则逐项对齐来源、案例和输出，单列变更与不可比项，再准备锁定版本更新 | 无候选达到条件时，由项目负责人决定等待上游或调整验收标准以接受维护补丁；不可比项不得自动视为通过 |
-| 并行 | M5：验证 Rust 源码对应性 | 评估源码验证工具对 §3403 实际输入查找和版本选择函数的支持；记录支持边界并接入公理审计。随后推进请求解析和 Decimal 求值的端到端证明 | 缩小证明范围或以差分替代形式验收时，由项目负责人确认 |
-| 并行 | M4：独立法律审计 | 使用[审阅材料](docs/legal-review.md)核对法规版本、参数出处、边界案例与 Explain 轨迹，逐项记录差异 | 由独立审阅者核对法律口径并出具结论 |
-| 持续 | Git 与 CI | 按主题提交、运行本地回归、核对远端提交及作业结果、更新验收证据 | 由仓库负责人推送；受保护分支或私有资源由具备权限的人员处理 |
+| Archive publication pending | Research layout | The root layout passed offline and pinned-engine verification locally and on GitHub Actions | The repository maintainer publishes the two archive tags |
+| First | M4: unblock the three full entry points | [Candidate results](reports/v0.1/corpus/upstream-candidates.md) show that 0.1.2 compiles all three without a patch but emits v2, which cannot enter the current v3 pipeline. Continue screening v3 fixes and prepare minimal reproductions | Publishing an upstream PR requires repository permissions; upstream maintainers decide on merging |
+| Next | M4/M6: evaluate and update pins | A candidate must compile CTC §24(d), EITC §32, and SNAP §273.10 unpatched, replay 39 published expectations, and check every existing pass in the fixed baseline. Across snapshots, align sources, cases, and outputs individually when the same-snapshot gate cannot apply; record changed and incomparable items separately | If no candidate qualifies, the project maintainer decides whether to wait or revise acceptance to allow a maintained patch. Incomparable items do not count as passes |
+| In parallel | M5: verify Rust source correspondence | Assess tools on §3403's actual input lookup and version selection functions, document the supported boundary, and add any proved result to the axiom audit. Then extend toward request parsing and Decimal evaluation | The project maintainer confirms any narrowing of proof scope or substitution of differential evidence for formal acceptance |
+| In parallel | M4: independent legal review | Use the [review materials](docs/legal-review.md) to check legal versions, parameter sources, boundary cases, and Explain traces; record discrepancies by case | An independent reviewer issues the legal conclusion |
+| Ongoing | Git and CI | Commit by topic, run local regressions, verify remote commits and jobs, and update evidence | The maintainer pushes; protected branches and private resources require authorized access |
 
-候选版本调查与本地验证无需等待人工决策。M2/M3 按各自支持域增量推进。每次里程碑状态、验收范围或阻塞发生变化时，更新本节及第 4 节；命令、完整日志和逐项结果保留在 `reports/`。状态更新以可复现证据为依据。
+Candidate investigation and local verification can proceed without a maintainer decision. Extend M2 and M3 within their respective supported domains. When milestone status, acceptance scope, or blockers change, update sections 4 and 5 using reproducible evidence. Keep commands, logs, and per-case results in `reports/`.
 
-### M1：可复现基线与后续诊断扩展
+### M1: reproducible baseline and diagnostic coverage
 
-- [x] 锁定上游引擎提交并保存示例来源、许可和哈希。
-- [x] 官方编译、加载模拟标量模块并完成 107 组三方结果对照。
-- [x] 完成 Lean 基础构建及生成断言检查。
-- [x] 将真实 artifact、案例、报告和生成 Lean 代码纳入离线回归，检查文件一致性。
-- [x] 在 CI 中复现锁定 Rust 版本的真实编译与对照，保留日志。
+- [x] Pin the upstream engine and retain example provenance, license, and hash.
+- [x] Compile and load the synthetic scalar module with the official engine and compare 107 cases across all three runtimes.
+- [x] Build the base Lean modules and check generated assertions.
+- [x] Include the real artifact, cases, reports, and generated Lean code in offline regression checks.
+- [x] Rebuild the pinned Rust engine and reproduce genuine compilation and comparisons in CI, retaining logs.
 
-对照脚本已检查空案例、重复名称、CLI 失败、非 Explain 回退、多余结果及输出键不匹配。
-已完成 8 组 Rust/Python/Lean 错误对照，覆盖缺失输入、类型错误、除法错误优先级、公式版本缺失，以及缺失参数表版本时的索引求值和校验顺序。
-错误诊断采用锁定引擎的完整文本模式，不将任意 CLI 失败映射为求值错误。更多错误类型、版本边界与请求绑定仍待扩展。
+The comparison harness rejects empty case lists, duplicate names, CLI failures, non-Explain fallbacks, extra results, and output key mismatches. Eight Rust/Python/Lean fault comparisons cover missing input, type mismatch, division fault precedence, missing formula versions, and index evaluation and validation before missing parameter-table versions. Diagnostics must match full patterns from the pinned engine. Additional fault classes, version boundaries, and binding checks remain open.
 
-### M1：真实法律标量模块
+### M1: real legal scalar module
 
-- [x] 获取并锁定 `rulespec-us` 语料提交。
-- [x] 选择依赖闭包最小、无实体关系和跨期计算的真实法律输出。
-- [x] 记录法条、版本日期、输入绑定及不支持节点。
-- [x] 完成至少 100 组边界与随机输入对照，单独报告真实法律案例结果。
+- [x] Pin the `rulespec-us` corpus to `d8a4c9cb560ed55c6db47ea36214249f67319461`.
+- [x] Select a real legal output with a small dependency closure and no entity relations or cross-period computation.
+- [x] Record the provision, version date, input binding, and unsupported nodes.
+- [x] Compare at least 100 boundary and random inputs and report legal cases separately.
 
-已锁定 `rulespec-us` 提交 `d8a4c9cb560ed55c6db47ea36214249f67319461`，
-选定 `us/statutes/26/3403.yaml`，完成 105 组官方 Rust/Python/Lean 对照。
-源码、许可、哈希、案例及报告已保留；转换一致性不等于独立法律准确性审计。
+`us/statutes/26/3403.yaml` passed 105 official Rust/Python/Lean comparisons. Retained evidence includes source, license, hashes, cases, and reports. Interoperability does not establish legal accuracy.
 
-### M2–M6：交付范围与待办
+### M2–M6: delivered scope and open work
 
-- [x] 建立 Decimal 与输出舍入行为矩阵（数值库级别 3,520 组三方检查）。
-- [ ] 整理默认值、版本边界、缺失输入与错误优先级规范。
-- [ ] 定义 M2/M3 支持域及对应差分测试集。
+- [x] Build the Decimal and output rounding matrix (3,520 three-way library-level checks).
+- [ ] Consolidate specifications for defaults, version boundaries, missing inputs, and fault precedence.
+- [ ] Define the M2/M3 supported domains and corresponding differential suites.
 
-M2 当前交付：独立 Python/Lean 系数-scale 模型、96 位范围和 0..28 位精度校验、四种输出舍入。Lean 定理验证成功舍入的结果 scale 为输入 scale 与目标位数的较小值，目标精度不低于有效输入的 scale 时保留原值。
-数值 oracle 锁定 rust_decimal 1.41.0；边界和随机矩阵 3,520 组通过。
-原规则解释器仍使用 scale-6 保守子集。独立 Decimal 路径完成 852 组算术三方对照及 17,200 组 Rust/Python 扩展对照，比较系数、scale 与错误。
-官方 artifact 自动生成 Decimal Expr，完成 24 组四种规则舍入及依赖读取对照、7 组 `min`、`max`、`ceil`、`floor` 对照。
-完成 6 组数值比较条件及 107 组上游模拟 flat-tax 的 Decimal 路径三方对照；后者涉及比较判断引用及版本化无索引参数。
-另完成 11 组索引参数表对照，覆盖版本切换、i64 边界及索引错误。
-确定型数值判断支持短路 `and`、`or`、`not` 和独立判断输出；Decimal 专用规则样例共 72 组三方对照通过，包含缺失公式版本、惰性求值和 96 位溢出边界。
-零符号与 wire 表示逐字节等价不在当前支持域内。通用三值判断和全域语义证明仍未覆盖。
-参考矩阵与待办见 `reports/v0.1/decimal/decimal-semantics.md`。
+**M2: Decimal.** Independent Python and Lean models represent coefficients and scale, enforce a 96-bit coefficient and scales from 0 to 28, and implement four output rounding modes. Lean proves that successful rounding uses the smaller of the input scale and requested scale and preserves valid inputs when no reduction is needed. The oracle pins `rust_decimal` 1.41.0. Beyond 3,520 rounding checks, the Decimal path passed 852 three-way and 17,200 extended Rust/Python arithmetic comparisons of coefficients, scale, and faults. The original interpreter retains the conservative scale-6 subset.
 
-M3 当前交付：请求可选择起始日期最新且覆盖整个目标期间的记录，并接受同一起始日的相同输入值。显式 `input_for_year` 已通过 6 组三方对照，包括目标年度缺失和冗余记录；冲突记录另经 Rust 与 Python 入口拒绝验证。数值 `input_or_else` 通过 3 组原始 ProgramSpec 对照。直接二元关系支持去重、期间过滤和成员本地谓词；无筛选计数通过 4 组、带筛选求和通过 5 组三方对照，含所选成员缺失输入及加法溢出。带筛选计数在 CTC 金额案例中验证。多查询执行、派生关系、嵌套聚合及一般跨期运行仍待开发。
+The 72 Decimal rule comparisons include 24 rounding-dependency checks, 7 `min`/`max`/`ceil`/`floor` checks, 6 numeric comparison conditions plus 6 compound conditions, 11 indexed parameter lookups, and checks for judgments, covering records, missing inputs, missing versions, and numeric boundaries. Indexed lookups cover version changes, i64 limits, and invalid keys. Determinate judgments support short-circuit `and`, `or`, `not`, and standalone outputs. All 107 Decimal flat-tax comparisons passed, exercising comparison judgment references and versioned unindexed parameters. Signed zero, byte-for-byte wire equivalence, general three-valued judgments, and full-domain proofs remain outside scope. See the [Decimal validation matrix](reports/v0.1/decimal/decimal-semantics.md).
 
-M4 当前交付：CTC MAGI、递减额、预付款后金额及 §24(h)(5) 可退还上限分别完成 5、7、7、4 组三方对照；预付款后金额测试覆盖指定的基础及 §24(h) 路径。EITC 劳动所得在 §112 选择前完成 3 组，选择分支完成 2 组；SNAP 2024 财年净收入限额表完成 5 组。锁定引擎拒绝固定语料中完整 CTC §24(d)、EITC、SNAP 入口的传递依赖。临时副本中，CTC 与 EITC 共用参数模块改用刊载七个参数值的 IRS 原文第 15 页作为编译引用，第 14 页上下文及原始验证块存入报告；两个入口编译成功，分别核验 11 和 10 个闭包模块。SNAP §273.10 采用保留来源引用的兼容处理：将不受支持的旧版 `values` 字段原样存入报告，补齐 `member_of_household` 的 `Person`、`Household` 关系槽。编译成功后核验 4 个闭包模块及 32 条编译规则的引用；33 项 §273.10 公开输出期望及两项家庭成员判断通过三方对照。临时副本结果不计入固定语料验收。具体诊断见语料报告。
+**M3: binding and relations.** Binding selects the latest record covering the full period and accepts identical records sharing a start date. Six `input_for_year` comparisons cover missing selected-year input and duplicate records; Rust and Python independently rejected conflicting records. Three original ProgramSpec cases cover numeric `input_or_else`. Direct binary relations support deduplication, period filtering, and member-local predicates; four unfiltered counts and five filtered sums passed, including missing member input and addition overflow. CTC amount cases exercise filtered counts. Multi-query execution, derived relations, nested aggregation, and general cross-period evaluation remain open.
 
-兼容补丁的三入口回放共通过 39 项公开期望：CTC 4 项、EITC 2 项、SNAP §273.10 33 项。[补丁验证报告](reports/v0.1/corpus/corpus-patch-validation.json)保留原始编译诊断、产物及回放证据；独立法律审计尚待完成。
+**M4: legal cases.** CTC MAGI, phaseout, after-advance amount, and the §24(h)(5) refundable cap passed 5, 7, 7, and 4 checks respectively. The after-advance cases cover selected base and §24(h) paths. EITC earned income passed 3 checks before the §112 election and 2 on its election branch; the SNAP FY 2024 net-income limit passed 5. The pinned engine rejects transitive dependencies of the three full entry points in the fixed corpus.
 
-M5 当前交付：`ScalarPreservation.lean` 对 scale-6 字面量、预绑定数值输入、数值转换、四则运算、最大值、无匹配分支、十进制值参数表及带小于比较的惰性条件证明降低保持结果。参数表证明覆盖空表、索引错误、缺失键及数值边界。经证明的识别器校验 §3403 产物生成的 Lean 表达式与独立源项相符，对所有预绑定十进制环境保持值和错误。`VersionSelection.lean` 证明独立日期模型选出的版本有效且起始日最新，并刻画无可用版本的条件。`versioned_lowering_preserves_result` 证明降低前后按日期选中的公式求值一致，涵盖任意版本列表、公式求值错误及缺失版本。
+In a temporary copy, the shared CTC/EITC parameter module uses IRS page 15, which contains the seven parameter values, as its compilation citation. The report retains page 14 context and the original verification block. The two entry points compiled, and 11 and 10 closure modules were verified. The SNAP patch retains citations, archives unsupported legacy `values`, and declares `Person` and `Household` slots for `member_of_household`. Compilation was followed by verification of four closure modules and citation checks across 32 compiled rules. The patched replay passed 39 published expectations (4 CTC, 2 EITC, 33 SNAP §273.10) plus 2 separate SNAP membership judgments. See the [patch validation report](reports/v0.1/corpus/corpus-patch-validation.json) for original diagnostics, artifacts, and replay evidence. These results are separate from fixed-corpus acceptance and independent legal review.
 
-M5 Artifact 解析与请求绑定：`Legal3403Artifact.lean` 直接读取保留的 §3403 Artifact v3 JSON，验证付款义务输出的公式及唯一版本起始日。`Legal3403Binding.lean` 将单雇主、单事实、整数美元的年度 Explain 请求绑定为 scale-6 系数及查询起始日，并证明通过解码的请求满足现有保持性定理的前提；105 条保留请求逐一核对预期环境。`lake build RuleSpecLean.Proofs.ProofAudit` 检查公理依赖。固定文件解析证书使用 `native_decide`，依赖 `Lean.ofReduceBool` 与 `Lean.trustCompiler`；以解析对应性为前提的保持性定理不依赖二者。通用请求绑定、通用 Artifact 解码及与 Rust 求值的等价性仍待证明。
+**M5: preservation.** `ScalarPreservation.lean` proves result preservation for scale-6 literals, prebound numeric inputs, numeric conversion, arithmetic, maxima, no-match branches, decimal-valued parameter tables, and lazy less-than conditionals. The table proof covers empty tables, invalid indices, missing keys, and numeric limits. A verified recognizer checks the generated §3403 term against the independent source term; the theorem preserves values and faults for every prebound decimal environment. `VersionSelection.lean` proves that the independent date model selects an applicable version with the latest start and characterizes when none applies. `versioned_lowering_preserves_result` covers arbitrary version lists, formula evaluation faults, and missing versions.
 
-M5 锁定引擎对应性：`Legal3403RustModel.lean` 按锁定引擎的 [`lookup_input`](https://github.com/TheAxiomFoundation/axiom-rules-engine/blob/a4322e45a035ba9fd412d01bebe078aeaa46cd54/src/engine.rs#L2914-L2950) 和 [`semantics_at` / `version_at`](https://github.com/TheAxiomFoundation/axiom-rules-engine/blob/a4322e45a035ba9fd412d01bebe078aeaa46cd54/src/model.rs#L564-L581) 建立单记录、单版本模型。锁定 Rust CLI 的 6 组生效边界请求与 12 条 Lean 断言见 [边界验证报告](reports/v0.1/proofs/legal-3403-rust-model.json)。
+`Legal3403Artifact.lean` reads the retained Artifact v3 JSON and checks the payment obligation expression and its sole version's start date. `Legal3403Binding.lean` binds annual Explain requests with one employer, one fact, and whole-dollar amounts to scale-6 coefficients and query start dates, then proves that decoded requests satisfy the existing preservation theorem's premises. All 105 retained requests are checked against their expected environments. Run `lake build RuleSpecLean.Proofs.ProofAudit` to check dependencies. Fixed-file certificates use `native_decide` and depend on `Lean.ofReduceBool` and `Lean.trustCompiler`; the conditional preservation theorems do not. General binding, general Artifact decoding, and equivalence with Rust evaluation remain open.
 
-`Legal3403RustSource.lean` 证明索引查找、期间覆盖和版本筛选的单记录、单版本转写与既有模型一致，并将该结论接入请求保持性定理。`experiments.check_3403_rust_source` 核对两份锁定源码的 SHA-256，直接编译提取的 Rust 函数体，在日期和金额已编码的测试容器中，对照 36 项输入查找和 9 项版本选择结果。CI 对比[源码差分报告](reports/v0.1/proofs/legal-3403-rust-source.json)，并通过 `lake build RuleSpecLean.Proofs.ProofAudit` 审计新增定理。源码转写与实际 Rust 实现之间的联系目前由差分验证支撑；Rust 源码的机器验证、请求解析与 Decimal 求值仍待完成。
+`Legal3403RustModel.lean` models a single record and version using the pinned [`lookup_input`](https://github.com/TheAxiomFoundation/axiom-rules-engine/blob/a4322e45a035ba9fd412d01bebe078aeaa46cd54/src/engine.rs#L2914-L2950) and [`semantics_at` / `version_at`](https://github.com/TheAxiomFoundation/axiom-rules-engine/blob/a4322e45a035ba9fd412d01bebe078aeaa46cd54/src/model.rs#L564-L581). The [boundary report](reports/v0.1/proofs/legal-3403-rust-model.json) records six Rust requests and twelve Lean assertions. `Legal3403RustSource.lean` proves that the single-record, single-version transcription of lookup, period coverage, and version filtering agrees with the model, and connects it to request preservation. `experiments.check_3403_rust_source` verifies two pinned source hashes, compiles extracted Rust bodies, and compares 36 lookup and 9 selection results in a harness with encoded dates and amounts. CI compares the [source report](reports/v0.1/proofs/legal-3403-rust-source.json) and audits the new theorems. Differential testing supports the link between the transcription and actual Rust; machine verification of production Rust, request parsing, and Decimal evaluation remains open.
 
-M6 当前交付：固定语料扫描发现 2,304 个 YAML 文件，其中 1,152 个为案例文件。在 1,152 个编译候选中，800 个成功、352 个失败；3,099 条已编译规则实例中，2,342 条按快照正常转换、734 条转换后含缺失版本错误节点、23 条无法转换。33,954 项公开输出期望中，6,168 项通过三方对照（18.17%）；最新参数表版本支持新增 4 项，原有 6,164 项无一退回。各阶段分母及阻塞原因见 [语料验证报告](reports/v0.1/corpus/corpus-validation.md)。
+**M6: fixed corpus.** The scan found 2,304 YAML files, of which 1,152 are case files. Of 1,152 compilation candidates, 800 compiled and 352 failed. Of 3,099 compiled rule instances, 2,342 translated normally at the snapshot date, 734 contained missing-version fault nodes, and 23 did not translate. Three-way comparisons passed 6,168 of 33,954 published output expectations (18.17%). Parameter table version handling added four passes without losing any of the previous 6,164. See the [corpus validation report](reports/v0.1/corpus/corpus-validation.md) for denominators and blockers.
 
-## 6. 验证与交付规范
+## 6. Verification and delivery standards
 
-外部项目参考：[Catala](https://github.com/CatalaLang/catala) 及其 [案例库](https://github.com/CatalaLang/catala-examples) 提供法规规则和可执行案例的组织范例；[PolicyEngine US](https://github.com/PolicyEngine/policyengine-us) 可用于设计独立税务福利案例，比较前需对齐法定年度、实体及输入定义；[Aeneas](https://github.com/AeneasVerif/aeneas) 可供评估将受限 Rust 函数连接至 Lean 规格的方案。当前验收仍以锁定 RuleSpec 引擎、语料和项目证明为准。
+[Catala](https://github.com/CatalaLang/catala) and its [example library](https://github.com/CatalaLang/catala-examples) illustrate how to organize statutory rules and executable cases. [PolicyEngine US](https://github.com/PolicyEngine/policyengine-us) can inform independent tax and benefit cases once legal year, entities, and inputs are aligned. [Aeneas](https://github.com/AeneasVerif/aeneas) is a candidate for connecting restricted Rust functions to Lean specifications. Acceptance rests on the pinned engine, corpus, and project proofs.
 
-- Python 单元测试、独立公式测试、真实 Rust 差分、Lean 断言和定理证明分别报告。
-- 使用 mock 的测试不计入真实引擎对照数量。
-- 每个 artifact 保留源码提交、输入 SHA-256、快照日期、输出名称与规则来源。
-- 下载镜像仅用于传输，工具链须与官方发布校验值一致；不提交工具链二进制。
-- 不支持的节点或数值语义显式拒绝，不静默改写。
-- 未经 CI 实际执行，不标记 CI 已通过；未完成真实法律案例，不声明法律准确率。
+- Report Python unit tests, independent formula checks, real Rust comparisons, Lean assertions, and theorems separately. Do not count mocked tests as real engine comparisons.
+- Retain the source commit, input SHA-256, snapshot date, output names, and rule provenance for each artifact.
+- Use mirrors only for transport, verify toolchain downloads against official checksums, and do not commit toolchain binaries.
+- Reject unsupported nodes or numeric semantics explicitly.
+- Report CI success only after a real run and avoid claims of legal accuracy without legal validation.
 
-活跃项目位于仓库根目录。目录职责见 [README](README.md)，基线证据分版本保存在 [`reports/v0.1/`](reports/v0.1/)，历史布局及原始 ZIP 的归档方式见[开发历史](docs/history/README.md)。
-仓库级 CI 位于 `.github/workflows/ci.yml`，使用与本地相同的验证入口。
+The active project is at the repository root. See the [README](README.md) for layout, [v0.1 reports](reports/v0.1/) for baseline evidence, and [development history](docs/history/README.md) for the old layout and original ZIP. Repository CI in `.github/workflows/ci.yml` uses the same verification entry point as local runs.
 
-## 7. 本地验证
+## 7. Local verification
 
 ```sh
 bash scripts/verify.sh offline
 ```
 
-锁定引擎对照及全量语料复现见[复现指南](docs/reproduction.md)。本文件维护里程碑及验收状态，版本化报告保留每次实验的具体证据。
+See the [reproduction guide](docs/reproduction.md) for pinned-engine comparisons and full-corpus replay. This roadmap tracks milestones and acceptance status; versioned reports record individual experiments.

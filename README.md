@@ -1,19 +1,19 @@
 # RuleSpecLean
 
-RuleSpecLean 是一个研究原型：把受支持的 Axiom RuleSpec Artifact v3 转换为 Lean 4 表达式，并通过独立语义、保持性证明和锁定引擎实验验证转换。输入是由上游编译器产生的 Artifact；示例 `ctc-like` 为合成夹具。项目不提供完整法规执行或独立法律准确性结论。
+RuleSpecLean is a research prototype that translates a supported subset of Axiom RuleSpec Artifact v3 into Lean 4 expressions. It validates the translation with independent semantics, preservation proofs, and experiments against a pinned upstream engine. The input is an upstream-compiled artifact; `ctc-like` is a synthetic fixture. The project does not provide a complete legal rules runtime or an independent assessment of legal accuracy.
 
-| 层次 | 位置 |
+| Layer | Location |
 | --- | --- |
-| 规则转换与请求绑定 | [`tools/`](tools/)：Python 转换器、绑定器及对照解释器 |
-| 形式化语义 | [`RuleSpecLean/Semantics/`](RuleSpecLean/Semantics/)：scale-6、Decimal 与版本选择 |
-| 正确性证明 | [`RuleSpecLean/Proofs/`](RuleSpecLean/Proofs/)：保持性定理、§3403 对应性与公理审计 |
-| 实验验证 | [`experiments/`](experiments/)、[`tests/`](tests/)、[`fixtures/`](fixtures/) 和 [`reports/v0.1/`](reports/v0.1/)；保留的生成模块与 Lean 断言位于 `RuleSpecLean/` |
+| Translation and request binding | [`tools/`](tools/): Python translators, request binding, and reference interpreters |
+| Formal semantics | [`RuleSpecLean/Semantics/`](RuleSpecLean/Semantics/): scale-6, Decimal, and version selection |
+| Correctness proofs | [`RuleSpecLean/Proofs/`](RuleSpecLean/Proofs/): preservation theorems, §3403 correspondence, and axiom audit |
+| Experiments | [`experiments/`](experiments/), [`tests/`](tests/), [`fixtures/`](fixtures/), and [`reports/v0.1/`](reports/v0.1/); retained generated modules and Lean assertions are in `RuleSpecLean/` |
 
-**两条数值路径。** scale-6 将十进制限制为可精确表示的六位定点数，是标量转换与受限保持性证明的主要路径。Decimal 保留系数与 scale，覆盖更宽的十进制数值、舍入和部分请求绑定；其主要证据是差分实验，两条路径的支持域详见[使用说明](docs/usage.md)。
+**Two numeric paths.** Scale-6 uses exact fixed-point values with six decimal places and is the main path for scalar translation and preservation proofs. Decimal retains coefficients and scale, supports a wider range of decimal values, rounding, and selected request bindings, and is validated primarily through differential experiments. See the [usage guide](docs/usage.md) for the supported domains.
 
-## 快速开始
+## Quick start
 
-安装 Python 3.12 与 Lean 4.26.0（由 [`lean-toolchain`](lean-toolchain) 指定），从仓库根目录运行：
+Install Python 3.12 and Lean 4.26.0 (pinned in [`lean-toolchain`](lean-toolchain)), then run from the repository root:
 
 ```sh
 python3 -m tools.compile_ir fixtures/ctc-like.artifact.json \
@@ -21,4 +21,4 @@ python3 -m tools.compile_ir fixtures/ctc-like.artifact.json \
 bash scripts/verify.sh offline
 ```
 
-完整的锁定引擎实验见[复现指南](docs/reproduction.md)。[路线图](road.md)是当前状态、验收范围与阻塞的唯一入口；报告保存具体运行证据，开发历史见 [`docs/history/`](docs/history/)。
+See the [reproduction guide](docs/reproduction.md) for the pinned-engine experiments. The [roadmap](road.md) is the source of truth for current status, acceptance criteria, and blockers. For past changes, see the [development history](docs/history/).

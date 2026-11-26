@@ -1,15 +1,15 @@
-# v0.1 研究基线证据
+# v0.1 research baseline evidence
 
-原始布局及当时的报告由 `archive/pre-research-layout` 标签保存。这里按实验类型归档固定证据，执行方法见[复现指南](../../docs/reproduction.md)，当前验收状态见[路线图](../../road.md)。
+The `archive/pre-research-layout` tag preserves the original layout and reports. This directory groups retained evidence by experiment. See the [reproduction guide](../../docs/reproduction.md) for commands and the [roadmap](../../road.md) for current acceptance status.
 
-| 目录 | 内容 |
+| Directory | Contents |
 | --- | --- |
-| [`interop/`](interop/) | flat-tax 模拟规则、真实 §3403 标量输出和求值错误的三方对照 |
-| [`decimal/`](decimal/) | [比较口径](decimal/decimal-semantics.md)、舍入、算术及规则级 Decimal 差分 |
-| [`binding/`](binding/) | 年度读取、默认值和直接关系聚合实验 |
-| [`legal/`](legal/) | 选定法律组件及兼容产物的公开案例和诊断 |
-| [`corpus/`](corpus/) | [固定语料静态扫描与回放](corpus/corpus-validation.md)、兼容补丁验证及[上游候选筛选](corpus/upstream-candidates.md) |
-| [`proofs/`](proofs/) | 公理审计、§3403 生效边界、提取 Rust 函数差分与[源码验证工具初筛](proofs/rust-verification-scope.md) |
-| [`logs/`](logs/) | 历史运行日志，保留生成时的路径与输出 |
+| [`interop/`](interop/) | Three-way comparisons for the synthetic flat-tax rule, the real §3403 scalar output, and evaluation faults |
+| [`decimal/`](decimal/) | [Comparison contract](decimal/decimal-semantics.md), rounding, arithmetic, and rule-level Decimal comparisons |
+| [`binding/`](binding/) | Selected-year reads, defaults, and direct relation aggregation |
+| [`legal/`](legal/) | Published cases and diagnostics for selected legal components and compatibility artifacts |
+| [`corpus/`](corpus/) | [Fixed-corpus scan and replay](corpus/corpus-validation.md), compatibility patch validation, and [upstream candidate screening](corpus/upstream-candidates.md) |
+| [`proofs/`](proofs/) | Axiom audit, §3403 effective date boundaries, extracted Rust function comparisons, and [source verification tool assessment](proofs/rust-verification-scope.md) |
+| [`logs/`](logs/) | Historical run logs retaining the original paths and output |
 
-编译、静态转换、公开输出回放和兼容补丁均使用各自的分母。三方结果一致及公理审计分别用于验证执行结果与 Lean 定理；两者均不构成独立法律审计。
+Compilation, static translation, published output replay, and compatibility patch experiments use separate denominators. Three-way comparisons check execution results, and the axiom audit checks Lean theorem dependencies. Independent legal review is a separate task.

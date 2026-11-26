@@ -1,12 +1,12 @@
-# §3403 Rust 源码验证：工具与范围
+# §3403 Rust source verification: tools and scope
 
-本轮为源码路径与工具的初步评估。锁定引擎为 `a4322e45a035ba9fd412d01bebe078aeaa46cd54`；源码位置及哈希见[已执行的差分报告](legal-3403-rust-source.json)。本机未找到 Charon、Aeneas、Kani 或 Verus 可执行文件，因此尚无这些工具的翻译或证明结果。
+This is a preliminary assessment of source paths and tools. The pinned engine is `a4322e45a035ba9fd412d01bebe078aeaa46cd54`; source locations and hashes are in the [executed differential report](legal-3403-rust-source.json). No Charon, Aeneas, Kani, or Verus executable was available locally, so there are no translation or proof results from those tools yet.
 
-| 源码入口 | 应验证的行为与依赖 |
+| Source entry point | Behavior and dependencies to verify |
 | --- | --- |
-| `model.rs` 的 `Derived::semantics_at`、`Derived::version_at` | 空版本表使用默认语义；非空表按查询 `period.start` 选择适用版本。一般情形还须证明迭代器选择最大起始日、同日起始的最后项优先。优先尝试单版本子集，保留实际函数体；对 `chrono::NaiveDate` 的顺序如需规格替代，应列为显式假设。 |
-| `engine.rs` 的 `Engine::lookup_input` | `(槽名, 实体名)` 索引、期间覆盖、同日起始冲突、结果或错误。单记录情形可先以索引构造正确为前提，之后证明前提来自 `Engine::new`；一般情形还依赖 `HashMap`、迭代器、值比较和 `ScalarValue` 克隆。 |
+| `Derived::semantics_at` and `Derived::version_at` in `model.rs` | An empty version list uses default semantics; otherwise selection uses the query's `period.start`. The general case must prove that the iterator picks the greatest applicable start date and the last item on ties. Start with a single version using the actual function bodies. State any specification assumed for `chrono::NaiveDate` ordering explicitly. |
+| `Engine::lookup_input` in `engine.rs` | The `(slot name, entity ID)` index, period coverage, conflicts on the same start date, and the returned value or fault. Start with one record and assume correct index construction, then prove that `Engine::new` establishes it. The general case also depends on `HashMap`, iterators, value comparison, and cloning `ScalarValue`. |
 
-[Charon + Aeneas](https://github.com/AeneasVerif/aeneas) 将 Rust MIR 翻译为 Lean 可用的定义，可作为连接既有保持性定理的首选试验。需锁定 Aeneas、其 `charon-pin` 与工具链，并记录生成物和依赖模型；若仅能翻译替换日期或容器的提取版本，应区分对提取版本的证明与对生产类型行为的假设。[Kani](https://github.com/model-checking/kani) 可作为原 Rust 的有界性质检查候选，须单列输入及展开边界；有界检查不直接产生 Lean 对应性定理。
+[Charon and Aeneas](https://github.com/AeneasVerif/aeneas) translate Rust MIR into definitions usable in Lean and are the first candidates for connecting Rust to the existing preservation theorem. Pin Aeneas, its `charon-pin`, and the toolchain; record the output and dependency models. If translation requires replacing dates or containers in an extraction, distinguish what is proved about the extraction from assumptions about production types. [Kani](https://github.com/model-checking/kani) is a candidate for bounded checks on the original Rust. Report input and unwind bounds separately; bounded checking does not produce a Lean correspondence theorem.
 
-首个验收目标是：从锁定源码机械提取或翻译实际版本选择函数，在单版本、已解码日期的前提下证明其结果对应 `versionBody`，再让公理审计覆盖该定理。现有 36 项查找与 9 项版本选择差分可作回归检查；当前的 Lean 定理覆盖手工转写。正式验收状态见[路线图](../../../road.md)。
+The first acceptance target is to mechanically extract or translate the actual version selection function from the pinned source, prove correspondence with `versionBody` for a single version and decoded dates, and include the theorem in the axiom audit. The existing 36 lookup and 9 selection comparisons offer regression checks. The current Lean theorem covers a manual transcription. See the [roadmap](../../../road.md) for acceptance status.

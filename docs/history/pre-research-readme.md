@@ -1,6 +1,6 @@
 # RuleSpecLean v0.1
 
-历史归档。以下内容保留重构前的路径与状态，请在 `archive/pre-research-layout` 标签下查阅其引用；现行状态见[路线图](../../road.md)。
+Historical archive. Paths and status below reflect the pre-restructuring layout. Follow those references in the `archive/pre-research-layout` tag; see the [roadmap](../../road.md) for current status.
 
 ## M2 numeric work
 
